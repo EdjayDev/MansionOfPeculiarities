@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://bpalfv6ej0ikf"]
 
 [ext_resource type="Script" uid="uid://dwhym6awubrpk" path="res://systems/save_book_system.gd" id="1_4ajij"]
-[ext_resource type="Texture2D" uid="uid://cd1aaj6u43byv" path="res://props/sprites/save_desk1-sheet.png" id="2_ebda8"]
+[ext_resource type="Texture2D" uid="uid://c07mic7s7dnkw" path="res://systems/sprites/save_book-sheet.png" id="2_cda88"]
 [ext_resource type="Texture2D" uid="uid://br31888nt4two" path="res://systems/sprites/particles_dust.png" id="3_4ajij"]
+[ext_resource type="Texture2D" uid="uid://cq7rnvugfe8n1" path="res://systems/sprites/save_book-lightexture.png" id="3_cda88"]
 
 [sub_resource type="Animation" id="Animation_4ajij"]
 length = 0.001
@@ -51,9 +52,14 @@ radius = 19.0
 script = ExtResource("1_4ajij")
 
 [node name="Sprite2D-Book" type="Sprite2D" parent="." unique_id=137426814]
-texture = ExtResource("2_ebda8")
+texture = ExtResource("2_cda88")
 vframes = 9
 region_rect = Rect2(19, 16, 26, 32)
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D-Book" unique_id=1990271490]
+color = Color(0.77545166, 0.8617091, 0.9453125, 1)
+energy = 0.66
+texture = ExtResource("3_cda88")
 
 [node name="save_book_player" type="AnimationPlayer" parent="." unique_id=639442016]
 libraries/ = SubResource("AnimationLibrary_4ajij")
@@ -72,6 +78,7 @@ shape = SubResource("RectangleShape2D_7c1ra")
 position = Vector2(0, -3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=270317190]
+visible = false
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_ebda8")
 debug_color = Color(0, 0.12774658, 0.62890625, 0.41960785)

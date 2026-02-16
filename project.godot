@@ -142,3 +142,4 @@ global_illumination/voxel_gi/quality=1
 shading/overrides/force_vertex_shading=true
 camera/depth_of_field/depth_of_field_bokeh_quality=2
 viewport/hdr_2d=true
+2d/stdout/print_gpu_profile=false

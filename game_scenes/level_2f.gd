@@ -42,8 +42,6 @@ func _ready() -> void:
 	set_level_name("2nd Floor")
 	scene_path = "res://game_scenes/level_2f.tscn"
 	await init_level()
-	player.light_ambient.texture_scale = 1.0
-	player.light_main.texture_scale = 0.25
 	print("Level 2f ready")
 	#Game.manager.choice_timer.connect()
 	await intro_cutscene()
@@ -126,10 +124,12 @@ func intro_cutscene() -> void:
 				game.scene_manager.move_to(ghost_exit.global_position, luke, 95)
 				ember.is_following_player = false
 				luke.is_following_player = false
-				await game.vn_component_manager.get_dialogue(["..."], "I", player.player_dialogue_sprite)
 				await game.scene_manager.wait_for([player])
-				player.visible = false
+				await game.vn_component_manager.get_dialogue(["..."], "I", player.player_dialogue_sprite)
+				player.face_target(shadow)
+				player.play_custom_animation("idle_up")
 				await game.scene_manager.wait_time(1.0)
+				player.visible = false
 
 		SessionState.set_difficulty(difficulty)
 		SessionState.set_scene_data("IntroCutscene_2f_end", true)
@@ -160,12 +160,32 @@ func intro_cutscene() -> void:
 	SessionState.set_scene_data("IntroCutscene_2f", true)
 
 func curse_player()->void:
+	SessionState.set_difficulty("hard")
+	SessionState.set_scene_data("IntroCutscene_2f_end", true)
+	await Game.manager.choice_timer.stop_choice_timer()
 	Game.manager.vn_component_manager.vn_component_choices_ui.clear_choices()
 	SessionState.clear_companion()
-	game.scene_manager.move_to(shadow_mark_2.global_position, shadow, 30)
 	var luke = get_npc_by_id("luke")
 	var ember = get_npc_by_id("ember")
+	game.scene_manager.move_to(shadow_mark_2.global_position, shadow, 30)
+	await game.scene_manager.wait_time(2.0)
+	await game.vn_component_manager.get_dialogue(["( I can't move... )"], "I", player.player_dialogue_sprite)
 	luke.animation_player.pause()
 	ember.animation_player.pause()
-	
-	pass
+	await game.scene_manager.wait_time(1.5)
+	await game.vn_component_manager.get_dialogue(["( Luke...? Ember..? )"], "I", player.player_dialogue_sprite)
+	var luke_tween = create_tween()
+	luke_tween.tween_property(luke, "modulate", Game.manager.BACKGROUND, 3.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	var ember_tween = create_tween()
+	ember_tween.tween_property(ember, "modulate", Game.manager.BACKGROUND, 3.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	await game.scene_manager.wait_time(1.0)
+	await game.vn_component_manager.get_dialogue(["..."], "I", player.player_dialogue_sprite)
+	var player_tween = create_tween()
+	player_tween.tween_property(player, "modulate", Game.manager.BACKGROUND, 3.0).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	player.animation_player.pause()
+	await game.scene_manager.wait_time(2.0)
+	await game.screen_effect_ui.set_effect("fade_out", 0.5)
+	game.load_level("res://game_scenes/level_2f_playground.tscn", "Player_from2F")
+	game.end_cutscene(true)
+	player.modulate = Color.WHITE
+	player.play_custom_animation("idle_up")

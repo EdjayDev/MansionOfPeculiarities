@@ -193,8 +193,6 @@ position = Vector2(640, 180)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_uxk1l")
 animation = &"choice_timer_countdown"
-frame = 16
-frame_progress = 1.0
 
 [node name="main_animation_player" type="AnimationPlayer" parent="." unique_id=1724438108]
 libraries/ = SubResource("AnimationLibrary_tu4ex")

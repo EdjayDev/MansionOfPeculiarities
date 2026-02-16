@@ -911,8 +911,16 @@ scale = Vector2(0.19999498, 5.2800007)
 position = Vector2(-1095.0275, 1.9936492e-06)
 gizmo_extents = 3.0
 
+[node name="Player_Intro2" type="Marker2D" parent="Intro_Markers" unique_id=563194612]
+position = Vector2(-1340.0336, 0)
+gizmo_extents = 3.0
+
 [node name="Companion_Intro" type="Marker2D" parent="Intro_Markers" unique_id=286609807]
 position = Vector2(-950.0238, -4.356058)
+gizmo_extents = 3.0
+
+[node name="Companion_Intro2" type="Marker2D" parent="Intro_Markers" unique_id=2052816269]
+position = Vector2(-1340.0336, -3.7878754)
 gizmo_extents = 3.0
 
 [node name="Ghost_Intro" type="Marker2D" parent="Intro_Markers" unique_id=439971009]
@@ -924,7 +932,7 @@ position = Vector2(-1140.0286, 81.0606)
 gizmo_extents = 3.0
 
 [node name="EyeWatcher_Intro" type="Marker2D" parent="Intro_Markers" unique_id=1247912282]
-position = Vector2(-3530.0884, 6.198883e-06)
+position = Vector2(-3400.0854, 5.810117e-06)
 gizmo_extents = 3.0
 
 [node name="SceneTransitioner_To2fPlayground" parent="." unique_id=1343573630 instance=ExtResource("3_4j2js")]

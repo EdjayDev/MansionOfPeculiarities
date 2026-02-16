@@ -84,7 +84,7 @@ func wait_for(characters : Array)->void:
 	while not waiting_for.is_empty():
 		var arrived = await character_reach_target
 		waiting_for.erase(arrived)
-	print("[scene manager] Waiting DONE")
+	print("[scene manager] Waiting DONE: ", characters)
 	pass
 	
 func wait_time(time : float)->void:

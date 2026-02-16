@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b8q5ahdve5e6r"]
 
-[ext_resource type="FontFile" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="1_o1aic"]
-[ext_resource type="Texture2D" path="res://npc/sprites/Sprite5.png" id="2_o1aic"]
+[ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="1_o1aic"]
+[ext_resource type="Texture2D" uid="uid://cnubvt44jalwi" path="res://npc/sprites/Sprite5.png" id="2_o1aic"]
 
 [sub_resource type="FontVariation" id="FontVariation_io5vp"]
 base_font = ExtResource("1_o1aic")

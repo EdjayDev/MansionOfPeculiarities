@@ -10,6 +10,7 @@ glow_normalized = true
 glow_intensity = 1.25
 glow_bloom = 0.25
 glow_hdr_threshold = 0.9
+adjustment_saturation = 0.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" unique_id=482453055]
 environment = SubResource("Environment_ctjle")

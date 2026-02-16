@@ -10,6 +10,8 @@ extends BaseLevel
 @onready var ghost_intro: Marker2D = $Intro_Markers/Ghost_Intro
 @onready var eye_watcher_intro: Marker2D = $Intro_Markers/EyeWatcher_Intro
 @onready var ghost_intro_2: Marker2D = $Intro_Markers/Ghost_Intro2
+@onready var companion_intro_2: Marker2D = $Intro_Markers/Companion_Intro2
+@onready var player_intro_2: Marker2D = $Intro_Markers/Player_Intro2
 
 var npc_companion : BaseNPC
 
@@ -20,8 +22,12 @@ var ghost_introdialogue_1 = [
 ]
 
 var ghost_introdialogue_2 = [
-	"That thing over there... it is watching this place.",
-	"When its eyes open, [Emphasis=2.0]Don't move.",
+	"This placed, [Emphasis] at first seems dormant is being watched.",
+	"Someone from afar, watching their scene unfold...",
+]
+
+var npc_companiondialogue_1 = [
+	"Don't you mean that thing over there?....."
 ]
 
 func _ready() -> void:
@@ -33,7 +39,7 @@ func _ready() -> void:
 	
 	if SessionState.get_scene_data("2f_library_ghostfree", false):
 		neutral_ghost.queue_free()
-	if SessionState.get_global_data("eyewatcher_introduction", null):
+	if SessionState.get_global_data("eyewatcher_introduction", false):
 		game.scene_manager.move_to(ghost_intro_2.global_position, neutral_ghost, 30)
 		if enemy_eye_watcher:
 			enemy_eye_watcher.set_canvas(canvas_modulate)
@@ -53,7 +59,7 @@ func play_intro_cutscene()->void:
 	
 		await game.scene_manager.wait_for([player])
 		game.scene_manager.move_to(ghost_intro.global_position, neutral_ghost, 60)
-		await game.vn_component_manager.get_dialogue(["We need to-"], "I", player.player_dialogue_sprite)
+		await game.vn_component_manager.get_dialogue(["We need to find the ke-"], "I", player.player_dialogue_sprite)
 		player.show_emote("exclamation")
 		
 		await game.scene_manager.wait_for([neutral_ghost])
@@ -61,12 +67,18 @@ func play_intro_cutscene()->void:
 		player.face_target(neutral_ghost)
 		
 		await game.vn_component_manager.get_dialogue(ghost_introdialogue_1, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
-		game.scene_manager.move_camera(player, eye_watcher_intro.global_position)
-
 		await game.vn_component_manager.get_dialogue(ghost_introdialogue_2, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
-		game.scene_manager.move_to(ghost_intro_2.global_position, neutral_ghost, 30)
+		game.scene_manager.move_to(companion_intro_2.global_position, npc_companion, 30)
+		await game.scene_manager.wait_for([npc_companion])
+		npc_companion.face_target(enemy_eye_watcher)
+		await game.vn_component_manager.get_dialogue(npc_companiondialogue_1, npc_companion.name, npc_companion.npc_dialogue_sprite)
+		game.scene_manager.move_camera(player, eye_watcher_intro.global_position)
+		game.scene_manager.move_to(player_intro_2.global_position, player, 30)
+		await game.scene_manager.wait_for([player])
+		await get_tree().create_timer(3.0).timeout
+		game.scene_manager.move_to(ghost_intro_2.global_position, neutral_ghost, 40)
 		game.scene_manager.reset_camera(player)
-		
+		player.face_target(enemy_eye_watcher)
 		game.end_cutscene(true)
 		SessionState.input_locked = false
 		SessionState.set_global_data("eyewatcher_introduction", true)
@@ -76,14 +88,13 @@ func play_intro_cutscene()->void:
 	#Player without Companion
 	await game.scene_manager.wait_for([player])
 	game.scene_manager.move_to(ghost_intro.global_position, neutral_ghost, 60)
-	await game.vn_component_manager.get_dialogue(["I need to get th-"], "I", player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(["I need to get the ke-"], "I", player.player_dialogue_sprite)
 	player.show_emote("exclamation")
 	
 	player.face_target(neutral_ghost)
 	await game.scene_manager.wait_for([neutral_ghost])
-
+	
 	await game.vn_component_manager.get_dialogue(ghost_introdialogue_1, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
-	game.scene_manager.move_camera(player, eye_watcher_intro.global_position)
 
 	await game.vn_component_manager.get_dialogue(ghost_introdialogue_2, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
 	game.scene_manager.move_to(ghost_intro_2.global_position, neutral_ghost, 30)

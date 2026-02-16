@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c4rcys52aeqt2" path="res://props/prop_doorsilver-type1_.tscn" id="7_3fl0d"]
 [ext_resource type="PackedScene" uid="uid://bpalfv6ej0ikf" path="res://systems/save_book.tscn" id="7_lu5bo"]
 [ext_resource type="PackedScene" uid="uid://ob8jj0y1pp53" path="res://props/prop_book-type2.tscn" id="7_st7rl"]
+[ext_resource type="PackedScene" uid="uid://bk76uyboowhol" path="res://props/prop_table_.tscn" id="10_afll3"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="10_fnn53"]
 [ext_resource type="PackedScene" uid="uid://d37uv7gagv7cv" path="res://props/prop_door-type1_.tscn" id="10_rm8gy"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="11_afll3"]
 [ext_resource type="PackedScene" uid="uid://cai0dqxtatgfb" path="res://props/prop_candle-type1_.tscn" id="11_rm8gy"]
+[ext_resource type="PackedScene" uid="uid://bpu47uhwo0ou1" path="res://props/prop_decor-flower1.tscn" id="12_lg8ad"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -192,9 +194,6 @@ interact_successful_sound = "book"
 can_interact_multiple_times = true
 prop_required_data = "book_guide_read"
 
-[node name="save_desk" parent="Y_Sort/Props" unique_id=266235748 instance=ExtResource("7_lu5bo")]
-position = Vector2(72, -16)
-
 [node name="prop_doorsilver-type1_" parent="Y_Sort/Props" unique_id=1479434206 instance=ExtResource("7_3fl0d")]
 position = Vector2(0, -216)
 scale = Vector2(1.5, 1.5)
@@ -347,6 +346,16 @@ prop_required_data = "2fconservatory_unlocked"
 [node name="prop_light_candle-type1_" parent="Y_Sort/Props" unique_id=177282797 instance=ExtResource("11_rm8gy")]
 position = Vector2(-5, -134)
 
+[node name="prop_table_" parent="Y_Sort/Props" unique_id=702167317 instance=ExtResource("10_afll3")]
+position = Vector2(72, -5)
+
+[node name="save_book" parent="Y_Sort/Props/prop_table_" unique_id=1931306764 instance=ExtResource("7_lu5bo")]
+position = Vector2(-2.9999995, -15)
+rotation = -0.2617994
+
+[node name="prop_decor-flower1" parent="Y_Sort/Props/prop_table_" unique_id=1576105992 instance=ExtResource("12_lg8ad")]
+position = Vector2(10, -27)
+
 [node name="Lights" type="Node2D" parent="." unique_id=1363251976]
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="Lights" unique_id=654060519]
@@ -375,24 +384,25 @@ texture_scale = 0.75
 [node name="SceneTransitioner_ToSecondFloor" parent="." unique_id=518416637 instance=ExtResource("10_fnn53")]
 position = Vector2(0, 21)
 scale = Vector2(0.7013384, 0.65297556)
+auto_trigger_default = false
 load_level = "res://game_scenes/level_2f.tscn"
 spawn_marker_name = "Player_fromPlayGround"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="SceneTransitioner_ToSecondFloor" unique_id=731627302]
-position = Vector2(0, -9.188704)
+[node name="DeathRealm_Blocker" type="StaticBody2D" parent="SceneTransitioner_ToSecondFloor" unique_id=731627302]
+position = Vector2(0, -7.6572533)
 collision_layer = 16
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTransitioner_ToSecondFloor/StaticBody2D" unique_id=961289169]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneTransitioner_ToSecondFloor/DeathRealm_Blocker" unique_id=961289169]
 position = Vector2(0, -0.3600769)
 scale = Vector2(0.9999999, 1)
 shape = SubResource("RectangleShape2D_3fl0d")
 
 [node name="Player_from2F" type="Marker2D" parent="." unique_id=487425126]
-position = Vector2(0, -29)
+position = Vector2(0, -12)
 
 [node name="Companion_from2F" type="Marker2D" parent="." unique_id=282068893]
-position = Vector2(0, -16)
+position = Vector2(0, 5)
 
 [node name="Player_from2FLibrary" type="Marker2D" parent="." unique_id=822292764]
 position = Vector2(-128, -119)
@@ -417,3 +427,6 @@ position = Vector2(208, -69)
 
 [node name="Companion_from2FDebug" type="Marker2D" parent="." unique_id=316265593]
 position = Vector2(0, -208)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1981476274]
+position = Vector2(-56.742, -34.891)

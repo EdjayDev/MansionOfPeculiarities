@@ -232,8 +232,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0.245112, 0.245112, 0.24511194, 1, 0, 0, 0
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rgyib"]
 gradient = SubResource("Gradient_boad6")
-width = 512
-height = 512
+width = 128
+height = 128
 use_hdr = true
 fill = 1
 fill_from = Vector2(0.5, 0.51282054)
@@ -316,7 +316,6 @@ shadow_enabled = true
 shadow_filter = 2
 shadow_filter_smooth = 2.0
 texture = SubResource("GradientTexture2D_rgyib")
-texture_scale = 0.25
 
 [node name="Audio" type="Node2D" parent="." unique_id=1537167905]
 visible = false

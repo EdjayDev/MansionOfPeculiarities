@@ -3,7 +3,7 @@ extends Node2D
 
 static var manager: Game
 # COLOR PRESETS
-# Background Color: #200000
+static var BACKGROUND : Color =  Color("2F2929")
 
 # SOUNDS
 const MUSIC_PROLOGUE := preload("res://systems/sounds/sound_ambient_night.mp3")
@@ -20,6 +20,8 @@ const MUSIC_SUSPENSE_ESCAPE := preload("res://systems/sounds/sound_suspense_esca
 @onready var screen_effect_ui: ScreenEffect_UI = %ScreenEffect_UI as ScreenEffect_UI
 @onready var game_over : Game_Over = %Game_Over as Game_Over
 @onready var choice_timer: Choice_Timer = $SceneUI_CanvasLayer/Choice_Timer
+const subdialog_ui := preload("uid://cvpkaehqmm82b")
+
 
 @onready var inventory_ui: Inventory_UI = %InventoryUI as Inventory_UI
 @onready var guide: Guide = %Guide as Guide
@@ -248,6 +250,12 @@ func end_cutscene(reset_effect : bool) -> void:
 	cutscene_finished.emit()
 	guide.show_guide()
 
+func set_subdialog(subdialogue: Array, character_speaker: CharacterBody2D):
+	var subdialog : SubDialog_UI = subdialog_ui.instantiate()
+	scene_ui_canvas_layer.add_child(subdialog)
+	#get_tree().get_root().add_child(subdialog)
+	subdialog.get_subdialogue(subdialogue, character_speaker)
+	
 func set_game_over(text : String = "GAME OVER", flavor_text : String = "", mode : String = "default")->void:
 	print("[SETTING GAME OVER] is_transitioning: ", is_transitioning)
 	print("[SETTING GAME OVER] session state game over: ", SessionState.is_game_over)

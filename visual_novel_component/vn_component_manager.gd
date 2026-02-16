@@ -13,14 +13,14 @@ var dialogue_speaker_sprite_scale : Vector2 = Vector2(12.0, 12.0)
 
 @onready var vn_component_choices_ui: VN_ChoicesUI = $VN_Component_ChoicesUI
 
-
-@export var text_speed_default = 0.02
+@export var text_speed_default = 0.035
 @export var skiptext = false
 
 var vn_timer_on = false
 var vn_timer = 0
 
 signal narration_finished
+signal dialogue_started
 signal dialogue_finished
 signal choice_made
 signal choice_item_made
@@ -29,20 +29,15 @@ signal choice_item_made
 func _ready() -> void:
 	vn_dialog_ui.visible = false
 	vn_narration_ui.visible = false
-	dialogue_finished.connect(get_vn_component_timing)
-	pass # Replace with function body.
+	dialogue_started.connect(dialogue_finished_handler)
 
-func _process(delta: float) -> void:
-	if vn_timer_on:
-		vn_timer += 1 * delta
-	pass
-
-func get_vn_component_timing()->void:
+func dialogue_finished_handler()->void:
+	Game.manager.inventory_ui.visible = false
 	print("VN Component Timing: ", vn_timer)
 	pass
 	
 func get_dialogue(dialogue: Array, speaker_name : String, speaker_sprite : Sprite2D, text_speed : float = text_speed_default)-> void:
-	vn_timer_on = true
+	dialogue_started.emit()
 	SessionState.input_locked = true
 	vn_dialog_ui.visible = true
 	dialogue_text.text = ""
@@ -57,11 +52,10 @@ func get_dialogue(dialogue: Array, speaker_name : String, speaker_sprite : Sprit
 		await get_tree().create_timer(1.0).timeout
 	vn_dialog_ui.visible = false
 	dialogue_finished.emit()
-	vn_timer_on = false
-	vn_timer = 0
 	SessionState.input_locked = false
 
 func get_narration(narration: Array, text_speed = text_speed_default) -> void:
+	dialogue_started.emit()
 	SessionState.input_locked = true
 	print("Narration received: ", narration)
 	narration_text.text = ""
@@ -72,7 +66,7 @@ func get_narration(narration: Array, text_speed = text_speed_default) -> void:
 	vn_narration_ui.visible = false
 	narration_finished.emit()
 	SessionState.input_locked = false
-	
+
 func text_effect(label: RichTextLabel, text: String, text_speed: float = text_speed_default) -> void:
 	label.text = ""
 	var i = 0

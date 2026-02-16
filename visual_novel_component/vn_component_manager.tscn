@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://rmu7dlxybaky"]
+[gd_scene format=3 uid="uid://rmu7dlxybaky"]
 
 [ext_resource type="Script" uid="uid://twq4c8cmda61" path="res://visual_novel_component/vn_component_manager.gd" id="1_2hyo7"]
 [ext_resource type="PackedScene" uid="uid://b8q5ahdve5e6r" path="res://visual_novel_component/visual_novel_dialog_ui.tscn" id="2_7cuja"]
 [ext_resource type="PackedScene" uid="uid://d1lwm6xa5q68x" path="res://visual_novel_component/visual_novel_narration_ui.tscn" id="3_nwwj1"]
 [ext_resource type="PackedScene" uid="uid://5773si1b0o5" path="res://visual_novel_component/visual_novel_choices_ui.tscn" id="4_7cuja"]
 
-[node name="VNComponentManager" type="Control"]
+[node name="VNComponentManager" type="Control" unique_id=1432513623]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,13 +14,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2hyo7")
 
-[node name="VN_Component_DialogUI" parent="." instance=ExtResource("2_7cuja")]
+[node name="VN_Component_DialogUI" parent="." unique_id=667928927 instance=ExtResource("2_7cuja")]
 visible = false
 layout_mode = 1
 
-[node name="VN_Component_NarrationUI" parent="." instance=ExtResource("3_nwwj1")]
+[node name="VN_Component_NarrationUI" parent="." unique_id=1047202591 instance=ExtResource("3_nwwj1")]
 visible = false
 layout_mode = 1
 
-[node name="VN_Component_ChoicesUI" parent="." instance=ExtResource("4_7cuja")]
+[node name="VN_Component_ChoicesUI" parent="." unique_id=1997916599 instance=ExtResource("4_7cuja")]
 layout_mode = 1

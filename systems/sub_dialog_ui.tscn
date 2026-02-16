@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cvpkaehqmm82b"]
+
+[ext_resource type="Script" uid="uid://b5pkpocoe764l" path="res://systems/sub_dialog_ui.gd" id="1_gyb0u"]
+[ext_resource type="Texture2D" uid="uid://d0f253ckx7l68" path="res://systems/sprites/subdialog_texture.png" id="2_5okqy"]
+
+[node name="SubDialog_UI" type="MarginContainer" unique_id=729819416]
+offset_right = 256.0
+offset_bottom = 32.0
+script = ExtResource("1_gyb0u")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=2069782527]
+modulate = Color(1, 1, 1, 0.60784316)
+layout_mode = 2
+texture = ExtResource("2_5okqy")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=131657757]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1547369494]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 12
+text = "TEMPLATE TEXT"
+scroll_active = false
+scroll_following = true
+vertical_alignment = 1
+visible_characters_behavior = 1

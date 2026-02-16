@@ -59,9 +59,10 @@ func _process(_delta: float) -> void:
 		#game.set_game_over("TEST", "TESTING THE GAME", "default")
 		print("[SESSION STATE] session state game over: ", SessionState.is_game_over)
 		print("[SESSION STATE] session state is_transitioning: ", Game.manager.is_transitioning)
-		var active_player = game.scene_manager.get_child(0).get_tree().get_first_node_in_group("Player")
 		#game.scene_manager.shake_camera(active_player.camera_2d, 1.0, 2.0, 4.0)
 		#Game.manager.choice_timer.start_choice_timer()
+		Game.manager.set_subdialog(["The eyes are moving"], get_tree().get_first_node_in_group("Player"))
+		print(get_tree().get_first_node_in_group("Player").global_position)
 		pass
 
 func set_temp_data(level_path : String, spawn_marker : String, companion_marker : Array, session_global_data : Dictionary)->void:

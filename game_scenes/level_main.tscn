@@ -25,7 +25,6 @@
 [ext_resource type="PackedScene" uid="uid://b52v02bhxsthn" path="res://props/prop_spicesshelves-type2_.tscn" id="21_rnrqm"]
 [ext_resource type="PackedScene" uid="uid://nhfu44lyielq" path="res://props/prop_platedvege-type2_.tscn" id="21_xq8v3"]
 [ext_resource type="PackedScene" uid="uid://bg8bsyarxthvf" path="res://props/prop_decor-vase.tscn" id="22_h0olv"]
-[ext_resource type="PackedScene" uid="uid://bpalfv6ej0ikf" path="res://systems/save_book.tscn" id="22_y7r0y"]
 [ext_resource type="PackedScene" uid="uid://c0f1t0v3t6l4d" path="res://props/prop_chair-typefright.tscn" id="23_6j832"]
 [ext_resource type="PackedScene" uid="uid://ho8jiscduenw" path="res://props/prop_platedvege-type1_.tscn" id="23_orpn7"]
 [ext_resource type="PackedScene" uid="uid://domx43kc3af8b" path="res://props/prop_spicesshelves-type4_.tscn" id="23_v7agh"]
@@ -43,7 +42,6 @@
 [ext_resource type="PackedScene" uid="uid://df5d8x3gxep3v" path="res://props/prop_tableset.tscn" id="32_4tk3k"]
 [ext_resource type="PackedScene" uid="uid://dng8idy4bpckx" path="res://props/prop_bookshelves-type3_.tscn" id="38_orpn7"]
 [ext_resource type="PackedScene" uid="uid://dib02rwu0opaq" path="res://props/prop_spicesshelves-type7_.tscn" id="39_01xam"]
-[ext_resource type="PackedScene" uid="uid://bpu47uhwo0ou1" path="res://props/prop_decor-flower1.tscn" id="42_maytc"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -541,16 +539,6 @@ position = Vector2(345, 374)
 
 [node name="prop_spicesshelves-type8" parent="Y_Sort/_Props_Container" unique_id=976125570 instance=ExtResource("39_01xam")]
 position = Vector2(191, 119)
-
-[node name="prop_table_" parent="Y_Sort/_Props_Container" unique_id=2082402445 instance=ExtResource("11_3bj8t")]
-position = Vector2(143, 200)
-
-[node name="save_book" parent="Y_Sort/_Props_Container/prop_table_" unique_id=1931306764 instance=ExtResource("22_y7r0y")]
-position = Vector2(-2.9999995, -15)
-rotation = -0.2617994
-
-[node name="prop_decor-flower1" parent="Y_Sort/_Props_Container/prop_table_" unique_id=1772713661 instance=ExtResource("42_maytc")]
-position = Vector2(10, -27)
 
 [node name="PathMarkers_Intro" type="Node2D" parent="." unique_id=2007425683]
 position = Vector2(0, 306)

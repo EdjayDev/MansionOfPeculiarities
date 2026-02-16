@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ci3syxqvkr0h6" path="res://npc/sprites/Sprite7.png" id="2_bipxp"]
 [ext_resource type="Texture2D" uid="uid://dyknowv4bs86p" path="res://npc/sprites/enemy_eyewatchert.png" id="2_jx83e"]
 [ext_resource type="AudioStream" uid="uid://b6ejrftrlusvn" path="res://systems/sounds/sound_flesh_growing.mp3" id="4_jx83e"]
+[ext_resource type="Texture2D" uid="uid://b5ky7ijf77j8" path="res://systems/sprites/particles_eyeswatching-sheet.png" id="5_q413j"]
 
 [sub_resource type="Gradient" id="Gradient_jx83e"]
 offsets = PackedFloat32Array(0.53409094, 1)
@@ -38,6 +39,18 @@ radius = 32.0
 
 [sub_resource type="Animation" id="Animation_mujk7"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("eyewatcher_particle2d:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_tjmiu"]
 resource_name = "closing_eyes"
@@ -53,6 +66,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("eyewatcher_particle2d:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_bipxp"]
@@ -85,6 +110,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [8, 7, 6, 5, 4, 3, 2, 1, 0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("eyewatcher_particle2d:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(5.00736),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mujk7"]
 _data = {
@@ -96,6 +133,39 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8t6eb"]
 radius = 6.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q413j"]
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 7
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_m2l41"]
+_data = [Vector2(0, 0.58412325), 0.0, 0.0, 0, 0, Vector2(0.49850747, 1), 0.0, 0.0, 0, 0, Vector2(0.51641786, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_2rj22"]
+curve = SubResource("Curve_m2l41")
+
+[sub_resource type="Curve" id="Curve_q413j"]
+_data = [Vector2(0, 0.7689574), 0.0, 0.0, 0, 0, Vector2(0.26865673, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m2l41"]
+curve = SubResource("Curve_q413j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jx83e"]
+particle_flag_rotate_y = true
+emission_shape = 2
+emission_sphere_radius = 280.0
+gravity = Vector3(0, 0, 5)
+scale_min = 0.75
+alpha_curve = SubResource("CurveTexture_2rj22")
+anim_speed_min = 1.0
+anim_speed_max = 4.0
+anim_speed_curve = SubResource("CurveTexture_m2l41")
+turbulence_enabled = true
+turbulence_noise_strength = 2.0
 
 [node name="Enemy_EyeWatcher" type="CharacterBody2D" unique_id=735344935 node_paths=PackedStringArray("npc_dialogue_sprite", "npc_area_2d")]
 collision_layer = 18
@@ -116,7 +186,7 @@ position = Vector2(1, -20)
 scale = Vector2(0.96875, 0.8125)
 energy = 1.5
 texture = SubResource("GradientTexture2D_q413j")
-texture_scale = 0.26
+texture_scale = 0.25
 
 [node name="light_ambient" type="PointLight2D" parent="Sprite2D" unique_id=1635657309]
 position = Vector2(2, -21)
@@ -158,8 +228,20 @@ debug_enabled = true
 
 [node name="global_light" type="DirectionalLight2D" parent="." unique_id=1136763215]
 visible = false
-energy = 0.15
 blend_mode = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=537834575]
 stream = ExtResource("4_jx83e")
+
+[node name="eyewatcher_particle2d" type="GPUParticles2D" parent="." unique_id=1269779930]
+z_index = 2
+material = SubResource("CanvasItemMaterial_q413j")
+position = Vector2(2, -63)
+emitting = false
+amount = 64
+texture = ExtResource("5_q413j")
+lifetime = 5.0
+explosiveness = 0.33
+randomness = 1.0
+visibility_rect = Rect2(-250, -500, 500, 1000)
+process_material = SubResource("ParticleProcessMaterial_jx83e")
