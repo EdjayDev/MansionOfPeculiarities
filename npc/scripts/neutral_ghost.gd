@@ -15,6 +15,8 @@ class_name Neutral_Ghost
 @onready var ghost_drop_interaction_area: Area2D = $ghost_drop/Area2D
 @onready var ghost_drop_prop_component: PropInteract_Item = $ghost_drop/PropInteractItem_Component
 
+signal level_interaction_set
+var interaction_ready = false
 var dialogue = [
 	"This place still remembers me",
 	"It must be somewhere...",
@@ -59,6 +61,7 @@ var item_choices = [
 func _ready():
 	initialize_npc()
 	set_npc_group("neutral")
+	set_npcdialogue(dialogue)
 	
 	ghost_drop.visible = false
 	ghost_drop_prop_component.prop_interact_dialogue = ghost_drop_dialogue
@@ -67,22 +70,20 @@ func _ready():
 	
 
 func interact()->void:
+	if !interaction_ready:
+		return
 	face_target(player_get)
-	print("Player Get: ", player_get)
-	var game = get_tree().get_root().get_node("Game") as Game
-			
 	if SessionState.get_scene_data("interacted_ghost", false):
 		set_npcdialogue(random_dialogue[randi_range(0, random_dialogue.size()-1)])
 		if InventoryManager.equipped_item:
-			var choice = await game.vn_component_manager.get_choices(item_choices)
+			var choice = await Game.manager.vn_component_manager.get_choices(item_choices)
 			if choice == "give_item":
 				print("equipped item: ", InventoryManager.equipped_item)
 				give_cherish_item(InventoryManager.equipped_item)
 				return
 			else:
 				return
-	
-	await game.vn_component_manager.get_dialogue(npc_dialogue, "?", npc_dialogue_sprite)
+	level_interaction_set.emit()
 	SessionState.set_scene_data("interacted_ghost", true)
 	
 func give_cherish_item(item : String)->void:

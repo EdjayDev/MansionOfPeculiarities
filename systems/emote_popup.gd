@@ -10,6 +10,8 @@ func _ready() -> void:
 func play_emote(emote_name : String)-> void:
 	animation_player.play("emote_" + emote_name)
 	self.visible = true
+	if !is_inside_tree():
+		return
 	await get_tree().create_timer(duration).timeout
 	self.visible = false
 	pass

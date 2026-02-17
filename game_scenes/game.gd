@@ -230,22 +230,18 @@ func _on_cinematic_finished(next_scene: PackedScene) -> void:
 
 func start_cutscene() -> void:
 	inventory_ui.visible = !visible
-	print("[GAME] STARTING CUTSCENE")
-	screen_effect_ui.set_effect("cutscene_effect", 1)
 	if is_in_cutscene:
 		return
 	is_in_cutscene = true
 	player.velocity = Vector2.ZERO
 	cutscene_started.emit()
+	await screen_effect_ui.set_effect("cutscene_effect", 1)
 
 func end_cutscene(reset_effect : bool) -> void:
 	if !is_in_cutscene:
 		return
-	print("[GAME] ENDING CUTSCENE")
-	
-	if reset_effect:
+	if reset_effect: 
 		await screen_effect_ui.reset_effect()
-	
 	is_in_cutscene = false
 	cutscene_finished.emit()
 	guide.show_guide()
@@ -257,9 +253,6 @@ func set_subdialog(subdialogue: Array, character_speaker: CharacterBody2D):
 	subdialog.get_subdialogue(subdialogue, character_speaker)
 	
 func set_game_over(text : String = "GAME OVER", flavor_text : String = "", mode : String = "default")->void:
-	print("[SETTING GAME OVER] is_transitioning: ", is_transitioning)
-	print("[SETTING GAME OVER] session state game over: ", SessionState.is_game_over)
-	print("[SETTING GAME OVER] session state is_transitioning: ", is_transitioning)
 	if is_transitioning or SessionState.is_game_over:
 		return
 	SessionState.is_game_over = true

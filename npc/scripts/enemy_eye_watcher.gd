@@ -20,6 +20,8 @@ const DEFAULT_OPEN_LENGTH := 10.0  # length of "opening_eyes" animation
 const DEFAULT_CLOSE_LENGTH := 5.0  # length of "closing_eyes" animation (example)
 
 @onready var eyewatcher_particle_2d: GPUParticles2D = $eyewatcher_particle2d
+signal eyewatcher_particle_emitted
+signal eyewatcher_particle_ended
 
 func _ready() -> void:
 	initialize_npc()
@@ -63,6 +65,10 @@ func eyes_open() -> void:
 	eyes_timer.start()
 
 func _process(_delta: float) -> void:
+	if Game.manager.is_in_cutscene:
+		eyewatcher_particle_2d.visible = false
+	else:
+		eyewatcher_particle_2d.visible = true
 	check_eye_watcher()
 
 # =========================
@@ -146,15 +152,21 @@ func play_warning_effects() -> void:
 		WARNING_DARK_TINT,
 		0.75
 	)
-
 	play_custom_animation("eye_focus", 1.0)
-
-
+	
 func reset_visuals() -> void:
 	if state_ == "enraged":
 		apply_enraged_visuals()
 	else:
 		clear_enraged_visuals()
+
+#called inside animation_player
+func on_particles_started()->void:
+	eyewatcher_particle_emitted.emit()	
+
+func on_particles_ended()->void:
+	eyewatcher_particle_ended.emit()
+		
 
 # =========================
 # GAME OVER
@@ -162,3 +174,4 @@ func reset_visuals() -> void:
 func game_over() -> void:
 	print("GAME OVER – YOU MOVED")
 	scene_game.set_game_over("Caught You")
+	

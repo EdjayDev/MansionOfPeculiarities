@@ -79,6 +79,8 @@ func get_level_name() -> String:
 
 func locate_player() -> void:
 	while true:
+		if not get_tree():
+			return
 		await get_tree().process_frame
 		var p = get_tree().get_first_node_in_group("Player")
 		if p and is_instance_valid(p):

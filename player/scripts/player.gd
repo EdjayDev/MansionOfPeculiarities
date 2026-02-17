@@ -125,7 +125,7 @@ func on_cutscene_movement(target: Vector2, speed: float) -> void:
 	navigation_agent.avoidance_enabled = false
 
 	navigation_agent.target_position = target
-	while not navigation_agent.is_navigation_finished():
+	while get_tree() and not navigation_agent.is_navigation_finished():
 		if cancel_cutscene_movement:
 			velocity = Vector2.ZERO
 			return
@@ -136,8 +136,6 @@ func on_cutscene_movement(target: Vector2, speed: float) -> void:
 			velocity = dir.normalized() * speed
 		else:
 			velocity = Vector2.ZERO
-		if not get_tree():
-			return
 		await get_tree().physics_frame
 		
 	var direction = (target - global_position).normalized()

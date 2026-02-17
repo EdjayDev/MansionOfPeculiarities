@@ -158,7 +158,7 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="prop_bookshelves-type3_" parent="Y_Sort/Props" unique_id=240066677 instance=ExtResource("7_5ffdk")]
-position = Vector2(49, -438)
+position = Vector2(49, -437)
 
 [node name="prop_bookshelves-type4_" parent="Y_Sort/Props" unique_id=222114358 instance=ExtResource("8_nunnj")]
 position = Vector2(-51, -437)
@@ -222,6 +222,8 @@ position = Vector2(143, -487)
 rotation = 1.5707964
 scale = Vector2(0.24442059, 1.4767824)
 load_level = "res://game_scenes/level_2f_playground.tscn"
+randomize_level = true
+random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_classroom.tscn"])
 spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 

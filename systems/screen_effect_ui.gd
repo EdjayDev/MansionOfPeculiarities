@@ -2,6 +2,7 @@ extends Control
 class_name  ScreenEffect_UI
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var cinematic_player: AnimationPlayer = $Cinematic_Player
 @onready var text_chaptername: RichTextLabel = $text_chaptername
 @onready var text_chaptertext: RichTextLabel = $text_chaptertext
 
@@ -49,9 +50,10 @@ func set_effect(effect : String, animation_speed: float) -> void:
 			animation_player.play("show_titlecard", -1, animation_speed)
 			await animation_player.animation_finished
 		"cutscene_effect":
-			cinematic_letter_box.visible = true
 			letter_box_top.scale.y = 1.25
 			letter_box_bottom.scale.y = 1.25
+			cinematic_player.play("show_letterbox", -1, animation_speed)
+			await cinematic_player.animation_finished
 		_:
 			print("[ScreenEffect UI] Defaulting to fade_black")
 			animation_player.play("fade_black", -1, animation_speed)

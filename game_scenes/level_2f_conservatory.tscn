@@ -805,19 +805,25 @@ companion_spawn_marker = ["Companion_from2FConservatory "]
 position = Vector2(0, -204)
 
 [node name="player_intro" type="Marker2D" parent="IntroMarkers" unique_id=1162330238]
-position = Vector2(-11, -74)
+position = Vector2(0, -74)
+
+[node name="player_intro2" type="Marker2D" parent="IntroMarkers" unique_id=822714433]
+position = Vector2(0, -125)
 
 [node name="companion_intro" type="Marker2D" parent="IntroMarkers" unique_id=595724415]
-position = Vector2(11, -74)
+position = Vector2(16, -72)
+
+[node name="companion_intro2" type="Marker2D" parent="IntroMarkers" unique_id=625675423]
+position = Vector2(16, -135)
 
 [node name="ghost_intro" type="Marker2D" parent="IntroMarkers" unique_id=226614796]
-position = Vector2(0, -128)
+position = Vector2(58, -120)
 
 [node name="ghost_intro2" type="Marker2D" parent="IntroMarkers" unique_id=1341363579]
 position = Vector2(350, -213)
 
 [node name="eye_watcher_intro" type="Marker2D" parent="IntroMarkers" unique_id=932554979]
-position = Vector2(0, -383)
+position = Vector2(0, -448)
 
 [node name="Player_fromPlayGround" type="Marker2D" parent="." unique_id=876756767]
 position = Vector2(0, -223)

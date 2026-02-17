@@ -154,6 +154,8 @@ func update_ai_velocity():
 			npc_navigation_agent.set_velocity(npc_navigation_agent.get_velocity().move_toward(Vector2.ZERO, friction * delta_data))
 
 func on_cutscene_movement(target: Vector2, speed: float) -> void:
+	if !is_inside_tree():
+		return
 	forced_animation = false
 	cancel_cutscene_movement = false
 	npc_navigation_agent.path_desired_distance = 2.0
@@ -170,6 +172,8 @@ func on_cutscene_movement(target: Vector2, speed: float) -> void:
 
 		velocity = dir * speed
 		await get_tree().physics_frame
+		if !is_inside_tree():
+			return
 	var direction = (target - global_position).normalized()
 	velocity = direction * speed
 	if global_position.distance_to(target) <= 2.0:

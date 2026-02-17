@@ -11,7 +11,7 @@ class_name Prop_Light
 @export var light_flicker_scale_min : float = 0.8
 @export var light_flicker_scale_max : float = 1.0
 
-@onready var chandelier_animplayer: AnimationPlayer = $AnimationPlayer
+@onready var light_animation_player : AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	light.energy = light_energy
@@ -21,7 +21,8 @@ func _ready() -> void:
 		start_light_flicker()
 
 func play_animation_effect(animation: String, animation_speed : float = 1.0)->void:
-	chandelier_animplayer.play(animation,-1, animation_speed)
+	print("Playing Animation: ", animation)
+	light_animation_player.play(animation,-1, animation_speed)
 	pass
 
 func start_light_flicker( )->void:

@@ -13,6 +13,8 @@ func _ready() -> void:
 	
 #pass the position where the character should move ex. Marker2D position
 func move_to(target_location: Vector2, character: CharacterBody2D, speed: float, has_custom_animation: bool = false, animation_timing: String = "", animation: String = "") -> void:
+	if not get_tree():
+		return
 	if not is_instance_valid(character):
 		return
 	if not character.has_method("on_cutscene_movement"):
@@ -28,7 +30,6 @@ func move_to(target_location: Vector2, character: CharacterBody2D, speed: float,
 		return
 	if character.cancel_cutscene_movement:
 		return
-
 	await get_tree().physics_frame
 
 	if has_custom_animation and animation_timing == "after":

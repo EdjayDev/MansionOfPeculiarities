@@ -61,7 +61,7 @@ func _process(_delta: float) -> void:
 		print("[SESSION STATE] session state is_transitioning: ", Game.manager.is_transitioning)
 		#game.scene_manager.shake_camera(active_player.camera_2d, 1.0, 2.0, 4.0)
 		#Game.manager.choice_timer.start_choice_timer()
-		Game.manager.set_subdialog(["The eyes are moving"], get_tree().get_first_node_in_group("Player"))
+		#Game.manager.set_subdialog(["The eyes are moving"], get_tree().get_first_node_in_group("Player"))
 		print(get_tree().get_first_node_in_group("Player").global_position)
 		pass
 

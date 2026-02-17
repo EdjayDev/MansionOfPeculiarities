@@ -41,6 +41,7 @@
 [ext_resource type="PackedScene" uid="uid://dwu5rjw77nrqa" path="res://props/prop_bookshelves-type4_.tscn" id="37_3yilv"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="39_u760v"]
 [ext_resource type="PackedScene" uid="uid://k4rxho2m2sk4" path="res://props/prop_book-type3.tscn" id="41_u760v"]
+[ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="43_cs8in"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -187,7 +188,7 @@ y_sort_enabled = true
 
 [node name="Neutral_Ghost" parent="Y_Sort" unique_id=1309089181 instance=ExtResource("4_834iu")]
 modulate = Color(1, 1, 1, 0.5882353)
-position = Vector2(217, -293)
+position = Vector2(279, -231)
 cherished_items = ["item_bookrecipe"]
 ghost_drop_required_data = "ghost_kitchen_freed"
 ghost_drop_dialogue = Array[String](["A shelf of ingredients, shrouded in upper east "])
@@ -205,9 +206,6 @@ scale = Vector2(2, 2)
 [node name="prop_light_chandelier-type1_2" parent="Y_Sort/_Props_Container" unique_id=1306123370 instance=ExtResource("19_x6sxk")]
 position = Vector2(0, -988)
 scale = Vector2(2, 2)
-
-[node name="prop_light_candle-type2" parent="Y_Sort/_Props_Container" unique_id=177282797 instance=ExtResource("19_bvdrk")]
-position = Vector2(-505, -455)
 
 [node name="prop_table_" parent="Y_Sort/_Props_Container" unique_id=702167317 instance=ExtResource("7_t43w5")]
 position = Vector2(-351, -368)
@@ -291,7 +289,7 @@ position = Vector2(-406, -251)
 position = Vector2(-261, -254)
 
 [node name="prop_candle-type1" parent="Y_Sort/_Props_Container/prop_crate_type2" unique_id=1799494019 instance=ExtResource("19_bvdrk")]
-position = Vector2(3, -18)
+position = Vector2(498, -609)
 
 [node name="prop_crate_type3" parent="Y_Sort/_Props_Container" unique_id=1031477994 instance=ExtResource("19_byi0q")]
 position = Vector2(-517, -277)
@@ -310,9 +308,6 @@ position = Vector2(391, -364)
 
 [node name="prop_platedvege-type1" parent="Y_Sort/_Props_Container/prop_table_5" unique_id=972883973 instance=ExtResource("23_4uxxy")]
 position = Vector2(5, -22)
-
-[node name="prop_light_candle-type1" parent="Y_Sort/_Props_Container/prop_table_5" unique_id=750323583 instance=ExtResource("19_bvdrk")]
-position = Vector2(-8, -14)
 
 [node name="prop_table_6" parent="Y_Sort/_Props_Container" unique_id=1818851674 instance=ExtResource("7_t43w5")]
 position = Vector2(460, -364)
@@ -689,9 +684,6 @@ position = Vector2(494, -1011)
 [node name="prop_crate-type8" parent="Y_Sort/_Props_Container" unique_id=1133659398 instance=ExtResource("18_lj4pl")]
 position = Vector2(523, -835)
 
-[node name="prop_candle-type6" parent="Y_Sort/_Props_Container" unique_id=677528970 instance=ExtResource("19_bvdrk")]
-position = Vector2(-331, -849)
-
 [node name="Lights" type="Node2D" parent="." unique_id=60757352]
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="Lights" unique_id=23962686]
@@ -708,7 +700,7 @@ color = Color(0, 0.06212198, 0.265625, 1)
 [node name="IntroMarkers" type="Node2D" parent="." unique_id=328708665]
 
 [node name="ghost_intro" type="Marker2D" parent="IntroMarkers" unique_id=1388147866]
-position = Vector2(0, -271)
+position = Vector2(0, -240)
 
 [node name="ghost_intro_2" type="Marker2D" parent="IntroMarkers" unique_id=1146155316]
 position = Vector2(-304, -241)
@@ -716,11 +708,17 @@ position = Vector2(-304, -241)
 [node name="player_intro" type="Marker2D" parent="IntroMarkers" unique_id=1812728070]
 position = Vector2(-15, -205)
 
+[node name="player_intro2" type="Marker2D" parent="IntroMarkers" unique_id=1536253838]
+position = Vector2(-15, -302)
+
 [node name="companion_intro" type="Marker2D" parent="IntroMarkers" unique_id=1352666589]
 position = Vector2(17, -205)
 
+[node name="companion_intro2" type="Marker2D" parent="IntroMarkers" unique_id=198119962]
+position = Vector2(17, -320)
+
 [node name="eye_watcher_intro" type="Marker2D" parent="IntroMarkers" unique_id=1980718493]
-position = Vector2(0, -589)
+position = Vector2(0, -665)
 
 [node name="SceneTransitioner_To2fPlayground" parent="." unique_id=610702316 instance=ExtResource("9_r0m8y")]
 position = Vector2(6.1035156e-05, 4.000008)
@@ -735,3 +733,5 @@ position = Vector2(0, -25)
 
 [node name="Companion_fromPlayGround" type="Marker2D" parent="." unique_id=1903711626]
 position = Vector2(0, -11)
+
+[node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("43_cs8in")]

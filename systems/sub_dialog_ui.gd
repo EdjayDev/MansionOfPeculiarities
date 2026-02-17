@@ -11,6 +11,9 @@ func _ready() -> void:
 	pass
 	
 func _process(_delta: float) -> void:
+	if Game.manager.is_in_cutscene:
+		visible = false
+		return
 	var character_sprite_ = character_sprite_ref
 	var world_to_view = character_sprite_.get_canvas_transform()
 	var view_position = world_to_view * character_sprite_.global_position + Vector2(size.x / -2, size.y * -3)

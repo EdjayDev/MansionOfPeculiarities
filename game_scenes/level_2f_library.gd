@@ -22,12 +22,30 @@ var ghost_introdialogue_1 = [
 ]
 
 var ghost_introdialogue_2 = [
-	"This placed, [Emphasis] at first seems dormant is being watched.",
-	"Someone from afar, watching their scene unfold...",
+	"This placed, [Emphasis] though it feels abandoned, is never truly empty.",
+	"Someone from afar, watching things unfold...",
 ]
 
 var npc_companiondialogue_1 = [
 	"Don't you mean that thing over there?....."
+]
+
+#Level Ghost Interaction
+var ghost_interaction_1 = [
+	"I need to find it..."
+]
+var player_ghost_interaction_1 = [
+	"What are you looking for?[Emphasis] maybe we can help..."
+]
+var ghost_interaction_2 = [
+	"I'm looking for a book of mine. [Emphasis] It was a book I always read and it was a gift by someone who I really love..."
+]
+var player_ghost_interaction_2 = [
+	"Do you remember what kind of book it is?"
+]
+var ghost_interaction_3 = [
+	"I can't remember what it is, nor can see anything.",
+	"But I can feel it..."
 ]
 
 func _ready() -> void:
@@ -44,6 +62,7 @@ func _ready() -> void:
 		if enemy_eye_watcher:
 			enemy_eye_watcher.set_canvas(canvas_modulate)
 		return
+	enemy_eye_watcher.eyewatcher_particle_emitted.connect(companion_subdialog)
 
 	await play_intro_cutscene()
 	
@@ -83,6 +102,9 @@ func play_intro_cutscene()->void:
 		SessionState.input_locked = false
 		SessionState.set_global_data("eyewatcher_introduction", true)
 		enemy_eye_watcher.set_canvas(canvas_modulate)
+		await game.scene_manager.wait_for([neutral_ghost])
+		neutral_ghost.interaction_ready = true
+		neutral_ghost.level_interaction_set.connect(interact_ghost)
 		return
 		
 	#Player without Companion
@@ -104,3 +126,26 @@ func play_intro_cutscene()->void:
 	SessionState.input_locked = false
 	SessionState.set_global_data("eyewatcher_introduction", true)
 	enemy_eye_watcher.set_canvas(canvas_modulate)
+	await game.scene_manager.wait_for([neutral_ghost])
+	neutral_ghost.interaction_ready = true
+	neutral_ghost.level_interaction_set.connect(interact_ghost)
+
+func interact_ghost()->void:
+	Game.manager.start_cutscene()
+	SessionState.input_locked = true
+	await game.vn_component_manager.get_dialogue(ghost_interaction_1, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(player_ghost_interaction_1, "I", player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(ghost_interaction_2, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(player_ghost_interaction_2, "I", player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(ghost_interaction_3, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
+	Game.manager.end_cutscene(true)
+	SessionState.input_locked = false
+	
+func companion_subdialog()->void:
+	var eye_watcher_reaction = [
+		"We need to be careful",
+		"The eyes are are moving!"
+	]
+	var pickrandom_reaction = eye_watcher_reaction.pick_random()
+	game.set_subdialog([pickrandom_reaction], get_current_companion())
+	

@@ -37,6 +37,8 @@ func dialogue_finished_handler()->void:
 	pass
 	
 func get_dialogue(dialogue: Array, speaker_name : String, speaker_sprite : Sprite2D, text_speed : float = text_speed_default)-> void:
+	if !is_inside_tree():
+		return
 	dialogue_started.emit()
 	SessionState.input_locked = true
 	vn_dialog_ui.visible = true
@@ -68,6 +70,8 @@ func get_narration(narration: Array, text_speed = text_speed_default) -> void:
 	SessionState.input_locked = false
 
 func text_effect(label: RichTextLabel, text: String, text_speed: float = text_speed_default) -> void:
+	if !is_inside_tree():
+		return
 	label.text = ""
 	var i = 0
 	while i < text.length():
@@ -104,7 +108,9 @@ func text_effect(label: RichTextLabel, text: String, text_speed: float = text_sp
 		label.text += text[i]
 		i += 1
 		await get_tree().create_timer(text_speed).timeout
-
+		if !is_inside_tree():
+			return
+		
 func get_choices(choices: Array) -> String:
 	SessionState.input_locked = true
 	print("getting choices")

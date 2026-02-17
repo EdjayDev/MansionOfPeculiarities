@@ -231,8 +231,8 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 3
 
 [node name="AmbientLight" type="PointLight2D" parent="Lights" unique_id=2093563878]
-position = Vector2(0, -386)
-scale = Vector2(0.77734375, 0.76171875)
+position = Vector2(0, -380.5)
+scale = Vector2(0.77734375, 0.7011719)
 color = Color(0.94921875, 0.78384715, 0.12236023, 1)
 energy = 0.33
 texture = SubResource("GradientTexture2D_2rv37")
@@ -272,22 +272,22 @@ spawn_marker_name = "Player_fromC2Classroom"
 companion_spawn_marker = ["Companion_fromC2Classroom"]
 
 [node name="SceneTransitioner_ToRandom_1" parent="." unique_id=1705991268 instance=ExtResource("3_7tcs1")]
-position = Vector2(-128, -485.00003)
+position = Vector2(-128, -486.00003)
 rotation = 1.5707964
-scale = Vector2(0.17977421, -1.2625874)
+scale = Vector2(0.17977421, -0.7026069)
 load_level = "res://game_scenes/level_2f_playground.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_bedroom.tscn ", "res://game_scenes/level_c2_classroom.tscn"])
+random_level_list = Array[String](["res://game_scenes/level_c2_bedroom.tscn", "res://game_scenes/level_c2_classroom.tscn", "res://game_scenes/level_c2_emptyroom.tscn"])
 spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 
 [node name="SceneTransitioner_ToRandom_2" parent="." unique_id=207475474 instance=ExtResource("3_7tcs1")]
-position = Vector2(128, -488)
+position = Vector2(128, -485)
 rotation = 1.5707964
-scale = Vector2(0.28974754, 1.2160119)
+scale = Vector2(-0.14900188, 0.71585906)
 load_level = "res://game_scenes/level_2f_playground.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_2f_kitchen.tscn"])
+random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_bedroom.tscn", "res://game_scenes/level_c2_classroom.tscn"])
 spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 

@@ -40,4 +40,5 @@ func _ready() -> void:
 		player.show_emote("exclamation")
 
 func set_subdialogue()->void:
-	game.set_subdialog(picked_subdialogue, get_current_companion())
+	pass
+	#game.set_subdialog(picked_subdialogue, get_current_companion())
