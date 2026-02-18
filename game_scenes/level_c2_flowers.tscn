@@ -283,7 +283,7 @@ rotation = 1.5707964
 scale = Vector2(2.3488772, 0.8087523)
 load_level = "res://game_scenes/level_c2_entrance.tscn"
 spawn_marker_name = "Player_fromC2Flowers"
-companion_spawn_marker = ["Companion_fromC2Flowers "]
+companion_spawn_marker = ["Companion_fromC 2Flowers "]
 
 [node name="SceneTransitioner_ToRandom_1" parent="." unique_id=1705991268 instance=ExtResource("12_5sxji")]
 position = Vector2(-240, -981.00006)

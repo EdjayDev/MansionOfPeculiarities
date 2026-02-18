@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://uyih1hg4p2i0" path="res://props/prop_crate-type2.tscn" id="7_68qhy"]
 [ext_resource type="PackedScene" uid="uid://bp8808mog12eb" path="res://props/prop_crate-type1.tscn" id="8_1jvkc"]
 [ext_resource type="PackedScene" uid="uid://dwu5rjw77nrqa" path="res://props/prop_bookshelves-type4_.tscn" id="8_nunnj"]
+[ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="8_x6ryy"]
 [ext_resource type="PackedScene" uid="uid://dlour4o0o7gee" path="res://props/prop_bookshelves-type1_.tscn" id="9_tf37x"]
 [ext_resource type="PackedScene" uid="uid://cai0dqxtatgfb" path="res://props/prop_candle-type1_.tscn" id="10_fuf8a"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="10_ilbsh"]
@@ -181,6 +182,16 @@ position = Vector2(87, -466)
 [node name="prop_bed_" parent="Y_Sort/Props" unique_id=452494380 instance=ExtResource("6_owtth")]
 position = Vector2(0, -405)
 scale = Vector2(1.5, 1.5)
+
+[node name="PropInteractItem_Component" parent="Y_Sort/Props/prop_bed_" unique_id=383616533 instance=ExtResource("8_x6ryy")]
+prop_interact_dialogue = ["A soft cushy bed."]
+interaction_options = Array[Dictionary]([{
+"actions": [{
+"name": "set_prop_game_over"
+}],
+"choice": "Sleep in the bed",
+"choice_id": "sleep"
+}])
 
 [node name="prop_crate-type2" parent="Y_Sort/Props" unique_id=960959028 instance=ExtResource("7_68qhy")]
 position = Vector2(-80, -469)

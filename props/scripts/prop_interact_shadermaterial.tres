@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dhb3v2brq5pm0"]
+
+[ext_resource type="Shader" uid="uid://drpvtb1mtdbxg" path="res://props/scripts/propinteract_shader.gdshader" id="1_yqumo"]
+
+[resource]
+shader = ExtResource("1_yqumo")

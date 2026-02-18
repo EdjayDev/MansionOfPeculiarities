@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://qywlklis3fnd" path="res://props/prop_bookshelves-type6_.tscn" id="13_jucx6"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="13_tp5uc"]
 [ext_resource type="PackedScene" uid="uid://c0f1t0v3t6l4d" path="res://props/prop_chair-typefright.tscn" id="17_1qf5y"]
-[ext_resource type="PackedScene" uid="uid://cwywes8d7v34b" path="res://props/prop_chest.tscn" id="17_ytbeq"]
+[ext_resource type="PackedScene" uid="uid://cwywes8d7v34b" path="res://props/prop_chest-type1_.tscn" id="17_ytbeq"]
 [ext_resource type="PackedScene" uid="uid://xebitj0mlk1c" path="res://props/prop_chair-typefup.tscn" id="18_6t7kw"]
 [ext_resource type="PackedScene" uid="uid://dtcbb240m7s2c" path="res://props/prop_chair-typefdown.tscn" id="19_6omp1"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="20_65fe4"]

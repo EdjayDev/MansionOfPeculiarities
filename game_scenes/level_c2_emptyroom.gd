@@ -40,7 +40,7 @@ func _ready() -> void:
 	
 	var subdialog_timer = Timer.new()
 	subdialog_timer.one_shot = false
-	subdialog_timer.wait_time = 7.0
+	subdialog_timer.wait_time = 9.0
 	add_child(subdialog_timer)
 	subdialog_timer.start()
 	if get_current_companion():
@@ -85,7 +85,8 @@ func companion_subdialog()->void:
 		return
 	var random_subdialog = [
 		"We are trapped!",
-		"How do we get out"
+		"How do we get out",
+		"The candles are fading"
 	]
 	var picked_subdialog = random_subdialog.pick_random()
 	Game.manager.set_subdialog([picked_subdialog], get_current_companion())

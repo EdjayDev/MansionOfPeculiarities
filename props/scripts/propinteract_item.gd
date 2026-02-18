@@ -1,24 +1,29 @@
 extends Node2D
 class_name PropInteract_Item
 
-var game : Game = null
-
 static var active_prop: PropInteract_Item = null
 
-var prop_interaction_ui = preload("uid://jf6by2vn3ay3").instantiate()
+#PROP COMPONENT REFERENCES / RESOURCES
+var game : Game = null
 @onready var prop_item_canvas_layer: CanvasLayer = $PropItem_CanvasLayer
 @onready var riddle_ui: Riddle_UI = $PropItem_CanvasLayer/riddle_ui
+var prop_interaction_ui = preload("uid://jf6by2vn3ay3").instantiate()
 
+const PROP_INTERACT_SHADERMATERIAL = preload("uid://dhb3v2brq5pm0")
+var prop_visuals: Array[CanvasItem] = []
+
+#PROP 
 const sound_interact_book = preload("uid://b2cjo8rlahov8")
 const sound_interact_default = preload("uid://b8gkwiqj3mj0q")
 const sound_interact_lock = preload("uid://y67bol3wfuhd")
 
+#PROP COMPONENT SIGNALS / FLAGS
 var player_nearby = false
-
 signal interaction_allowed(unlocked: bool)
 var check_requirement_completed : bool = false
 var interaction_choices_successful : bool = false
 
+#PROP COMPONENT EXPORTED SETTINGS
 @export_category("Dialogue")
 @export var prop_interact_dialogue : Array = []
 @export var prop_swap_interact_dialogue = []
@@ -85,6 +90,13 @@ func _ready() -> void:
 	riddle_ui.visible = false
 	riddle_ui.riddle_answered_correctly.connect(set_interaction_choices_state)
 	
+	for sprites in get_parent().get_children():
+		if sprites is Sprite2D:	
+			prop_visuals.append(sprites)
+		for sprites_ in sprites.get_children():
+			if sprites_ is Sprite2D:
+				prop_visuals.append(sprites_)
+	
 	if get_parent().has_node("Area2D"):
 		var area_2d = get_parent().get_node_or_null("Area2D")
 		area_2d.area_entered.connect(_on_area_entered)
@@ -117,6 +129,8 @@ func _on_area_entered(area) -> void:
 		player_nearby = true
 		PropInteract_Item.active_prop = self
 		set_process_unhandled_input(true) 
+		for sprite in prop_visuals:
+			sprite.material = PROP_INTERACT_SHADERMATERIAL
 		if SessionState.get_scene_data(prop_required_data, false) and repeat_animation:
 			complete_interaction()
 
@@ -126,6 +140,8 @@ func _on_area_exited(area) -> void:
 		if PropInteract_Item.active_prop == self:
 			PropInteract_Item.active_prop = null
 		set_process_unhandled_input(false) 
+		for sprite in prop_visuals:
+			sprite.material = null	
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed("Interact"):
@@ -326,3 +342,7 @@ func show_riddle_ui(riddle_text : String, answer : String)->void:
 	riddle_ui.riddle_answer_reference = answer
 	riddle_ui.visible = true
 	pass
+
+func set_prop_game_over(game_over_text : String, game_over_flavortext: String)->void:
+	Game.manager.set_game_over(game_over_text, game_over_flavortext)
+	

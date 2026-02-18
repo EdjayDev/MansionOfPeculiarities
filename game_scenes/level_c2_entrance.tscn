@@ -284,5 +284,5 @@ position = Vector2(-83, -331)
 [node name="Player_fromC2Flowers" type="Marker2D" parent="." unique_id=991017187]
 position = Vector2(0, -272)
 
-[node name="Companion_fromC2Flowers2" type="Marker2D" parent="." unique_id=1084183384]
+[node name="Companion_fromC2Flowers" type="Marker2D" parent="." unique_id=1084183384]
 position = Vector2(0, -272)

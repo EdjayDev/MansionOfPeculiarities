@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://cmk1u0gkguq8u" path="res://props/sprites/grassy_trees-vegetation.png" id="1_hdoo3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
-size = Vector2(8.5, 21.976)
+size = Vector2(10, 21.976)
 
 [node name="PropTree-type2_" type="Node2D" unique_id=1033080452]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=800181758]
-position = Vector2(2, -74)
+position = Vector2(0, -68)
 texture = ExtResource("1_hdoo3")
 region_enabled = true
-region_rect = Rect2(156, 10, 109, 149)
+region_rect = Rect2(161, 17, 95, 136)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=960596189]
 position = Vector2(-0.5, -15.5)
@@ -19,6 +19,6 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1431829264]
-position = Vector2(-0.75, -2.00006)
+position = Vector2(-0.5, 3.99994)
 scale = Vector2(1, 1.04659)
 shape = SubResource("RectangleShape2D_7c1ra")

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://byk14wku3bvel" path="res://cinematics/prologue/scripts/scene_prologue.gd" id="1_3phk7"]
 [ext_resource type="PackedScene" uid="uid://b51lpd06y2iex" path="res://cinematics/assets/character_1.tscn" id="2_tvn0u"]
-[ext_resource type="PackedScene" uid="uid://bs1gu5qmw8oyi" path="res://game_scenes/level_main.tscn" id="3_tvn0u"]
+[ext_resource type="PackedScene" uid="uid://bs1gu5qmw8oyi" path="res://game_scenes/level_1f_livingroom.tscn" id="3_tvn0u"]
 
 [sub_resource type="Animation" id="Animation_0g5x1"]
 length = 0.001

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bufs536uwrac7"]
 
 [ext_resource type="Script" uid="uid://cpt2a5krnik32" path="res://props/scripts/propinteract_item.gd" id="1_agq6a"]
+[ext_resource type="Material" uid="uid://dhb3v2brq5pm0" path="res://props/scripts/prop_interact_shadermaterial.tres" id="1_lferi"]
 [ext_resource type="Script" uid="uid://b7ppwgc6fmoyp" path="res://props/scripts/riddle_ui.gd" id="2_au0q3"]
 [ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="2_bagb7"]
 [ext_resource type="FontFile" uid="uid://dh4vhl1gjw781" path="res://systems/fonts/CormorantGaramond-VariableFont_wght.ttf" id="2_vp7vq"]
@@ -22,6 +23,7 @@ variation_opentype = {
 base_font = ExtResource("2_bagb7")
 
 [node name="PropInteractItem_Component" type="Node2D" unique_id=383616533]
+material = ExtResource("1_lferi")
 script = ExtResource("1_agq6a")
 
 [node name="PropItem_CanvasLayer" type="CanvasLayer" parent="." unique_id=905729911]
@@ -69,6 +71,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 theme_override_colors/default_color = Color(0.90234375, 0.90234375, 0.90234375, 1)
 theme_override_fonts/normal_font = SubResource("FontVariation_au0q3")
+theme_override_font_sizes/normal_font_size = 24
 text = "RIDDLE TEXT"
 
 [node name="riddle_answer_label" type="Label" parent="PropItem_CanvasLayer/riddle_ui" unique_id=820475139]

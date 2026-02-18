@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://0yrkxgkv27qb"]
+
+[ext_resource type="Texture2D" uid="uid://cpteftj4luwc8" path="res://systems/sprites/Shiny.png" id="1_kvwwi"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0cats"]
+blend_mode = 1
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kvwwi"]
+radius = 6.0827627
+
+[node name="ShinyParticles" type="Node2D" unique_id=951440491]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=925517542]
+z_index = 1
+material = SubResource("CanvasItemMaterial_0cats")
+amount = 1
+texture = ExtResource("1_kvwwi")
+lifetime = 2.0
+emission_shape = 1
+emission_sphere_radius = 3.0
+gravity = Vector2(0, 0)
+scale_amount_min = 0.25
+scale_amount_max = 0.35
+anim_speed_min = 4.0
+anim_speed_max = 8.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=612836916]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1873287946]
+visible = false
+shape = SubResource("CircleShape2D_kvwwi")

@@ -30,6 +30,8 @@ func move_to(target_location: Vector2, character: CharacterBody2D, speed: float,
 		return
 	if character.cancel_cutscene_movement:
 		return
+	if !is_inside_tree():
+		return
 	await get_tree().physics_frame
 
 	if has_custom_animation and animation_timing == "after":

@@ -1,9 +1,11 @@
 extends BaseLevel
-class_name Level_C2_Bedroom
+class_name Level_C2_Graffiti
+
+@onready var global_light: DirectionalLight2D = $Lights/GlobalLight
 
 func _ready() -> void:
-	set_level_name("Bedroom")
-	scene_path = "res://game_scenes/level_c2_bedroom.tscn"
+	set_level_name("Graffiti")
+	scene_path = "res://game_scenes/level_c2_graffiti.tscn"
 	await init_level()
 	var subdialog_timer = Timer.new()
 	subdialog_timer.one_shot = false
@@ -26,9 +28,11 @@ func player_subdialog()->void:
 
 func companion_subdialog()->void:
 	var random_subdialog = [
-		"A bedroom this empty",
-		"We must find the key immediately",
+		"There's so much drawing",
+		"These room reminded me of him...",
 	]
+	#test
+	global_light.energy = randf_range(0.33, 0.66)
 	var picked_subdialog = random_subdialog.pick_random()
 	Game.manager.set_subdialog([picked_subdialog], get_current_companion())
 	pass

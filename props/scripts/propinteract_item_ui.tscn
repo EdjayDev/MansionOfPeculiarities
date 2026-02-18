@@ -12,7 +12,6 @@ offset_right = 94.0
 offset_bottom = 31.0
 
 [node name="Button" type="Button" parent="Control" unique_id=1019704578]
-visible = false
 layout_mode = 0
 offset_right = 94.0
 offset_bottom = 31.0

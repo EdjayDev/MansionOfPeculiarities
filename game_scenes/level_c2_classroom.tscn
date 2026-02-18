@@ -334,6 +334,9 @@ position = Vector2(-14.840332, 10.51828)
 rotation = 0.5548274
 scale = Vector2(1.012867, 1.0493675)
 skew = -0.06137061
+prop_interact_dialogue = ["These children are the most troublesome and exhausting to teach.", "One day,[Emphasis] one of the students tear all the front, middle, and last pages of the books...[Emphasis] When I caught a glance of the student..."]
+play_interact_audio = true
+can_interact_multiple_times = true
 
 [node name="prop_bookshelves-type3_" parent="Y_Sort/Props" unique_id=240066677 instance=ExtResource("6_ce8jj")]
 position = Vector2(-133, -307)
@@ -355,7 +358,7 @@ position = Vector2(0, -424)
 scale = Vector2(3, 2.723)
 
 [node name="PropInteractItem_Component" parent="Y_Sort/Props/prop_blackboard-type1_" unique_id=1802823132 instance=ExtResource("14_uo0yk")]
-prop_interact_dialogue = ["It stays in place, never flinching, until a change turns it cold and silent.It cannot wander, cannot call for aid.A home it cannot enter, yet it craves one enough to die for it."]
+prop_interact_dialogue = ["It stays in place, never flinching, until a change turns it cold and silent.", "It cannot wander, cannot call for aid. A home it cannot enter, yet it craves one enough to die for it."]
 interaction_options = Array[Dictionary]([{
 "actions": [{
 "name": "show_riddle_ui",
@@ -401,18 +404,18 @@ position = Vector2(-14.000002, -13.955181)
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="Lights" unique_id=315658210]
 z_index = 1
-color = Color(1, 0.94696623, 0.8828125, 1)
-energy = 0.4
+color = Color(0.953125, 0.82281494, 0.67388916, 1)
+energy = 0.33
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
 shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 3
 
 [node name="AmbientLight" type="PointLight2D" parent="Lights" unique_id=2093563878]
-position = Vector2(-317, -690)
+position = Vector2(4.7683716e-07, -389)
 scale = Vector2(0.77734375, 0.7011719)
-color = Color(0.94140625, 0.9113948, 0.79063416, 1)
-energy = 0.33
+color = Color(0.67578125, 0.5435146, 0.04751587, 1)
+energy = 0.25
 texture = SubResource("GradientTexture2D_2rv37")
 texture_scale = 2.0
 
@@ -435,7 +438,7 @@ rotation = 1.5707964
 scale = Vector2(0.21976444, -1.022607)
 load_level = "res://game_scenes/level_2f_playground.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_bedroom.tscn", "res://game_scenes/level_c2_classroom.tscn", "res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_flowers.tscn"])
+random_level_list = Array[String](["res://game_scenes/level_c2_bedroom.tscn", "res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_flowers.tscn"])
 spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 
@@ -445,7 +448,7 @@ rotation = 1.5707964
 scale = Vector2(-0.18900189, 0.9158591)
 load_level = "res://game_scenes/level_2f_playground.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_bedroom.tscn", "res://game_scenes/level_c2_classroom.tscn", "res://game_scenes/level_c2_flowers.tscn"])
+random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_bedroom.tscn", "res://game_scenes/level_c2_flowers.tscn", "res://game_scenes/level_c2_graffiti.tscn"])
 spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 

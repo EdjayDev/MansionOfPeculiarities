@@ -47,7 +47,7 @@ var luke_interaction_dialogue = [
 
 func _ready() -> void:
 	set_level_name("1st Floor Living Room")
-	scene_path = "res://game_scenes/level_main.tscn"
+	scene_path = "res://game_scenes/level_1f_livingroom.tscn"
 	await init_level()
 	player.light_ambient.texture_scale = 1.5
 	player.light_main.texture_scale = 0.75

@@ -1,12 +1,8 @@
 shader_type canvas_item;
 
-uniform sampler2D noise_texture: repeat_enable, filter_nearest;
+uniform float highlight_strength : hint_range(0.0, 1.0) = 0.0;
 
-void fragment()
-{
-	vec2 uv = UV + vec2(0.2, 0.1) * TIME;
-	float noise = texture(noise_texture, uv).r;
-	vec4 base = texture(TEXTURE, UV);
-  	base.a *= noise;
-	COLOR = base;
+void fragment() {
+	vec4 tex = texture(TEXTURE, UV);
+	COLOR = tex + vec4(highlight_strength);
 }
