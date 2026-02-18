@@ -6,6 +6,8 @@ var game : Game = null
 static var active_prop: PropInteract_Item = null
 
 var prop_interaction_ui = preload("uid://jf6by2vn3ay3").instantiate()
+@onready var prop_item_canvas_layer: CanvasLayer = $PropItem_CanvasLayer
+@onready var riddle_ui: Riddle_UI = $PropItem_CanvasLayer/riddle_ui
 
 const sound_interact_book = preload("uid://b2cjo8rlahov8")
 const sound_interact_default = preload("uid://b8gkwiqj3mj0q")
@@ -79,7 +81,10 @@ var is_interacting = false
 func _ready() -> void:
 	game = get_tree().get_root().get_node("Game") as Game
 	set_process_unhandled_input(false) 
-
+	prop_item_canvas_layer.layer = 4
+	riddle_ui.visible = false
+	riddle_ui.riddle_answered_correctly.connect(set_interaction_choices_state)
+	
 	if get_parent().has_node("Area2D"):
 		var area_2d = get_parent().get_node_or_null("Area2D")
 		area_2d.area_entered.connect(_on_area_entered)
@@ -315,4 +320,9 @@ func apply_inventory_settings()->void:
 	if stop_adding_item:
 		itemid_to_add = ""
 		item_to_add = ""
-	
+		
+func show_riddle_ui(riddle_text : String, answer : String)->void:
+	riddle_ui.riddle.text = riddle_text
+	riddle_ui.riddle_answer_reference = answer
+	riddle_ui.visible = true
+	pass

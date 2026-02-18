@@ -11,6 +11,15 @@
 [ext_resource type="PackedScene" uid="uid://dlour4o0o7gee" path="res://props/prop_bookshelves-type1_.tscn" id="9_tf37x"]
 [ext_resource type="PackedScene" uid="uid://cai0dqxtatgfb" path="res://props/prop_candle-type1_.tscn" id="10_fuf8a"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="10_ilbsh"]
+[ext_resource type="Texture2D" uid="uid://dbu71coxvd1ir" path="res://systems/sprites/5000x5000_linearraylight.png" id="11_fuf8a"]
+[ext_resource type="PackedScene" uid="uid://bk76uyboowhol" path="res://props/prop_table_.tscn" id="13_oh3bv"]
+[ext_resource type="PackedScene" uid="uid://ob8jj0y1pp53" path="res://props/prop_book-type2.tscn" id="14_xronf"]
+[ext_resource type="PackedScene" uid="uid://d07ygl05j8j5e" path="res://props/prop_bookshelves-type7_.tscn" id="15_5ffdk"]
+[ext_resource type="PackedScene" uid="uid://b1dbh47v2d4sh" path="res://props/prop_platedvege-type4_.tscn" id="15_tf37x"]
+[ext_resource type="PackedScene" uid="uid://qywlklis3fnd" path="res://props/prop_bookshelves-type6_.tscn" id="16_nunnj"]
+[ext_resource type="PackedScene" uid="uid://bt3l1fy4jh47a" path="res://props/prop_bookshelves-type5_.tscn" id="17_nunnj"]
+[ext_resource type="PackedScene" uid="uid://dqc7qqqwfhoyb" path="res://props/prop_spicesshelves-type8_.tscn" id="19_ilbsh"]
+[ext_resource type="PackedScene" uid="uid://8a65kn8c44im" path="res://props/prop_spicesshelves-type5_.tscn" id="20_lqbgp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -127,7 +136,7 @@ visible = false
 modulate = Color(1, 1, 1, 0.5882353)
 z_index = 2
 position = Vector2(-1.52588e-05, -45.999996)
-tile_map_data = PackedByteArray("AAD+//D/AAABAAEAAAD+//H/AAABAAEAAAD+//L/AAABAAEAAAD///D/AAABAAEAAAD///H/AAABAAEAAAD///L/AAABAAEAAAAAAPD/AAABAAEAAAAAAPH/AAABAAEAAAAAAPL/AAABAAEAAAABAPD/AAABAAEAAAABAPH/AAABAAEAAAABAPL/AAABAAEAAAACAPD/AAABAAEAAAACAPH/AAABAAEAAAACAPL/AAABAAEAAAADAPD/AAABAAEAAAADAPH/AAABAAEAAAADAPL/AAABAAEAAAAEAPD/AAABAAEAAAAEAPH/AAABAAEAAAAEAPL/AAABAAEAAAD///P/AAABAAEAAAAAAPP/AAABAAEAAAD3//D/AAABAAEAAAD4//D/AAABAAEAAAD5//D/AAABAAEAAAD5//H/AAABAAEAAAD5//L/AAABAAEAAAD6//D/AAABAAEAAAD6//H/AAABAAEAAAD6//L/AAABAAEAAAD7//D/AAABAAEAAAD7//H/AAABAAEAAAD7//L/AAABAAEAAAD8//D/AAABAAEAAAD8//H/AAABAAEAAAD8//L/AAABAAEAAAD9//D/AAABAAEAAAD9//H/AAABAAEAAAD9//L/AAABAAEAAAD3/+j/AAABAAEAAAD3/+n/AAABAAEAAAD3/+r/AAABAAEAAAD3/+v/AAABAAEAAAD3/+z/AAABAAEAAAD3/+3/AAABAAEAAAD3/+7/AAABAAEAAAD3/+//AAABAAEAAAD4/+j/AAABAAEAAAD4/+n/AAABAAEAAAD4/+r/AAABAAEAAAD4/+v/AAABAAEAAAD4/+z/AAABAAEAAAD4/+3/AAABAAEAAAD4/+7/AAABAAEAAAD4/+//AAABAAEAAAD5/+b/AAABAAEAAAD5/+f/AAABAAEAAAD5/+j/AAABAAEAAAD5/+n/AAABAAEAAAD5/+r/AAABAAEAAAD5/+v/AAABAAEAAAD5/+z/AAABAAEAAAD5/+3/AAABAAEAAAD5/+7/AAABAAEAAAD5/+//AAABAAEAAAD6/+b/AAABAAEAAAD6/+f/AAABAAEAAAD6/+j/AAABAAEAAAD6/+n/AAABAAEAAAD6/+r/AAABAAEAAAD6/+v/AAABAAEAAAD6/+z/AAABAAEAAAD6/+3/AAABAAEAAAD6/+7/AAABAAEAAAD6/+//AAABAAEAAAD7/+//AAABAAEAAAD8/+//AAABAAEAAAD9/+//AAABAAEAAAD+/+//AAABAAEAAAD//+//AAABAAEAAAAAAO//AAABAAEAAAABAO//AAABAAEAAAACAO//AAABAAEAAAADAO//AAABAAEAAAAEAO//AAABAAEAAAAFAO//AAABAAEAAAAGAO//AAABAAEAAAAHAO//AAABAAEAAAD+/+v/AAABAAEAAAD+/+z/AAABAAEAAAD+/+3/AAABAAEAAAD+/+7/AAABAAEAAAD7/+v/AAABAAEAAAD8/+v/AAABAAEAAAD9/+v/AAABAAEAAAD7/+7/AAABAAEAAAD8/+7/AAABAAEAAAD9/+7/AAABAAEAAAD//+7/AAABAAEAAAAAAO7/AAABAAEAAAABAO7/AAABAAEAAAACAO7/AAABAAEAAAADAO7/AAABAAEAAAAEAO7/AAABAAEAAAAFAO7/AAABAAEAAAAGAO7/AAABAAEAAAD//+v/AAABAAEAAAAAAOv/AAABAAEAAAABAOv/AAABAAEAAAABAOz/AAABAAEAAAABAO3/AAABAAEAAAACAOv/AAABAAEAAAADAOv/AAABAAEAAAAEAOv/AAABAAEAAAAEAOz/AAABAAEAAAAEAO3/AAABAAEAAAAFAOz/AAABAAEAAAAFAO3/AAABAAEAAAD7/+z/AAABAAEAAAD7/+3/AAABAAEAAAAEAOj/AAABAAEAAAAEAOn/AAABAAEAAAAEAOr/AAABAAEAAAAFAOb/AAABAAEAAAAFAOf/AAABAAEAAAAFAOj/AAABAAEAAAAFAOn/AAABAAEAAAAFAOr/AAABAAEAAAAFAOv/AAABAAEAAAAFAPD/AAABAAEAAAAFAPH/AAABAAEAAAAFAPL/AAABAAEAAAAGAOb/AAABAAEAAAAGAOf/AAABAAEAAAAGAOj/AAABAAEAAAAGAOn/AAABAAEAAAAGAOr/AAABAAEAAAAGAOv/AAABAAEAAAAGAOz/AAABAAEAAAAGAO3/AAABAAEAAAAGAPD/AAABAAEAAAAGAPH/AAABAAEAAAAGAPL/AAABAAEAAAAHAOb/AAABAAEAAAAHAOf/AAABAAEAAAAHAOj/AAABAAEAAAAHAOn/AAABAAEAAAAHAOr/AAABAAEAAAAHAOv/AAABAAEAAAAHAOz/AAABAAEAAAAHAO3/AAABAAEAAAAHAO7/AAABAAEAAAAHAPD/AAABAAEAAAAIAOX/AAABAAEAAAAIAOb/AAABAAEAAAAIAOf/AAABAAEAAAAIAOj/AAABAAEAAAAIAOn/AAABAAEAAAAIAOr/AAABAAEAAAAIAOv/AAABAAEAAAAIAOz/AAABAAEAAAAIAO3/AAABAAEAAAAIAO7/AAABAAEAAAAIAO//AAABAAEAAAAIAPD/AAABAAEAAAD//+f/AAABAAEAAAAAAOf/AAABAAEAAAD7/+j/AAABAAEAAAD7/+n/AAABAAEAAAD7/+r/AAABAAEAAAD8/+j/AAABAAEAAAD8/+n/AAABAAEAAAD8/+r/AAABAAEAAAD9/+j/AAABAAEAAAD9/+n/AAABAAEAAAD9/+r/AAABAAEAAAD+/+j/AAABAAEAAAD+/+n/AAABAAEAAAD+/+r/AAABAAEAAAABAOj/AAABAAEAAAABAOn/AAABAAEAAAABAOr/AAABAAEAAAACAOj/AAABAAEAAAACAOn/AAABAAEAAAACAOr/AAABAAEAAAADAOj/AAABAAEAAAADAOn/AAABAAEAAAADAOr/AAABAAEAAAD//+r/AAABAAEAAAAAAOr/AAABAAEAAAD5/+X/AAABAAEAAAD2/+X/AAABAAEAAAD3/+X/AAABAAEAAAD4/+X/AAABAAEAAAD8/+z/AAABAAEAAAD8/+3/AAABAAEAAAD9/+z/AAABAAEAAAD9/+3/AAABAAEAAAD//+z/AAABAAEAAAD//+3/AAABAAEAAAAAAOz/AAABAAEAAAAAAO3/AAABAAEAAAACAO3/AAABAAEAAAADAO3/AAABAAEAAAADAOz/AAABAAEAAAACAOz/AAABAAEAAAAJAOX/AAABAAEAAAAJAOb/AAABAAEAAAAJAOf/AAABAAEAAAAJAOj/AAABAAEAAAAJAOn/AAABAAEAAAAJAOr/AAABAAEAAAAJAOv/AAABAAEAAAAJAOz/AAABAAEAAAAJAO3/AAABAAEAAAAJAO7/AAABAAEAAAAJAO//AAABAAEAAAAJAPD/AAABAAEAAAD6//P/AAABAAEAAAD7//P/AAABAAEAAAD8//P/AAABAAEAAAD9//P/AAABAAEAAAD+//P/AAABAAEAAAABAPP/AAABAAEAAAACAPP/AAABAAEAAAADAPP/AAABAAEAAAAEAPP/AAABAAEAAAAFAPP/AAABAAEAAAAGAPP/AAABAAEAAAD5//P/AAABAAEAAAD2/+j/AAABAAEAAAD2/+n/AAABAAEAAAD2/+r/AAABAAEAAAD2/+v/AAABAAEAAAD2/+z/AAABAAEAAAD2/+3/AAABAAEAAAD2/+7/AAABAAEAAAD2/+//AAABAAEAAAD2//D/AAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAD+//D/AAABAAEAAAD+//H/AAABAAEAAAD+//L/AAABAAEAAAD///D/AAABAAEAAAD///H/AAABAAEAAAD///L/AAABAAEAAAAAAPD/AAABAAEAAAAAAPH/AAABAAEAAAAAAPL/AAABAAEAAAABAPD/AAABAAEAAAABAPH/AAABAAEAAAABAPL/AAABAAEAAAACAPD/AAABAAEAAAACAPH/AAABAAEAAAACAPL/AAABAAEAAAADAPD/AAABAAEAAAADAPH/AAABAAEAAAADAPL/AAABAAEAAAAEAPD/AAABAAEAAAAEAPH/AAABAAEAAAAEAPL/AAABAAEAAAD///P/AAABAAEAAAAAAPP/AAABAAEAAAD3//D/AAABAAEAAAD4//D/AAABAAEAAAD5//D/AAABAAEAAAD5//H/AAABAAEAAAD5//L/AAABAAEAAAD6//D/AAABAAEAAAD6//H/AAABAAEAAAD6//L/AAABAAEAAAD7//D/AAABAAEAAAD7//H/AAABAAEAAAD7//L/AAABAAEAAAD8//D/AAABAAEAAAD8//H/AAABAAEAAAD8//L/AAABAAEAAAD9//D/AAABAAEAAAD9//H/AAABAAEAAAD9//L/AAABAAEAAAD3/+n/AAABAAEAAAD3/+z/AAABAAEAAAD3/+3/AAABAAEAAAD3/+7/AAABAAEAAAD3/+//AAABAAEAAAD4/+j/AAABAAEAAAD4/+n/AAABAAEAAAD4/+3/AAABAAEAAAD4/+7/AAABAAEAAAD4/+//AAABAAEAAAD5/+b/AAABAAEAAAD5/+f/AAABAAEAAAD5/+j/AAABAAEAAAD5/+n/AAABAAEAAAD5/+3/AAABAAEAAAD6/+b/AAABAAEAAAD6/+f/AAABAAEAAAD6/+j/AAABAAEAAAD6/+n/AAABAAEAAAD6/+3/AAABAAEAAAD//+//AAABAAEAAAAAAO//AAABAAEAAAAHAO//AAABAAEAAAD+/+3/AAABAAEAAAD+/+7/AAABAAEAAAD//+7/AAABAAEAAAAAAO7/AAABAAEAAAD//+v/AAABAAEAAAAAAOv/AAABAAEAAAD7/+3/AAABAAEAAAAEAOj/AAABAAEAAAAEAOn/AAABAAEAAAAFAOb/AAABAAEAAAAFAOf/AAABAAEAAAAFAOj/AAABAAEAAAAFAOn/AAABAAEAAAAFAPD/AAABAAEAAAAFAPH/AAABAAEAAAAFAPL/AAABAAEAAAAGAOb/AAABAAEAAAAGAOf/AAABAAEAAAAGAOj/AAABAAEAAAAGAOn/AAABAAEAAAAGAPD/AAABAAEAAAAGAPH/AAABAAEAAAAGAPL/AAABAAEAAAAHAOb/AAABAAEAAAAHAOf/AAABAAEAAAAHAOj/AAABAAEAAAAHAOn/AAABAAEAAAAHAO3/AAABAAEAAAAHAO7/AAABAAEAAAAHAPD/AAABAAEAAAAIAOX/AAABAAEAAAAIAOb/AAABAAEAAAAIAOf/AAABAAEAAAAIAOj/AAABAAEAAAAIAOn/AAABAAEAAAAIAO//AAABAAEAAAAIAPD/AAABAAEAAAD//+f/AAABAAEAAAAAAOf/AAABAAEAAAD7/+j/AAABAAEAAAD7/+n/AAABAAEAAAD8/+j/AAABAAEAAAD8/+n/AAABAAEAAAD9/+j/AAABAAEAAAD9/+n/AAABAAEAAAD+/+j/AAABAAEAAAD+/+n/AAABAAEAAAD//+r/AAABAAEAAAAAAOr/AAABAAEAAAD5/+X/AAABAAEAAAD2/+X/AAABAAEAAAD3/+X/AAABAAEAAAD4/+X/AAABAAEAAAD8/+3/AAABAAEAAAD9/+3/AAABAAEAAAD//+z/AAABAAEAAAD//+3/AAABAAEAAAAAAOz/AAABAAEAAAAAAO3/AAABAAEAAAAJAOX/AAABAAEAAAAJAOb/AAABAAEAAAAJAOf/AAABAAEAAAAJAOj/AAABAAEAAAAJAOn/AAABAAEAAAAJAO//AAABAAEAAAAJAPD/AAABAAEAAAD6//P/AAABAAEAAAD7//P/AAABAAEAAAD8//P/AAABAAEAAAD9//P/AAABAAEAAAD+//P/AAABAAEAAAABAPP/AAABAAEAAAACAPP/AAABAAEAAAADAPP/AAABAAEAAAAEAPP/AAABAAEAAAAFAPP/AAABAAEAAAAGAPP/AAABAAEAAAD5//P/AAABAAEAAAD2/+n/AAABAAEAAAD2/+z/AAABAAEAAAD2/+3/AAABAAEAAAD2/+7/AAABAAEAAAD2/+//AAABAAEAAAD2//D/AAABAAEAAAAEAOb/AAABAAEAAAAEAOf/AAABAAEAAAD7/+f/AAABAAEAAAD7/+b/AAABAAEAAAD+/+r/AAABAAEAAAD5/+r/AAABAAEAAAD6/+r/AAABAAEAAAD7/+r/AAABAAEAAAD8/+r/AAABAAEAAAD9/+r/AAABAAEAAAABAOr/AAABAAEAAAACAOr/AAABAAEAAAADAOr/AAABAAEAAAAEAOr/AAABAAEAAAAFAOr/AAABAAEAAAAGAOr/AAABAAEAAAAHAOr/AAABAAEAAAAIAOr/AAABAAEAAAAJAOr/AAABAAEAAAD3/+r/AAABAAEAAAD3/+v/AAABAAEAAAD2/+r/AAABAAEAAAD2/+v/AAABAAEAAAD4/+r/AAABAAEAAAD4/+v/AAABAAEAAAD4/+z/AAABAAEAAAD8/+7/AAABAAEAAAD9/+7/AAABAAEAAAABAO3/AAABAAEAAAACAO3/AAABAAEAAAADAO3/AAABAAEAAAAEAO3/AAABAAEAAAAFAO3/AAABAAEAAAAGAO3/AAABAAEAAAAHAOv/AAABAAEAAAAIAOv/AAABAAEAAAAJAOv/AAABAAEAAAABAOn/AAABAAEAAAACAOn/AAABAAEAAAADAOn/AAABAAEAAAA=")
 tile_set = SubResource("TileSet_xronf")
 navigation_visibility_mode = 1
 
@@ -158,10 +167,10 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="prop_bookshelves-type3_" parent="Y_Sort/Props" unique_id=240066677 instance=ExtResource("7_5ffdk")]
-position = Vector2(49, -437)
+position = Vector2(43, -440)
 
 [node name="prop_bookshelves-type4_" parent="Y_Sort/Props" unique_id=222114358 instance=ExtResource("8_nunnj")]
-position = Vector2(-51, -437)
+position = Vector2(-43, -440)
 
 [node name="prop_bookshelves-type4_2" parent="Y_Sort/Props" unique_id=1050040094 instance=ExtResource("8_nunnj")]
 position = Vector2(-134, -433)
@@ -171,6 +180,7 @@ position = Vector2(87, -466)
 
 [node name="prop_bed_" parent="Y_Sort/Props" unique_id=452494380 instance=ExtResource("6_owtth")]
 position = Vector2(0, -405)
+scale = Vector2(1.5, 1.5)
 
 [node name="prop_crate-type2" parent="Y_Sort/Props" unique_id=960959028 instance=ExtResource("7_68qhy")]
 position = Vector2(-80, -469)
@@ -182,6 +192,49 @@ scale = Vector2(0.8, 0.8)
 [node name="prop_light_candle-type1_" parent="Y_Sort/Props" unique_id=177282797 instance=ExtResource("10_fuf8a")]
 position = Vector2(-16, -395)
 scale = Vector2(0.8, 0.8)
+
+[node name="prop_table_" parent="Y_Sort/Props" unique_id=702167317 instance=ExtResource("13_oh3bv")]
+position = Vector2(43, -416)
+
+[node name="prop_book-type2" parent="Y_Sort/Props/prop_table_" unique_id=206632257 instance=ExtResource("14_xronf")]
+position = Vector2(-4, -15)
+rotation = -0.2617994
+
+[node name="prop_platedvege-type3_" parent="Y_Sort/Props/prop_table_" unique_id=365712542 instance=ExtResource("15_tf37x")]
+position = Vector2(9, -23)
+
+[node name="prop_bookshelves-type7_" parent="Y_Sort/Props" unique_id=1719960241 instance=ExtResource("15_5ffdk")]
+position = Vector2(-93, -352)
+
+[node name="prop_bookshelves-type6_" parent="Y_Sort/Props" unique_id=365477842 instance=ExtResource("16_nunnj")]
+position = Vector2(43, -352)
+
+[node name="prop_bookshelves-type5_" parent="Y_Sort/Props" unique_id=641254217 instance=ExtResource("17_nunnj")]
+position = Vector2(89, -352)
+
+[node name="prop_spicesshelves-type8_" parent="Y_Sort/Props" unique_id=1406656637 instance=ExtResource("19_ilbsh")]
+position = Vector2(134, -348)
+
+[node name="prop_bookshelves-type5_2" parent="Y_Sort/Props" unique_id=1407734750 instance=ExtResource("17_nunnj")]
+position = Vector2(43, -299)
+
+[node name="prop_bookshelves-type7_2" parent="Y_Sort/Props" unique_id=1066860229 instance=ExtResource("15_5ffdk")]
+position = Vector2(89, -300)
+
+[node name="prop_crate_type2" parent="Y_Sort/Props" unique_id=358042030 instance=ExtResource("8_1jvkc")]
+position = Vector2(147, -312)
+
+[node name="prop_spicesshelves-type5_" parent="Y_Sort/Props" unique_id=509941248 instance=ExtResource("20_lqbgp")]
+position = Vector2(-47, -299)
+
+[node name="prop_bookshelves-type6_2" parent="Y_Sort/Props" unique_id=997161999 instance=ExtResource("16_nunnj")]
+position = Vector2(-93, -299)
+
+[node name="prop_bookshelves-type5_3" parent="Y_Sort/Props" unique_id=1127134094 instance=ExtResource("17_nunnj")]
+position = Vector2(-47, -352)
+
+[node name="prop_crate_type3" parent="Y_Sort/Props" unique_id=492023214 instance=ExtResource("8_1jvkc")]
+position = Vector2(-147, -420)
 
 [node name="Lights" type="Node2D" parent="." unique_id=1943081159]
 
@@ -196,6 +249,13 @@ shadow_item_cull_mask = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=613661788]
 color = Color(0.2353363, 0.33177567, 0.62109375, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights" unique_id=176129558]
+position = Vector2(56, -432.00003)
+scale = Vector2(0.050399993, 0.0192)
+color = Color(0.19934082, 0.31701946, 0.71875, 1)
+energy = 2.0
+texture = ExtResource("11_fuf8a")
 
 [node name="SceneTransitioner_To2fPlayground" parent="." unique_id=410900003 instance=ExtResource("10_ilbsh")]
 position = Vector2(3.9435122e-13, -237)
@@ -213,17 +273,17 @@ rotation = 1.5707964
 scale = Vector2(0.15310983, 0.90505934)
 load_level = "res://game_scenes/level_2f_playground.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_classroom.tscn"])
-spawn_marker_name = "Player_from2FDebug"
-companion_spawn_marker = ["Companion_from2FDebug"]
+random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_classroom.tscn", "res://game_scenes/level_c2_flowers.tscn", "res://game_scenes/level_c2_flowers.tscn"])
+spawn_marker_name = "Player_fromRandom"
+companion_spawn_marker = ["Companion_fromRandom"]
 
 [node name="SceneTransitioner_ToRandom_2" parent="." unique_id=207475474 instance=ExtResource("10_ilbsh")]
 position = Vector2(143, -487)
 rotation = 1.5707964
 scale = Vector2(0.24442059, 1.4767824)
-load_level = "res://game_scenes/level_2f_playground.tscn"
+load_level = "res://game_scenes/level_c2_entrance.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_classroom.tscn"])
+random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_classroom.tscn", "res://game_scenes/level_c2_flowers.tscn", "res://game_scenes/level_c2_flowers.tscn"])
 spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 

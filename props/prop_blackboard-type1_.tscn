@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://gqkkx20lk0b0"]
+
+[ext_resource type="Texture2D" uid="uid://chtd1pbug0rm8" path="res://props/sprites/blackboard.png" id="1_u4xsj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
+size = Vector2(32, 13.376778)
+
+[node name="prop_blackboard-type1_" type="Node2D" unique_id=2086941056]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=557141939]
+position = Vector2(0, -8)
+texture = ExtResource("1_u4xsj")
+region_enabled = true
+region_rect = Rect2(0, 3, 32, 16)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=547272448]
+position = Vector2(0, -9)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=787410164]
+position = Vector2(0, 2)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_7c1ra")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2109443691]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1078360223]
+position = Vector2(0, -7.0000005)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_7c1ra")
+debug_color = Color(0.1015625, 0.1015625, 0.1015625, 0.41960785)

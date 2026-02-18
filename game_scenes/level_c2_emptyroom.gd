@@ -18,7 +18,14 @@ var max_subdialog = 2
 var min_subdialog = 0
 
 var unlit_candles : Array = []
-var prop_to_unlit = [
+var prop_to_unlit : Array = []
+	
+func _ready() -> void:
+	set_level_name("Emptyroom")
+	scene_path = "res://game_scenes/level_c2_emptyroom.tscn"
+	await init_level()
+	
+	prop_to_unlit = [
 		prop_light_candle_type_1_,
 		prop_light_candle_type_1_2,
 		prop_light_candle_type_1_3,
@@ -31,10 +38,6 @@ var prop_to_unlit = [
 		prop_light_candle_type_1_10
 	]
 	
-func _ready() -> void:
-	set_level_name("Emptyroom")
-	scene_path = "res://game_scenes/level_c2_emptyroom.tscn"
-	await init_level()
 	var subdialog_timer = Timer.new()
 	subdialog_timer.one_shot = false
 	subdialog_timer.wait_time = 7.0
@@ -54,15 +57,14 @@ func _ready() -> void:
 	proplight_unlit_timer.timeout.connect(unlit_proplight)
 
 func unlit_proplight()->void:
-	for light_candle in prop_to_unlit:
-		if light_candle in unlit_candles:
-			prop_to_unlit.erase(light_candle)
-	
-	var picked_to_unlit : Prop_Light = prop_to_unlit.pick_random()
+	var available_proplight = return_available_proplights()
+	if available_proplight.is_empty():
+		Game.manager.set_game_over("TRAPPED", "The last light faded")
+		return
+	var picked_to_unlit : Prop_Light = available_proplight.pick_random()
 	unlit_candles.append(picked_to_unlit)
-	picked_to_unlit.play_animation_effect("idle_fading", 1.0)
-	
-	
+	await picked_to_unlit.play_animation_effect("idle_fading", 1.0)
+
 func player_subdialog()->void:
 	var random_subdialog = [
 		"Am I trapped",
@@ -70,7 +72,13 @@ func player_subdialog()->void:
 	]
 	var picked_subdialog = random_subdialog.pick_random()
 	Game.manager.set_subdialog([picked_subdialog], player)
-	pass
+
+func return_available_proplights()->Array:
+	var returned_available_proplight = []
+	for light in prop_to_unlit:
+		if light not in unlit_candles:
+			returned_available_proplight.append(light)
+	return returned_available_proplight
 
 func companion_subdialog()->void:
 	if min_subdialog == max_subdialog:
@@ -82,6 +90,3 @@ func companion_subdialog()->void:
 	var picked_subdialog = random_subdialog.pick_random()
 	Game.manager.set_subdialog([picked_subdialog], get_current_companion())
 	min_subdialog += 1
-	
-
-	

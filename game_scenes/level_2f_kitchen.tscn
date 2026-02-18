@@ -41,7 +41,6 @@
 [ext_resource type="PackedScene" uid="uid://dwu5rjw77nrqa" path="res://props/prop_bookshelves-type4_.tscn" id="37_3yilv"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="39_u760v"]
 [ext_resource type="PackedScene" uid="uid://k4rxho2m2sk4" path="res://props/prop_book-type3.tscn" id="41_u760v"]
-[ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="43_cs8in"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -733,5 +732,3 @@ position = Vector2(0, -25)
 
 [node name="Companion_fromPlayGround" type="Marker2D" parent="." unique_id=1903711626]
 position = Vector2(0, -11)
-
-[node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("43_cs8in")]

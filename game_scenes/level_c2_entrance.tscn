@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bn5bohknbfr1l" path="res://tilemap/tilemap_collection.tscn" id="2_p1jgp"]
 [ext_resource type="Texture2D" uid="uid://dj5y0t8ea4tmg" path="res://tilemap/sprites/base_wallsfloors.png" id="2_wu42t"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="3_tbht7"]
-[ext_resource type="PackedScene" uid="uid://bulc271d5fdfy" path="res://props/prop_tree-type1.tscn" id="4_p1jgp"]
+[ext_resource type="PackedScene" uid="uid://bulc271d5fdfy" path="res://props/prop_tree-type1_.tscn" id="4_p1jgp"]
 [ext_resource type="PackedScene" uid="uid://du1ccbttqouoh" path="res://props/prop_bush-type2.tscn" id="5_tbht7"]
-[ext_resource type="PackedScene" uid="uid://b3xokpola6pgm" path="res://props/prop_tree-type2.tscn" id="6_0vaoo"]
+[ext_resource type="PackedScene" uid="uid://b3xokpola6pgm" path="res://props/prop_tree-type2_.tscn" id="6_0vaoo"]
 [ext_resource type="PackedScene" uid="uid://cn060x3f3m3ra" path="res://props/prop_bush-type1.tscn" id="6_1sgou"]
-[ext_resource type="PackedScene" uid="uid://bqkj7g5isk58b" path="res://props/prop_tree-type3.tscn" id="7_npstq"]
+[ext_resource type="PackedScene" uid="uid://bqkj7g5isk58b" path="res://props/prop_tree-type3_.tscn" id="7_npstq"]
 [ext_resource type="PackedScene" uid="uid://d37uv7gagv7cv" path="res://props/prop_door-type1_.tscn" id="10_0vaoo"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="10_npstq"]
 
@@ -169,7 +169,7 @@ position = Vector2(-158, -105)
 
 [node name="PropTree-type4" parent="Y_Sort/Props" unique_id=1116824336 instance=ExtResource("7_npstq")]
 position = Vector2(-166, -223)
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 
 [node name="PropTree-type5" parent="Y_Sort/Props" unique_id=381224900 instance=ExtResource("4_p1jgp")]
 position = Vector2(-53, -45)
@@ -178,23 +178,26 @@ position = Vector2(-53, -45)
 position = Vector2(-118, -344)
 
 [node name="PropTree-type7" parent="Y_Sort/Props" unique_id=384241361 instance=ExtResource("6_0vaoo")]
-position = Vector2(-17, -319)
-scale = Vector2(1.25, 1.25)
+position = Vector2(-36, -316)
+scale = Vector2(1.5, 1.5)
 
 [node name="PropTree-type8" parent="Y_Sort/Props" unique_id=1892407409 instance=ExtResource("7_npstq")]
 position = Vector2(128, -308)
+scale = Vector2(1.75, 1.75)
 
 [node name="PropTree-type9" parent="Y_Sort/Props" unique_id=19305963 instance=ExtResource("4_p1jgp")]
-position = Vector2(44, -345)
+position = Vector2(48, -348)
 
 [node name="PropTree-type10" parent="Y_Sort/Props" unique_id=8667832 instance=ExtResource("6_0vaoo")]
 position = Vector2(83, -188)
 
 [node name="PropTree-type11" parent="Y_Sort/Props" unique_id=1585754552 instance=ExtResource("7_npstq")]
 position = Vector2(-231, -272)
+scale = Vector2(1.5, 1.5)
 
 [node name="PropTree-type12" parent="Y_Sort/Props" unique_id=1492497121 instance=ExtResource("6_0vaoo")]
-position = Vector2(123, -75)
+position = Vector2(122, -60)
+scale = Vector2(1.5, 1.5)
 
 [node name="PropTree-type13" parent="Y_Sort/Props" unique_id=971470514 instance=ExtResource("7_npstq")]
 position = Vector2(180, -137)
@@ -234,7 +237,7 @@ rotation = 1.5707964
 scale = Vector2(0.2601498, 1.4367213)
 load_level = "res://game_scenes/level_2f_playground.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_classroom.tscn", "res://game_s cenes/level_c2_bedroom.tscn"])
+random_level_list = Array[String](["res://game_scenes/level_c2_classroom.tscn", "res://game_scenes/level_c2_bedroom.tscn"])
 spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 
@@ -248,15 +251,15 @@ prop_required_data = "c2door_unlocked"
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="Lights" unique_id=315658210]
 z_index = 1
-energy = 0.33
-blend_mode = 1
+color = Color(0.0821228, 0.089262486, 0.5390625, 1)
+energy = 0.66
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
 shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=613661788]
-color = Color(0.8451538, 0.87086123, 0.953125, 1)
+color = Color(0.3276577, 0.31378174, 0.7578125, 1)
 
 [node name="SceneTransitioner_To2fPlayground" parent="." unique_id=410900003 instance=ExtResource("3_tbht7")]
 position = Vector2(3.9435122e-13, -237)
@@ -277,3 +280,9 @@ position = Vector2(0, -259)
 
 [node name="Companion_fromC2Classroom" type="Marker2D" parent="." unique_id=2032569011]
 position = Vector2(-83, -331)
+
+[node name="Player_fromC2Flowers" type="Marker2D" parent="." unique_id=991017187]
+position = Vector2(0, -272)
+
+[node name="Companion_fromC2Flowers2" type="Marker2D" parent="." unique_id=1084183384]
+position = Vector2(0, -272)

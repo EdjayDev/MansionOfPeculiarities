@@ -1,6 +1,105 @@
 [gd_scene format=3 uid="uid://bufs536uwrac7"]
 
 [ext_resource type="Script" uid="uid://cpt2a5krnik32" path="res://props/scripts/propinteract_item.gd" id="1_agq6a"]
+[ext_resource type="Script" uid="uid://b7ppwgc6fmoyp" path="res://props/scripts/riddle_ui.gd" id="2_au0q3"]
+[ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="2_bagb7"]
+[ext_resource type="FontFile" uid="uid://dh4vhl1gjw781" path="res://systems/fonts/CormorantGaramond-VariableFont_wght.ttf" id="2_vp7vq"]
+
+[sub_resource type="FontVariation" id="FontVariation_au0q3"]
+base_font = ExtResource("2_vp7vq")
+variation_opentype = {
+2003265652: 600
+}
+
+[sub_resource type="FontVariation" id="FontVariation_vp7vq"]
+base_font = ExtResource("2_bagb7")
+variation_opentype = {
+1869640570: 14,
+2003265652: 900
+}
+
+[sub_resource type="FontVariation" id="FontVariation_lferi"]
+base_font = ExtResource("2_bagb7")
 
 [node name="PropInteractItem_Component" type="Node2D" unique_id=383616533]
 script = ExtResource("1_agq6a")
+
+[node name="PropItem_CanvasLayer" type="CanvasLayer" parent="." unique_id=905729911]
+
+[node name="riddle_ui" type="Control" parent="PropItem_CanvasLayer" unique_id=862448345]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 247.0
+offset_top = 144.0
+offset_right = -247.0
+offset_bottom = -144.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_au0q3")
+
+[node name="main_bgtexture" type="ColorRect" parent="PropItem_CanvasLayer/riddle_ui" unique_id=1638317355]
+layout_mode = 0
+offset_right = 786.0
+offset_bottom = 432.0
+color = Color(0.21875, 0.07348633, 0.07348633, 1)
+
+[node name="riddle_bgtexture" type="ColorRect" parent="PropItem_CanvasLayer/riddle_ui" unique_id=1570880213]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 40.0
+offset_right = 728.0
+offset_bottom = 287.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15234375, 0.043441772, 0.043441772, 1)
+
+[node name="riddle_margin" type="MarginContainer" parent="PropItem_CanvasLayer/riddle_ui/riddle_bgtexture" unique_id=1126670604]
+layout_mode = 0
+offset_right = 670.0
+offset_bottom = 247.0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+
+[node name="riddle_text" type="RichTextLabel" parent="PropItem_CanvasLayer/riddle_ui/riddle_bgtexture/riddle_margin" unique_id=1780747431]
+layout_mode = 2
+theme_override_colors/default_color = Color(0.90234375, 0.90234375, 0.90234375, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_au0q3")
+text = "RIDDLE TEXT"
+
+[node name="riddle_answer_label" type="Label" parent="PropItem_CanvasLayer/riddle_ui" unique_id=820475139]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 294.0
+offset_right = 505.0
+offset_bottom = 348.0
+theme_override_fonts/font = SubResource("FontVariation_vp7vq")
+theme_override_font_sizes/font_size = 22
+text = "ANSWER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="riddle_answer_margin" type="MarginContainer" parent="PropItem_CanvasLayer/riddle_ui" unique_id=215903898]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.0
+offset_top = -82.0
+offset_right = 151.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="riddle_answer_input" type="LineEdit" parent="PropItem_CanvasLayer/riddle_ui/riddle_answer_margin" unique_id=1512585942]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_lferi")
+theme_override_font_sizes/font_size = 16
+placeholder_text = "Enter your answer..."
+alignment = 1

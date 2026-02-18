@@ -68,7 +68,7 @@ _data = {
 position = Vector2(0, -3.0000005)
 texture = SubResource("CompressedTexture2D_6fwrh")
 hframes = 3
-vframes = 7
+vframes = 10
 frame = 1
 region_rect = Rect2(40, 134, 14, 14)
 

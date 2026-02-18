@@ -14,11 +14,14 @@ func _process(_delta: float) -> void:
 	if Game.manager.is_in_cutscene:
 		visible = false
 		return
-	var character_sprite_ = character_sprite_ref
-	var world_to_view = character_sprite_.get_canvas_transform()
-	var view_position = world_to_view * character_sprite_.global_position + Vector2(size.x / -2, size.y * -3)
+	if not is_instance_valid(character_sprite_ref):
+		queue_free()
+		return
+	var world_to_view = character_sprite_ref.get_canvas_transform()
+	var view_position = world_to_view * character_sprite_ref.global_position + Vector2(size.x / -2, size.y * -3)
 	position = view_position
-	visible = true 
+	visible = true
+
 
 
 func get_subdialogue(subdialogue: Array, character_speaker : CharacterBody2D)-> void:

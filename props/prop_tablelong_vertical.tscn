@@ -85,7 +85,7 @@ region_enabled = true
 region_rect = Rect2(21, 217, 39, 11)
 
 [node name="Sprite2D-middle-10" type="Sprite2D" parent="." unique_id=220685236]
-position = Vector2(0, -27.5)
+position = Vector2(0, -26.500002)
 scale = Vector2(1, 0.99999994)
 texture = ExtResource("1_swbgv")
 region_enabled = true
@@ -99,7 +99,7 @@ region_enabled = true
 region_rect = Rect2(21, 217, 39, 11)
 
 [node name="Sprite2D-middle-12" type="Sprite2D" parent="." unique_id=962963279]
-position = Vector2(0, -38.5)
+position = Vector2(0, -37.5)
 scale = Vector2(1, 0.99999994)
 texture = ExtResource("1_swbgv")
 region_enabled = true

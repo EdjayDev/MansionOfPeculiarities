@@ -12,9 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/_props_container.tscn" id="6_um7wn"]
 [ext_resource type="PackedScene" uid="uid://g0fix6ffauju" path="res://props/prop_emptyshelves-type2_.tscn" id="7_stpf3"]
 [ext_resource type="PackedScene" uid="uid://bk76uyboowhol" path="res://props/prop_table_.tscn" id="11_3bj8t"]
+[ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="13_6jueb"]
 [ext_resource type="PackedScene" uid="uid://c2xd64ynk4nbd" path="res://npc/NPC_Luke.tscn" id="13_6tjdi"]
 [ext_resource type="PackedScene" uid="uid://0ypoy8tjpj7b" path="res://npc/NPC_Ember.tscn" id="14_lrb4j"]
-[ext_resource type="Script" uid="uid://cpt2a5krnik32" path="res://props/scripts/propinteract_item.gd" id="14_tbph3"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="15_4w0tw"]
 [ext_resource type="PackedScene" uid="uid://bp8808mog12eb" path="res://props/prop_crate-type1.tscn" id="16_s4sbm"]
 [ext_resource type="PackedScene" uid="uid://cwywes8d7v34b" path="res://props/prop_chest.tscn" id="17_7o00v"]
@@ -304,9 +304,8 @@ position = Vector2(-196, 330)
 
 [node name="prop_emptyshelves_type3" parent="Y_Sort/_Props_Container" unique_id=541422069 instance=ExtResource("6_qki8g")]
 position = Vector2(145, 119)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["An empty shelf..."]
-can_interact_multiple_times = true
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_emptyshelves_type3" unique_id=383616533 instance=ExtResource("13_6jueb")]
 
 [node name="prop_bookshelves1" parent="Y_Sort/_Props_Container" unique_id=1272782782 instance=ExtResource("3_irg1e")]
 position = Vector2(-187, 118)
@@ -352,9 +351,8 @@ position = Vector2(-423, 118)
 
 [node name="prop_bookshelves5" parent="Y_Sort/_Props_Container" unique_id=1642739037 instance=ExtResource("3_irg1e")]
 position = Vector2(-195, -28)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["\"The Poacher\"", "Once upon a time there was 4 little kids wandering around a big house, then suddenly a man", "Standing in front of them, with a stare, hit the kid and grab him to his to big house.", "As the 3 remaining kids tried to runaway the kid that got caught let out a little smirk watching his 3 friends away....", "AŁȴǆ╘š"]
-can_interact_multiple_times = true
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_bookshelves5" unique_id=972461163 instance=ExtResource("13_6jueb")]
 
 [node name="prop_table" parent="Y_Sort/_Props_Container" unique_id=702167317 instance=ExtResource("11_3bj8t")]
 position = Vector2(-176, 172)
@@ -376,15 +374,17 @@ position = Vector2(-402, 106)
 
 [node name="prop_chest" parent="Y_Sort/_Props_Container" unique_id=59038969 instance=ExtResource("17_7o00v")]
 position = Vector2(266, -29)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["You obtained a key!"]
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_chest" unique_id=437686494 instance=ExtResource("13_6jueb")]
+prop_interact_dialogue = ["Upon searching the chest...", "You found a key!"]
 itemid_to_add = "item_rustykey"
 item_to_add = "Rusty Key"
 
 [node name="prop_chest2" parent="Y_Sort/_Props_Container" unique_id=1524212351 instance=ExtResource("17_7o00v")]
 position = Vector2(222, 114.00001)
 scale = Vector2(0.9, 0.9)
-script = ExtResource("14_tbph3")
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_chest2" unique_id=409687339 instance=ExtResource("13_6jueb")]
 prop_interact_dialogue = ["The chest is empty..."]
 can_interact_multiple_times = true
 
@@ -428,9 +428,11 @@ scale = Vector2(1.25, 1.25)
 [node name="prop_chest3" parent="Y_Sort/_Props_Container/prop_crate-type3" unique_id=1376642921 instance=ExtResource("17_7o00v")]
 position = Vector2(4.799965, -10.399986)
 scale = Vector2(0.7199999, 0.7199999)
-script = ExtResource("14_tbph3")
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_crate-type3/prop_chest3" unique_id=1387302045 instance=ExtResource("13_6jueb")]
+position = Vector2(-337.77783, -232.22227)
+scale = Vector2(1.1111113, 1.1111113)
 prop_interact_dialogue = ["The chest is empty..."]
-can_interact_multiple_times = true
 
 [node name="prop_tablelong" parent="Y_Sort/_Props_Container" unique_id=1536666393 instance=ExtResource("18_fldws")]
 position = Vector2(-272, 172)
@@ -455,40 +457,42 @@ position = Vector2(-196, 357)
 
 [node name="prop_bookshelves-type2" parent="Y_Sort/_Props_Container" unique_id=1979782609 instance=ExtResource("19_tbph3")]
 position = Vector2(-83, -28)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["\"The Entertainer\"", "When the guests stopped smiling, the Entertainer learned new tricks and ", "when the tricks stopped working, it learned their names."]
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_bookshelves-type2" unique_id=1169148992 instance=ExtResource("13_6jueb")]
+prop_interact_dialogue = ["Scribbled text of books..."]
 
 [node name="prop_bookshelves-type5" parent="Y_Sort/_Props_Container" unique_id=202705978 instance=ExtResource("19_tbph3")]
 position = Vector2(212, 232)
-script = ExtResource("14_tbph3")
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_bookshelves-type5" unique_id=1975516570 instance=ExtResource("13_6jueb")]
+prop_interact_dialogue = ["Scribbled text of books..."]
 
 [node name="prop_bookshelves-type3" parent="Y_Sort/_Props_Container" unique_id=577018716 instance=ExtResource("19_tbph3")]
 position = Vector2(-106, 118)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["Lots of hard to read books."]
-can_interact_multiple_times = true
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_bookshelves-type3" unique_id=1602823742 instance=ExtResource("13_6jueb")]
+prop_interact_dialogue = ["Scribbled text of books..."]
 
 [node name="prop_bookshelves-type6" parent="Y_Sort/_Props_Container" unique_id=976427646 instance=ExtResource("19_tbph3")]
 position = Vector2(197, 374)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["Lots of hard to read books."]
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_bookshelves-type6" unique_id=934768025 instance=ExtResource("13_6jueb")]
+prop_interact_dialogue = ["Scribbled text of books..."]
 
 [node name="prop_bookshelves-type4" parent="Y_Sort/_Props_Container" unique_id=1203146890 instance=ExtResource("19_tbph3")]
 position = Vector2(-223, 118)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["Lots of hard to read books."]
-can_interact_multiple_times = true
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_bookshelves-type4" unique_id=130056928 instance=ExtResource("13_6jueb")]
+prop_interact_dialogue = ["Scribbled text of books..."]
 
 [node name="prop_bookshelves-type9" parent="Y_Sort/_Props_Container" unique_id=380940200 instance=ExtResource("19_tbph3")]
 position = Vector2(-370, 118)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["Lots of hard to read books."]
+
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_bookshelves-type9" unique_id=1901863939 instance=ExtResource("13_6jueb")]
+prop_interact_dialogue = ["Scribbled text of books..."]
 
 [node name="prop_spiceshelves-type2" parent="Y_Sort/_Props_Container" unique_id=6948476 instance=ExtResource("21_rnrqm")]
 position = Vector2(190, -28)
-script = ExtResource("14_tbph3")
-prop_interact_dialogue = ["Shelf full of Red beet s.."]
-can_interact_multiple_times = true
 
 [node name="prop_spiceshelves-type3" parent="Y_Sort/_Props_Container" unique_id=1078293401 instance=ExtResource("24_s58og")]
 position = Vector2(235, -28)

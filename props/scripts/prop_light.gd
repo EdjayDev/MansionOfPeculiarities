@@ -23,7 +23,7 @@ func _ready() -> void:
 func play_animation_effect(animation: String, animation_speed : float = 1.0)->void:
 	print("Playing Animation: ", animation)
 	light_animation_player.play(animation,-1, animation_speed)
-	pass
+	await light_animation_player.animation_finished
 
 func start_light_flicker( )->void:
 	while light_flicker and is_inside_tree():
