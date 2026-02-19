@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bp5dyh3oe8wpq"]
+
+[node name="mainmenu_bglayer" type="CanvasLayer" unique_id=390615359]
+layer = 0

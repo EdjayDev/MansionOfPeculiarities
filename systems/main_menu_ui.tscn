@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://p5i3or1lecg0"]
 
 [ext_resource type="Script" uid="uid://bivlscb68yong" path="res://systems/main_menu_ui.gd" id="1_oh28q"]
+[ext_resource type="PackedScene" uid="uid://nnsi3op2dh6" path="res://systems/mainmenu_bgscene.tscn" id="2_dulkr"]
 [ext_resource type="Texture2D" uid="uid://onvi88rotk4m" path="res://cinematics/assets/bg_mansion.png" id="2_rc1mk"]
 [ext_resource type="PackedScene" uid="uid://coxkk35x4355w" path="res://systems/savesystem_ui.tscn" id="3_473j0"]
 [ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="3_u4gf3"]
@@ -11,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://blo8iokejjie8" path="res://systems/sprites/menu_buttons_ui_hover.png" id="6_vvkec"]
 
 [sub_resource type="Gradient" id="Gradient_6liry"]
-colors = PackedColorArray(0.09411765, 0.011764706, 0.011764706, 0.5882353, 0.74509805, 0.8862745, 0.93333334, 0.5882353)
+colors = PackedColorArray(0.09411765, 0.011764706, 0.011764706, 0.6862745, 0.74509805, 0.8862745, 0.93333334, 0.15686275)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_me7c7"]
 gradient = SubResource("Gradient_6liry")
@@ -33,14 +34,11 @@ default_font_size = 28
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6u8tq"]
 texture = ExtResource("4_6u8tq")
-texture_margin_left = 20.0
-texture_margin_top = 10.0
-texture_margin_right = 20.0
-texture_margin_bottom = 10.0
-expand_margin_left = 25.0
-expand_margin_top = 20.0
-expand_margin_right = 25.0
-expand_margin_bottom = 20.0
+texture_margin_left = 64.0
+texture_margin_top = 16.0
+texture_margin_right = 64.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 144, 144)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfk31"]
 texture = ExtResource("5_sfk31")
@@ -51,24 +49,21 @@ expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dulkr"]
 texture = ExtResource("6_vvkec")
-texture_margin_left = 20.0
-texture_margin_top = 10.0
-texture_margin_right = 20.0
-texture_margin_bottom = 10.0
-expand_margin_left = 25.0
-expand_margin_top = 20.0
-expand_margin_right = 25.0
-expand_margin_bottom = 20.0
+texture_margin_left = 64.0
+texture_margin_top = 16.0
+texture_margin_right = 64.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(0, 0, 144, 144)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvkec"]
 texture = ExtResource("5_sfk31")
+texture_margin_left = 64.0
+texture_margin_top = 16.0
+texture_margin_right = 64.0
+texture_margin_bottom = 16.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfk31"]
 bg_color = Color(1, 1, 1, 0)
-expand_margin_left = 75.0
-expand_margin_top = 5.0
-expand_margin_right = 75.0
-expand_margin_bottom = 5.0
 
 [sub_resource type="FontVariation" id="FontVariation_yj3pl"]
 base_font = ExtResource("4_yj3pl")
@@ -80,6 +75,13 @@ spacing_glyph = 2
 [node name="MainMenu" type="CanvasLayer" unique_id=126099254]
 script = ExtResource("1_oh28q")
 
+[node name="mainmenu_bglayer" type="CanvasLayer" parent="." unique_id=2018215751]
+layer = -1
+
+[node name="mainmenu_bgscene" parent="mainmenu_bglayer" unique_id=1130174545 instance=ExtResource("2_dulkr")]
+position = Vector2(-1472, -1086)
+scale = Vector2(3, 3)
+
 [node name="CanvasLayer" type="Control" parent="." unique_id=259918033]
 layout_mode = 3
 anchors_preset = 15
@@ -89,6 +91,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="mainmenu_bg" type="TextureRect" parent="CanvasLayer" unique_id=1248019338]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,6 +103,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="mainmenu_bg_texture" type="TextureRect" parent="CanvasLayer" unique_id=9457802]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,28 +114,26 @@ texture = SubResource("GradientTexture2D_me7c7")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="VBoxContainer" parent="CanvasLayer" unique_id=653797785]
+[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=653797785]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -98.0
-offset_top = 15.0
-offset_right = 94.0
-offset_bottom = 276.0
+offset_left = -139.5
+offset_top = 20.5
+offset_right = 139.5
+offset_bottom = 269.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 18
-alignment = 2
+alignment = 1
 
-[node name="btn_newgame" type="Button" parent="CanvasLayer/Control" unique_id=1676454157]
+[node name="btn_newgame" type="Button" parent="CanvasLayer/ButtonContainer" unique_id=1676454157]
 layout_mode = 2
-size_flags_horizontal = 5
-size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_sfk31")
+theme_override_colors/font_focus_color = Color(0.8156863, 0.81960785, 0.8117647, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_6u8tq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_sfk31")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dulkr")
@@ -139,12 +141,14 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vvkec")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sfk31")
 text = "NEW GAME"
 
-[node name="btn_continue" type="Button" parent="CanvasLayer/Control" unique_id=1870591479]
+[node name="btn_continue" type="Button" parent="CanvasLayer/ButtonContainer" unique_id=1870591479]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_sfk31")
+theme_override_colors/font_color = Color(0.8156863, 0.81960785, 0.8117647, 1)
+theme_override_colors/font_focus_color = Color(0.8156863, 0.81960785, 0.8117647, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_6u8tq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_sfk31")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dulkr")
@@ -152,15 +156,17 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vvkec")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sfk31")
 text = "CONTINUE"
 
-[node name="SaveSystem_UI" parent="CanvasLayer/Control/btn_continue" unique_id=1475881393 instance=ExtResource("3_473j0")]
+[node name="SaveSystem_UI" parent="CanvasLayer/ButtonContainer/btn_continue" unique_id=1475881393 instance=ExtResource("3_473j0")]
+unique_name_in_owner = true
 visible = false
 
-[node name="btn_quit" type="Button" parent="CanvasLayer/Control" unique_id=1762319346]
+[node name="btn_quit" type="Button" parent="CanvasLayer/ButtonContainer" unique_id=1762319346]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_sfk31")
+theme_override_colors/font_focus_color = Color(0.8156863, 0.81960785, 0.8117647, 1)
 theme_override_styles/normal = SubResource("StyleBoxTexture_6u8tq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_sfk31")
 theme_override_styles/hover = SubResource("StyleBoxTexture_dulkr")
@@ -168,33 +174,33 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vvkec")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sfk31")
 text = "QUIT"
 
-[node name="title" type="RichTextLabel" parent="CanvasLayer" unique_id=1418091984]
+[node name="game_title" type="RichTextLabel" parent="CanvasLayer" unique_id=1418091984]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -81.0
-offset_bottom = 19.0
+offset_top = -144.0
+offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_colors/default_color = Color(0.81650734, 0.8203125, 0.8139038, 1)
-theme_override_colors/font_shadow_color = Color(0.047058824, 0, 0, 0.72156864)
-theme_override_constants/shadow_outline_size = 0
+theme_override_colors/font_shadow_color = Color(0.047058824, 0, 0, 0.6862745)
 theme_override_constants/shadow_offset_x = -5
 theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/normal_font = SubResource("FontVariation_yj3pl")
 theme_override_font_sizes/normal_font_size = 80
 text = "Mansion Of Peculiarities"
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1445214324]
+[node name="main_menu_audioplayer" type="AudioStreamPlayer2D" parent="." unique_id=1445214324]
 stream = ExtResource("6_aiwrd")
 pitch_scale = 1.5
 
-[connection signal="pressed" from="CanvasLayer/Control/btn_newgame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/btn_continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="CanvasLayer/Control/btn_quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/btn_newgame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/btn_continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="CanvasLayer/ButtonContainer/btn_quit" to="." method="_on_quit_pressed"]

@@ -438,7 +438,7 @@ position = Vector2(298.00003, 222)
 scale = Vector2(1.25, 1.25)
 
 [node name="prop_chest3" parent="Y_Sort/_Props_Container/prop_crate-type3" unique_id=1376642921 instance=ExtResource("21_wcbeu")]
-position = Vector2(4.799965, -10.399986)
+position = Vector2(5.5999756, -12.800041)
 scale = Vector2(0.7199999, 0.7199999)
 
 [node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_crate-type3/prop_chest3" unique_id=1387302045 instance=ExtResource("14_2on68")]

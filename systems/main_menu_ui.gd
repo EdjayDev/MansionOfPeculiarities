@@ -2,17 +2,34 @@ extends CanvasLayer
 class_name MainMenu_UI
 
 const GAME = preload("uid://ceow7wr54ok86")
+const color_disabled : Color = Color(0.13, 0.03, 0.02, 1.0)
 
-@onready var save_system_ui: SaveSystem_UI = $CanvasLayer/Control/btn_continue/SaveSystem_UI
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var save_system_ui: SaveSystem_UI = %SaveSystem_UI
+@onready var main_menu_audioplayer: AudioStreamPlayer2D = $main_menu_audioplayer
+
+var has_saved_data : bool = false
+@onready var btn_continue: Button = $CanvasLayer/ButtonContainer/btn_continue
 
 func _ready() -> void:
-	audio_stream_player_2d.play()
+	main_menu_audioplayer.play()
 	save_system_ui.request_load_game.connect(_on_request_load_game)
+	print("Session State Player: ", SessionState.player)
+	print("Session State Player: ", SessionState.world)
+	print("Session State Player: ", SaveSystem.save_data)
+	for save_slot in SaveSystem.save_data:
+		if not SaveSystem.save_data[save_slot]["player"].is_empty():
+			has_saved_data = true
+	if !has_saved_data:
+		btn_continue.add_theme_color_override("font_color", color_disabled)
+		btn_continue.mouse_filter = Control.MOUSE_FILTER_IGNORE
+
 
 func _on_new_game_pressed() -> void:
 	SessionState.reset_session()
-	get_tree().change_scene_to_packed(GAME)
+	if GAME:
+		get_tree().change_scene_to_packed(GAME)
+	else:
+		push_error("[MAIN MENU] GAME NOT FOUND")
 
 func _on_continue_pressed() -> void:
 	save_system_ui.visible = true
@@ -30,6 +47,8 @@ func _on_request_load_game(slot: int, level_path: String) -> void:
 	# Save requested level in SessionState
 	SessionState.requested_level_path = level_path
 	SessionState.requested_spawn_id = SaveSystem.get_world_data(slot).get("spawn_id", "start")
-
 	# Load Game scene
-	get_tree().change_scene_to_packed(GAME)
+	if GAME:
+		get_tree().change_scene_to_packed(GAME)
+	else:
+		push_error("[MAIN MENU] GAME NOT FOUND")
