@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bn5bohknbfr1l" path="res://tilemap/tilemap_collection.tscn" id="2_ccivc"]
 [ext_resource type="AudioStream" uid="uid://ngmd7rac5b42" path="res://systems/sounds/sound_shadowcreeping.mp3" id="2_fcj4x"]
 [ext_resource type="Texture2D" uid="uid://dj5y0t8ea4tmg" path="res://tilemap/sprites/base_wallsfloors.png" id="2_yvejv"]
-[ext_resource type="PackedScene" uid="uid://cys8pmwhdccpy" path="res://props/prop_chandelier-type1_.tscn" id="4_1b4t7"]
+[ext_resource type="PackedScene" uid="uid://cys8pmwhdccpy" path="res://props/prop_light_chandelier-type1_.tscn" id="4_1b4t7"]
 [ext_resource type="PackedScene" uid="uid://yysbu2rfobc6" path="res://npc/Enemy_Shadow.tscn" id="7_bylbt"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="10_xdp8u"]
 [ext_resource type="PackedScene" uid="uid://c32kl132hi4oc" path="res://systems/systems_enemy/shadow_swarm.tscn" id="12_lylqo"]

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="10_6uykj"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="10_srs4d"]
 [ext_resource type="PackedScene" uid="uid://bwqyjmqu7tifm" path="res://props/prop_stairs-typefup.tscn" id="11_jbkt8"]
-[ext_resource type="PackedScene" uid="uid://cys8pmwhdccpy" path="res://props/prop_chandelier-type1_.tscn" id="11_jwwwh"]
+[ext_resource type="PackedScene" uid="uid://cys8pmwhdccpy" path="res://props/prop_light_chandelier-type1_.tscn" id="11_jwwwh"]
 [ext_resource type="PackedScene" uid="uid://cem1r6nmfdqvp" path="res://props/prop_decor-flower2.tscn" id="13_rwkst"]
 [ext_resource type="PackedScene" uid="uid://c32kl132hi4oc" path="res://systems/systems_enemy/shadow_swarm.tscn" id="18_evedv"]
 

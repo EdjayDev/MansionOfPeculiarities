@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cai0dqxtatgfb"]
 
-[ext_resource type="Texture2D" uid="uid://6sm31ac1wnj" path="res://props/sprites/dark_candles.png" id="1_1noe1"]
-[ext_resource type="Script" uid="uid://dtc2f0u8l4st5" path="res://props/scripts/prop_light.gd" id="1_oqrux"]
+[ext_resource type="Script" uid="uid://dtc2f0u8l4st5" path="res://props/scripts/prop_light.gd" id="1_b0puc"]
+[ext_resource type="Texture2D" uid="uid://6sm31ac1wnj" path="res://props/sprites/dark_candles.png" id="2_un3w7"]
 
 [sub_resource type="Gradient" id="Gradient_1k06y"]
 interpolation_mode = 2
@@ -119,12 +119,12 @@ _data = {
 &"idle_unlit": SubResource("Animation_x0b6v")
 }
 
-[node name="prop_light_candle-type1_" type="Node2D" unique_id=177282797]
-script = ExtResource("1_oqrux")
+[node name="prop_light_firepit-type1_" type="Node2D" unique_id=177282797]
+script = ExtResource("1_b0puc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=545729006]
 position = Vector2(0, -3.0000005)
-texture = ExtResource("1_1noe1")
+texture = ExtResource("2_un3w7")
 hframes = 3
 vframes = 10
 frame = 2

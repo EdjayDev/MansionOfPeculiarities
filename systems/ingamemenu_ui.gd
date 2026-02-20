@@ -41,13 +41,13 @@ func savedata_save_system_ui() -> void:
 	save_system_ui.visible = true
 	game_menu_panel.visible = false
 	# Set buttons correctly
-	save_system_ui.show_save_mode("Save")
+	save_system_ui.show_save_mode("SAVE GAME")
 
 func loaddata_save_system_ui() -> void:
 	save_system_ui.visible = true
 	game_menu_panel.visible = false
 	# Set buttons correctly
-	save_system_ui.show_load_mode("Load")
+	save_system_ui.show_load_mode("LOAD GAME")
 
 func _on_request_load_game(slot : int, level_path: String) -> void:
 	# Close menus

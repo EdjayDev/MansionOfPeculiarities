@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bivlscb68yong" path="res://systems/main_menu_ui.gd" id="1_oh28q"]
 [ext_resource type="PackedScene" uid="uid://nnsi3op2dh6" path="res://systems/mainmenu_bgscene.tscn" id="2_dulkr"]
+[ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="2_l88yp"]
 [ext_resource type="Texture2D" uid="uid://onvi88rotk4m" path="res://cinematics/assets/bg_mansion.png" id="2_rc1mk"]
 [ext_resource type="PackedScene" uid="uid://coxkk35x4355w" path="res://systems/savesystem_ui.tscn" id="3_473j0"]
 [ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="3_u4gf3"]
@@ -11,8 +12,22 @@
 [ext_resource type="AudioStream" uid="uid://c2hsg55vb76q8" path="res://systems/sounds/sound_main-menu.mp3" id="6_aiwrd"]
 [ext_resource type="Texture2D" uid="uid://blo8iokejjie8" path="res://systems/sprites/menu_buttons_ui_hover.png" id="6_vvkec"]
 
+[sub_resource type="Environment" id="Environment_l88yp"]
+resource_local_to_scene = true
+background_mode = 3
+tonemap_mode = 3
+tonemap_white = 6.0
+tonemap_agx_contrast = 1.43
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.25
+glow_bloom = 0.25
+glow_hdr_threshold = 0.9
+adjustment_enabled = true
+adjustment_contrast = 0.92
+
 [sub_resource type="Gradient" id="Gradient_6liry"]
-colors = PackedColorArray(0.09411765, 0.011764706, 0.011764706, 0.6862745, 0.74509805, 0.8862745, 0.93333334, 0.15686275)
+colors = PackedColorArray(0.09411765, 0.011764706, 0.011764706, 0.6862745, 0.74509805, 0.8862745, 0.93333334, 0.6862745)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_me7c7"]
 gradient = SubResource("Gradient_6liry")
@@ -72,17 +87,20 @@ variation_opentype = {
 }
 spacing_glyph = 2
 
-[node name="MainMenu" type="CanvasLayer" unique_id=126099254]
+[node name="MainMenu" type="Node2D" unique_id=1909002241]
 script = ExtResource("1_oh28q")
 
-[node name="mainmenu_bglayer" type="CanvasLayer" parent="." unique_id=2018215751]
-layer = -1
+[node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("2_l88yp")]
+environment = SubResource("Environment_l88yp")
 
-[node name="mainmenu_bgscene" parent="mainmenu_bglayer" unique_id=1130174545 instance=ExtResource("2_dulkr")]
-position = Vector2(-1472, -1086)
+[node name="mainmenu_bgscene" parent="." unique_id=1130174545 instance=ExtResource("2_dulkr")]
+position = Vector2(-1476, -906)
 scale = Vector2(3, 3)
 
-[node name="CanvasLayer" type="Control" parent="." unique_id=259918033]
+[node name="mainmenu_ui" type="CanvasLayer" parent="." unique_id=2018215751]
+layer = 0
+
+[node name="mainmenu_control" type="Control" parent="mainmenu_ui" unique_id=259918033]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +108,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="mainmenu_bg" type="TextureRect" parent="CanvasLayer" unique_id=1248019338]
+[node name="mainmenu_bg" type="TextureRect" parent="mainmenu_ui/mainmenu_control" unique_id=1248019338]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -102,7 +120,7 @@ texture = ExtResource("2_rc1mk")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="mainmenu_bg_texture" type="TextureRect" parent="CanvasLayer" unique_id=9457802]
+[node name="mainmenu_bg_texture" type="TextureRect" parent="mainmenu_ui/mainmenu_control" unique_id=9457802]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -114,7 +132,7 @@ texture = SubResource("GradientTexture2D_me7c7")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="ButtonContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=653797785]
+[node name="ButtonContainer" type="VBoxContainer" parent="mainmenu_ui/mainmenu_control" unique_id=653797785]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,7 +147,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="btn_newgame" type="Button" parent="CanvasLayer/ButtonContainer" unique_id=1676454157]
+[node name="btn_newgame" type="Button" parent="mainmenu_ui/mainmenu_control/ButtonContainer" unique_id=1676454157]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_sfk31")
@@ -141,7 +159,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vvkec")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sfk31")
 text = "NEW GAME"
 
-[node name="btn_continue" type="Button" parent="CanvasLayer/ButtonContainer" unique_id=1870591479]
+[node name="btn_continue" type="Button" parent="mainmenu_ui/mainmenu_control/ButtonContainer" unique_id=1870591479]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
@@ -156,11 +174,11 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vvkec")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sfk31")
 text = "CONTINUE"
 
-[node name="SaveSystem_UI" parent="CanvasLayer/ButtonContainer/btn_continue" unique_id=1475881393 instance=ExtResource("3_473j0")]
+[node name="SaveSystem_UI" parent="mainmenu_ui/mainmenu_control/ButtonContainer/btn_continue" unique_id=1475881393 instance=ExtResource("3_473j0")]
 unique_name_in_owner = true
 visible = false
 
-[node name="btn_quit" type="Button" parent="CanvasLayer/ButtonContainer" unique_id=1762319346]
+[node name="btn_quit" type="Button" parent="mainmenu_ui/mainmenu_control/ButtonContainer" unique_id=1762319346]
 layout_mode = 2
 size_flags_horizontal = 5
 size_flags_vertical = 4
@@ -174,13 +192,15 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_vvkec")
 theme_override_styles/focus = SubResource("StyleBoxFlat_sfk31")
 text = "QUIT"
 
-[node name="game_title" type="RichTextLabel" parent="CanvasLayer" unique_id=1418091984]
+[node name="game_title" type="RichTextLabel" parent="mainmenu_ui/mainmenu_control" unique_id=1418091984]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
+offset_left = -638.0
 offset_top = -144.0
+offset_right = 638.0
 offset_bottom = -44.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -201,6 +221,6 @@ vertical_alignment = 1
 stream = ExtResource("6_aiwrd")
 pitch_scale = 1.5
 
-[connection signal="pressed" from="CanvasLayer/ButtonContainer/btn_newgame" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/ButtonContainer/btn_continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="CanvasLayer/ButtonContainer/btn_quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="mainmenu_ui/mainmenu_control/ButtonContainer/btn_newgame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="mainmenu_ui/mainmenu_control/ButtonContainer/btn_continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="mainmenu_ui/mainmenu_control/ButtonContainer/btn_quit" to="." method="_on_quit_pressed"]

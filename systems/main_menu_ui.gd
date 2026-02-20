@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node2D
 class_name MainMenu_UI
 
 const GAME = preload("uid://ceow7wr54ok86")
@@ -8,7 +8,7 @@ const color_disabled : Color = Color(0.13, 0.03, 0.02, 1.0)
 @onready var main_menu_audioplayer: AudioStreamPlayer2D = $main_menu_audioplayer
 
 var has_saved_data : bool = false
-@onready var btn_continue: Button = $CanvasLayer/ButtonContainer/btn_continue
+@onready var btn_continue: Button = $mainmenu_ui/mainmenu_control/ButtonContainer/btn_continue
 
 func _ready() -> void:
 	main_menu_audioplayer.play()

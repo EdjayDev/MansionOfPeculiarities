@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bfayks44dp6ns"]
 
 [sub_resource type="Environment" id="Environment_ctjle"]
+resource_local_to_scene = true
 background_mode = 3
 tonemap_mode = 3
 tonemap_white = 6.0

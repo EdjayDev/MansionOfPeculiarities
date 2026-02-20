@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bn5bohknbfr1l" path="res://tilemap/tilemap_collection.tscn" id="2_bmtjl"]
 [ext_resource type="PackedScene" uid="uid://niwxsx00utya" path="res://npc/Neutral_Ghost.tscn" id="3_mxb8i"]
 [ext_resource type="PackedScene" uid="uid://0gymvt6vwfwk" path="res://npc/Enemy_EyeWatcher.tscn" id="4_ov8uo"]
-[ext_resource type="PackedScene" uid="uid://cys8pmwhdccpy" path="res://props/prop_chandelier-type1_.tscn" id="5_2vql0"]
+[ext_resource type="PackedScene" uid="uid://cys8pmwhdccpy" path="res://props/prop_light_chandelier-type1_.tscn" id="5_2vql0"]
 [ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/_props_container.tscn" id="5_acd1f"]
 [ext_resource type="PackedScene" uid="uid://d07ygl05j8j5e" path="res://props/prop_bookshelves-type7_.tscn" id="9_lnp32"]
 [ext_resource type="PackedScene" uid="uid://bt3l1fy4jh47a" path="res://props/prop_bookshelves-type5_.tscn" id="10_s6ccp"]

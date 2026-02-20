@@ -1,31 +1,68 @@
-[gd_scene load_steps=15 format=3 uid="uid://coxkk35x4355w"]
+[gd_scene format=3 uid="uid://coxkk35x4355w"]
 
 [ext_resource type="Script" uid="uid://berlifd7e6dis" path="res://systems/save_system_ui.gd" id="1_bonas"]
+[ext_resource type="Texture2D" uid="uid://ll68hmti0pg6" path="res://systems/sprites/icon_return.png" id="2_4riq3"]
+[ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="2_77msc"]
+[ext_resource type="Texture2D" uid="uid://bvf7jwtnc2wr3" path="res://systems/sprites/icon_return_hover.png" id="3_77msc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fgurr"]
-bg_color = Color(0.1640625, 0.086517334, 0.086517334, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvb0g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lw47"]
 bg_color = Color(0.017791748, 0.03401229, 0.20703125, 0)
 
-[sub_resource type="FontFile" id="FontFile_bonas"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/48/0/ascent = 0.0
-cache/0/48/0/descent = 0.0
-cache/0/48/0/underline_position = 0.0
-cache/0/48/0/underline_thickness = 0.0
-cache/0/48/0/scale = 1.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
+[sub_resource type="FontVariation" id="FontVariation_77msc"]
+base_font = ExtResource("2_77msc")
+variation_opentype = {
+1869640570: 32,
+2003265652: 700
+}
+
+[sub_resource type="Theme" id="Theme_nneva"]
+default_font = SubResource("FontVariation_77msc")
+default_font_size = 36
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77msc"]
+texture = ExtResource("2_4riq3")
+region_rect = Rect2(81, 34, 522, 176)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nwexd"]
+texture = ExtResource("2_4riq3")
+texture_margin_left = 25.0
+texture_margin_top = 15.0
+texture_margin_right = 25.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(16, 16, 96, 96)
+modulate_color = Color(0.421875, 0.421875, 0.421875, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nneva"]
+texture = ExtResource("3_77msc")
+region_rect = Rect2(0, 0, 2543, 842)
+modulate_color = Color(0.89453125, 0.30400085, 0.30400085, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4riq3"]
+load_path = "res://.godot/imported/icon_return.png-18938673a323bc84595d6b2e5260e424.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cpw54"]
+texture = SubResource("CompressedTexture2D_4riq3")
+texture_margin_left = 25.0
+texture_margin_top = 15.0
+texture_margin_right = 25.0
+texture_margin_bottom = 15.0
+region_rect = Rect2(16, 16, 96, 96)
+
+[sub_resource type="FontVariation" id="FontVariation_nneva"]
+base_font = ExtResource("2_77msc")
+variation_opentype = {
+1869640570: 14,
+2003265652: 800
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_6liry"]
-font = SubResource("FontFile_bonas")
-font_size = 48
+font = SubResource("FontVariation_nneva")
+font_size = 64
+font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
+shadow_color = Color(0.4797821, 0.540797, 0.55078125, 1)
+shadow_offset = Vector2(-8, 8)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cpw54"]
 bg_color = Color(1, 1, 1, 0)
@@ -35,10 +72,6 @@ bg_color = Color(0.11372549, 0.047058824, 0.047058824, 0.5294118)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4riq3"]
 bg_color = Color(0.16796875, 0.045928955, 0.045928955, 1)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_veaxa"]
 bg_color = Color(0.26171875, 0.03578186, 0.03578186, 1)
@@ -63,22 +96,19 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvb0g"]
-bg_color = Color(1, 1, 1, 1)
-
-[node name="SaveSystem_UI" type="CanvasLayer"]
+[node name="SaveSystem_UI" type="CanvasLayer" unique_id=902554194]
 layer = 3
 script = ExtResource("1_bonas")
 
-[node name="SaveSystemUI_Panel" type="Panel" parent="."]
+[node name="SaveSystemUI_Panel" type="Panel" parent="." unique_id=330409904]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_fgurr")
+theme_override_styles/panel = SubResource("StyleBoxFlat_jvb0g")
 
-[node name="TextureRect" type="TextureRect" parent="SaveSystemUI_Panel"]
+[node name="TextureRect" type="TextureRect" parent="SaveSystemUI_Panel" unique_id=270713970]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,7 +117,7 @@ grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 3
 
-[node name="SaveSystemUI_HeaderPanel" type="Panel" parent="SaveSystemUI_Panel"]
+[node name="SaveSystemUI_HeaderPanel" type="Panel" parent="SaveSystemUI_Panel" unique_id=1305584250]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -95,7 +125,28 @@ offset_bottom = 99.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6lw47")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="SaveSystemUI_Panel/SaveSystemUI_HeaderPanel"]
+[node name="btn_return" type="Button" parent="SaveSystemUI_Panel/SaveSystemUI_HeaderPanel" unique_id=122675909]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -33.5
+offset_right = 313.0
+offset_bottom = 55.5
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_nneva")
+theme_override_colors/font_color = Color(0.27058825, 0.05490196, 0.039215688, 1)
+theme_override_colors/font_pressed_color = Color(0.40784314, 0.08627451, 0.05882353, 1)
+theme_override_colors/font_hover_color = Color(0.92578125, 0.91493225, 0.91493225, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_77msc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nwexd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_nneva")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxTexture_cpw54")
+text = "RETURN"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="SaveSystemUI_Panel/SaveSystemUI_HeaderPanel" unique_id=791171031]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -107,25 +158,22 @@ text = "Inventory"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="label_title" type="Label" parent="SaveSystemUI_Panel/SaveSystemUI_HeaderPanel"]
+[node name="label_title" type="Label" parent="SaveSystemUI_Panel/SaveSystemUI_HeaderPanel" unique_id=1358899601]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -66.5
-offset_top = -33.5
-offset_right = 66.5
-offset_bottom = 33.5
+anchor_bottom = 1.0
+offset_left = -192.5
+offset_right = 192.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Load"
+text = "LOAD GAME"
 label_settings = SubResource("LabelSettings_6liry")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="Panel" parent="SaveSystemUI_Panel"]
+[node name="VBoxContainer" type="Panel" parent="SaveSystemUI_Panel" unique_id=497331887]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -138,7 +186,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_cpw54")
 
-[node name="Panel-save1" type="Panel" parent="SaveSystemUI_Panel/VBoxContainer"]
+[node name="Panel-save1" type="Panel" parent="SaveSystemUI_Panel/VBoxContainer" unique_id=1596033184]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -149,7 +197,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nwexd")
 
-[node name="btn_load" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save1"]
+[node name="btn_load" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save1" unique_id=1125039351]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -166,7 +214,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4riq3")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
 text = "Load"
 
-[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save1"]
+[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save1" unique_id=2119119572]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -183,20 +231,20 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_4x3yk")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
 text = "Save"
 
-[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save1"]
+[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save1" unique_id=122648905]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 7.0
 offset_right = 136.0
 offset_bottom = 57.0
 
-[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save1"]
+[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save1" unique_id=1695682488]
 layout_mode = 1
 offset_left = 1111.0
 offset_right = 1240.0
 offset_bottom = 50.0
 
-[node name="Panel-save2" type="Panel" parent="SaveSystemUI_Panel/VBoxContainer"]
+[node name="Panel-save2" type="Panel" parent="SaveSystemUI_Panel/VBoxContainer" unique_id=1044525295]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -207,7 +255,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nwexd")
 
-[node name="btn_load" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save2"]
+[node name="btn_load" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save2" unique_id=341088257]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -224,7 +272,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_77msc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
 text = "Load"
 
-[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save2"]
+[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save2" unique_id=89512069]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -241,19 +289,19 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0gber")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
 text = "Save"
 
-[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save2"]
+[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save2" unique_id=424423891]
 layout_mode = 0
 offset_left = 7.0
 offset_right = 144.0
 offset_bottom = 73.0
 
-[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save2"]
+[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save2" unique_id=983006240]
 layout_mode = 1
 offset_left = 1111.0
 offset_right = 1240.0
 offset_bottom = 50.0
 
-[node name="Panel-save3" type="Panel" parent="SaveSystemUI_Panel/VBoxContainer"]
+[node name="Panel-save3" type="Panel" parent="SaveSystemUI_Panel/VBoxContainer" unique_id=1858591793]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -264,7 +312,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_nwexd")
 
-[node name="btn_load" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save3"]
+[node name="btn_load" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save3" unique_id=1185921492]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -281,7 +329,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nneva")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
 text = "Load"
 
-[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save3"]
+[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save3" unique_id=1474625780]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -298,24 +346,14 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0gber")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
 text = "Save"
 
-[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save3"]
+[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save3" unique_id=85848781]
 layout_mode = 0
 offset_left = 7.0
 offset_right = 170.0
 offset_bottom = 73.0
 
-[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save3"]
+[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/Panel-save3" unique_id=268464680]
 layout_mode = 0
 offset_left = 1077.0
 offset_right = 1240.0
 offset_bottom = 73.0
-
-[node name="btn_return" type="Button" parent="SaveSystemUI_Panel"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 23.0
-offset_right = 157.0
-offset_bottom = 63.0
-theme_override_colors/font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_jvb0g")
-text = "Return"

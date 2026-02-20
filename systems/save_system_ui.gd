@@ -9,7 +9,7 @@ signal request_load_game(slot: int, level_path: String)
 @onready var panel_save_1: Panel = $"SaveSystemUI_Panel/VBoxContainer/Panel-save1"
 @onready var panel_save_2: Panel = $"SaveSystemUI_Panel/VBoxContainer/Panel-save2"
 @onready var panel_save_3: Panel = $"SaveSystemUI_Panel/VBoxContainer/Panel-save3"
-@onready var btn_return: Button = $SaveSystemUI_Panel/btn_return
+@onready var btn_return: Button = $SaveSystemUI_Panel/SaveSystemUI_HeaderPanel/btn_return
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

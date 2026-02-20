@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://duogjtpjjja7w"]
+
+[ext_resource type="Script" uid="uid://dtc2f0u8l4st5" path="res://props/scripts/prop_light.gd" id="1_snc2f"]
+[ext_resource type="Texture2D" uid="uid://b8umh4va14m6g" path="res://props/sprites/dark_firepit.png" id="2_snc2f"]
+
+[sub_resource type="Gradient" id="Gradient_1k06y"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.114285715, 0.26190478, 0.44761905, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.94140625, 0.9287653, 0.739151, 1, 0.90234375, 0.76686, 0.47937012, 1, 0.35459602, 0.2900038, 0.1603107, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m7540"]
+gradient = SubResource("Gradient_1k06y")
+width = 128
+height = 128
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3gwa"]
+size = Vector2(6, 3.8219366)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1k06y"]
+size = Vector2(6, 4)
+
+[sub_resource type="Animation" id="Animation_m7540"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+
+[sub_resource type="Animation" id="Animation_oqrux"]
+resource_name = "idle_fading"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [23, 26, 29, 20]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/PointLight2D:energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.40664855, 0.7747356, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.5, 0.4, 0.25, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_1k06y"]
+resource_name = "idle_light"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667, 0.8666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 4, 8, 12, 16, 20]
+}
+
+[sub_resource type="Animation" id="Animation_x0b6v"]
+resource_name = "idle_unlit"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m7540"]
+_data = {
+&"RESET": SubResource("Animation_m7540"),
+&"idle_fading": SubResource("Animation_oqrux"),
+&"idle_light": SubResource("Animation_1k06y"),
+&"idle_unlit": SubResource("Animation_x0b6v")
+}
+
+[node name="prop_light_firepit-type1_" type="Node2D" unique_id=177282797]
+script = ExtResource("1_snc2f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=545729006]
+position = Vector2(0, -3.0000005)
+texture = ExtResource("2_snc2f")
+hframes = 4
+vframes = 6
+region_rect = Rect2(40, 134, 14, 14)
+
+[node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=2073611742]
+position = Vector2(0, -0.9999995)
+energy = 0.5
+shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 2
+shadow_filter_smooth = 1.0
+texture = SubResource("GradientTexture2D_m7540")
+texture_scale = 0.75
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=858318792]
+position = Vector2(0, -8)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=688394127]
+position = Vector2(0, 5)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_m3gwa")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=554688813]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2111964478]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_1k06y")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=110546399]
+libraries/ = SubResource("AnimationLibrary_m7540")
+autoplay = &"idle_light"

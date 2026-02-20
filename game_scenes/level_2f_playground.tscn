@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="10_fnn53"]
 [ext_resource type="PackedScene" uid="uid://d37uv7gagv7cv" path="res://props/prop_door-type1_.tscn" id="10_rm8gy"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="11_afll3"]
-[ext_resource type="PackedScene" uid="uid://cai0dqxtatgfb" path="res://props/prop_candle-type1_.tscn" id="11_rm8gy"]
+[ext_resource type="PackedScene" uid="uid://cai0dqxtatgfb" path="res://props/prop_light_candle-type1_.tscn" id="11_rm8gy"]
 [ext_resource type="PackedScene" uid="uid://bpu47uhwo0ou1" path="res://props/prop_decor-flower1.tscn" id="12_lg8ad"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
