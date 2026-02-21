@@ -310,19 +310,6 @@ func execute_choice_actions(selected_choice: Dictionary) -> void:
 		if has_method(func_name):
 			callv(func_name, parameter_value)
 	
-func set_inventory_settings(stop_adding: bool, is_difficulty_based: bool, increment: int, item_id: String, item_name: String, amount: int) -> void:
-	self.stop_adding_item = stop_adding
-	self.difficulty_based = is_difficulty_based
-	self.item_increment = increment
-	self.itemid_to_add = item_id
-	self.item_to_add = item_name
-	self.itemamount_to_add = amount
-
-func set_interaction_choices_state(value : bool):
-	interaction_choices_successful = value
-	if value:
-		SessionState.set_scene_data(prop_required_data, true)
-		
 func apply_inventory_settings()->void:
 	if not check_requirement_completed:
 		return
@@ -336,7 +323,11 @@ func apply_inventory_settings()->void:
 	if stop_adding_item:
 		itemid_to_add = ""
 		item_to_add = ""
-		
+
+
+##########################################		
+#Interaction_Options Callable Functions
+##########################################
 func show_riddle_ui(riddle_text : String, answer : String)->void:
 	riddle_ui.riddle.text = riddle_text
 	riddle_ui.riddle_answer_reference = answer
@@ -345,4 +336,17 @@ func show_riddle_ui(riddle_text : String, answer : String)->void:
 
 func set_prop_game_over(game_over_text : String, game_over_flavortext: String)->void:
 	Game.manager.set_game_over(game_over_text, game_over_flavortext)
-	
+
+func set_inventory_settings(stop_adding: bool, is_difficulty_based: bool, increment: int, item_id: String, item_name: String, amount: int) -> void:
+	self.stop_adding_item = stop_adding
+	self.difficulty_based = is_difficulty_based
+	self.item_increment = increment
+	self.itemid_to_add = item_id
+	self.item_to_add = item_name
+	self.itemamount_to_add = amount
+
+func set_interaction_choices_state(value : bool):
+	interaction_choices_successful = value
+	if value:
+		SessionState.set_scene_data(prop_required_data, true)
+		

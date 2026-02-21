@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c5ndr8yq03rx0" path="res://props/prop_light_candle-type2_.tscn" id="22_3yakr"]
 [ext_resource type="PackedScene" uid="uid://bwqyjmqu7tifm" path="res://props/prop_stairs-typefup.tscn" id="23_w4p4l"]
 [ext_resource type="PackedScene" uid="uid://uyih1hg4p2i0" path="res://props/prop_crate-type2.tscn" id="24_ugo8a"]
-[ext_resource type="PackedScene" uid="uid://ccbb7vhhha0xd" path="res://props/prop_tablelong.tscn" id="25_v6w40"]
+[ext_resource type="PackedScene" uid="uid://ccbb7vhhha0xd" path="res://props/prop_tablelong_horizontal.tscn" id="25_v6w40"]
 [ext_resource type="PackedScene" uid="uid://bg8bsyarxthvf" path="res://props/prop_decor-vase.tscn" id="26_2hqvr"]
 [ext_resource type="PackedScene" uid="uid://ho8jiscduenw" path="res://props/prop_platedvege-type1_.tscn" id="27_h538l"]
 [ext_resource type="PackedScene" uid="uid://nhfu44lyielq" path="res://props/prop_platedvege-type2_.tscn" id="28_m0td2"]

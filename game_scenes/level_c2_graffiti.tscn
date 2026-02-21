@@ -130,6 +130,19 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90000004, 0.2)
 metadata/_snap_enabled = true
 
+[sub_resource type="Environment" id="Environment_gmyf5"]
+resource_local_to_scene = true
+background_mode = 3
+tonemap_mode = 3
+tonemap_white = 6.0
+tonemap_agx_contrast = 1.43
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.25
+glow_bloom = 0.25
+glow_hdr_threshold = 0.9
+adjustment_saturation = 0.0
+
 [node name="Level_C2_Graffiti" type="Node2D" unique_id=1333408881]
 script = ExtResource("1_t5s24")
 
@@ -306,3 +319,4 @@ position = Vector2(-132, -356)
 position = Vector2(-147, -356)
 
 [node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("7_gmyf5")]
+environment = SubResource("Environment_gmyf5")
