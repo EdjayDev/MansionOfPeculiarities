@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ll68hmti0pg6" path="res://systems/sprites/icon_return.png" id="2_4riq3"]
 [ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="2_77msc"]
 [ext_resource type="Texture2D" uid="uid://c83a7lhs3tbkw" path="res://systems/sprites/savemenu_texture.png" id="2_nwexd"]
-[ext_resource type="Texture2D" uid="uid://bo42l2aww4yky" path="res://systems/sprites/icon_return_pressed.png" id="4_cpw54"]
 [ext_resource type="Texture2D" uid="uid://bvf7jwtnc2wr3" path="res://systems/sprites/icon_return_hover.png" id="4_nneva"]
 [ext_resource type="FontFile" uid="uid://dxk7xhth31dks" path="res://systems/fonts/Cinzel-VariableFont_wght.ttf" id="7_4x3yk"]
 [ext_resource type="Texture2D" uid="uid://c2qb4dlhh64t2" path="res://systems/sprites/saveslot_texture.png" id="8_0gber"]
@@ -30,16 +29,21 @@ default_font = SubResource("FontVariation_77msc")
 default_font_size = 24
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77msc"]
+content_margin_left = 25.0
 texture = ExtResource("2_4riq3")
-region_rect = Rect2(125, 94, 1044, 378)
+region_rect = Rect2(4, 5, 7575, 2881)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0gber"]
+load_path = "res://.godot/imported/icon_return_pressed.png-287cf85670b1aa2056f7b2825ef5d126.ctex"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nneva"]
-texture = ExtResource("4_cpw54")
-region_rect = Rect2(0, 0, 1044, 378)
+texture = SubResource("CompressedTexture2D_0gber")
+region_rect = Rect2(4, 5, 7575, 2881)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cpw54"]
+content_margin_left = 25.0
 texture = ExtResource("4_nneva")
-region_rect = Rect2(125, 93, 1044, 379)
+region_rect = Rect2(33, 34, 7546, 2852)
 
 [sub_resource type="FontVariation" id="FontVariation_nneva"]
 base_font = ExtResource("7_4x3yk")
@@ -130,9 +134,9 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 64.0
-offset_top = -15.5
+offset_top = -8.5
 offset_right = 251.0
-offset_bottom = 37.5
+offset_bottom = 44.5
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_nneva")
@@ -206,10 +210,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -97.5
-offset_top = -16.0
-offset_right = 98.5
-offset_bottom = 26.0
+offset_left = -120.5
+offset_top = -35.0
+offset_right = 122.5
+offset_bottom = 33.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_nb0b6")
@@ -272,10 +276,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -98.5
-offset_top = -24.0
-offset_right = 98.5
-offset_bottom = 20.0
+offset_left = -121.5
+offset_top = -36.0
+offset_right = 121.5
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_nb0b6")
@@ -337,10 +341,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -98.5
-offset_top = -23.0
-offset_right = 98.5
-offset_bottom = 21.0
+offset_left = -120.5
+offset_top = -28.0
+offset_right = 122.5
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_nb0b6")
