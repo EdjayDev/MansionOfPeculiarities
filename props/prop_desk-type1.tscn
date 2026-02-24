@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://biquwh0pdhvis"]
+[gd_scene format=3 uid="uid://biquwh0pdhvis"]
 
-[ext_resource type="Texture2D" uid="uid://br6tvtdjkmllk" path="res://props/sprites/base_interiors1.png" id="1_x2fwr"]
+[ext_resource type="Texture2D" uid="uid://r7s1tv3f3rse" path="res://props/sprites/base_interiors1.png" id="1_x2fwr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
 size = Vector2(24, 13.376736)

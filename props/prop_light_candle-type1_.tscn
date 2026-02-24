@@ -119,7 +119,7 @@ _data = {
 &"idle_unlit": SubResource("Animation_x0b6v")
 }
 
-[node name="prop_light_firepit-type1_" type="Node2D" unique_id=177282797]
+[node name="prop_light_candle-type1_" type="Node2D" unique_id=177282797]
 script = ExtResource("1_b0puc")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=545729006]

@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://qywlklis3fnd" path="res://props/prop_bookshelves-type6_.tscn" id="16_nunnj"]
 [ext_resource type="PackedScene" uid="uid://bt3l1fy4jh47a" path="res://props/prop_bookshelves-type5_.tscn" id="17_nunnj"]
 [ext_resource type="PackedScene" uid="uid://dqc7qqqwfhoyb" path="res://props/prop_spicesshelves-type8_.tscn" id="19_ilbsh"]
+[ext_resource type="PackedScene" uid="uid://d37uv7gagv7cv" path="res://props/prop_door-type1_.tscn" id="20_j6q4g"]
 [ext_resource type="PackedScene" uid="uid://8a65kn8c44im" path="res://props/prop_spicesshelves-type5_.tscn" id="20_lqbgp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
@@ -147,7 +148,7 @@ tile_map_data = PackedByteArray("AAD8/+z/AQAFAAoAAAD8/+3/AQAFAAoAAAD7/+3/AQAFAAk
 
 [node name="underlaymain_tilelayer" parent="." unique_id=1035441607 instance=ExtResource("2_occvt")]
 position = Vector2(-1.52588e-05, 3.8147e-06)
-tile_map_data = PackedByteArray("AAD5/+D/AQABAAMAAAD5/+H/AQABAAQAAAD6/+D/AQABAAkAAAD6/+H/AQABAAoAAAD7/+D/AQACAAkAAAD7/+H/AQACAAoAAAD8/+D/AQABAAkAAAD8/+H/AQABAAMAAAD9/+D/AQABAAkAAAD9/+H/AQABAAMAAAD+/+D/AQACAAkAAAD+/+H/AQABAAMAAAD//+D/AQABAAMAAAD//+H/AQABAAQAAAAAAOD/AQABAAMAAAAAAOH/AQABAAQAAAABAOD/AQABAAkAAAABAOH/AQABAAMAAAACAOD/AQACAAkAAAACAOH/AQABAAMAAAADAOD/AQABAAMAAAADAOH/AQABAAMAAAAEAOD/AQABAAkAAAAEAOH/AQABAAoAAAAFAOD/AQACAAkAAAAFAOH/AQACAAoAAAAGAOD/AQABAAMAAAAGAOH/AQABAAQAAAAHAOD/AQABAAkAAAAHAOH/AQABAAoAAAAIAOD/AQAIAAYAAAAIAOH/AQAIAAcAAAAJAOD/AQAJAAYAAAAJAOH/AQAJAAcAAAD4/+D/AQABAAMAAAD4/+H/AQABAAQAAAD3/+D/AQAJAAYAAAD3/+H/AQAJAAcAAAD2/+D/AQAIAAYAAAD2/+H/AQAIAAcAAAD//+X/AgADABIAAAD//+b/AgADABMAAAAAAOX/AgAEABIAAAAAAOb/AgAFABIAAAD+/+T/AgADABEAAAD+/+X/AgADABMAAAD+/+b/AgAFABIAAAD//+T/AgAEABEAAAAAAOT/AgAEABEAAAABAOT/AgAFABEAAAABAOX/AgAFABIAAAABAOb/AgAEABMAAAD+/+f/AgADABQAAAD//+f/AgAEABQAAAAAAOf/AgAEABQAAAABAOf/AgAFABQAAAAAAOj/AgAEABUAAAD//+j/AgAEABUAAAABAOj/AgAFABUAAAD+/+j/AgADABUAAAACAOf/AgAGABQAAAADAOf/AgAHABQAAAD9/+f/AgACABQAAAD8/+X/AgABABIAAAD8/+b/AgABABMAAAD9/+X/AgACABIAAAD9/+b/AgACABMAAAACAOX/AgAGABIAAAACAOb/AgAGABMAAAADAOX/AgAHABIAAAADAOb/AgAHABMAAAD//+P/AQABAAQAAAAAAOP/AQABAAQAAAD+/+P/AgADABAAAAABAOP/AgAFABAAAAACAOT/AgAGABEAAAADAOT/AgAHABEAAAD8/+T/AgABABEAAAD9/+P/AgACABAAAAD9/+T/AgACABEAAAD8/+L/AQABAAQAAAD9/+L/AQABAAQAAAD+/+L/AQABAAQAAAABAOL/AQABAAQAAAACAOL/AQABAAQAAAADAOL/AQABAAQAAAD//+L/AQABAAMAAAAAAOL/AQABAAMAAAAGAPD/AQAEAAQAAAA=")
+tile_map_data = PackedByteArray("AAD5/+D/AQABAAMAAAD5/+H/AQABAAQAAAD6/+D/AQABAAkAAAD6/+H/AQABAAoAAAD7/+D/AQACAAkAAAD7/+H/AQACAAoAAAD8/+D/AQABAAkAAAD8/+H/AQABAAMAAAD9/+D/AQABAAkAAAD9/+H/AQABAAMAAAD+/+D/AQACAAkAAAD+/+H/AQABAAMAAAD//+D/AQABAAMAAAD//+H/AQABAAQAAAAAAOD/AQABAAMAAAAAAOH/AQABAAQAAAABAOD/AQABAAkAAAABAOH/AQABAAMAAAACAOD/AQACAAkAAAACAOH/AQABAAMAAAADAOD/AQABAAMAAAADAOH/AQABAAMAAAAEAOD/AQABAAkAAAAEAOH/AQABAAoAAAAFAOD/AQACAAkAAAAFAOH/AQACAAoAAAAGAOD/AQABAAMAAAAGAOH/AQABAAQAAAAHAOD/AQABAAkAAAAHAOH/AQABAAoAAAAIAOD/AQAIAAYAAAAIAOH/AQAIAAcAAAAJAOD/AQAJAAYAAAAJAOH/AQAJAAcAAAD4/+D/AQABAAMAAAD4/+H/AQABAAQAAAD//+X/AgADABIAAAD//+b/AgADABMAAAAAAOX/AgAEABIAAAAAAOb/AgAFABIAAAD+/+T/AgADABEAAAD+/+X/AgADABMAAAD+/+b/AgAFABIAAAD//+T/AgAEABEAAAAAAOT/AgAEABEAAAABAOT/AgAFABEAAAABAOX/AgAFABIAAAABAOb/AgAEABMAAAD+/+f/AgADABQAAAD//+f/AgAEABQAAAAAAOf/AgAEABQAAAABAOf/AgAFABQAAAAAAOj/AgAEABUAAAD//+j/AgAEABUAAAABAOj/AgAFABUAAAD+/+j/AgADABUAAAACAOf/AgAGABQAAAADAOf/AgAHABQAAAD9/+f/AgACABQAAAD8/+X/AgABABIAAAD8/+b/AgABABMAAAD9/+X/AgACABIAAAD9/+b/AgACABMAAAACAOX/AgAGABIAAAACAOb/AgAGABMAAAADAOX/AgAHABIAAAADAOb/AgAHABMAAAD//+P/AQABAAQAAAAAAOP/AQABAAQAAAD+/+P/AgADABAAAAABAOP/AgAFABAAAAACAOT/AgAGABEAAAADAOT/AgAHABEAAAD8/+T/AgABABEAAAD9/+P/AgACABAAAAD9/+T/AgACABEAAAD8/+L/AQABAAQAAAD9/+L/AQABAAQAAAD+/+L/AQABAAQAAAABAOL/AQABAAQAAAACAOL/AQABAAQAAAADAOL/AQABAAQAAAD//+L/AQABAAMAAAAAAOL/AQABAAMAAAAGAPD/AQAEAAQAAAA=")
 
 [node name="overlaymain_tilelayer" parent="." unique_id=787288660 instance=ExtResource("2_occvt")]
 position = Vector2(-1.52588e-05, 3.8147e-06)
@@ -187,7 +188,8 @@ scale = Vector2(1.5, 1.5)
 prop_interact_dialogue = ["A soft cushy bed."]
 interaction_options = Array[Dictionary]([{
 "actions": [{
-"name": "set_prop_game_over"
+"name": "set_prop_game_over",
+"set_value": ["Bedridden", "Sleep took you kindly. Permanently"]
 }],
 "choice": "Sleep in the bed",
 "choice_id": "sleep"
@@ -247,6 +249,21 @@ position = Vector2(-47, -352)
 [node name="prop_crate_type3" parent="Y_Sort/Props" unique_id=492023214 instance=ExtResource("8_1jvkc")]
 position = Vector2(-147, -420)
 
+[node name="prop_door_type1_" parent="Y_Sort/Props" unique_id=1272782782 instance=ExtResource("20_j6q4g")]
+position = Vector2(-144, -480)
+
+[node name="SceneTransitioner_ToRandom_1" parent="Y_Sort/Props/prop_door_type1_" unique_id=1705991268 instance=ExtResource("10_ilbsh")]
+position = Vector2(-1.0000153, -5)
+rotation = 1.5707964
+scale = Vector2(0.15310983, 0.90505934)
+load_level = "res://game_scenes/level_2f_playground.tscn"
+randomize_level = true
+random_level_list = Array[String](["res://game_scenes/level_c2_playroom.tscn"])
+spawn_marker_name = "Player_fromRandom"
+companion_spawn_marker = ["Companion_fromRandom"]
+
+[node name="PropInteractItem_Component" parent="Y_Sort/Props/prop_door_type1_" unique_id=1535553356 instance=ExtResource("8_x6ryy")]
+
 [node name="Lights" type="Node2D" parent="." unique_id=1943081159]
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="Lights" unique_id=315658210]
@@ -277,16 +294,6 @@ randomize_level = true
 random_level_list = Array[String](["res://game_scenes/level_c2_classroom.tscn", "res://game_scenes/level_c2_emptyroom.tscn"])
 spawn_marker_name = "Player_fromC2Classroom"
 companion_spawn_marker = ["Companion_fromC2Classroom"]
-
-[node name="SceneTransitioner_ToRandom_1" parent="." unique_id=1705991268 instance=ExtResource("10_ilbsh")]
-position = Vector2(-145.00002, -485)
-rotation = 1.5707964
-scale = Vector2(0.15310983, 0.90505934)
-load_level = "res://game_scenes/level_2f_playground.tscn"
-randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_emptyroom.tscn", "res://game_scenes/level_c2_classroom.tscn", "res://game_scenes/level_c2_flowers.tscn", "res://game_scenes/level_c2_flowers.tscn"])
-spawn_marker_name = "Player_fromRandom"
-companion_spawn_marker = ["Companion_fromRandom"]
 
 [node name="SceneTransitioner_ToRandom_2" parent="." unique_id=207475474 instance=ExtResource("10_ilbsh")]
 position = Vector2(143, -487)

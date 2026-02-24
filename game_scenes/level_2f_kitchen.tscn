@@ -597,6 +597,7 @@ position = Vector2(295, -1005)
 prop_interact_dialogue = ["While inspecting you saw a glint from an item", "You found a Silver Key!"]
 itemid_to_add = "item_silverkey"
 item_to_add = "Silver Key"
+prop_required_data = "2fkitchen_silverkey"
 
 [node name="prop_spicesshelves-type19" parent="Y_Sort/_Props_Container" unique_id=294511577 instance=ExtResource("16_bedux")]
 position = Vector2(376, -999)

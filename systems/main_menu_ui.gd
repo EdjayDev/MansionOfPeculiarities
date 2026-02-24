@@ -13,9 +13,6 @@ var has_saved_data : bool = false
 func _ready() -> void:
 	main_menu_audioplayer.play()
 	save_system_ui.request_load_game.connect(_on_request_load_game)
-	print("Session State Player: ", SessionState.player)
-	print("Session State Player: ", SessionState.world)
-	print("Session State Player: ", SaveSystem.save_data)
 	for save_slot in SaveSystem.save_data:
 		if not SaveSystem.save_data[save_slot]["player"].is_empty():
 			has_saved_data = true

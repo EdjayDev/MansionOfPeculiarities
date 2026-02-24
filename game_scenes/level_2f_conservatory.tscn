@@ -236,6 +236,7 @@ scale = Vector2(0.39999998, 0.39999998)
 prop_interact_dialogue = ["  Opening the chest...", "You found a Silver Key!"]
 itemid_to_add = "item_silverkey"
 item_to_add = "Silver Key"
+prop_required_data = "2fconservatory_silverkey"
 
 [node name="prop_table_" parent="Y_Sort/_Props_Container" unique_id=702167317 instance=ExtResource("11_rycri")]
 position = Vector2(124.399994, 91.19989)

@@ -2,6 +2,8 @@ extends Node2D
 class_name SaveBook_System
 var player_nearby = false
 
+const SAVESYSTEM_UI = preload("uid://coxkk35x4355w")
+var save_ui : SaveSystem_UI
 @onready var save_book_player: AnimationPlayer = $save_book_player
 @onready var save_book_particles: CPUParticles2D = $save_book_particles
 
@@ -40,10 +42,12 @@ func player_exited(body)->void:
 	pass
 	
 func player_interact()->void:
+	if not save_ui:
+		save_ui = SAVESYSTEM_UI.instantiate()
+		add_child(save_ui)
 	get_tree().paused = true
-	var save_ui = get_tree().get_first_node_in_group("ingame_menu")
-	save_ui.savedata_save_system_ui()
-	pass
+	save_ui.visible = true
+	save_ui.show_save_mode("SAVE GAME")
 
 func save_data()->void:
 	

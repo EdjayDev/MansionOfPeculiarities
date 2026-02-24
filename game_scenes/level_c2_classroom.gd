@@ -23,6 +23,7 @@ func _ready() -> void:
 		subdialog_timer.timeout.connect(companion_subdialog)
 	else:
 		subdialog_timer.timeout.connect(player_subdialog)
+	
 
 func _process(_delta: float) -> void:
 	if !is_inside_tree():

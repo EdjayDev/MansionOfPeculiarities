@@ -132,11 +132,12 @@ region_rect = Rect2(40, 134, 14, 14)
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=2073611742]
 position = Vector2(0, -0.9999995)
 energy = 0.5
+shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 2
 shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_m7540")
-texture_scale = 0.75
+texture_scale = 2.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=858318792]
 position = Vector2(0, -8)

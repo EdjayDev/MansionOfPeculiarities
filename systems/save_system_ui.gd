@@ -6,36 +6,48 @@ signal request_load_game(slot: int, level_path: String)
 
 @onready var label_title: Label = $SaveSystemUI_Panel/SaveSystemUI_HeaderPanel/label_title
 
-@onready var panel_save_1: Panel = $"SaveSystemUI_Panel/VBoxContainer/Panel-save1"
-@onready var panel_save_2: Panel = $"SaveSystemUI_Panel/VBoxContainer/Panel-save2"
-@onready var panel_save_3: Panel = $"SaveSystemUI_Panel/VBoxContainer/Panel-save3"
+@onready var btn_save_1: Button = $"SaveSystemUI_Panel/VBoxContainer/btn-save1"
+@onready var btn_save_2: Button = $"SaveSystemUI_Panel/VBoxContainer/btn-save2"
+@onready var btn_save_3: Button = $"SaveSystemUI_Panel/VBoxContainer/btn-save3"
+
 @onready var btn_return: Button = $SaveSystemUI_Panel/SaveSystemUI_HeaderPanel/btn_return
 
+var saving_data = false
+	
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	update_save_slots()
 	call_deferred("_deferred_setup")
-
+	btn_save_1.grab_focus()
+	
 func _deferred_setup() -> void:
 	_connect_buttons()
 	update_save_slots()
 
 func _connect_buttons() -> void:
-	_connect_slot(panel_save_1, 1)
-	_connect_slot(panel_save_2, 2)
-	_connect_slot(panel_save_3, 3)
+
+	_connect_slot(btn_save_1, 1)
+	_connect_slot(btn_save_2, 2)
+	_connect_slot(btn_save_3, 3)
+	
 	btn_return.pressed.connect(_on_return_pressed)
 
-func _connect_slot(panel: Panel, slot: int) -> void:
-	var btn_save: Button = panel.get_node("btn_save")
-	var btn_load: Button = panel.get_node("btn_load")
-	btn_save.pressed.connect(_on_save_pressed.bind(slot))
-	btn_load.pressed.connect(_on_load_pressed.bind(slot))
+func _connect_slot(button : Button, slot: int) -> void:
+	#var btn_save: Button = button.get_node("btn_save")
+	#var btn_load: Button = button.get_node("btn_load")
+	#btn_save.pressed.connect(_on_save_pressed.bind(slot))
+	#btn_load.pressed.connect(_on_load_pressed.bind(slot))
+	button.pressed.connect(_on_load_pressed.bind(slot))
+	button.pressed.connect(_on_save_pressed.bind(slot))
+
 
 # ------------------------
 # Save / Load
 # ------------------------
 func _on_save_pressed(slot: int) -> void:
+	if not saving_data:
+		return
+		
 	get_tree().paused = true
 	print("[SaveSystem_UI] Saving to slot:", slot)
 
@@ -90,6 +102,8 @@ func _on_save_pressed(slot: int) -> void:
 
 
 func _on_load_pressed(slot: int) -> void:
+	if saving_data:
+		return
 	SessionState.reset_session()
 	print("[SaveSystem_UI] Loading from slot:", slot)
 	if not SaveSystem.slot_exists(slot):
@@ -115,22 +129,22 @@ func _on_load_pressed(slot: int) -> void:
 # UI preview
 # ------------------------
 func update_save_slots() -> void:
-	_update_slot(panel_save_1, 1)
-	_update_slot(panel_save_2, 2)
-	_update_slot(panel_save_3, 3)
+	_update_slot(btn_save_1, 1)
+	_update_slot(btn_save_2, 2)
+	_update_slot(btn_save_3, 3)
 	
 func update_save_slot(slot: int) -> void:
 	match slot:
 		1:
-			_update_slot(panel_save_1, 1)
+			_update_slot(btn_save_1, 1)
 		2:
-			_update_slot(panel_save_2, 2)
+			_update_slot(btn_save_2, 2)
 		3:
-			_update_slot(panel_save_3, 3)
+			_update_slot(btn_save_3, 3)
 
-func _update_slot(panel: Panel, slot: int) -> void:
-	var label: Label = panel.get_node("Label")
-	var location_label : Label = panel.get_node("Location-Label")
+func _update_slot(button_slot : Button, slot: int) -> void:
+	var label: Label = button_slot.get_node("Label")
+	var location_label : Label = button_slot.get_node("Location-Label")
 	var slot_data: Dictionary = SaveSystem.read_slot(slot)
 	var slot_status_data = slot_data.get("slot_status", {})
 	var slot_status = slot_status_data.get("status", "Inactive")
@@ -156,14 +170,8 @@ func _on_return_pressed() -> void:
 
 func show_save_mode(ui_title : String):
 	label_title.text = ui_title
-	for i in range(1, 4):
-		var panel = get_node("SaveSystemUI_Panel/VBoxContainer/Panel-save%d" % i)
-		panel.get_node("btn_save").visible = true
-		panel.get_node("btn_load").visible = false
+	saving_data = true
 
 func show_load_mode(ui_title : String):
 	label_title.text = ui_title
-	for i in range(1, 4):
-		var panel = get_node("SaveSystemUI_Panel/VBoxContainer/Panel-save%d" % i)
-		panel.get_node("btn_save").visible = false
-		panel.get_node("btn_load").visible = true
+	saving_data = false

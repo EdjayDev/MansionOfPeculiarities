@@ -2,10 +2,13 @@ class_name InGameMenu_UI
 extends CanvasLayer
 
 @onready var game_menu_panel: Panel = %GameMenu_Panel
-@onready var btn_load: Button = %btn_Load
+
 @onready var save_system_ui: SaveSystem_UI = %SaveSystem_UI
-@onready var btn_quit: Button = %btn_Quit
+
+@onready var btn_load: Button = %btn_Load
 @onready var btn_options: Button = %btn_Options
+@onready var btn_quit: Button = %btn_Quit
+
 
 
 func _ready() -> void:
@@ -37,20 +40,13 @@ func _input(event: InputEvent) -> void:
 		SessionState.reset_session()
 		get_tree().change_scene_to_file("res://systems/main_menu_ui.tscn")
 
-func savedata_save_system_ui() -> void:
-	save_system_ui.visible = true
-	game_menu_panel.visible = false
-	# Set buttons correctly
-	save_system_ui.show_save_mode("SAVE GAME")
-
 func loaddata_save_system_ui() -> void:
 	save_system_ui.visible = true
 	game_menu_panel.visible = false
-	# Set buttons correctly
+	#Update the state of saving_data to false from Save System UI
 	save_system_ui.show_load_mode("LOAD GAME")
 
 func _on_request_load_game(slot : int, level_path: String) -> void:
-	# Close menus
 	save_system_ui.visible = false
 	game_menu_panel.visible = false
 

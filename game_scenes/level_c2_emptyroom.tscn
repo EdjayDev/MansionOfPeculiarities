@@ -266,7 +266,7 @@ rotation = 1.5707964
 scale = Vector2(0.968655, 0.8136982)
 load_level = "res://game_scenes/level_c2_entrance.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_classroom.tscn"])
+random_level_list = Array[String](["res://g ame_scenes/level_c2_classroom.tscn"])
 spawn_marker_name = "Player_fromC2Classroom"
 companion_spawn_marker = ["Companion_fromC2Classroom"]
 

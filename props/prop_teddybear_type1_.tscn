@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ckxawi3ey3e6h"]
+
+[ext_resource type="Texture2D" uid="uid://grkik83g5oij" path="res://props/sprites/Teddy Bear.png" id="1_ov4sn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
+size = Vector2(10, 13.376736)
+
+[node name="prop_teddybear_type1_" type="Node2D" unique_id=447932987]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1385993547]
+position = Vector2(0, -15)
+texture = ExtResource("1_ov4sn")
+region_enabled = true
+region_rect = Rect2(3, 1, 27, 30)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1057539337]
+position = Vector2(0, -11)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=473383310]
+position = Vector2(0, 2.999979)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_7c1ra")
