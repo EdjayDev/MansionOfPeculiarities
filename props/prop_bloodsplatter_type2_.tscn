@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bxwwksk8g4pkf"]
+
+[ext_resource type="Texture2D" uid="uid://dvqqsmq3momce" path="res://props/sprites/misc_bones.png" id="1_04giw"]
+
+[node name="prop_bloodsplatter_type1_" type="Node2D" unique_id=2080007848]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1808220079]
+position = Vector2(0, -9.5)
+texture = ExtResource("1_04giw")
+region_enabled = true
+region_rect = Rect2(122, 63, 33, 23)

@@ -175,7 +175,7 @@ position = Vector2(43, -440)
 position = Vector2(-43, -440)
 
 [node name="prop_bookshelves-type4_2" parent="Y_Sort/Props" unique_id=1050040094 instance=ExtResource("8_nunnj")]
-position = Vector2(-134, -433)
+position = Vector2(-134, -424)
 
 [node name="prop_bookshelves-type1_" parent="Y_Sort/Props" unique_id=1243815168 instance=ExtResource("9_tf37x")]
 position = Vector2(87, -466)
@@ -246,8 +246,11 @@ position = Vector2(-93, -299)
 [node name="prop_bookshelves-type5_3" parent="Y_Sort/Props" unique_id=1127134094 instance=ExtResource("17_nunnj")]
 position = Vector2(-47, -352)
 
+[node name="PropInteractItem_Component" parent="Y_Sort/Props/prop_bookshelves-type5_3" unique_id=508620134 instance=ExtResource("8_x6ryy")]
+prop_interact_dialogue = ["\"Sleep paralysis\"", "T"]
+
 [node name="prop_crate_type3" parent="Y_Sort/Props" unique_id=492023214 instance=ExtResource("8_1jvkc")]
-position = Vector2(-147, -420)
+position = Vector2(-147, -409)
 
 [node name="prop_door_type1_" parent="Y_Sort/Props" unique_id=1272782782 instance=ExtResource("20_j6q4g")]
 position = Vector2(-144, -480)
@@ -310,3 +313,9 @@ position = Vector2(0, -269)
 
 [node name="Companion_fromRandom" type="Marker2D" parent="." unique_id=497322254]
 position = Vector2(0, -256)
+
+[node name="Player_fromC2Playroom" type="Marker2D" parent="." unique_id=206970132]
+position = Vector2(-144, -458)
+
+[node name="Companion_fromC2Playroom" type="Marker2D" parent="." unique_id=1627581782]
+position = Vector2(-144, -476)

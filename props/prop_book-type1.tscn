@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cj8qtlksie5xa"]
 
-[ext_resource type="Texture2D" uid="uid://bdoapfbayq81m" path="res://props/sprites/dark_objects.png" id="1_oicmr"]
+[ext_resource type="Texture2D" uid="uid://cycwwlaga2db3" path="res://props/sprites/dark_objects.png" id="1_oicmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
 size = Vector2(7, 11.465797)

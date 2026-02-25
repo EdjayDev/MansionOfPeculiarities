@@ -1,8 +1,6 @@
 extends BaseLevel
 class_name Level_C2_Playroom
 
-@onready var global_light: DirectionalLight2D = $Lights/GlobalLight
-
 func _ready() -> void:
 	set_level_name("Playroom")
 	scene_path = "res://game_scenes/level_c2_playroom.tscn"
@@ -33,7 +31,6 @@ func companion_subdialog()->void:
 		"mmm, I feeling dizzy...",
 	]
 	#test
-	global_light.energy = randf_range(0.33, 0.66)
 	var picked_subdialog = random_subdialog.pick_random()
 	Game.manager.set_subdialog([picked_subdialog], get_current_companion())
 	pass

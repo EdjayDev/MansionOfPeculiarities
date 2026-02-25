@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dl5s3rsr1utc3"]
+
+[ext_resource type="Texture2D" uid="uid://dvqqsmq3momce" path="res://props/sprites/misc_bones.png" id="1_mara2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
+size = Vector2(10, 8.1216)
+
+[node name="prop_bones_type2_" type="Node2D" unique_id=2080007848]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1808220079]
+position = Vector2(0, -14)
+texture = ExtResource("1_mara2")
+region_enabled = true
+region_rect = Rect2(86, 35, 41, 12)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1640911521]
+position = Vector2(-0.5, -15.5)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1348790106]
+position = Vector2(-0.5, 2.5)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_7c1ra")
