@@ -12,22 +12,11 @@ func _ready() -> void:
 	subdialog_timer.start()
 	if get_current_companion():
 		subdialog_timer.timeout.connect(companion_subdialog)
-	else:
-		subdialog_timer.timeout.connect(player_subdialog)
 	
-func player_subdialog()->void:
-	var random_subdialog = [
-		"Am I trapped",
-		"How do I get out"
-	]
-	var picked_subdialog = random_subdialog.pick_random()
-	Game.manager.set_subdialog([picked_subdialog], player)
-	pass
-
 func companion_subdialog()->void:
 	var random_subdialog = [
-		"A bedroom this empty",
-		"We must find the key immediately",
+		"I once see a bedroom like exactly like this.",
+		"Too many bookshelves for a bedroom don't you think?",
 	]
 	var picked_subdialog = random_subdialog.pick_random()
 	Game.manager.set_subdialog([picked_subdialog], get_current_companion())

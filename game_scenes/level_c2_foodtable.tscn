@@ -127,7 +127,7 @@ texture = ExtResource("2_4pqub")
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_2rv37")
 
-[sub_resource type="Environment" id="Environment_yu5ri"]
+[sub_resource type="Environment" id="Environment_3xvp7"]
 resource_local_to_scene = true
 background_mode = 3
 tonemap_mode = 3
@@ -191,7 +191,7 @@ position = Vector2(240, -281)
 scale = Vector2(2, 2)
 
 [node name="youngmaster_foodtable" parent="Y_Sort/Props" unique_id=790649510 instance=ExtResource("5_igibg")]
-position = Vector2(241, -384)
+position = Vector2(241, -371)
 
 [node name="prop_platedvege-type2_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=365712542 instance=ExtResource("5_jsam0")]
 position = Vector2(-48, -13)
@@ -227,7 +227,7 @@ position = Vector2(-62, -24)
 position = Vector2(46, -11)
 
 [node name="maids_foodtable" parent="Y_Sort/Props" unique_id=125280108 instance=ExtResource("5_igibg")]
-position = Vector2(241, -300)
+position = Vector2(241, -293)
 
 [node name="prop_platedvege-type3_" parent="Y_Sort/Props/maids_foodtable" unique_id=939024301 instance=ExtResource("5_exxsn")]
 position = Vector2(-30, -22)
@@ -270,7 +270,7 @@ position = Vector2(15, -22)
 position = Vector2(31, -14)
 
 [node name="ember_foodtable" parent="Y_Sort/Props" unique_id=1958414114 instance=ExtResource("5_igibg")]
-position = Vector2(240, -210)
+position = Vector2(240, -203)
 
 [node name="prop_platedvege-type3_" parent="Y_Sort/Props/ember_foodtable" unique_id=1511941494 instance=ExtResource("4_4pqub")]
 position = Vector2(-45, -23)
@@ -306,15 +306,21 @@ position = Vector2(82, -15)
 position = Vector2(240, -704)
 
 [node name="SceneTransitioner" parent="Y_Sort/Props/prop_door_type1_" unique_id=491892144 instance=ExtResource("6_i34uc")]
-position = Vector2(0, -4.9999995)
+position = Vector2(0, -4)
 scale = Vector2(0.29794955, 0.7212088)
 auto_trigger_default = false
+randomize_level = true
+random_level_list = Array[String](["res://game_scenes/level_c2_corpses.tscn"])
+spawn_marker_name = "Player_fromRandom"
+companion_spawn_marker = ["Companion_fromRandom"]
 
 [node name="PropInteractItem_Component" parent="Y_Sort/Props/prop_door_type1_" unique_id=1911163950 instance=ExtResource("9_x07pc")]
+position = Vector2(0, -4)
+animation_name = Array[String](["door_open"])
+animate_prop = true
 play_interact_audio = true
 interact_failed_sound = "lock"
-required_item_id = " "
-prop_required_data = "c2_foodtable_completedq"
+can_interact_multiple_times = true
 
 [node name="prop_stairs-typefup" parent="Y_Sort/Props" unique_id=393986968 instance=ExtResource("13_x07pc")]
 position = Vector2(376, -549)
@@ -325,7 +331,7 @@ position = Vector2(99, -549)
 scale = Vector2(2, 2)
 
 [node name="prop_bookshelves-type2_" parent="Y_Sort/Props" unique_id=1979782609 instance=ExtResource("15_qtkcu")]
-position = Vector2(33, -680)
+position = Vector2(26, -680)
 
 [node name="prop_bookshelves-type2_2" parent="Y_Sort/Props" unique_id=680720819 instance=ExtResource("15_qtkcu")]
 position = Vector2(101, -680)
@@ -364,10 +370,10 @@ position = Vector2(241, -71)
 position = Vector2(241, -60)
 
 [node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("7_yu5ri")]
-environment = SubResource("Environment_yu5ri")
+environment = SubResource("Environment_3xvp7")
 
 [node name="prop_bookshelves-type4_" parent="." unique_id=1243129900 instance=ExtResource("19_3xvp7")]
-position = Vector2(325, -680)
+position = Vector2(408, -680)
 
 [node name="prop_bookshelves-type5_" parent="." unique_id=641254217 instance=ExtResource("20_6nn02")]
-position = Vector2(452, -680)
+position = Vector2(454, -680)

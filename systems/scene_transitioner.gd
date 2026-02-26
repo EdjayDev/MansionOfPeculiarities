@@ -85,7 +85,6 @@ func start_transition(trigger_area: bool = false) -> void:
 	
 	# Save target level
 	SessionState.set_current_level(load_level)
-
 	if autosave_on_transition:
 		SaveSystem.save_from_session(1)
 

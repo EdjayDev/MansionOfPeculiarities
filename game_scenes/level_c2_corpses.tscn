@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://3j6gu37ufy6f" path="res://props/prop_bones_type4_.tscn" id="8_gk2aj"]
 [ext_resource type="PackedScene" uid="uid://dgmrgxfxxc5bb" path="res://props/prop_bloodsplatter_type1_.tscn" id="10_5ypn1"]
 [ext_resource type="PackedScene" uid="uid://c4jw41m7ocb6d" path="res://props/prop_bones_type5_.tscn" id="12_5a0r1"]
+[ext_resource type="PackedScene" uid="uid://d3f5kmgg35dfp" path="res://props/prop_corpses_type1_.tscn" id="12_7cvu3"]
+[ext_resource type="PackedScene" uid="uid://bcdmpu61cq8ie" path="res://props/prop_corpses_type2_.tscn" id="13_vx4nn"]
+[ext_resource type="PackedScene" uid="uid://big2obdyjv4yg" path="res://props/prop_mark_ritual_type1_.tscn" id="15_d8762"]
+[ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="16_vmbt7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -138,7 +142,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90000004, 0.2)
 metadata/_snap_enabled = true
 
-[sub_resource type="Environment" id="Environment_vx4nn"]
+[sub_resource type="Environment" id="Environment_d8762"]
 resource_local_to_scene = true
 background_mode = 3
 tonemap_mode = 3
@@ -237,7 +241,7 @@ position = Vector2(-109, -1914)
 scale = Vector2(0.35, 0.35)
 
 [node name="prop_bones_type2_" parent="Y_Sort/Props" unique_id=1026802125 instance=ExtResource("7_diws2")]
-position = Vector2(-78, -1906)
+position = Vector2(-75, -1906)
 scale = Vector2(0.45, 0.45)
 
 [node name="prop_bones_type1_4" parent="Y_Sort/Props" unique_id=1988275228 instance=ExtResource("5_ll4uw")]
@@ -250,7 +254,7 @@ rotation = 2.8797932
 scale = Vector2(0.455, -0.455)
 
 [node name="prop_bones_type1_5" parent="Y_Sort/Props" unique_id=1162962996 instance=ExtResource("7_diws2")]
-position = Vector2(99, -1972)
+position = Vector2(99, -1971)
 scale = Vector2(0.5, 0.5)
 
 [node name="prop_bones_type1_6" parent="Y_Sort/Props" unique_id=1953208506 instance=ExtResource("7_diws2")]
@@ -266,12 +270,12 @@ scale = Vector2(0.5, 0.5)
 [node name="prop_bones_type5_" parent="Y_Sort/Props" unique_id=1448019081 instance=ExtResource("12_5a0r1")]
 position = Vector2(-96.99993, -2134)
 rotation = -0.5235988
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.67, 0.67)
 
 [node name="prop_bones_type5_2" parent="Y_Sort/Props" unique_id=93297217 instance=ExtResource("12_5a0r1")]
-position = Vector2(100.00011, -1982)
+position = Vector2(98.00011, -1981)
 rotation = 2.6179938
-scale = Vector2(0.75, -0.75)
+scale = Vector2(0.45, -0.45)
 
 [node name="prop_bones_type3_5" parent="Y_Sort/Props" unique_id=789097196 instance=ExtResource("6_1b5v2")]
 position = Vector2(-87, -2125)
@@ -293,6 +297,25 @@ position = Vector2(-109, -1919)
 [node name="prop_bloodsplatter_type1_3" parent="Y_Sort/Props" unique_id=557910998 instance=ExtResource("4_7cvu3")]
 position = Vector2(99, -1857)
 scale = Vector2(-1, 1)
+
+[node name="prop_corpses_type1_" parent="Y_Sort/Props" unique_id=1475670872 instance=ExtResource("12_7cvu3")]
+position = Vector2(-97.00001, -1961)
+scale = Vector2(0.75, 0.75)
+
+[node name="prop_corpses_type1_2" parent="Y_Sort/Props" unique_id=725511786 instance=ExtResource("12_7cvu3")]
+position = Vector2(89, -2166)
+scale = Vector2(-0.75, 0.75)
+
+[node name="prop_corpses_type2_" parent="Y_Sort/Props" unique_id=1679402416 instance=ExtResource("13_vx4nn")]
+position = Vector2(-89, -2149)
+scale = Vector2(0.75, 0.75)
+
+[node name="prop_mark_ritual_type1_" parent="Y_Sort" unique_id=1337064911 instance=ExtResource("15_d8762")]
+position = Vector2(0, -3786)
+scale = Vector2(2, 2)
+
+[node name="PropInteractItem_Component" parent="Y_Sort/prop_mark_ritual_type1_" unique_id=383616533 instance=ExtResource("16_vmbt7")]
+prop_interact_dialogue = ["A ritual mark"]
 
 [node name="Lights" type="Node2D" parent="." unique_id=1943081159]
 
@@ -353,4 +376,4 @@ position = Vector2(0, -1814)
 position = Vector2(0, -1790)
 
 [node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("7_5ypn1")]
-environment = SubResource("Environment_vx4nn")
+environment = SubResource("Environment_d8762")

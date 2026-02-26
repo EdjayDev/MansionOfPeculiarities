@@ -193,7 +193,11 @@ interaction_options = Array[Dictionary]([{
 }],
 "choice": "Sleep in the bed",
 "choice_id": "sleep"
+}, {
+"choice": "...",
+"choice_id": "do_nothing"
 }])
+can_interact_multiple_times = true
 
 [node name="prop_crate-type2" parent="Y_Sort/Props" unique_id=960959028 instance=ExtResource("7_68qhy")]
 position = Vector2(-80, -469)
@@ -226,7 +230,7 @@ position = Vector2(43, -352)
 position = Vector2(89, -352)
 
 [node name="prop_spicesshelves-type8_" parent="Y_Sort/Props" unique_id=1406656637 instance=ExtResource("19_ilbsh")]
-position = Vector2(134, -348)
+position = Vector2(134, -352)
 
 [node name="prop_bookshelves-type5_2" parent="Y_Sort/Props" unique_id=1407734750 instance=ExtResource("17_nunnj")]
 position = Vector2(43, -299)
@@ -247,7 +251,10 @@ position = Vector2(-93, -299)
 position = Vector2(-47, -352)
 
 [node name="PropInteractItem_Component" parent="Y_Sort/Props/prop_bookshelves-type5_3" unique_id=508620134 instance=ExtResource("8_x6ryy")]
-prop_interact_dialogue = ["\"Sleep paralysis\"", "T"]
+prop_interact_dialogue = ["\"Sleep Paralysis\"", "Sleep paralysis is a state in which the mind awakens before the body. During these episodes, individuals may experience immobility, heightened fear, and vivid hallucinations. While the condition can occur randomly, prolonged stress and intentional exposure to fear are known contributing factors.", "First is to exercise to deplete the energy into a more meaningful way helping in making your sleep smoother.", "Second is to have your love ones besides you. Be may that someone or something, hug them tightly.", ""]
+play_interact_audio = true
+interact_successful_sound = "book"
+can_interact_multiple_times = true
 
 [node name="prop_crate_type3" parent="Y_Sort/Props" unique_id=492023214 instance=ExtResource("8_1jvkc")]
 position = Vector2(-147, -409)
