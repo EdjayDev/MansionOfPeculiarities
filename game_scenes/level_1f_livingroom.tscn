@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dbu71coxvd1ir" path="res://systems/sprites/5000x5000_linearraylight.png" id="6_0rlqu"]
 [ext_resource type="PackedScene" uid="uid://c2xd64ynk4nbd" path="res://npc/NPC_Luke.tscn" id="7_hf8p5"]
 [ext_resource type="PackedScene" uid="uid://0ypoy8tjpj7b" path="res://npc/NPC_Ember.tscn" id="8_0vp51"]
-[ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/_props_container.tscn" id="9_qb4qm"]
+[ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/scripts/props_container.tscn" id="9_qb4qm"]
 [ext_resource type="PackedScene" uid="uid://cys8pmwhdccpy" path="res://props/prop_light_chandelier-type1_.tscn" id="10_euymw"]
 [ext_resource type="PackedScene" uid="uid://c0f1t0v3t6l4d" path="res://props/prop_chair-typefright.tscn" id="11_rlesf"]
 [ext_resource type="PackedScene" uid="uid://dtcbb240m7s2c" path="res://props/prop_chair-typefdown.tscn" id="12_dq7p1"]

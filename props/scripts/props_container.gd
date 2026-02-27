@@ -1,5 +1,5 @@
 extends Node2D
-class_name _Props_Container
+class_name PropsContainer
 
 func _ready():
 	for prop in get_children():

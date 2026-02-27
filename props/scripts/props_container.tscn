@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://4ja5y1rhdr8d"]
+
+[ext_resource type="Script" uid="uid://daa0tsnsqxm0f" path="res://props/scripts/props_container.gd" id="1_no2rn"]
+
+[node name="Props_Container" type="Node2D" unique_id=361056891]
+y_sort_enabled = true
+script = ExtResource("1_no2rn")

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ih2pt60pbdt" path="res://props/prop_bookshelves-type2_.tscn" id="4_pvn2j"]
 [ext_resource type="PackedScene" uid="uid://dng8idy4bpckx" path="res://props/prop_bookshelves-type3_.tscn" id="4_v6lm2"]
 [ext_resource type="PackedScene" uid="uid://bk76uyboowhol" path="res://props/prop_table_.tscn" id="5_pvn2j"]
-[ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/_props_container.tscn" id="6_4xcd8"]
+[ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/scripts/props_container.tscn" id="6_4xcd8"]
 [ext_resource type="PackedScene" uid="uid://bt3l1fy4jh47a" path="res://props/prop_bookshelves-type5_.tscn" id="7_74v0n"]
 [ext_resource type="PackedScene" uid="uid://qywlklis3fnd" path="res://props/prop_bookshelves-type6_.tscn" id="8_yoqdt"]
 [ext_resource type="PackedScene" uid="uid://dtcbb240m7s2c" path="res://props/prop_chair-typefdown.tscn" id="9_iux7b"]
