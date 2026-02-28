@@ -5,7 +5,7 @@
 [node name="prop_bloodsplatter_type1_" type="Node2D" unique_id=2080007848]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1808220079]
-position = Vector2(0, -9.5)
+position = Vector2(0, 15)
 texture = ExtResource("1_kfy1q")
 region_enabled = true
 region_rect = Rect2(60, 60, 41, 30)

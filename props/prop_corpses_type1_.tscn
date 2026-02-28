@@ -3,15 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dvqqsmq3momce" path="res://props/sprites/misc_bones.png" id="1_t0f1c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0f1c"]
-size = Vector2(30, 12.421292)
+size = Vector2(29, 9.55484)
 
 [node name="prop_corpses_type1_" type="Node2D" unique_id=2080007848]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1808220079]
-position = Vector2(0, -9.5)
+position = Vector2(0, -6)
 texture = ExtResource("1_t0f1c")
 region_enabled = true
-region_rect = Rect2(11, 104, 50, 27)
+region_rect = Rect2(8, 104, 53, 27)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=992282842]
 position = Vector2(-0.5, -15.5)
@@ -19,6 +19,6 @@ collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1911774755]
-position = Vector2(-4.5, 6)
+position = Vector2(-3, 9.5)
 scale = Vector2(1, 1.04659)
 shape = SubResource("RectangleShape2D_t0f1c")

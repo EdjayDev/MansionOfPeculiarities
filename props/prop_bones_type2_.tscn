@@ -11,7 +11,7 @@ size = Vector2(36, 4.8968515)
 position = Vector2(0, -5)
 texture = ExtResource("1_mara2")
 region_enabled = true
-region_rect = Rect2(86, 35, 41, 12)
+region_rect = Rect2(69, 27, 39, 12)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1640911521]
 position = Vector2(-0.5, -15.5)
