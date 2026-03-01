@@ -149,7 +149,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90000004, 0.2)
 metadata/_snap_enabled = true
 
-[sub_resource type="Environment" id="Environment_2m8e3"]
+[sub_resource type="Environment" id="Environment_ymwbn"]
 resource_local_to_scene = true
 background_mode = 3
 tonemap_mode = 3
@@ -284,8 +284,8 @@ position = Vector2(-101, -1955)
 scale = Vector2(0.8, 0.8)
 
 [node name="prop_corpses_type1_2" parent="Y_Sort/Props_Container" unique_id=34701032 instance=ExtResource("11_5a0r1")]
-position = Vector2(-83, -2226)
-scale = Vector2(0.8, 0.8)
+position = Vector2(-72, -2211)
+scale = Vector2(0.59, 0.59)
 
 [node name="prop_corpses_type1_3" parent="Y_Sort/Props_Container" unique_id=863286161 instance=ExtResource("11_5a0r1")]
 position = Vector2(91, -2307)
@@ -350,7 +350,7 @@ scale = Vector2(0.4, 0.4)
 position = Vector2(-100, -2060)
 
 [node name="prop_bloodsplatter_type1_3" parent="Y_Sort/Props_Container" unique_id=825179352 instance=ExtResource("18_tjpph")]
-position = Vector2(-88, -2117)
+position = Vector2(-88, -2120)
 scale = Vector2(-0.51, 0.51)
 
 [node name="prop_bloodsplatter_type1_5" parent="Y_Sort/Props_Container" unique_id=1649111551 instance=ExtResource("18_tjpph")]
@@ -398,7 +398,7 @@ position = Vector2(-94, -2093)
 scale = Vector2(0.77, 0.77)
 
 [node name="prop_corpses_type3_2" parent="Y_Sort/Props_Container" unique_id=1332080455 instance=ExtResource("21_rbuqp")]
-position = Vector2(-83, -1992)
+position = Vector2(-83, -1989)
 scale = Vector2(0.75, 0.75)
 
 [node name="prop_bones_type5_3" parent="Y_Sort/Props_Container" unique_id=645642565 instance=ExtResource("17_vmbt7")]
@@ -429,7 +429,7 @@ position = Vector2(59.999996, -2296)
 scale = Vector2(0.55, 0.55)
 
 [node name="prop_bones_type2_7" parent="Y_Sort/Props_Container" unique_id=4512338 instance=ExtResource("15_vx4nn")]
-position = Vector2(-70, -2242.0002)
+position = Vector2(-88, -2233)
 scale = Vector2(0.55, 0.55)
 
 [node name="prop_bloodsplatter_type3_6" parent="Y_Sort/Props_Container" unique_id=1030766752 instance=ExtResource("20_mjp08")]
@@ -464,7 +464,12 @@ scale = Vector2(0.33, 0.33)
 position = Vector2(-92, -2399)
 
 [node name="prop_corpses_type3_3" parent="Y_Sort/Props_Container" unique_id=398244331 instance=ExtResource("21_rbuqp")]
-position = Vector2(-97, -2421)
+position = Vector2(-86, -2436)
+
+[node name="PropInteractItem_Component" parent="Y_Sort/Props_Container/prop_corpses_type3_3" unique_id=1951877420 instance=ExtResource("16_vmbt7")]
+itemid_to_add = "item_trapdoorkey"
+item_to_add = "Blood Key"
+prop_required_data = "bloodkey_1_acquired"
 
 [node name="prop_corpses_type2_2" parent="Y_Sort/Props_Container" unique_id=980932249 instance=ExtResource("12_5ypn1")]
 position = Vector2(84, -2467)
@@ -509,7 +514,7 @@ position = Vector2(106.00001, -2500)
 scale = Vector2(0.33, 0.33)
 
 [node name="prop_bloodsplatter_type2_5" parent="Y_Sort/Props_Container" unique_id=2047044910 instance=ExtResource("19_yssyw")]
-position = Vector2(104, -2624)
+position = Vector2(93, -2636)
 
 [node name="prop_bloodsplatter_type1_6" parent="Y_Sort/Props_Container" unique_id=520453689 instance=ExtResource("18_tjpph")]
 position = Vector2(77, -2601)
@@ -610,7 +615,7 @@ position = Vector2(88, -2742)
 position = Vector2(77, -2707)
 
 [node name="prop_bloodsplatter_type3_17" parent="Y_Sort/Props_Container" unique_id=172176174 instance=ExtResource("20_mjp08")]
-position = Vector2(-152, -2777)
+position = Vector2(-112, -2775)
 
 [node name="prop_bloodsplatter_type4_7" parent="Y_Sort/Props_Container" unique_id=2122240439 instance=ExtResource("22_vbjjx")]
 position = Vector2(83, -3017)
@@ -653,6 +658,295 @@ scale = Vector2(0.35, 0.35)
 position = Vector2(102.99999, -3032)
 scale = Vector2(0.45, 0.45)
 
+[node name="prop_bloodsplatter_type4_12" parent="Y_Sort/Props_Container" unique_id=927480795 instance=ExtResource("22_vbjjx")]
+position = Vector2(-97, -2542)
+
+[node name="prop_bloodsplatter_type3_20" parent="Y_Sort/Props_Container" unique_id=1980396640 instance=ExtResource("20_mjp08")]
+position = Vector2(-95, -3311)
+
+[node name="prop_bloodsplatter_type4_13" parent="Y_Sort/Props_Container" unique_id=643811857 instance=ExtResource("22_vbjjx")]
+position = Vector2(71, -3249)
+
+[node name="prop_bloodsplatter_type3_21" parent="Y_Sort/Props_Container" unique_id=1168008751 instance=ExtResource("20_mjp08")]
+position = Vector2(45, -3235)
+
+[node name="prop_bones_type5_4" parent="Y_Sort/Props_Container" unique_id=1099219240 instance=ExtResource("17_vmbt7")]
+position = Vector2(-100, -2900)
+
+[node name="prop_bones_type4_5" parent="Y_Sort/Props_Container" unique_id=474094224 instance=ExtResource("16_d8762")]
+position = Vector2(93, -2933)
+
+[node name="prop_bones_type3_9" parent="Y_Sort/Props_Container" unique_id=1880113836 instance=ExtResource("15_3tuys")]
+position = Vector2(76, -2918)
+
+[node name="prop_bones_type5_5" parent="Y_Sort/Props_Container" unique_id=1633601365 instance=ExtResource("17_vmbt7")]
+position = Vector2(81, -3008)
+rotation = -0.5235988
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_bones_type5_6" parent="Y_Sort/Props_Container" unique_id=1495362321 instance=ExtResource("17_vmbt7")]
+position = Vector2(100, -3009.9998)
+scale = Vector2(0.55, 0.55)
+
+[node name="prop_bones_type5_7" parent="Y_Sort/Props_Container" unique_id=1989298799 instance=ExtResource("17_vmbt7")]
+position = Vector2(-52, -3039.0002)
+rotation = 0.7853982
+scale = Vector2(0.55, 0.55)
+
+[node name="prop_bones_type3_10" parent="Y_Sort/Props_Container" unique_id=1778710280 instance=ExtResource("15_3tuys")]
+position = Vector2(-83, -3062)
+
+[node name="prop_bones_type2_15" parent="Y_Sort/Props_Container" unique_id=1209733335 instance=ExtResource("15_vx4nn")]
+position = Vector2(76, -3109)
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_bones_type2_20" parent="Y_Sort/Props_Container" unique_id=1154953160 instance=ExtResource("15_vx4nn")]
+position = Vector2(86, -3113)
+rotation = 0.2617994
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_bones_type1_9" parent="Y_Sort/Props_Container" unique_id=1245050392 instance=ExtResource("13_7cvu3")]
+position = Vector2(-58, -3157)
+scale = Vector2(0.5, 0.5)
+
+[node name="prop_bones_type1_10" parent="Y_Sort/Props_Container" unique_id=1808169021 instance=ExtResource("13_7cvu3")]
+position = Vector2(-89, -3135)
+scale = Vector2(0.46, 0.46)
+
+[node name="prop_bones_type1_11" parent="Y_Sort/Props_Container" unique_id=1972923937 instance=ExtResource("13_7cvu3")]
+position = Vector2(229, -3548)
+
+[node name="prop_bloodsplatter_type4_14" parent="Y_Sort/Props_Container" unique_id=1532904905 instance=ExtResource("22_vbjjx")]
+position = Vector2(246, -3569)
+
+[node name="prop_bloodsplatter_type3_22" parent="Y_Sort/Props_Container" unique_id=1287640576 instance=ExtResource("20_mjp08")]
+position = Vector2(269, -3551)
+
+[node name="prop_bones_type2_16" parent="Y_Sort/Props_Container" unique_id=69704391 instance=ExtResource("15_vx4nn")]
+position = Vector2(267, -3538)
+
+[node name="prop_bones_type3_11" parent="Y_Sort/Props_Container" unique_id=1305410969 instance=ExtResource("15_3tuys")]
+position = Vector2(261, -3813)
+
+[node name="prop_bloodsplatter_type3_23" parent="Y_Sort/Props_Container" unique_id=2098431153 instance=ExtResource("20_mjp08")]
+position = Vector2(278, -3828)
+
+[node name="prop_bones_type1_12" parent="Y_Sort/Props_Container" unique_id=418688771 instance=ExtResource("13_7cvu3")]
+position = Vector2(516, -3801)
+
+[node name="prop_bones_type1_13" parent="Y_Sort/Props_Container" unique_id=2124210448 instance=ExtResource("13_7cvu3")]
+position = Vector2(545, -3776)
+
+[node name="prop_bloodsplatter_type3_24" parent="Y_Sort/Props_Container" unique_id=1860578097 instance=ExtResource("20_mjp08")]
+position = Vector2(547, -3819)
+
+[node name="prop_bloodsplatter_type1_11" parent="Y_Sort/Props_Container" unique_id=2142363356 instance=ExtResource("18_tjpph")]
+position = Vector2(582, -3808)
+
+[node name="prop_bones_type4_6" parent="Y_Sort/Props_Container" unique_id=2024382170 instance=ExtResource("16_d8762")]
+position = Vector2(582, -3796)
+
+[node name="prop_bones_type4_7" parent="Y_Sort/Props_Container" unique_id=335739198 instance=ExtResource("16_d8762")]
+position = Vector2(500, -3551)
+
+[node name="prop_bones_type3_12" parent="Y_Sort/Props_Container" unique_id=346430057 instance=ExtResource("15_3tuys")]
+position = Vector2(527, -3577)
+
+[node name="prop_bones_type1_14" parent="Y_Sort/Props_Container" unique_id=1374509311 instance=ExtResource("13_7cvu3")]
+position = Vector2(559, -3555)
+
+[node name="prop_corpses_type4_2" parent="Y_Sort/Props_Container" unique_id=1869372094 instance=ExtResource("24_ma1x3")]
+position = Vector2(572, -3590)
+
+[node name="prop_bloodsplatter_type4_15" parent="Y_Sort/Props_Container" unique_id=910145101 instance=ExtResource("22_vbjjx")]
+position = Vector2(554, -3600)
+
+[node name="prop_bloodsplatter_type1_12" parent="Y_Sort/Props_Container" unique_id=1343659223 instance=ExtResource("18_tjpph")]
+position = Vector2(591, -3606)
+
+[node name="prop_bones_type1_15" parent="Y_Sort/Props_Container" unique_id=900245217 instance=ExtResource("13_7cvu3")]
+position = Vector2(-92, -3293)
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_corpses_type3_4" parent="Y_Sort/Props_Container" unique_id=266852736 instance=ExtResource("21_rbuqp")]
+position = Vector2(-94, -3265)
+
+[node name="prop_bloodsplatter_type3_25" parent="Y_Sort/Props_Container" unique_id=2012782620 instance=ExtResource("20_mjp08")]
+position = Vector2(-101, -3277)
+
+[node name="prop_bones_type1_16" parent="Y_Sort/Props_Container" unique_id=1553956975 instance=ExtResource("13_7cvu3")]
+position = Vector2(80, -3326)
+scale = Vector2(0.66, 0.66)
+
+[node name="prop_bones_type3_13" parent="Y_Sort/Props_Container" unique_id=624271831 instance=ExtResource("15_3tuys")]
+position = Vector2(64, -3236)
+
+[node name="prop_corpses_type4_3" parent="Y_Sort/Props_Container" unique_id=1103772362 instance=ExtResource("24_ma1x3")]
+position = Vector2(56, -3217)
+
+[node name="prop_corpses_type2_5" parent="Y_Sort/Props_Container" unique_id=785708529 instance=ExtResource("12_5ypn1")]
+position = Vector2(85, -3300)
+
+[node name="prop_bloodsplatter_type4_16" parent="Y_Sort/Props_Container" unique_id=600556994 instance=ExtResource("22_vbjjx")]
+position = Vector2(76, -3312)
+
+[node name="prop_bloodsplatter_type3_26" parent="Y_Sort/Props_Container" unique_id=1030735582 instance=ExtResource("20_mjp08")]
+position = Vector2(105, -3323)
+
+[node name="prop_bones_type3_14" parent="Y_Sort/Props_Container" unique_id=2045068709 instance=ExtResource("15_3tuys")]
+position = Vector2(43, -2834)
+
+[node name="prop_bones_type5_8" parent="Y_Sort/Props_Container" unique_id=1801841995 instance=ExtResource("17_vmbt7")]
+position = Vector2(32, -2778)
+
+[node name="prop_bones_type4_8" parent="Y_Sort/Props_Container" unique_id=1643660814 instance=ExtResource("16_d8762")]
+position = Vector2(-84, -2779)
+
+[node name="prop_bones_type1_17" parent="Y_Sort/Props_Container" unique_id=1942883077 instance=ExtResource("13_7cvu3")]
+position = Vector2(-63, -2756)
+
+[node name="prop_bones_type2_17" parent="Y_Sort/Props_Container" unique_id=21859978 instance=ExtResource("15_vx4nn")]
+position = Vector2(-101, -2767)
+
+[node name="prop_bones_type2_18" parent="Y_Sort/Props_Container" unique_id=741960168 instance=ExtResource("15_vx4nn")]
+position = Vector2(-22, -2803)
+
+[node name="prop_bloodsplatter_type4_17" parent="Y_Sort/Props_Container" unique_id=63882741 instance=ExtResource("22_vbjjx")]
+position = Vector2(517, -3586)
+
+[node name="prop_bloodsplatter_type4_18" parent="Y_Sort/Props_Container" unique_id=830226663 instance=ExtResource("22_vbjjx")]
+position = Vector2(-609, -3553)
+
+[node name="prop_bloodsplatter_type3_27" parent="Y_Sort/Props_Container" unique_id=210170899 instance=ExtResource("20_mjp08")]
+position = Vector2(-590, -3581)
+
+[node name="prop_bloodsplatter_type1_13" parent="Y_Sort/Props_Container" unique_id=1764614089 instance=ExtResource("18_tjpph")]
+position = Vector2(-513, -3589)
+
+[node name="prop_bloodsplatter_type2_12" parent="Y_Sort/Props_Container" unique_id=973655053 instance=ExtResource("19_yssyw")]
+position = Vector2(-485, -3560)
+
+[node name="prop_bones_type1_18" parent="Y_Sort/Props_Container" unique_id=1002150810 instance=ExtResource("13_7cvu3")]
+position = Vector2(-605, -3551)
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_bones_type1_19" parent="Y_Sort/Props_Container" unique_id=2145785205 instance=ExtResource("13_7cvu3")]
+position = Vector2(-585, -3567)
+scale = Vector2(0.25, 0.25)
+
+[node name="prop_bones_type1_20" parent="Y_Sort/Props_Container" unique_id=2006535374 instance=ExtResource("13_7cvu3")]
+position = Vector2(-613, -3542)
+scale = Vector2(0.25, 0.25)
+
+[node name="prop_bones_type1_21" parent="Y_Sort/Props_Container" unique_id=373272424 instance=ExtResource("13_7cvu3")]
+position = Vector2(-496, -3535)
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_bones_type3_15" parent="Y_Sort/Props_Container" unique_id=1646981945 instance=ExtResource("15_3tuys")]
+position = Vector2(-526, -3571)
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_bones_type2_19" parent="Y_Sort/Props_Container" unique_id=1758160205 instance=ExtResource("15_vx4nn")]
+position = Vector2(-496, -3549)
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_bones_type5_9" parent="Y_Sort/Props_Container" unique_id=1796520586 instance=ExtResource("17_vmbt7")]
+position = Vector2(-513.0001, -3559)
+rotation = 1.8325957
+scale = Vector2(0.45, -0.45)
+
+[node name="prop_bones_type3_16" parent="Y_Sort/Props_Container" unique_id=2012149637 instance=ExtResource("15_3tuys")]
+position = Vector2(-255, -3796)
+
+[node name="prop_bones_type4_9" parent="Y_Sort/Props_Container" unique_id=1864034162 instance=ExtResource("16_d8762")]
+position = Vector2(-225, -3806)
+rotation = 3.1415927
+scale = Vector2(0.55, -0.55)
+
+[node name="prop_bones_type1_22" parent="Y_Sort/Props_Container" unique_id=1303947955 instance=ExtResource("13_7cvu3")]
+position = Vector2(-190, -3807)
+
+[node name="prop_bones_type4_10" parent="Y_Sort/Props_Container" unique_id=537056614 instance=ExtResource("16_d8762")]
+position = Vector2(-255, -3819)
+rotation = -0.2617994
+scale = Vector2(0.54999995, 0.54999995)
+
+[node name="prop_corpses_type4_4" parent="Y_Sort/Props_Container" unique_id=1831262316 instance=ExtResource("24_ma1x3")]
+position = Vector2(-222, -3788)
+
+[node name="prop_bloodsplatter_type3_28" parent="Y_Sort/Props_Container" unique_id=31031304 instance=ExtResource("20_mjp08")]
+position = Vector2(-227, -3792)
+
+[node name="prop_bloodsplatter_type4_19" parent="Y_Sort/Props_Container" unique_id=1884340242 instance=ExtResource("22_vbjjx")]
+position = Vector2(-266, -3825)
+
+[node name="prop_bloodsplatter_type2_13" parent="Y_Sort/Props_Container" unique_id=571607664 instance=ExtResource("19_yssyw")]
+position = Vector2(-264, -3809)
+
+[node name="prop_bloodsplatter_type4_20" parent="Y_Sort/Props_Container" unique_id=2105101278 instance=ExtResource("22_vbjjx")]
+position = Vector2(-179, -3830)
+
+[node name="prop_bloodsplatter_type2_14" parent="Y_Sort/Props_Container" unique_id=236932808 instance=ExtResource("19_yssyw")]
+position = Vector2(-209, -3822)
+
+[node name="prop_bloodsplatter_type4_21" parent="Y_Sort/Props_Container" unique_id=402713915 instance=ExtResource("22_vbjjx")]
+position = Vector2(13, -1960)
+
+[node name="prop_bloodsplatter_type3_29" parent="Y_Sort/Props_Container" unique_id=490770170 instance=ExtResource("20_mjp08")]
+position = Vector2(-9, -1982)
+
+[node name="prop_bloodsplatter_type2_15" parent="Y_Sort/Props_Container" unique_id=276090417 instance=ExtResource("19_yssyw")]
+position = Vector2(-106, -1968)
+
+[node name="prop_bloodsplatter_type1_14" parent="Y_Sort/Props_Container" unique_id=2023319431 instance=ExtResource("18_tjpph")]
+position = Vector2(-89, -2008)
+
+[node name="prop_bloodsplatter_type3_30" parent="Y_Sort/Props_Container" unique_id=942933477 instance=ExtResource("20_mjp08")]
+position = Vector2(101, -1958)
+
+[node name="prop_bloodsplatter_type3_31" parent="Y_Sort/Props_Container" unique_id=1986343855 instance=ExtResource("20_mjp08")]
+position = Vector2(65, -1945)
+
+[node name="prop_bloodsplatter_type1_15" parent="Y_Sort/Props_Container" unique_id=1997387026 instance=ExtResource("18_tjpph")]
+position = Vector2(-108, -2103)
+
+[node name="prop_bloodsplatter_type4_22" parent="Y_Sort/Props_Container" unique_id=534846142 instance=ExtResource("22_vbjjx")]
+position = Vector2(57, -2129)
+
+[node name="prop_bloodsplatter_type4_23" parent="Y_Sort/Props_Container" unique_id=774066426 instance=ExtResource("22_vbjjx")]
+position = Vector2(87, -2120)
+
+[node name="prop_bloodsplatter_type3_32" parent="Y_Sort/Props_Container" unique_id=141514634 instance=ExtResource("20_mjp08")]
+position = Vector2(93, -2317)
+
+[node name="prop_bloodsplatter_type2_16" parent="Y_Sort/Props_Container" unique_id=1216539595 instance=ExtResource("19_yssyw")]
+position = Vector2(69, -2334)
+
+[node name="prop_bloodsplatter_type2_17" parent="Y_Sort/Props_Container" unique_id=2055141076 instance=ExtResource("19_yssyw")]
+position = Vector2(-103, -2447)
+
+[node name="prop_bones_type4_11" parent="Y_Sort/Props_Container" unique_id=1837172216 instance=ExtResource("16_d8762")]
+position = Vector2(-234, -3544)
+rotation = -0.26179937
+scale = Vector2(0.75, 0.75)
+
+[node name="prop_bones_type1_23" parent="Y_Sort/Props_Container" unique_id=2025389039 instance=ExtResource("13_7cvu3")]
+position = Vector2(-218, -3560)
+scale = Vector2(0.33, 0.33)
+
+[node name="prop_bones_type2_21" parent="Y_Sort/Props_Container" unique_id=403907786 instance=ExtResource("15_vx4nn")]
+position = Vector2(-202, -3556)
+scale = Vector2(0.45, 0.45)
+
+[node name="prop_bloodsplatter_type4_24" parent="Y_Sort/Props_Container" unique_id=1445771594 instance=ExtResource("22_vbjjx")]
+position = Vector2(-213, -3575)
+
+[node name="prop_bloodsplatter_type2_18" parent="Y_Sort/Props_Container" unique_id=1821210156 instance=ExtResource("19_yssyw")]
+position = Vector2(-184, -3562)
+
+[node name="prop_bloodsplatter_type1_16" parent="Y_Sort/Props_Container" unique_id=268249122 instance=ExtResource("18_tjpph")]
+position = Vector2(-248, -3567)
+
 [node name="Player" parent="Y_Sort" unique_id=2105237732 instance=ExtResource("19_aegbq")]
 position = Vector2(0, -1639)
 
@@ -670,7 +964,7 @@ shadow_item_cull_mask = 3
 
 [node name="AmbientLight" type="PointLight2D" parent="Lights" unique_id=2093563878]
 position = Vector2(0, -3689)
-scale = Vector2(0.77734375, 0.7011719)
+scale = Vector2(0.68359375, 0.6640627)
 color = Color(0.53125, 0, 0, 1)
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_2rv37")
@@ -716,7 +1010,8 @@ position = Vector2(0, -1639)
 position = Vector2(0, -1625)
 
 [node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("26_ymwbn")]
-environment = SubResource("Environment_2m8e3")
+environment = SubResource("Environment_ymwbn")
 
-[node name="prop_bloodsplatter_type3_" parent="." unique_id=1980396640 instance=ExtResource("20_mjp08")]
-position = Vector2(-95, -3311)
+[node name="prop_bones_type2_" parent="." unique_id=787907872 instance=ExtResource("15_vx4nn")]
+position = Vector2(-605.00006, -3567)
+scale = Vector2(0.495, 0.495)
