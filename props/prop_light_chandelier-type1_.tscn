@@ -200,7 +200,9 @@ region_rect = Rect2(207, 1, 36, 48)
 [node name="PointLight2D" type="PointLight2D" parent="Sprite2D" unique_id=968969660]
 position = Vector2(0, 56)
 energy = 0.66
+shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
+shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = SubResource("GradientTexture2D_m7540")
 

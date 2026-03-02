@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bn5bohknbfr1l" path="res://tilemap/tilemap_collection.tscn" id="3_hg03w"]
 [ext_resource type="PackedScene" uid="uid://dgay2drcjr5vv" path="res://tilemap/tilemap_collection_nocollision.tscn" id="4_f150k"]
 [ext_resource type="PackedScene" uid="uid://0yrkxgkv27qb" path="res://systems/shiny_particles.tscn" id="5_1s6ks"]
-[ext_resource type="Texture2D" uid="uid://cr0hig1tlrv23" path="res://systems/sprites/5000x5000_linearraylight.png" id="6_0rlqu"]
+[ext_resource type="Texture2D" uid="uid://dbu71coxvd1ir" path="res://systems/sprites/5000x5000_linearraylight.png" id="6_0rlqu"]
 [ext_resource type="PackedScene" uid="uid://c2xd64ynk4nbd" path="res://npc/NPC_Luke.tscn" id="7_hf8p5"]
 [ext_resource type="PackedScene" uid="uid://0ypoy8tjpj7b" path="res://npc/NPC_Ember.tscn" id="8_0vp51"]
 [ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/scripts/props_container.tscn" id="9_qb4qm"]
@@ -33,10 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://xebitj0mlk1c" path="res://props/prop_chair-typefup.tscn" id="35_nnx3h"]
 [ext_resource type="PackedScene" uid="uid://8a65kn8c44im" path="res://props/prop_spicesshelves-type5_.tscn" id="36_4j3ip"]
 [ext_resource type="PackedScene" uid="uid://cm5fwtpmcqcfs" path="res://props/prop_spicesshelves-type6_.tscn" id="37_470el"]
-[ext_resource type="PackedScene" uid="uid://cls0tw4vvvuyp" path="res://player/player.tscn" id="38_ca3kk"]
 [ext_resource type="PackedScene" uid="uid://bje2wa6ytksw8" path="res://props/prop_crate-type3.tscn" id="38_d7v4g"]
 [ext_resource type="PackedScene" uid="uid://df5d8x3gxep3v" path="res://props/prop_tableset.tscn" id="39_2o5b2"]
-[ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="39_2oki1"]
 [ext_resource type="PackedScene" uid="uid://dng8idy4bpckx" path="res://props/prop_bookshelves-type3_.tscn" id="40_erqpu"]
 [ext_resource type="PackedScene" uid="uid://dib02rwu0opaq" path="res://props/prop_spicesshelves-type7_.tscn" id="41_7pcwu"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="42_6hbe6"]
@@ -166,19 +164,6 @@ colors = PackedColorArray(0.18431373, 0.16078432, 0.16078432, 1, 0.18431373, 0.1
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_rnrqm"]
 gradient = SubResource("Gradient_tbph3")
 
-[sub_resource type="Environment" id="Environment_2oki1"]
-resource_local_to_scene = true
-background_mode = 3
-tonemap_mode = 3
-tonemap_white = 6.0
-tonemap_agx_contrast = 1.43
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.25
-glow_bloom = 0.25
-glow_hdr_threshold = 0.9
-adjustment_saturation = 0.0
-
 [node name="Level_1f_Livingroom" type="Node2D" unique_id=1418967355]
 script = ExtResource("1_0aqhh")
 
@@ -296,6 +281,7 @@ position = Vector2(-217.00002, 190)
 scale = Vector2(2, 2)
 
 [node name="prop_light_chandelier-type2" parent="Y_Sort/_Props_Container" unique_id=1363616628 instance=ExtResource("10_euymw")]
+visible = false
 position = Vector2(260, 191.00002)
 scale = Vector2(2, 2)
 light_states = "idle_unlit"
@@ -559,12 +545,6 @@ position = Vector2(-274, 360)
 
 [node name="prop_table_3" parent="Y_Sort/_Props_Container" unique_id=1600291784 instance=ExtResource("18_4u5nd")]
 position = Vector2(-207, 360)
-
-[node name="Player" parent="Y_Sort" unique_id=2105237732 instance=ExtResource("38_ca3kk")]
-position = Vector2(-85, 225)
-
-[node name="WorldEnvironment" parent="Y_Sort/Player" unique_id=482453055 instance=ExtResource("39_2oki1")]
-environment = SubResource("Environment_2oki1")
 
 [node name="PathMarkers_Intro" type="Node2D" parent="." unique_id=2007425683]
 position = Vector2(0, 306)

@@ -3,14 +3,14 @@
 [ext_resource type="Script" uid="uid://bivlscb68yong" path="res://systems/main_menu_ui.gd" id="1_oh28q"]
 [ext_resource type="PackedScene" uid="uid://nnsi3op2dh6" path="res://systems/mainmenu_bgscene.tscn" id="2_dulkr"]
 [ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="2_l88yp"]
-[ext_resource type="Texture2D" uid="uid://1ueyacxlo56j" path="res://cinematics/assets/bg_mansion.png" id="2_rc1mk"]
+[ext_resource type="Texture2D" uid="uid://onvi88rotk4m" path="res://cinematics/assets/bg_mansion.png" id="2_rc1mk"]
 [ext_resource type="PackedScene" uid="uid://coxkk35x4355w" path="res://systems/savesystem_ui.tscn" id="3_473j0"]
 [ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="3_u4gf3"]
-[ext_resource type="Texture2D" uid="uid://bwiji1m6hvu3u" path="res://systems/sprites/menu_buttons_ui.png" id="4_6u8tq"]
+[ext_resource type="Texture2D" uid="uid://ranl6j3aek6t" path="res://systems/sprites/menu_buttons_ui.png" id="4_6u8tq"]
 [ext_resource type="FontFile" uid="uid://dxk7xhth31dks" path="res://systems/fonts/Cinzel-VariableFont_wght.ttf" id="4_yj3pl"]
-[ext_resource type="Texture2D" uid="uid://fl2ktfriujck" path="res://systems/sprites/menu_buttons_ui_pressed.png" id="5_sfk31"]
+[ext_resource type="Texture2D" uid="uid://b73enoua0ysu1" path="res://systems/sprites/menu_buttons_ui_pressed.png" id="5_sfk31"]
 [ext_resource type="AudioStream" uid="uid://c2hsg55vb76q8" path="res://systems/sounds/sound_main-menu.mp3" id="6_aiwrd"]
-[ext_resource type="Texture2D" uid="uid://c7lvoiagbv64" path="res://systems/sprites/menu_buttons_ui_hover.png" id="6_vvkec"]
+[ext_resource type="Texture2D" uid="uid://blo8iokejjie8" path="res://systems/sprites/menu_buttons_ui_hover.png" id="6_vvkec"]
 
 [sub_resource type="Environment" id="Environment_l88yp"]
 resource_local_to_scene = true

@@ -71,7 +71,6 @@ var prologue_possible_endings = {
 	}
 }
 
-
 func _ready() -> void:
 	scene_data = prologue_data
 	possible_endings = prologue_possible_endings

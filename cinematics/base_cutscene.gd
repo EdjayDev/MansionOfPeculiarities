@@ -133,7 +133,6 @@ func run_ending(key: String) -> void:
 	game.set_game_over(gameover_text, "", "cinematic")
 	print("Ending reached:", key)
 
-
 # -------------------------
 # OVERRIDABLE
 # -------------------------
