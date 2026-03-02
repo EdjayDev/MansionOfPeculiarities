@@ -34,10 +34,6 @@ InventoryManager="*res://systems/inventory_manager.gd"
 SaveSystem="*res://systems/savesystem.gd"
 SessionState="*res://systems/sessionstate.gd"
 
-[debug]
-
-settings/stdout/print_gpu_profile=true
-
 [display]
 
 window/size/viewport_width=1280
@@ -143,6 +139,7 @@ baking/version=""
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+rendering_device/driver="d3d12"
 renderer/rendering_method="gl_compatibility"
 global_illumination/voxel_gi/quality=1
 shading/overrides/force_vertex_shading=true

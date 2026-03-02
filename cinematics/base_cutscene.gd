@@ -26,11 +26,11 @@ var required_selection: int = 0
 # CINEMATIC FLOW
 # -------------------------
 func start_cinematic() -> void:
+	print("[CINEMATIC] Starting cinematic")
 	game.is_in_cinematic = true
 	current_scene_index = 0
 	is_running = true
 	await run_cinematic_flow()
-
 
 func run_cinematic_flow() -> void:
 	while is_running and current_scene_index < scene_order.size():
@@ -66,6 +66,7 @@ func run_cinematic_flow() -> void:
 # SCENE LOADING
 # -------------------------
 func load_scene(key: String) -> void:
+	print("loading scene on cutscene")
 	var data = scene_data.get(key, {})
 	narration = data.get("narration", [])
 	choices = data.get("choices", [])
@@ -78,11 +79,14 @@ func load_scene(key: String) -> void:
 func change_background(new_bg: Texture) -> void:
 	var bg_node: TextureRect = $Scene_BG/Background/BackgroundImage
 	if bg_node == null or new_bg == null:
+		push_error("[CUTSCENE] BG node for cinematic missing!")
 		return
 
 	if effect_ui and !first_transition:
+		print("[CINEMATIC] AWAITING FADEOUT")
 		await effect_ui.set_effect("fade_out", 2)
 	else:
+		print("[CINEMATIC] AWAITING FADEBLACK")
 		await effect_ui.set_effect("fade_instant", 1)
 		if hasTitleCard:
 			effect_ui.text_chaptername.text = titleCard
@@ -93,7 +97,7 @@ func change_background(new_bg: Texture) -> void:
 			
 		
 	bg_node.texture = new_bg
-	
+	print("successfully change bg on cutscene")
 	if effect_ui:
 		await effect_ui.set_effect("fade_in", 0.5)
 		
@@ -132,7 +136,6 @@ func run_ending(key: String) -> void:
 	await vn_component_manager.narration_finished
 	game.set_game_over(gameover_text, "", "cinematic")
 	print("Ending reached:", key)
-
 
 # -------------------------
 # OVERRIDABLE

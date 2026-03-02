@@ -11,6 +11,7 @@ var has_saved_data : bool = false
 @onready var btn_continue: Button = $mainmenu_ui/mainmenu_control/ButtonContainer/btn_continue
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	main_menu_audioplayer.play()
 	save_system_ui.request_load_game.connect(_on_request_load_game)
 	for save_slot in SaveSystem.save_data:

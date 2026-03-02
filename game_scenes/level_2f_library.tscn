@@ -576,6 +576,7 @@ position = Vector2(194, -119)
 
 [node name="prop_light_candle-type1" parent="Y_Sort/_Props_Container/prop_table_42" unique_id=1021811860 instance=ExtResource("20_orut1")]
 position = Vector2(2, -26)
+cast_shadow = true
 
 [node name="prop_chair_typefup21" parent="Y_Sort/_Props_Container" unique_id=915123640 instance=ExtResource("10_iux7b")]
 position = Vector2(-148, -112)

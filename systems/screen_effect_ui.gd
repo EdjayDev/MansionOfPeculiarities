@@ -37,7 +37,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func set_effect(effect : String, animation_speed: float) -> void:
-	print("[ScreenEffect UI]: ", effect)
+	print("[ScreenEffect UI]: effect to set: ", effect)
 	#var animation_speed = animation_speeds[speed]
 	match effect:
 		"fade_in":

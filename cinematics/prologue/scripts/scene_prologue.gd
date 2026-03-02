@@ -71,7 +71,6 @@ var prologue_possible_endings = {
 	}
 }
 
-
 func _ready() -> void:
 	scene_data = prologue_data
 	possible_endings = prologue_possible_endings
@@ -82,6 +81,7 @@ func _ready() -> void:
 	get_titleCard(set_titleCard)
 	get_titleText(set_titleText)
 	# Start cutscene
+	print("prologue start cutscene")
 	await start_cinematic()
 
 func get_next_scene() -> PackedScene:

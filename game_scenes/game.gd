@@ -87,14 +87,15 @@ func _unhandled_input(event: InputEvent) -> void:
 # LEVEL LOADING
 # ==========================
 func load_level(level_path: String, spawn_marker: String = "", companion_marker: Array = []) -> void:
+	print("loading: ", level_path)
 	scene_manager.cancel_all_cutscene_movements()
 	SessionState.set_temp_data(level_path, spawn_marker, companion_marker, SessionState.global_data)
 	is_in_cinematic = false
 	is_in_cutscene = false
 	if is_transitioning:
 		return
+	print("[GAME] Not currently transitioning, continuing...")
 	is_transitioning = true
-	await screen_effect_ui.set_effect("fade_instant", 2)
 	SessionState.world["requested_spawn_marker"] = spawn_marker
 	SessionState.world["requested_companion_marker"] = companion_marker
 
@@ -111,8 +112,9 @@ func load_level(level_path: String, spawn_marker: String = "", companion_marker:
 		add_child(player)
 	for child in scene_manager.get_children():
 		child.queue_free()
-	
+		print("[GAME] Old scene removed successfully...")
 	var new_scene = level_scene.instantiate()
+	print("[GAME] NEW SCENE LOADED: ", new_scene)
 	scene_manager.add_child(new_scene)
 	# Determine level name
 	if new_scene.has_method("get_level_name"):
