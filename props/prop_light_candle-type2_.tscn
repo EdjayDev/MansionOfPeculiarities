@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://c5ndr8yq03rx0"]
 
+[ext_resource type="Script" uid="uid://dtc2f0u8l4st5" path="res://props/scripts/prop_light.gd" id="1_arimy"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6fwrh"]
 load_path = "res://.godot/imported/dark_candles.png-dcdc88e73f84a48d37637df0390d1f8c.ctex"
 
@@ -63,6 +65,7 @@ _data = {
 }
 
 [node name="prop_light_candle-type2_" type="Node2D" unique_id=177282797]
+script = ExtResource("1_arimy")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=545729006]
 position = Vector2(0, -3.0000005)

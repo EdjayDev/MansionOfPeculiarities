@@ -36,7 +36,7 @@ SessionState="*res://systems/sessionstate.gd"
 
 [debug]
 
-settings/stdout/print_fps=true
+settings/stdout/print_gpu_profile=true
 
 [display]
 
@@ -46,6 +46,7 @@ window/size/extend_to_title=true
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 window/stdout/print_fps=false
 
 [editor]

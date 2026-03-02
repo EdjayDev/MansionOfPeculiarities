@@ -5,6 +5,7 @@ class_name Prop_Light
 
 @export_category("Light Settings")
 @export var light_energy : float = 0.66
+@export var cast_shadow : bool = false
 @export_enum("idle_light", "idle_fading", "idle_unlit") var light_states : String = "idle_light"
 @export var light_flicker : bool = false
 @export var light_flicker_rate : float = 0.5
@@ -15,6 +16,7 @@ class_name Prop_Light
 
 func _ready() -> void:
 	light.energy = light_energy
+	light.shadow_enabled = cast_shadow
 	var chosen_state = light_states
 	play_animation_effect(chosen_state)
 	if light_flicker:
