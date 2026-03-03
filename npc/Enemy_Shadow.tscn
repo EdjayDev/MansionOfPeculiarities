@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cq8dmlqsg5p4w" path="res://npc/scripts/enemy_shadow.gd" id="1_dxxor"]
 [ext_resource type="Texture2D" uid="uid://ci3syxqvkr0h6" path="res://npc/sprites/Sprite7.png" id="1_si32s"]
+[ext_resource type="Texture2D" uid="uid://cxcj7avhcuxe2" path="res://npc/sprites/enemy_shadow.png" id="2_g5wbd"]
 [ext_resource type="AudioStream" uid="uid://dt0cunj4y4kqd" path="res://systems/sounds/sound_footsteps-hallway.mp3" id="3_8t6eb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxxor"]
@@ -32,7 +33,7 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
@@ -69,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 14, 15]
+"values": [8, 9, 10, 11]
 }
 
 [sub_resource type="Animation" id="Animation_br222"]
@@ -86,12 +87,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7]
+"values": [0, 1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_ipypa"]
 resource_name = "walk_down"
-length = 1.4
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -100,10 +101,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.46666667, 0.7, 0.91495925, 1.1358114),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [16, 17, 18, 19, 20, 21]
+"values": [12, 13, 14, 15]
 }
 
 [sub_resource type="Animation" id="Animation_be5ym"]
@@ -142,7 +143,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_rhfvv"]
 resource_name = "walk_up"
-length = 1.4
+length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -151,10 +152,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.46666667, 0.7, 0.93333334, 1.1666666),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [22, 23, 24, 25, 26, 27]
+"values": [12, 13, 14, 15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mujk7"]
@@ -184,12 +185,11 @@ npc_area_2d = NodePath("Area2D")
 npc_navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635690122]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(0, -26)
+position = Vector2(0, -36)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_si32s")
-hframes = 8
-vframes = 8
+texture = ExtResource("2_g5wbd")
+hframes = 4
+vframes = 5
 
 [node name="Sprite2D-DialogueSprite" type="Sprite2D" parent="." unique_id=1594034867]
 visible = false
@@ -205,7 +205,6 @@ shape = SubResource("CircleShape2D_dxxor")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=117262495]
 libraries/ = SubResource("AnimationLibrary_mujk7")
-autoplay = &"idle_down"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=103045528]
 collision_layer = 2
