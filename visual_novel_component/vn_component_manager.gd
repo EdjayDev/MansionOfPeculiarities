@@ -29,6 +29,7 @@ signal choice_item_made
 func _ready() -> void:
 	vn_dialog_ui.visible = false
 	vn_narration_ui.visible = false
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	dialogue_started.connect(dialogue_finished_handler)
 
 func dialogue_finished_handler()->void:
@@ -51,35 +52,37 @@ func get_dialogue(dialogue: Array, speaker_name : String, speaker_sprite : Sprit
 	dialog_container.size.y = round(dialog_container.size.y)
 	for line in dialogue:
 		await text_effect(dialogue_text, line, text_speed)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.0, true).timeout
 	vn_dialog_ui.visible = false
 	dialogue_finished.emit()
 	SessionState.input_locked = false
 
 func get_narration(narration: Array, text_speed = text_speed_default) -> void:
+	await _run_narration(narration, text_speed)
+
+func _run_narration(narration: Array, text_speed) -> void:
 	dialogue_started.emit()
 	SessionState.input_locked = true
-	print("Narration received: ", narration)
 	narration_text.text = ""
 	vn_narration_ui.visible = true
+	
 	for line in narration:
 		await text_effect(narration_text, line, text_speed)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(1.0, true).timeout
+		
 	vn_narration_ui.visible = false
-	narration_finished.emit()
 	SessionState.input_locked = false
 
 func text_effect(label: RichTextLabel, text: String, text_speed: float = text_speed_default) -> void:
 	if !is_inside_tree():
 		return
+	skiptext = false
 	label.text = ""
 	var i = 0
 	while i < text.length():
 		if skiptext:
-			# Remove all emphasis tags before displaying
-			var cleaned_text = text
-			cleaned_text = cleaned_text.replace("[Emphasis]", "")
-			# Remove custom duration tags like [Emphasis=2.0]
+			# Remove all [Emphasis] tags
+			var cleaned_text = text.replace("[Emphasis]", "")
 			while cleaned_text.find("[Emphasis=") != -1:
 				var start_idx = cleaned_text.find("[Emphasis=")
 				var end_idx = cleaned_text.find("]", start_idx)
@@ -88,10 +91,11 @@ func text_effect(label: RichTextLabel, text: String, text_speed: float = text_sp
 				else:
 					break
 			label.text = cleaned_text
-			return  # Exit immediately since skipping finishes the text
+			break  # stop typing loop
 
+		# Emphasis tag handling
 		if text.substr(i, 10) == "[Emphasis]":
-			await get_tree().create_timer(1.0).timeout
+			await get_tree().create_timer(1.0, true, true).timeout
 			i += 10
 			continue
 		elif text.substr(i, 10) == "[Emphasis=":
@@ -101,16 +105,13 @@ func text_effect(label: RichTextLabel, text: String, text_speed: float = text_sp
 				duration_str += text[j]
 				j += 1
 			var duration = float(duration_str)
-			await get_tree().create_timer(duration).timeout
+			await get_tree().create_timer(duration, true, true).timeout
 			i = j + 1
 			continue
-		if !is_inside_tree():
-			return
+
 		label.text += text[i]
 		i += 1
-		await get_tree().create_timer(text_speed).timeout
-		if !is_inside_tree():
-			return
+		await get_tree().create_timer(text_speed, true, true).timeout
 		
 func get_choices(choices: Array) -> String:
 	SessionState.input_locked = true

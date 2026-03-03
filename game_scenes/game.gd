@@ -99,7 +99,7 @@ func load_level(level_path: String, spawn_marker: String = "", companion_marker:
 	SessionState.world["requested_spawn_marker"] = spawn_marker
 	SessionState.world["requested_companion_marker"] = companion_marker
 
-
+	await screen_effect_ui.set_effect("fade_instant", 1)
 	var level_scene: PackedScene = load(level_path)
 	if not level_scene:
 		push_error("[Game] FAILED TO LOAD:", level_path)
@@ -258,7 +258,7 @@ func set_game_over(text : String = "GAME OVER", flavor_text : String = "", mode 
 	if is_transitioning or SessionState.is_game_over:
 		return
 	SessionState.is_game_over = true
-	game_over.game_over_screen(text, flavor_text, player, mode)
+	await game_over.game_over_screen(text, flavor_text, player, mode)
 	guide.visible = false
 
 	bg_music_player.volume_db = randf_range(-30.0, -20.0)

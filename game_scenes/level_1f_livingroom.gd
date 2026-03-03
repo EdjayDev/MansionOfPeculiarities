@@ -60,7 +60,6 @@ func _ready() -> void:
 		return
 		
 	await intro_cutscene()
-	npc_wander()
 
 func intro_cutscene() -> void:
 	SessionState.input_locked = true
@@ -101,6 +100,8 @@ func intro_cutscene() -> void:
 	
 	SessionState.input_locked = false
 	SessionState.set_scene_data("IntroCutscene", true)
+	await get_tree().create_timer(0.5).timeout
+	npc_wander()
 
 
 @onready var luke_wander_1: Marker2D = $PathMarkers_Wander/luke_wander_1
@@ -110,7 +111,7 @@ func npc_wander()->void:
 	game.scene_manager.move_to(target_point_npcluke_3.global_position, luke, 30, true, "after", "idle_up")
 	if game.scene_manager.cancel_scene_movement:
 		return
-	await game.scene_manager.wait_time(4.0)
+	await game.scene_manager.wait_time(1.0)
 	print("Game cancel movement: ", game.scene_manager.cancel_scene_movement)
 	game.scene_manager.move_to(ember_wander_1.global_position, ember, 30, true, "after", "idle_up")
 	if game.scene_manager.cancel_scene_movement:

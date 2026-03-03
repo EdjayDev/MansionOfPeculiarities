@@ -27,9 +27,14 @@ var required_selection: int = 0
 # -------------------------
 func start_cinematic() -> void:
 	print("[CINEMATIC] Starting cinematic")
-	game.is_in_cinematic = true
-	current_scene_index = 0
+	
+	# FULL RESET
+	first_transition = true
+	on_ending = false
 	is_running = true
+	current_scene_index = 0
+	
+	game.is_in_cinematic = true
 	await run_cinematic_flow()
 
 func run_cinematic_flow() -> void:
@@ -40,8 +45,8 @@ func run_cinematic_flow() -> void:
 		await load_scene(key)
 
 		# Show narration
-		vn_component_manager.get_narration(narration)
-		await vn_component_manager.narration_finished
+		await vn_component_manager.get_narration(narration)
+		
 
 		# Show choices if available
 		if choices.size() > 0:
@@ -95,14 +100,11 @@ func change_background(new_bg: Texture) -> void:
 			effect_ui.text_chaptertext.visible = true
 			await effect_ui.set_effect("show_chapter", 1)
 			
-		
 	bg_node.texture = new_bg
 	print("successfully change bg on cutscene")
 	if effect_ui:
 		await effect_ui.set_effect("fade_in", 0.5)
 		
-
-
 # -------------------------
 # CHOICE / CONDITIONS
 # -------------------------
@@ -129,12 +131,12 @@ func apply_conditions(chosen: Variant) -> void:
 func run_ending(key: String) -> void:
 	is_running = false
 	on_ending = true
+	
 	var ending = possible_endings.get(key, {})
 	var end_narr = ending.get("narration", [])
 	var gameover_text = ending.get("gameover_text", "")
-	vn_component_manager.get_narration(end_narr)
-	await vn_component_manager.narration_finished
-	game.set_game_over(gameover_text, "", "cinematic")
+	await vn_component_manager.get_narration(end_narr)
+	await game.set_game_over(gameover_text, "", "cinematic")
 	print("Ending reached:", key)
 
 # -------------------------

@@ -38,27 +38,31 @@ func _ready() -> void:
 
 func set_effect(effect : String, animation_speed: float) -> void:
 	print("[ScreenEffect UI]: effect to set: ", effect)
-	#var animation_speed = animation_speeds[speed]
+	var animation_name = ""
 	match effect:
 		"fade_in":
-			animation_player.play("fade_in", -1, animation_speed)
-			await animation_player.animation_finished
+			animation_name = "fade_in"
 		"fade_out":
-			animation_player.play("fade_out", -1, animation_speed)
-			await animation_player.animation_finished
+			animation_name = "fade_out"
 		"show_chapter":
-			animation_player.play("show_titlecard", -1, animation_speed)
-			await animation_player.animation_finished
+			animation_name = "show_titlecard"
 		"cutscene_effect":
 			letter_box_top.scale.y = 1.25
 			letter_box_bottom.scale.y = 1.25
+			cinematic_player.stop()
+			cinematic_player.seek(0.0, true)
 			cinematic_player.play("show_letterbox", -1, animation_speed)
 			await cinematic_player.animation_finished
+			return
 		_:
 			print("[ScreenEffect UI] Defaulting to fade_black")
-			animation_player.play("fade_black", -1, animation_speed)
-			await animation_player.animation_finished
+			animation_name = "fade_black"
 
+	animation_player.stop()
+	animation_player.seek(0.0, true)
+	animation_player.play(animation_name, -1, animation_speed)
+	await animation_player.animation_finished
+	
 func reset_effect()->void:
 	animation_player.play("RESET")
 	await animation_player.animation_finished

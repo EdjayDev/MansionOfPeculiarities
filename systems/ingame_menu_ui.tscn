@@ -1,8 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://pp2rctohjhyd"]
+[gd_scene format=3 uid="uid://pp2rctohjhyd"]
 
 [ext_resource type="Script" uid="uid://dcsw6kk3g80xv" path="res://systems/ingamemenu_ui.gd" id="1_r5q61"]
-[ext_resource type="FontFile" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="2_lfs02"]
+[ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="2_lfs02"]
 [ext_resource type="PackedScene" uid="uid://coxkk35x4355w" path="res://systems/savesystem_ui.tscn" id="2_prthm"]
+[ext_resource type="Texture2D" uid="uid://bwiji1m6hvu3u" path="res://systems/sprites/menu_buttons_ui.png" id="3_2gl0w"]
+[ext_resource type="Texture2D" uid="uid://chevo0325nlgy" path="res://systems/sprites/in-gamemenu_bg.png" id="3_5jet4"]
+[ext_resource type="Texture2D" uid="uid://fl2ktfriujck" path="res://systems/sprites/menu_buttons_ui_pressed.png" id="4_11acd"]
+[ext_resource type="FontFile" uid="uid://dxk7xhth31dks" path="res://systems/fonts/Cinzel-VariableFont_wght.ttf" id="4_soh0b"]
+[ext_resource type="Texture2D" uid="uid://c7lvoiagbv64" path="res://systems/sprites/menu_buttons_ui_hover.png" id="5_5jet4"]
 
 [sub_resource type="FontVariation" id="FontVariation_2gl0w"]
 base_font = ExtResource("2_lfs02")
@@ -14,23 +19,48 @@ variation_opentype = {
 [sub_resource type="Theme" id="Theme_qkv10"]
 default_font = SubResource("FontVariation_2gl0w")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prthm"]
-bg_color = Color(0.18039216, 0.13725491, 0.09803922, 0.59607846)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qkv10"]
+texture = ExtResource("3_5jet4")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gl0w"]
 bg_color = Color(1, 1, 1, 0)
 
+[sub_resource type="FontVariation" id="FontVariation_jydv6"]
+base_font = ExtResource("4_soh0b")
+variation_opentype = {
+2003265652: 900
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_6liry"]
-font_size = 48
+font = SubResource("FontVariation_jydv6")
+font_size = 90
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lfs02"]
-bg_color = Color(0.3254902, 0.2784314, 0.21568628, 1)
+[sub_resource type="FontVariation" id="FontVariation_lfs02"]
+base_font = ExtResource("2_lfs02")
+variation_opentype = {
+1869640570: 32,
+2003265652: 800
+}
 
-[node name="InGameMenu" type="CanvasLayer"]
-layer = 3
+[sub_resource type="Theme" id="Theme_2gl0w"]
+default_font = SubResource("FontVariation_lfs02")
+default_font_size = 28
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_11acd"]
+texture = ExtResource("3_2gl0w")
+region_rect = Rect2(8, 9, 128, 132)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_soh0b"]
+texture = ExtResource("4_11acd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jydv6"]
+texture = ExtResource("5_5jet4")
+
+[node name="InGameMenu" type="CanvasLayer" unique_id=854129829]
+layer = 4
 script = ExtResource("1_r5q61")
 
-[node name="GameMenu_Panel" type="Panel" parent="."]
+[node name="GameMenu_Panel" type="Panel" parent="." unique_id=834397615]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,9 +68,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_qkv10")
-theme_override_styles/panel = SubResource("StyleBoxFlat_prthm")
+theme_override_styles/panel = SubResource("StyleBoxTexture_qkv10")
 
-[node name="GameMenu_UI_HeaderPanel" type="Panel" parent="GameMenu_Panel"]
+[node name="GameMenu_UI_HeaderPanel" type="Panel" parent="GameMenu_Panel" unique_id=1021653931]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -48,25 +78,25 @@ offset_bottom = 99.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2gl0w")
 
-[node name="label_Title" type="Label" parent="GameMenu_Panel/GameMenu_UI_HeaderPanel"]
+[node name="label_Title" type="Label" parent="GameMenu_Panel/GameMenu_UI_HeaderPanel" unique_id=1709807496]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -66.5
-offset_top = -33.5
-offset_right = 66.5
-offset_bottom = 33.5
+offset_left = -157.0
+offset_top = 76.5
+offset_right = 146.0
+offset_bottom = 198.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Menu"
+text = "MENU"
 label_settings = SubResource("LabelSettings_6liry")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu_Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="GameMenu_Panel" unique_id=2137369426]
 z_index = 3
 layout_mode = 1
 anchors_preset = 8
@@ -75,37 +105,47 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -358.0
-offset_top = -77.0
+offset_top = -27.0
 offset_right = 358.0
-offset_bottom = 191.0
+offset_bottom = 141.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 25
 
-[node name="btn_Load" type="Button" parent="GameMenu_Panel/VBoxContainer"]
+[node name="btn_Load" type="Button" parent="GameMenu_Panel/VBoxContainer" unique_id=1266450162]
 unique_name_in_owner = true
 z_index = 2
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_lfs02")
+theme = SubResource("Theme_2gl0w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_11acd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_soh0b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jydv6")
 text = "Load
 "
 
-[node name="SaveSystem_UI" parent="GameMenu_Panel/VBoxContainer/btn_Load" instance=ExtResource("2_prthm")]
+[node name="SaveSystem_UI" parent="GameMenu_Panel/VBoxContainer/btn_Load" unique_id=2074588923 instance=ExtResource("2_prthm")]
 unique_name_in_owner = true
 visible = false
 
-[node name="btn_Options" type="Button" parent="GameMenu_Panel/VBoxContainer"]
+[node name="btn_Options" type="Button" parent="GameMenu_Panel/VBoxContainer" unique_id=2098497427]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_lfs02")
+theme = SubResource("Theme_2gl0w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_11acd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_soh0b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jydv6")
 text = "Options
 "
 
-[node name="btn_Quit" type="Button" parent="GameMenu_Panel/VBoxContainer"]
+[node name="btn_Quit" type="Button" parent="GameMenu_Panel/VBoxContainer" unique_id=2072283528]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_lfs02")
+theme = SubResource("Theme_2gl0w")
+theme_override_styles/normal = SubResource("StyleBoxTexture_11acd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_soh0b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jydv6")
 text = "Quit to Main Menu"

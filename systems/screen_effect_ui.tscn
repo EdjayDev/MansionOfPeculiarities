@@ -446,7 +446,7 @@ libraries/ = SubResource("AnimationLibrary_5xsdx")
 
 [node name="text_chaptername" type="RichTextLabel" parent="." unique_id=1170915106]
 visible = false
-modulate = Color(1, 1, 1, 0.6350101)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -467,7 +467,7 @@ vertical_alignment = 1
 
 [node name="text_chaptertext" type="RichTextLabel" parent="." unique_id=27890178]
 visible = false
-modulate = Color(1, 1, 1, 0.64109325)
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

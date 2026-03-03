@@ -265,15 +265,15 @@ can_interact_multiple_times = true
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="Lights" unique_id=315658210]
 z_index = 1
-color = Color(0.93037415, 0.98828125, 0.98285246, 1)
-energy = 0.55
+color = Color(0.5104065, 0.7189288, 0.87109375, 1)
+energy = 0.5
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
 shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=613661788]
-color = Color(0.047058824, 0.047058824, 0.06666667, 1)
+color = Color(0.50390625, 0.4680909, 0.23423767, 1)
 
 [node name="SceneTransitioner_ToC2Entrance" parent="." unique_id=410900003 instance=ExtResource("12_5sxji")]
 position = Vector2(370.00003, -362)

@@ -23,17 +23,18 @@ func game_over_screen(text : String = "GAME OVER", flavor_text : String = "", pl
 	print("[GAMEOVER] GAME OVER INITIALIZED")
 	SessionState.input_locked = true
 	await game.screen_effect_ui.set_effect("fade_out", 1)
-	game.screen_effect_ui.set_effect("fade_black", 1)
+	await game.screen_effect_ui.set_effect("fade_black", 1)
 	text_game_over.text = text
 	text_flavortext.text = flavor_text
 	if player and mode == "cinematic":
 		text_game_over.theme.default_font_size = 64
 		game_over_player.play("show_cinematic_text", -1, 0.5)
-		get_tree().paused = true
+		SessionState.input_locked = true
 		await game_over_player.animation_finished
+		print("[GAME OVER] Game Over animation finished")
 		game_quit()
 		return	
-	get_tree().paused = true
+	SessionState.input_locked = true
 	player.global_position = SessionState.temp_player_position
 	game_over_audio.volume_db = 1.0
 	game_over_audio.pitch_scale = 1.25
@@ -54,5 +55,9 @@ func game_retry()->void:
 	SessionState.is_game_over = false
 	
 func game_quit()->void:
+	game.is_in_cinematic = false
+	get_tree().paused = false
 	SessionState.reset_session()
 	get_tree().change_scene_to_file("res://systems/main_menu_ui.tscn")
+	SessionState.is_game_over = false
+	print("[GAME OVER] Quitting to main menu")

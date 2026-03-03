@@ -21,7 +21,6 @@ func _ready() -> void:
 		btn_continue.add_theme_color_override("font_color", color_disabled)
 		btn_continue.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
-
 func _on_new_game_pressed() -> void:
 	SessionState.reset_session()
 	if GAME:

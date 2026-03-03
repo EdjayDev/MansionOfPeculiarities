@@ -28,12 +28,13 @@ func _ready() -> void:
 	#check companion
 	var npc_companion = get_current_companion()
 	print("npc companion: ", npc_companion)
-	match npc_companion.npc_id:
-		"luke":
-			picked_subdialogue = companion_luke_subdialogue1
-		"ember":
-			picked_subdialogue = companion_ember_subdialogue1
-	subdialogue_timer.timeout.connect(set_subdialogue)
+	if SessionState.get_difficulty() != "hard":
+		match npc_companion.npc_id:
+			"luke":
+				picked_subdialogue = companion_luke_subdialogue1
+			"ember":
+				picked_subdialogue = companion_ember_subdialogue1
+		subdialogue_timer.timeout.connect(set_subdialogue)
 		
 	if not visited:
 		SessionState.set_scene_data("visited_before", true)
