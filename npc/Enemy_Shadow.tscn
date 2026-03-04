@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://yysbu2rfobc6"]
 
 [ext_resource type="Script" uid="uid://cq8dmlqsg5p4w" path="res://npc/scripts/enemy_shadow.gd" id="1_dxxor"]
-[ext_resource type="Texture2D" uid="uid://ci3syxqvkr0h6" path="res://npc/sprites/Sprite7.png" id="1_si32s"]
 [ext_resource type="Texture2D" uid="uid://cxcj7avhcuxe2" path="res://npc/sprites/enemy_shadow.png" id="2_g5wbd"]
 [ext_resource type="AudioStream" uid="uid://dt0cunj4y4kqd" path="res://systems/sounds/sound_footsteps-hallway.mp3" id="3_8t6eb"]
 
@@ -109,7 +108,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_be5ym"]
 resource_name = "walk_left"
-length = 1.4
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -118,15 +117,15 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.03333333, 0.23333333, 0.5, 0.76666665, 1.0333333, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [28, 29, 30, 31, 32, 33]
+"values": [16, 18, 17]
 }
 
 [sub_resource type="Animation" id="Animation_3p3ik"]
 resource_name = "walk_right"
-length = 1.4
+length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -135,10 +134,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.23333333, 0.46666667, 0.7, 0.93333334, 1.1666666),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.6333333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [34, 35, 36, 37, 38, 39]
+"values": [22, 20, 21]
 }
 
 [sub_resource type="Animation" id="Animation_rhfvv"]
@@ -189,17 +188,17 @@ position = Vector2(0, -36)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_g5wbd")
 hframes = 4
-vframes = 5
+vframes = 6
 
 [node name="Sprite2D-DialogueSprite" type="Sprite2D" parent="." unique_id=1594034867]
 visible = false
 modulate = Color(0, 0, 0, 1)
 position = Vector2(0, -28.5)
-texture = ExtResource("1_si32s")
 region_enabled = true
 region_rect = Rect2(15, 5, 17, 21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977120966]
+visible = false
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_dxxor")
 

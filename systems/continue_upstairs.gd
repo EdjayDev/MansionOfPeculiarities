@@ -76,24 +76,40 @@ func play_cutscene() -> void:
 
 func _play_cutscene_sequence() -> void:
 	game.scene_manager.cancel_all_cutscene_movements()
-	var narration_lines: Array[String] = [
-		"Let's get going..."
+	var player_line: Array[String] = [
+		"Guys, let's head upstairs.",
 	]
+	
+	var ember_line: Array = [
+		["Hey, what with the enthusiasm...",
+		"You're pumped now too, huh?"],
+		["Even luke seems fired up, nice!"]
+	]
+	
+	var luke_line: Array = [
+		["On your lead-",
+		"There's not much to explore here anyways..."
+		]
+	]
+	
 	game.start_cutscene()
 	game.screen_effect_ui.set_effect("fade_in", 0.5)
 	await game.scene_manager.wait_time(2.0)
 	
-	game.scene_manager.move_to(target_point_player.global_position, player, 30)
-	game.vn_component_manager.get_dialogue(narration_lines, "I", player.player_dialogue_sprite)
+	game.scene_manager.move_to(target_point_player.global_position, player, 30, true, "after", "idle_down")
+	await game.vn_component_manager.get_dialogue(player_line, "I", player.player_dialogue_sprite)
 	game.scene_manager.move_to(target_point_npcember.global_position, ember, 40, true, "after", "idle_up")
 	game.scene_manager.move_to(target_point_npcluke.global_position, luke, 45, true, "after", "idle_up")
-	
-	await game.scene_manager.wait_for([player,luke,ember])
+	await game.vn_component_manager.get_dialogue(ember_line[0], ember.npc_name, ember.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(luke_line[0], luke.npc_name, luke.npc_dialogue_sprite)
+	ember.face_target(luke)
+	await game.vn_component_manager.get_dialogue(ember_line[1], ember.npc_name, ember.npc_dialogue_sprite)
 	
 	game.scene_manager.move_to(target_point_player_2.global_position, player, 60, false, "", "")
 	#wait for player to move ahead
 	await game.scene_manager.wait_time(0.5)
 	game.scene_manager.move_to(target_point_luke_2.global_position, luke, 60)
+	await game.scene_manager.wait_time(1.5)
 	game.scene_manager.move_to(target_point_ember_2.global_position, ember, 60)
 	
 	SessionState.add_companion(luke.npc_id, luke.npc_file_path)

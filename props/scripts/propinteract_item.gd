@@ -169,7 +169,8 @@ func interact() -> void:
 		if SessionState.get_scene_data(prop_required_data, false):
 			return
 	check_prop_requirements()
-	await handle_interaction_options()
+	if interaction_option_dependent:
+		await handle_interaction_options()
 	play_prop_audio()
 	apply_inventory_settings()
 	
@@ -193,8 +194,7 @@ func play_prop_narration(custom_narration : Array = []) -> void:
 			line = line.replace("{amount}", str(itemamount_to_add))
 		resolved_dialogue.append(line)
 
-	game.vn_component_manager.get_narration(resolved_dialogue)
-	await game.vn_component_manager.narration_finished
+	await game.vn_component_manager.get_narration(resolved_dialogue)
 	if prop_swap_interact_dialogue:
 		prop_interact_dialogue = prop_swap_interact_dialogue
 	
@@ -311,6 +311,7 @@ func execute_choice_actions(selected_choice: Dictionary) -> void:
 			callv(func_name, parameter_value)
 	
 func apply_inventory_settings()->void:
+	print("[PropInteract] Applying inventory settings")
 	if not check_requirement_completed:
 		return
 	if interaction_option_dependent:
