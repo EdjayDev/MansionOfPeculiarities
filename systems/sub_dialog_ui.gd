@@ -22,8 +22,6 @@ func _process(_delta: float) -> void:
 	position = view_position
 	visible = true
 
-
-
 func get_subdialogue(subdialogue: Array, character_speaker : CharacterBody2D)-> void:
 	if not subdialog_label:
 		push_error("[SubDialog] Sub Dialog UI don't exist")

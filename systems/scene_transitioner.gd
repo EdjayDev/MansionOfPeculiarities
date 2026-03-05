@@ -43,7 +43,6 @@ func start_forced_transition():
 
 # ---------------------------------------------------------------------
 func start_transition(trigger_area: bool = false) -> void:
-	
 	if SessionState.is_game_over or Game.manager.is_transitioning:
 		return
 	if trigger_area:
@@ -92,7 +91,6 @@ func start_transition(trigger_area: bool = false) -> void:
 	call_deferred("_delegate_scene_change")
 
 func _delegate_scene_change() -> void:
-	print("LOADING LOADING LOADING LOADING LOADING")
 	var game = get_tree().get_root().get_node_or_null("Game") as Game
 	if not game:
 		push_error("[SceneTransitioner] Game node not found!")
@@ -103,5 +101,6 @@ func _delegate_scene_change() -> void:
 
 	if randomize_level and not random_level_list.is_empty():
 		load_level = random_level_list.pick_random()
-
+	
+	print("Spawn Marker: ", spawn_marker_name, " Companion Marker: ", companion_spawn_marker)
 	await game.load_level(load_level, spawn_marker_name, companion_spawn_marker)

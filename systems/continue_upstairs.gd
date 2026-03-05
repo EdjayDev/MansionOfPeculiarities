@@ -31,6 +31,8 @@ var confirmation = [
 	{"choice" : "Stay here", "choice_id" : "stay"}
 ]
 
+signal starting_upstairs_sequence
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
 	game = get_tree().get_root().get_node("Game") as Game
@@ -62,6 +64,7 @@ func player_notice() -> void:
 
 
 func play_cutscene() -> void:
+	starting_upstairs_sequence.emit()
 	SessionState.input_locked = true
 	print("Input disabled.")
 	
@@ -93,11 +96,12 @@ func _play_cutscene_sequence() -> void:
 	]
 	
 	game.start_cutscene()
+	game.scene_manager.cancel_all_cutscene_movements()
 	game.screen_effect_ui.set_effect("fade_in", 0.5)
 	await game.scene_manager.wait_time(2.0)
 	
 	game.scene_manager.move_to(target_point_player.global_position, player, 30, true, "after", "idle_down")
-	await game.vn_component_manager.get_dialogue(player_line, "I", player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(player_line, player.player_name, player.player_dialogue_sprite)
 	game.scene_manager.move_to(target_point_npcember.global_position, ember, 40, true, "after", "idle_up")
 	game.scene_manager.move_to(target_point_npcluke.global_position, luke, 45, true, "after", "idle_up")
 	await game.vn_component_manager.get_dialogue(ember_line[0], ember.npc_name, ember.npc_dialogue_sprite)
@@ -109,7 +113,7 @@ func _play_cutscene_sequence() -> void:
 	#wait for player to move ahead
 	await game.scene_manager.wait_time(0.5)
 	game.scene_manager.move_to(target_point_luke_2.global_position, luke, 60)
-	await game.scene_manager.wait_time(1.5)
+	await game.scene_manager.wait_time(0.67)
 	game.scene_manager.move_to(target_point_ember_2.global_position, ember, 60)
 	
 	SessionState.add_companion(luke.npc_id, luke.npc_file_path)

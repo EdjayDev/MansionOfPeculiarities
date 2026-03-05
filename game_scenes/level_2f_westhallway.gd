@@ -1,4 +1,4 @@
-class_name Level_2f_Bigroom
+class_name Level_2f_WestHallway
 extends BaseLevel
 
 @onready var enemy_shadow_: enemy_shadow = $Y_Sort/Enemy_Shadow
@@ -31,7 +31,7 @@ var ember_dialogue = [
 
 func _ready() -> void:
 	set_level_name("2nd Floor West Hallway")
-	scene_path = "res://game_scenes/level_2f_bigroom.tscn"  # You can keep or delete this
+	scene_path = "res://game_scenes/level_2f_westhallway.tscn"
 	await init_level()
 	print("Level 2f Bigroom ready")
 	player.light_main.visible = true
@@ -66,7 +66,6 @@ func entry_shadow()->void:
 	SessionState.input_locked = true
 
 	await get_tree().process_frame
-	game.start_cutscene()
 	
 	game.scene_manager.move_camera(player, intro_shadow_1.global_position)
 	
@@ -80,7 +79,7 @@ func entry_shadow()->void:
 	luke.face_target(enemy_shadow_)
 	ember.face_target(enemy_shadow_)
 	dark_swarm.set_particle_emission(false)
-	await game.vn_component_manager.get_dialogue(player_dialogue, "I", player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(player_dialogue, player.player_name, player.player_dialogue_sprite)
 	await game.vn_component_manager.get_dialogue(ember_dialogue, "Ember", ember.npc_dialogue_sprite)
 	await game.vn_component_manager.get_dialogue(luke_dialogue, "Luke", luke.npc_dialogue_sprite, 0.005)
 	

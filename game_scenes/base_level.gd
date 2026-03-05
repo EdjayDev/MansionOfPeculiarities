@@ -165,6 +165,9 @@ func pick_randomlevel()->String:
 		pass
 	chosen_random_levels.append(random_level)
 	return "res://gamescenes/level_c2_%s.tscn" % random_level
+
+func get_companions()-> Array[BaseNPC]:
+	return companions_list
 	
 func get_current_companion()-> BaseNPC:
 	if companions_list.size() > 0:

@@ -7,7 +7,6 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var sprite_alt: Sprite2D = $Sprite2D_
 
 @onready var player_dialogue_sprite: Sprite2D = $"Sprite2D-DialogueSprite"
 
@@ -25,7 +24,7 @@ extends CharacterBody2D
 # ==========================
 # VARIABLES
 # ==========================
-
+@export var player_name : String = "Rose"
 @export var move_speed = 100.0
 @export var health: int = 100
 
@@ -165,12 +164,10 @@ func set_facingdirection() -> bool:
 	if facing_direction == Vector2.LEFT:
 		interaction_collision_shape_2d.position = Vector2.LEFT * 8
 		sprite.scale.x = -1
-		sprite_alt.scale.x = -1
 		
 	else:
 		interaction_collision_shape_2d.position = Vector2.RIGHT * 8
 		sprite.scale.x = 1
-		sprite_alt.scale.x = 1
 	return true
 
 func set_animationdirection() -> String:

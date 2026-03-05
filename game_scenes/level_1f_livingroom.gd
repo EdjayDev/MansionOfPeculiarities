@@ -23,7 +23,9 @@ class_name Level_Main
 @onready var luke_wander_2: Marker2D = $PathMarkers_Wander/luke_wander_2
 
 #miscellaneous
+var npc_wandering_timer : Timer
 var npc_pathing = false
+@onready var continue_upstairs: ContinueExploration = $Continue_Upstairs
 @onready var bloodleak: Node2D = $Misc/bloodleak
 @onready var bloodleak_area: Area2D = $Misc/bloodleak/bloodleak_area
 @onready var bloodleak_animplayer: AnimationPlayer = $Misc/bloodleak/bloodleak_animplayer
@@ -58,7 +60,8 @@ var luke_interaction_dialogue = [
 ]
 
 func _ready() -> void:
-	bloodleak_area.body_entered.connect(on_redlight_area_enter)
+	continue_upstairs.starting_upstairs_sequence.connect(stop_npc_wander_behavior)
+	bloodleak_area.body_entered.connect(on_blood_area_enter)
 	set_level_name("1st Floor Living Room")
 	scene_path = "res://game_scenes/level_1f_livingroom.tscn"
 	await init_level()
@@ -71,7 +74,6 @@ func _ready() -> void:
 		game.scene_manager.move_to(target_point_npcember_3.global_position, ember, 30, true, "after", "idle_up")
 		game.scene_manager.move_to(target_point_npcluke_3.global_position, luke, 30, true, "after", "idle_up")
 		npc_wander()
-		npc_subdialogs()
 		return
 		
 	await intro_cutscene()
@@ -117,20 +119,43 @@ func intro_cutscene() -> void:
 	SessionState.set_scene_data("IntroCutscene", true)
 	await get_tree().create_timer(0.5).timeout
 	npc_wander()
-	npc_subdialogs()
 	
 func npc_wander()->void:
-	var npc_wandering_timer = Timer.new()
-	add_child(npc_wandering_timer)
+	npc_wandering_timer = Timer.new()
+	continue_upstairs.add_child(npc_wandering_timer)
 	npc_wandering_timer.one_shot = false
 	npc_wandering_timer.wait_time = 10.0
-	npc_wandering_timer.timeout.connect(npc_wander_play)
+	npc_wandering_timer.timeout.connect(npc_wander_play_luke)
+	npc_wandering_timer.timeout.connect(npc_wander_play_ember)
 	npc_wandering_timer.start()
 	
-	
-func npc_wander_play()->void:
-	if game.scene_manager.cancel_scene_movement:
+func npc_wander_play_luke()->void:
+	if npc_pathing:
 		return
+	var randomize_int = randi_range(1, 3)
+	var randomize_wait_time = (randf() + 0.01) * 5
+	
+	print(randomize_wait_time)
+	await game.scene_manager.wait_time(randomize_wait_time)
+	npc_pathing = true
+	match randomize_int:
+		1:
+			game.scene_manager.move_to(target_point_npcluke_3.global_position, luke, 30, true, "after", "idle_up")
+		2:
+			game.scene_manager.move_to(luke_wander_1.global_position, luke, 30, true, "after", "idle_up")
+		3:
+			game.scene_manager.move_to(luke_wander_2.global_position, luke, 30, true, "after", "idle_up")
+	await game.scene_manager.wait_for([luke])
+	npc_pathing = false
+	var luke_subdialogs = [
+		"Most of the books are filled with scribbles",
+		"There must be something valuable here..."
+	]
+	var luke_line = luke_subdialogs.pick_random()
+	await get_tree().create_timer(randomize_int * 2).timeout
+	game.set_subdialog([luke_line], luke)
+
+func npc_wander_play_ember()->void:
 	if npc_pathing:
 		return
 	var randomize_int = randi_range(1, 3)
@@ -142,46 +167,30 @@ func npc_wander_play()->void:
 	match randomize_int:
 		1:
 			game.scene_manager.move_to(target_point_npcember_3.global_position, ember, 30, true, "after", "idle_up")
-			game.scene_manager.move_to(target_point_npcluke_3.global_position, luke, 30, true, "after", "idle_up")
 		2:
 			game.scene_manager.move_to(ember_wander_1.global_position, ember, 30, true, "after", "idle_up")
-			game.scene_manager.move_to(luke_wander_1.global_position, luke, 30, true, "after", "idle_up")
 		3:
 			game.scene_manager.move_to(ember_wander_2.global_position, ember, 30, true, "after", "idle_up")
-			game.scene_manager.move_to(luke_wander_2.global_position, luke, 30, true, "after", "idle_up")
-	await game.scene_manager.wait_for([luke,ember])
+	await game.scene_manager.wait_for([ember])
 	npc_pathing = false
+	var ember_subdialogs = [
+		"Hmmm...some pages are scribbled.",
+		"I can't read these books..."
+	]
+	var ember_line = ember_subdialogs.pick_random()
+	await get_tree().create_timer(randomize_int * 1.5).timeout
+	game.set_subdialog([ember_line], ember)
+
+func stop_npc_wander_behavior()->void:
+	game.scene_manager.cancel_all_cutscene_movements()
+	npc_wandering_timer.timeout.disconnect(npc_wander_play_luke)
+	npc_wandering_timer.timeout.disconnect(npc_wander_play_ember)
+	npc_wandering_timer.stop()
 	
-func on_redlight_area_enter(body : CharacterBody2D)->void:
-	if body == Player:
+func on_blood_area_enter(body : CharacterBody2D)->void:
+	if body.name == "Player" or body.is_in_group("Player"):
 		if bloodleak_animplayer.is_playing():
 			return
 		bloodleak_animplayer.play("blood_fade")
 		await bloodleak_animplayer.animation_finished
 		bloodleak.queue_free()
-
-func npc_subdialogs()->void:
-	var npc_subdialog_timer = Timer.new()
-	add_child(npc_subdialog_timer)
-	npc_subdialog_timer.one_shot = false
-	npc_subdialog_timer.wait_time = 16.0
-	npc_subdialog_timer.timeout.connect(npc_subdialog_play)
-	npc_subdialog_timer.start()
-	
-func npc_subdialog_play()->void:
-	if npc_pathing:
-		return
-	var luke_subdialogs = [
-		"Most of the books are filled with scribbles",
-		"There must be something valuable here..."
-	]
-	var ember_subdialogs = [
-		"Hmmm...some pages are scribbled.",
-		"Ooohh!",
-		"Waahhh!",
-		"I can't read these books..."
-	]
-	var luke_line = luke_subdialogs.pick_random()
-	var ember_line = ember_subdialogs.pick_random()
-	game.set_subdialog([luke_line], luke)
-	game.set_subdialog([ember_line], ember)

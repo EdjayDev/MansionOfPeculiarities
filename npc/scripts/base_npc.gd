@@ -7,7 +7,6 @@ class_name BaseNPC
 enum NPCState { IDLE, WALK }
 enum NPCBehavior {WANDER, PATROL}
 
-
 var state: NPCState = NPCState.IDLE
 var prev_state: NPCState = NPCState.IDLE
 
@@ -16,8 +15,6 @@ var is_interacting
 # NODES & REFERENCES
 # -----------------------------
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-
 
 var scene_game : Game
 # -----------------------------

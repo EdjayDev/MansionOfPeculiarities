@@ -94,7 +94,6 @@ func load_level(level_path: String, spawn_marker: String = "", companion_marker:
 	is_in_cutscene = false
 	if is_transitioning:
 		return
-	print("[GAME] Not currently transitioning, continuing...")
 	is_transitioning = true
 	SessionState.world["requested_spawn_marker"] = spawn_marker
 	SessionState.world["requested_companion_marker"] = companion_marker
@@ -249,9 +248,11 @@ func end_cutscene(reset_effect : bool) -> void:
 	guide.show_guide()
 
 func set_subdialog(subdialogue: Array, character_speaker: CharacterBody2D):
+	print("[SUBDIALOG] speaker: ", character_speaker)
+	if Game.manager.is_in_cutscene:
+		return
 	var subdialog : SubDialog_UI = subdialog_ui.instantiate()
 	scene_ui_canvas_layer.add_child(subdialog)
-	#get_tree().get_root().add_child(subdialog)
 	subdialog.get_subdialogue(subdialogue, character_speaker)
 	
 func set_game_over(text : String = "GAME OVER", flavor_text : String = "", mode : String = "default")->void:

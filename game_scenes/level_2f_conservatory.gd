@@ -77,7 +77,7 @@ func play_intro_cutscene()->void:
 	
 		await game.scene_manager.wait_for([player])
 		game.scene_manager.move_to(ghost_intro.global_position, neutral_ghost, 60)
-		await game.vn_component_manager.get_dialogue(["We need to find the ke-"], "I", player.player_dialogue_sprite)
+		await game.vn_component_manager.get_dialogue(["We need to find the ke-"], player.player_name, player.player_dialogue_sprite)
 		player.show_emote("exclamation")
 		
 		await game.scene_manager.wait_for([neutral_ghost])
@@ -109,7 +109,7 @@ func play_intro_cutscene()->void:
 	#Player without Companion
 	await game.scene_manager.wait_for([player])
 	game.scene_manager.move_to(ghost_intro.global_position, neutral_ghost, 60)
-	await game.vn_component_manager.get_dialogue(["I need to get the ke-"], "I", player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(["I need to get the ke-"], player.player_name, player.player_dialogue_sprite)
 	player.show_emote("exclamation")
 	
 	player.face_target(neutral_ghost)
@@ -132,9 +132,9 @@ func interact_ghost()->void:
 	Game.manager.start_cutscene()
 	SessionState.input_locked = true
 	await game.vn_component_manager.get_dialogue(ghost_interaction_1, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
-	await game.vn_component_manager.get_dialogue(player_ghost_interaction_1, "I", player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(player_ghost_interaction_1, player.player_name, player.player_dialogue_sprite)
 	await game.vn_component_manager.get_dialogue(ghost_interaction_2, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
-	await game.vn_component_manager.get_dialogue(player_ghost_interaction_2, "I", player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(player_ghost_interaction_2, player.player_name, player.player_dialogue_sprite)
 	await game.vn_component_manager.get_dialogue(ghost_interaction_3, neutral_ghost.npc_name, neutral_ghost.npc_dialogue_sprite)
 	Game.manager.end_cutscene(true)
 	SessionState.input_locked = false

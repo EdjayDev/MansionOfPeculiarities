@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://0gymvt6vwfwk"]
 
 [ext_resource type="Script" uid="uid://yuxpxuxk4s3f" path="res://npc/scripts/enemy_eye_watcher.gd" id="1_bipxp"]
-[ext_resource type="Texture2D" uid="uid://ci3syxqvkr0h6" path="res://npc/sprites/Sprite7.png" id="2_bipxp"]
 [ext_resource type="Texture2D" uid="uid://dyknowv4bs86p" path="res://npc/sprites/enemy_eyewatchert.png" id="2_jx83e"]
 [ext_resource type="AudioStream" uid="uid://b6ejrftrlusvn" path="res://systems/sounds/sound_flesh_growing.mp3" id="4_jx83e"]
-[ext_resource type="Texture2D" uid="uid://b5ky7ijf77j8" path="res://systems/sprites/particles_eyeswatching-sheet.png" id="5_q413j"]
+[ext_resource type="Texture2D" uid="uid://b5ro41thj5j6r" path="res://systems/sprites/particles_eyeswatching-sheet.png" id="5_q413j"]
 
 [sub_resource type="Gradient" id="Gradient_jx83e"]
 offsets = PackedFloat32Array(0.53409094, 1)
@@ -171,6 +170,10 @@ particles_anim_loop = false
 [sub_resource type="Curve" id="Curve_m2l41"]
 _data = [Vector2(0, 0.58412325), 0.0, 0.0, 0, 0, Vector2(0.49850747, 1), 0.0, 0.0, 0, 0, Vector2(0.51641786, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
+point_0/position = Vector2(0, 0.58412325)
+point_1/position = Vector2(0.49850747, 1)
+point_2/position = Vector2(0.51641786, 1)
+point_3/position = Vector2(1, 0)
 
 [sub_resource type="CurveTexture" id="CurveTexture_2rj22"]
 curve = SubResource("Curve_m2l41")
@@ -178,6 +181,8 @@ curve = SubResource("Curve_m2l41")
 [sub_resource type="Curve" id="Curve_q413j"]
 _data = [Vector2(0, 0.7689574), 0.0, 0.0, 0, 0, Vector2(0.26865673, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+point_0/position = Vector2(0, 0.7689574)
+point_1/position = Vector2(0.26865673, 1)
 
 [sub_resource type="CurveTexture" id="CurveTexture_m2l41"]
 curve = SubResource("Curve_q413j")
@@ -228,7 +233,6 @@ texture_scale = 0.4
 visible = false
 modulate = Color(0, 0, 0, 1)
 position = Vector2(0, -28.5)
-texture = ExtResource("2_bipxp")
 region_enabled = true
 region_rect = Rect2(15, 5, 17, 21)
 

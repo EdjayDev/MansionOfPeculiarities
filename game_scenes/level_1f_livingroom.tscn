@@ -169,112 +169,112 @@ gradient = SubResource("Gradient_tbph3")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gooi3"]
 size = Vector2(1.0412638, 47.50012)
 
-[sub_resource type="Animation" id="Animation_gooi3"]
+[sub_resource type="Animation" id="Animation_2oki1"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type1_:modulate")
+tracks/0/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type1_:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(-275, -19)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type4_:modulate")
+tracks/1/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type4_:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(-248.00002, -15)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type4_:position")
+tracks/2/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type1_:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-17.952217, 8.33505)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type1_:position")
+tracks/3/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type4_:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6.9814153, -3.7044685)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ca3kk"]
 resource_name = "blood_fade"
-length = 3.0
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type1_:modulate")
+tracks/0/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type1_:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2.3666666, 3),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(-275, -19), Vector2(-291.00003, -19)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type4_:modulate")
+tracks/1/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type4_:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.5, 3),
+"times": PackedFloat32Array(0, 1.6666666),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(-248.00002, -15), Vector2(-278, -9.000001)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type4_:position")
+tracks/2/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type1_:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.1),
+"times": PackedFloat32Array(1.9, 2.4333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-17.952217, 8.33505), Vector2(13.962824, 7.4089303)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type1_:position")
+tracks/3/path = NodePath("../../Y_Sort/_Props_Container/misc/prop_bloodsplatter_type4_:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.86),
+"times": PackedFloat32Array(2.0666666, 2.4333334),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(6.9814153, -3.7044685), Vector2(15.957521, -2.7783518)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2oki1"]
 _data = {
-&"RESET": SubResource("Animation_gooi3"),
+&"RESET": SubResource("Animation_2oki1"),
 &"blood_fade": SubResource("Animation_ca3kk")
 }
 
@@ -335,7 +335,7 @@ texture = ExtResource("6_0rlqu")
 offset = Vector2(-2000, 0)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=1428769900]
-color = Color(0.08224487, 0.13438831, 0.2734375, 1)
+color = Color(0.04219055, 0.11427616, 0.30859375, 1)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lights" unique_id=656602248]
 position = Vector2(317, 229)
@@ -497,6 +497,8 @@ position = Vector2(266, -29)
 prop_interact_dialogue = ["Upon searching the chest...", "You found a key!"]
 itemid_to_add = "item_rustykey"
 item_to_add = "Rusty Key"
+play_interact_audio = true
+prop_required_data = "rustykey_acquired"
 
 [node name="prop_chest2" parent="Y_Sort/_Props_Container" unique_id=1524212351 instance=ExtResource("21_wcbeu")]
 position = Vector2(222, 114.00001)
@@ -575,7 +577,8 @@ prop_interact_dialogue = ["Scribbled text of books..."]
 position = Vector2(197, 374)
 
 [node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_bookshelves-type6" unique_id=934768025 instance=ExtResource("14_2on68")]
-prop_interact_dialogue = [" ooks..."]
+prop_interact_dialogue = ["Scribbled text of books..."]
+can_interact_multiple_times = true
 
 [node name="prop_bookshelves-type4" parent="Y_Sort/_Props_Container" unique_id=1203146890 instance=ExtResource("29_k3wt5")]
 position = Vector2(-223, 118)
@@ -646,6 +649,9 @@ position = Vector2(-262, 115)
 [node name="prop_tableset" parent="Y_Sort/_Props_Container" unique_id=1439435019 instance=ExtResource("39_2o5b2")]
 position = Vector2(-134, 360)
 
+[node name="PropInteractItem_Component" parent="Y_Sort/_Props_Container/prop_tableset" unique_id=1141497319 instance=ExtResource("14_2on68")]
+prop_interact_dialogue = ["A table of two with four plates served..."]
+
 [node name="prop_bookshelves-type7" parent="Y_Sort/_Props_Container" unique_id=510988975 instance=ExtResource("40_erqpu")]
 position = Vector2(-152, 118)
 
@@ -680,12 +686,12 @@ required_item_id = "item_chefkey "
 [node name="misc" type="Node2D" parent="Y_Sort/_Props_Container" unique_id=483189675]
 
 [node name="prop_bloodsplatter_type1_" parent="Y_Sort/_Props_Container/misc" unique_id=2080007848 instance=ExtResource("6_2oki1")]
-position = Vector2(6.9814153, -3.7044685)
+position = Vector2(-275, -19)
 rotation = -3.1415925
 scale = Vector2(0.72692996, -0.7828387)
 
 [node name="prop_bloodsplatter_type4_" parent="Y_Sort/_Props_Container/misc" unique_id=2018208982 instance=ExtResource("7_0aqhh")]
-position = Vector2(-17.952217, 8.33505)
+position = Vector2(-248.00002, -15)
 rotation = -3.1415925
 scale = Vector2(0.64671695, -0.69645643)
 
@@ -781,7 +787,7 @@ scale = Vector2(1.002662, -1.0797775)
 [node name="bloodleak_area" type="Area2D" parent="Misc/bloodleak" unique_id=1354794694]
 
 [node name="bloodleak_collision" type="CollisionShape2D" parent="Misc/bloodleak/bloodleak_area" unique_id=1013118304]
-position = Vector2(-129.05241, 13.797636)
+position = Vector2(-129.05241, 14.723751)
 scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_gooi3")
 
