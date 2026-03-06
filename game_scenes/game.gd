@@ -9,6 +9,8 @@ static var BACKGROUND : Color =  Color("2F2929")
 const MUSIC_PROLOGUE := preload("res://systems/sounds/sound_ambient_night.mp3")
 const MUSIC_DEFAULT := preload("res://systems/sounds/sound_ambient-room.mp3")
 const MUSIC_SUSPENSE_ESCAPE := preload("res://systems/sounds/sound_suspense_escape.mp3")
+const SOUND_SCREAM_SHADOW = preload("uid://bte3i624y25g5")
+
 # ==========================
 # NODES
 # ==========================

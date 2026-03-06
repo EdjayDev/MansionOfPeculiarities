@@ -165,10 +165,12 @@ func interact() -> void:
 		
 	check_prop_inventory_setting()
 	await play_prop_narration()
+	print("[PROP INTERACT] NARRATION DONE")
 	if prop_required_data != "":
 		if SessionState.get_scene_data(prop_required_data, false):
 			return
 	check_prop_requirements()
+	print("[PROP INTERACT] CHECK PROP DONE")
 	if interaction_option_dependent:
 		await handle_interaction_options()
 	play_prop_audio()
@@ -223,6 +225,8 @@ func can_complete_interaction()->bool:
 	return true	
 
 func play_prop_animation()->void:
+	if not animate_prop:
+		return
 	if not animate_player:
 		return
 	if animate_player.is_playing():
@@ -243,7 +247,8 @@ func complete_interaction()->void:
 		interaction_allowed.emit()
 	repeat_animation = false
 	interact_done = true
-	is_interacting = false  
+	is_interacting = false
+	SessionState.input_locked = false
 
 func check_prop_requirements()->void:
 	if required_item_id != "":

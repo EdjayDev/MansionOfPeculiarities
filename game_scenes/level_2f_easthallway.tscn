@@ -204,7 +204,7 @@ spawn_marker_name = "Player_from2FEastHallway"
 companion_spawn_marker = ["Player_from2FEastHallway"]
 
 [node name="prop_crate-type2" parent="Y_Sort/Props_Container" unique_id=898510150 instance=ExtResource("9_u8i57")]
-position = Vector2(586, -37)
+position = Vector2(316, -36)
 
 [node name="prop_crate_type1" parent="Y_Sort/Props_Container" unique_id=1572069959 instance=ExtResource("10_1f58q")]
 position = Vector2(82, -36)
@@ -213,12 +213,16 @@ position = Vector2(82, -36)
 position = Vector2(0, -12)
 
 [node name="prop_spiceshelves-type3_" parent="Y_Sort/Props_Container" unique_id=1078293401 instance=ExtResource("11_qjf3s")]
-position = Vector2(550, -37)
-scale = Vector2(0.75, 0.75)
+position = Vector2(451, -37)
+scale = Vector2(0.8, 0.8)
 
 [node name="prop_spicesshelves-type5_" parent="Y_Sort/Props_Container" unique_id=1725126521 instance=ExtResource("12_php60")]
-position = Vector2(726, -37)
-scale = Vector2(0.75, 0.75)
+position = Vector2(356, -37)
+scale = Vector2(0.8, 0.8)
+
+[node name="prop_crate_type2" parent="Y_Sort/Props_Container" unique_id=1743266644 instance=ExtResource("10_1f58q")]
+position = Vector2(380, -37.000004)
+scale = Vector2(0.66, 0.66)
 
 [node name="Lights" type="Node2D" parent="." unique_id=1954448098]
 

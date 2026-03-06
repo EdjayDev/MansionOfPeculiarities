@@ -6,6 +6,7 @@ extends BaseLevel
 @onready var area_halt: Area2D = $Area_Halt
 
 @onready var prop_chandelier_type1_3: Node2D = $"Y_Sort/Props/prop_chandelier-type1_3"
+@onready var prop_chandelier_type1_2: Prop_Light = $"Y_Sort/Props/prop_chandelier-type1_2"
 
 @onready var intro_shadow_1: Marker2D = $Intro_PathMarkers/intro_shadow_1
 @onready var intro_shadow_2: Marker2D = $Intro_PathMarkers/intro_shadow_2
@@ -16,18 +17,6 @@ extends BaseLevel
 
 @onready var dark_swarm: Shadow_Swarm = $Dark_Swarm
 
-
-var player_dialogue = [
-	"What is that?"
-]
-
-var luke_dialogue = [
-	"We need to leave now, let's go! [Emphasis=1.0]"
-]
-
-var ember_dialogue = [
-	"Why it looks like..."
-]
 
 func _ready() -> void:
 	set_level_name("2nd Floor West Hallway")
@@ -52,46 +41,67 @@ func halt_music(area):
 	if SessionState.get_global_data("faced_shadow", false):
 		return
 	if area.name == "Player_InteractionArea":
-		game.scene_manager.move_to(intro_shadow_1.global_position, enemy_shadow_, 130)
 		game.set_bgmusic_setting(-16.0, 16.0)
 		prop_chandelier_type1_3.play_animation_effect("idle_fading")
+		await get_tree().create_timer(1.0).timeout
+		prop_chandelier_type1_2.play_animation_effect("idle_fading")
 		game.bg_music_player.stream = level_music
 		game.bg_music_player.play()
 		area_halt.area_entered.disconnect(halt_music)
+		var ember_line = [
+		"Hmmmm..."
+		]
+		var luke_line = [
+			"Where are these smoke coming from?"
+		]
+		for companion in get_companions():
+			if companion.npc_id == "ember":
+				await get_tree().create_timer(2.0).timeout
+				game.set_subdialog(ember_line, companion)
+			elif companion.npc_id == "luke":
+				await get_tree().create_timer(3.0).timeout
+				game.set_subdialog(luke_line, companion)
 
 func entry_shadow()->void:
+	var luke_dialogue = [
+	"We need to leave now, let's go! [Emphasis=1.0]"
+	]
+
+	var ember_dialogue = [
+		"What is that?..."
+	]
 	var luke = get_npc_by_id("luke")
 	var ember = get_npc_by_id("ember")
-	
-	SessionState.input_locked = true
-
-	await get_tree().process_frame
-	
-	game.scene_manager.move_camera(player, intro_shadow_1.global_position)
-	
 	game.scene_manager.move_to(intro_ember.global_position, ember, 60)
 	game.scene_manager.move_to(intro_luke.global_position, luke, 60)
 	await game.scene_manager.wait_for([luke,ember])
 	
-	game.set_bgmusic_setting(-3.0, 3.0)
-	game.scene_manager.move_to(intro_shadow_2.global_position, enemy_shadow_, 20)
-	
+	SessionState.input_locked = true
+
+	await get_tree().process_frame
+
 	luke.face_target(enemy_shadow_)
 	ember.face_target(enemy_shadow_)
+	game.set_subdialog(ember_dialogue, ember)
+	await get_tree().create_timer(2.0).timeout
+	game.set_subdialog(luke_dialogue, luke)
+	
+	game.set_bgmusic_setting(-3.0, 2.0)
+	game.scene_manager.shake_camera(player.camera_2d, 2.0, 4.0, 6.0)
+	game.bg_music_player.stream = game.SOUND_SCREAM_SHADOW
+	game.bg_music_player.play()
+	await get_tree().create_timer(5.0).timeout
+	game.scene_manager.move_to(intro_shadow_2.global_position, enemy_shadow_, 20)
 	dark_swarm.set_particle_emission(false)
-	await game.vn_component_manager.get_dialogue(player_dialogue, player.player_name, player.player_dialogue_sprite)
-	await game.vn_component_manager.get_dialogue(ember_dialogue, "Ember", ember.npc_dialogue_sprite)
-	await game.vn_component_manager.get_dialogue(luke_dialogue, "Luke", luke.npc_dialogue_sprite, 0.005)
 	
 	game.scene_manager.reset_camera(player)
 	dark_swarm.dark_swarm()
-	game.end_cutscene(true)
 	dark_swarm.set_particle_emission(true)
 	SessionState.input_locked = false
 	SessionState.set_global_data("faced_shadow", true)
 	game.bg_music_player.stream = game.MUSIC_SUSPENSE_ESCAPE
 	game.bg_music_player.play()
-	game.set_bgmusic_setting(-10.0, 0.6)
+	game.set_bgmusic_setting(-5.0, 0.6)
 	await game.scene_manager.wait_time(0.111)
 	companion_exit()
 	enemy_chase()

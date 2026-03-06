@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://ccgvdser8mst8" path="res://player/scripts/state_idle.gd" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://csttfiwb8u5fu" path="res://player/sprites/Character Rose (Final Edit).png" id="3_hg6s5"]
 [ext_resource type="Script" uid="uid://bjosqd654der5" path="res://player/scripts/player_state_machine.gd" id="3_qjkh3"]
-[ext_resource type="Texture2D" path="res://player/sprites/Main Character.png" id="3_rgyib"]
 [ext_resource type="Script" uid="uid://blww31dnk2ulv" path="res://player/scripts/state_walk.gd" id="4_yw30f"]
 [ext_resource type="AudioStream" uid="uid://bsd38gd257xj5" path="res://systems/sounds/sound_footsteps-hallway2.mp3" id="7_rgyib"]
 
@@ -169,7 +168,6 @@ vframes = 6
 [node name="Sprite2D-DialogueSprite" type="Sprite2D" parent="." unique_id=855155659]
 visible = false
 position = Vector2(0, -11)
-texture = ExtResource("3_rgyib")
 region_enabled = true
 region_rect = Rect2(9, 1, 15, 18)
 

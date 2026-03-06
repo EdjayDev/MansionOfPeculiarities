@@ -161,17 +161,14 @@ y_sort_enabled = true
 [node name="prop_chandelier-type1" parent="Y_Sort/Props" unique_id=780984428 instance=ExtResource("5_xutrg")]
 position = Vector2(-132, -25)
 scale = Vector2(2, 2)
-light_energy = 0.5
 
 [node name="prop_chandelier-type1_2" parent="Y_Sort/Props" unique_id=391937311 instance=ExtResource("5_xutrg")]
 position = Vector2(-498, -25)
 scale = Vector2(2, 2)
-light_energy = 0.25
 
 [node name="prop_chandelier-type1_3" parent="Y_Sort/Props" unique_id=1405120979 instance=ExtResource("5_xutrg")]
 position = Vector2(-875, -25)
 scale = Vector2(2, 2)
-light_energy = 0.16
 
 [node name="prop_chandelier-type1_4" parent="Y_Sort/Props" unique_id=634055619 instance=ExtResource("5_xutrg")]
 position = Vector2(-1252, -25)
@@ -180,7 +177,7 @@ light_energy = 0.0
 light_states = "idle_unlit"
 
 [node name="Enemy_Shadow" parent="Y_Sort" unique_id=1397990186 instance=ExtResource("6_s0tmc")]
-position = Vector2(-1344, 39)
+position = Vector2(-1344, 45)
 
 [node name="Lights" type="Node2D" parent="." unique_id=1954448098]
 
@@ -236,7 +233,7 @@ shape = SubResource("RectangleShape2D_aqo88")
 position = Vector2(-1344, 38)
 
 [node name="intro_shadow_2" type="Marker2D" parent="Intro_PathMarkers" unique_id=1447595622]
-position = Vector2(-1392, 38)
+position = Vector2(-1296, 38)
 
 [node name="intro_ember" type="Marker2D" parent="Intro_PathMarkers" unique_id=1602075200]
 position = Vector2(-1092, 20)

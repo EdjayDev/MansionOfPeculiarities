@@ -251,9 +251,12 @@ required_item_id = "item_bronzekey"
 position = Vector2(667.00006, -168)
 
 [node name="PropInteractItem_Component" parent="Y_Sort/Props_Container/prop_chest-type1_2" unique_id=1778916459 instance=ExtResource("14_upmsg")]
+prop_interact_dialogue = ["Opening chest...[Emphasis=1.0]", "You found Gold Coins!"]
 itemid_to_add = "item_goldcoins"
 item_to_add = "Gold Coin "
 itemamount_to_add = 5
+play_interact_audio = true
+prop_required_data = "goldcoins_acquired"
 
 [node name="prop_chest-type1_3" parent="Y_Sort/Props_Container" unique_id=1854783192 instance=ExtResource("16_wfbx8")]
 position = Vector2(907, -34)
