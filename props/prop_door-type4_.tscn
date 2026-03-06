@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ctihp73cy7wmg"]
+
+[ext_resource type="Texture2D" uid="uid://e7daf1051jia" path="res://props/sprites/base_interiors1.png" id="1_7ilal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
+size = Vector2(6, 52.551617)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lexhw"]
+size = Vector2(6, 52.55162)
+
+[node name="prop_door_type4_" type="Node2D" unique_id=1272782782]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=861327719]
+position = Vector2(0, -12)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=10875453]
+position = Vector2(0, -15.499998)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_7c1ra")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=685641765]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1571501546]
+position = Vector2(0, -27.499998)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_lexhw")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1846195330]
+position = Vector2(0, -34)
+texture = ExtResource("1_7ilal")
+region_enabled = true
+region_rect = Rect2(4, 396, 9, 68)

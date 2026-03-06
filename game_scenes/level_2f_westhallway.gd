@@ -5,8 +5,9 @@ extends BaseLevel
 @onready var area_2d: Area2D = $Area2D
 @onready var area_halt: Area2D = $Area_Halt
 
-@onready var prop_chandelier_type1_3: Node2D = $"Y_Sort/Props/prop_chandelier-type1_3"
-@onready var prop_chandelier_type1_2: Prop_Light = $"Y_Sort/Props/prop_chandelier-type1_2"
+@onready var prop_chandelier_type1_3: Node2D = $"Y_Sort/Props_Container/prop_chandelier-type1_3"
+@onready var prop_chandelier_type1_2: Prop_Light = $"Y_Sort/Props_Container/prop_chandelier-type1_2"
+@onready var prop_chandelier_type_1_4: Prop_Light = $"Y_Sort/Props_Container/prop_chandelier-type1_4"
 
 @onready var intro_shadow_1: Marker2D = $Intro_PathMarkers/intro_shadow_1
 @onready var intro_shadow_2: Marker2D = $Intro_PathMarkers/intro_shadow_2
@@ -22,7 +23,7 @@ func _ready() -> void:
 	set_level_name("2nd Floor West Hallway")
 	scene_path = "res://game_scenes/level_2f_westhallway.tscn"
 	await init_level()
-	print("Level 2f Bigroom ready")
+	print("Level 2f West Hallway ready")
 	player.light_main.visible = true
 	dark_swarm.set_particle_emission(true)
 	area_2d.area_entered.connect(_on_area_entered)
@@ -88,9 +89,7 @@ func entry_shadow()->void:
 	
 	game.set_bgmusic_setting(-3.0, 2.0)
 	game.scene_manager.shake_camera(player.camera_2d, 2.0, 4.0, 6.0)
-	game.bg_music_player.stream = game.SOUND_SCREAM_SHADOW
-	game.bg_music_player.play()
-	await get_tree().create_timer(5.0).timeout
+	game.play_audio_effect(game.SOUND_SCREAM_SHADOW, -3.0, 2.0, 5.0)
 	game.scene_manager.move_to(intro_shadow_2.global_position, enemy_shadow_, 20)
 	dark_swarm.set_particle_emission(false)
 	
@@ -111,7 +110,6 @@ func companion_exit()->void:
 	if SessionState.get_global_data("faced_shadow", false):
 		var luke = get_npc_by_id("luke")
 		var ember = get_npc_by_id("ember")
-		print("GOING EXIT!!!")
 		game.scene_manager.move_to(companion_exit_run.global_position, ember, 150)
 		game.scene_manager.move_to(companion_exit_run.global_position, luke, 145)
 		await game.scene_manager.wait_for([luke])

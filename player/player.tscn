@@ -168,8 +168,9 @@ vframes = 6
 [node name="Sprite2D-DialogueSprite" type="Sprite2D" parent="." unique_id=855155659]
 visible = false
 position = Vector2(0, -11)
+texture = ExtResource("3_hg6s5")
 region_enabled = true
-region_rect = Rect2(9, 1, 15, 18)
+region_rect = Rect2(9, 1, 15, 17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=294318798]
 position = Vector2(0, -8.888879)

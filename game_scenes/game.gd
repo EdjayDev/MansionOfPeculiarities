@@ -28,7 +28,8 @@ const subdialog_ui := preload("uid://cvpkaehqmm82b")
 @onready var inventory_ui: Inventory_UI = %InventoryUI as Inventory_UI
 @onready var guide: Guide = %Guide as Guide
  
-@onready var bg_music_player: AudioStreamPlayer2D = %AudioStreamPlayer2D
+@onready var audio_container: Node2D = $Audio_Container
+@onready var bg_music_player: AudioStreamPlayer2D = %MainAudio_Player
 @onready var bg_audio_effects: AudioStreamPlayer2D = %AudioEffects
 var bg_music_pitchscale_range = randf_range(0.9, 1.25)
 var bg_music_volumedb_range = randf_range(-2.0, 1.0)
@@ -57,7 +58,6 @@ var companion_marker_id = SessionState.world.get("requested_companion_marker", [
 func _ready() -> void:
 	Game.manager = self
 	var level_to_load = SessionState.requested_level_path
-	choice_timer.choice_timer_finished.connect(on_choice_timer_timeout)
 	SessionState.requested_level_path = ""
 	if not player.is_in_group("Player"):
 		player.add_to_group("Player")
@@ -222,15 +222,15 @@ func _apply_player_state_from_session() -> void:
 
 	print("[Game] Player restored.")
 
-# ==========================
-# CUTSCENE FINISHED
-# ==========================
 func _on_cinematic_finished(next_scene: PackedScene) -> void:
 	if next_scene and next_scene.resource_path:
 		call_deferred("load_level", next_scene.resource_path, "Player_Spawn", [])
 	else:
 		push_error("[Game] Invalid next scene!")
 
+# ====================================
+# Cutscene Handler
+# ====================================
 func start_cutscene() -> void:
 	inventory_ui.visible = !visible
 	if is_in_cutscene:
@@ -271,7 +271,20 @@ func set_game_over(text : String = "GAME OVER", flavor_text : String = "", mode 
 func set_bgmusic_setting(volume : float, pitch : float)->void:
 	bg_music_player.volume_db = volume
 	bg_music_player.pitch_scale = pitch
-	
-func on_choice_timer_timeout()->void:
-	#Game.manager.set_game_over()
-	pass
+
+func play_audio_effect(sound, volume : float, pitch : float, duration : float = -1.0)->void:
+	var audio_effect = AudioStreamPlayer2D.new()
+	audio_container.add_child(audio_effect)
+	audio_effect.stream = sound
+	audio_effect.volume_db = volume
+	audio_effect.pitch_scale = pitch
+	audio_effect.play()
+	await get_tree().create_timer(duration).timeout
+	var tween = create_tween()
+	tween.tween_property(
+		audio_effect,
+		"volume_db",
+		-50.0,
+		3.0
+	).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	audio_effect.queue_free()

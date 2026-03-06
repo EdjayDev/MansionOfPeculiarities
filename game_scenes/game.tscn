@@ -63,10 +63,12 @@ layer = 2
 unique_name_in_owner = true
 layer = 2
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=958591913]
+[node name="Audio_Container" type="Node2D" parent="." unique_id=1861216451]
+
+[node name="MainAudio_Player" type="AudioStreamPlayer2D" parent="Audio_Container" unique_id=958591913]
 unique_name_in_owner = true
 
-[node name="AudioEffects" type="AudioStreamPlayer2D" parent="." unique_id=770524476]
+[node name="AudioEffects" type="AudioStreamPlayer2D" parent="Audio_Container" unique_id=770524476]
 unique_name_in_owner = true
 
 [node name="Player" parent="." unique_id=1227195293 instance=ExtResource("8_ctjle")]

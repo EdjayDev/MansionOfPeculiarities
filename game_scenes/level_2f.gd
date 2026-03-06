@@ -73,7 +73,6 @@ func intro_cutscene() -> void:
 		dark_swarm.set_particle_emission(true)
 		await get_tree().create_timer(2.5).timeout
 
-
 		game.scene_manager.move_to(shadow_mark.global_position, shadow, 20)
 		game.scene_manager.shake_camera(player.camera_2d, 1.0, 2.0, 5.0) 
 		player.face_target(shadow)
