@@ -4,6 +4,7 @@ class_name Guide
 var game
 
 func _ready() -> void:
+	layer = 2
 	game = get_tree().get_root().get_node("Game") as Game
 
 func _process(_delta: float) -> void:

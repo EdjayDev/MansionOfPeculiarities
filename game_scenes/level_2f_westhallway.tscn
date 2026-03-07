@@ -12,13 +12,17 @@
 [ext_resource type="PackedScene" uid="uid://duogjtpjjja7w" path="res://props/prop_light_firepit-type1_.tscn" id="8_hrxfe"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="8_l4ug7"]
 [ext_resource type="PackedScene" uid="uid://c32kl132hi4oc" path="res://systems/systems_enemy/shadow_swarm.tscn" id="9_i87u3"]
-[ext_resource type="PackedScene" uid="uid://cai0dqxtatgfb" path="res://props/prop_light_candle-type1_.tscn" id="10_xutrg"]
 [ext_resource type="PackedScene" uid="uid://cj8qtlksie5xa" path="res://props/prop_book-type1.tscn" id="11_s0tmc"]
-[ext_resource type="PackedScene" uid="uid://ob8jj0y1pp53" path="res://props/prop_book-type2.tscn" id="12_2kemc"]
 [ext_resource type="PackedScene" uid="uid://bk76uyboowhol" path="res://props/prop_table_.tscn" id="12_jxskk"]
 [ext_resource type="PackedScene" uid="uid://dh1hrutisvqer" path="res://props/prop_spicesshelves-type3_.tscn" id="14_i87u3"]
 [ext_resource type="PackedScene" uid="uid://cm5fwtpmcqcfs" path="res://props/prop_spicesshelves-type6_.tscn" id="15_n3kly"]
+[ext_resource type="PackedScene" uid="uid://bt3l1fy4jh47a" path="res://props/prop_bookshelves-type5_.tscn" id="16_er53p"]
 [ext_resource type="PackedScene" uid="uid://bp8808mog12eb" path="res://props/prop_crate-type1.tscn" id="16_xe75v"]
+[ext_resource type="PackedScene" uid="uid://domx43kc3af8b" path="res://props/prop_spicesshelves-type4_.tscn" id="17_er53p"]
+[ext_resource type="PackedScene" uid="uid://dib02rwu0opaq" path="res://props/prop_spicesshelves-type7_.tscn" id="18_bptjt"]
+[ext_resource type="PackedScene" uid="uid://bpu47uhwo0ou1" path="res://props/prop_decor-flower1.tscn" id="19_2dpby"]
+[ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="19_uscxv"]
+[ext_resource type="PackedScene" uid="uid://cgkvsk7cr6epj" path="res://props/prop_chair-typefleft.tscn" id="20_2dpby"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -168,6 +172,11 @@ y_sort_enabled = true
 
 [node name="Props_Container" parent="Y_Sort" unique_id=361056891 instance=ExtResource("5_l4ug7")]
 
+[node name="prop_light_chandelier-type1_2" parent="Y_Sort/Props_Container" unique_id=975802158 instance=ExtResource("5_xutrg")]
+position = Vector2(-311, -742)
+scale = Vector2(2, 2)
+light_energy = 0.75
+
 [node name="prop_chandelier-type1" parent="Y_Sort/Props_Container" unique_id=780984428 instance=ExtResource("5_xutrg")]
 position = Vector2(-132, -25)
 scale = Vector2(2, 2)
@@ -227,25 +236,24 @@ position = Vector2(-1436, -58)
 position = Vector2(-311, -692)
 
 [node name="prop_book-type1" parent="Y_Sort/Props_Container/prop_table_" unique_id=1741542287 instance=ExtResource("11_s0tmc")]
-position = Vector2(-6, -19)
-rotation = -0.7853982
+position = Vector2(-82.00003, -58)
+rotation = -0.2617994
+scale = Vector2(0.66, 0.66)
+
+[node name="PropInteractItem_Component" parent="Y_Sort/Props_Container/prop_table_/prop_book-type1" unique_id=383616533 instance=ExtResource("19_uscxv")]
+prop_interact_dialogue = ["I once met her from a flower field nearby a mountain known for it's vast colorful flowers, a maiden who really loves flowers especially on those group of green flowers.", "We met again after a long time on a vintage flower shop where I saw her figure, examining a plant Chrysanthemum", "Even then I didn't managed to in-"]
+can_interact_multiple_times = true
 
 [node name="prop_book-type2" parent="Y_Sort/Props_Container/prop_table_" unique_id=74528008 instance=ExtResource("11_s0tmc")]
-position = Vector2(4, -24)
-scale = Vector2(0.78, 0.78)
-
-[node name="prop_book-type3" parent="Y_Sort/Props_Container/prop_table_" unique_id=1091645689 instance=ExtResource("12_2kemc")]
-position = Vector2(-5, -8)
+position = Vector2(5.9999995, -15)
 rotation = 0.2617994
-scale = Vector2(0.8, 0.8)
 
-[node name="prop_book-type4" parent="Y_Sort/Props_Container/prop_table_" unique_id=45788937 instance=ExtResource("12_2kemc")]
-position = Vector2(8, -22)
-rotation = 0.5235988
-scale = Vector2(0.8, 0.8)
+[node name="PropInteractItem_Component" parent="Y_Sort/Props_Container/prop_table_/prop_book-type2" unique_id=559655320 instance=ExtResource("19_uscxv")]
+prop_interact_dialogue = ["Blanked Book..."]
+can_interact_multiple_times = true
 
-[node name="prop_light_candle-type1_" parent="Y_Sort/Props_Container/prop_table_" unique_id=1102630157 instance=ExtResource("10_xutrg")]
-position = Vector2(7, -15)
+[node name="prop_decor-flower1" parent="Y_Sort/Props_Container/prop_table_" unique_id=1909210681 instance=ExtResource("19_2dpby")]
+position = Vector2(-5, -25)
 
 [node name="prop_spiceshelves-type3_" parent="Y_Sort/Props_Container" unique_id=1078293401 instance=ExtResource("14_i87u3")]
 position = Vector2(-261, -371)
@@ -262,6 +270,62 @@ scale = Vector2(0.75, 0.75)
 
 [node name="prop_light_firepit-type1_3" parent="Y_Sort/Props_Container" unique_id=70498391 instance=ExtResource("8_hrxfe")]
 position = Vector2(-208, -411)
+
+[node name="prop_bookshelves-type5_" parent="Y_Sort/Props_Container" unique_id=641254217 instance=ExtResource("16_er53p")]
+position = Vector2(-362, -742)
+scale = Vector2(-0.935, 0.935)
+
+[node name="prop_spicesshelves-type4_" parent="Y_Sort/Props_Container" unique_id=2123560258 instance=ExtResource("17_er53p")]
+position = Vector2(-193, -783)
+
+[node name="prop_spicesshelves-type7_" parent="Y_Sort/Props_Container" unique_id=115486931 instance=ExtResource("18_bptjt")]
+position = Vector2(-263, -742)
+
+[node name="PropInteractItem_Component" parent="Y_Sort/Props_Container/prop_spicesshelves-type7_" unique_id=548608584 instance=ExtResource("19_uscxv")]
+prop_interact_dialogue = ["A shelf of ingredients..."]
+can_interact_multiple_times = true
+
+[node name="prop_crate_type3" parent="Y_Sort/Props_Container" unique_id=1300265209 instance=ExtResource("16_xe75v")]
+position = Vector2(-189, -769)
+scale = Vector2(0.8, 0.8)
+
+[node name="prop_book-type1" parent="Y_Sort/Props_Container/prop_crate_type3" unique_id=754771665 instance=ExtResource("11_s0tmc")]
+position = Vector2(1.25, -11.249999)
+rotation = -0.2617994
+scale = Vector2(0.815, 0.815)
+
+[node name="prop_decor-flower9" parent="Y_Sort/Props_Container" unique_id=1565674000 instance=ExtResource("7_141n7")]
+position = Vector2(-189, -674)
+
+[node name="prop_decor-flower11" parent="Y_Sort/Props_Container" unique_id=864653186 instance=ExtResource("7_141n7")]
+position = Vector2(-189, -645)
+
+[node name="prop_decor-flower12" parent="Y_Sort/Props_Container" unique_id=1208846574 instance=ExtResource("7_141n7")]
+position = Vector2(-189, -633)
+
+[node name="prop_decor-flower14" parent="Y_Sort/Props_Container" unique_id=1991331040 instance=ExtResource("7_141n7")]
+position = Vector2(-187, -722)
+
+[node name="prop_decor-flower15" parent="Y_Sort/Props_Container" unique_id=2088706492 instance=ExtResource("7_141n7")]
+position = Vector2(-187, -710)
+
+[node name="prop_decor-flower16" parent="Y_Sort/Props_Container" unique_id=701464027 instance=ExtResource("7_141n7")]
+position = Vector2(-187, -699)
+
+[node name="prop_decor-flower13" parent="Y_Sort/Props_Container" unique_id=570240044 instance=ExtResource("7_141n7")]
+position = Vector2(-189, -622)
+
+[node name="prop_book-type1" parent="Y_Sort/Props_Container" unique_id=228879782 instance=ExtResource("11_s0tmc")]
+position = Vector2(-200.99997, -671.00006)
+rotation = 0.2617994
+
+[node name="PropInteractItem_Component" parent="Y_Sort/Props_Container/prop_book-type1" unique_id=865336480 instance=ExtResource("19_uscxv")]
+position = Vector2(1.4142001, -2.449423)
+prop_interact_dialogue = ["ONLY GREEN"]
+can_interact_multiple_times = true
+
+[node name="prop_chair_typefleft" parent="Y_Sort/Props_Container" unique_id=1298528664 instance=ExtResource("20_2dpby")]
+position = Vector2(-392, -742)
 
 [node name="Enemy_Shadow" parent="Y_Sort" unique_id=1397990186 instance=ExtResource("6_s0tmc")]
 position = Vector2(-2011, 45)

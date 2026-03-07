@@ -108,7 +108,8 @@ func text_effect(label: RichTextLabel, text: String, text_speed: float = text_sp
 			await get_tree().create_timer(duration, true, true).timeout
 			i = j + 1
 			continue
-
+		if label == null:
+			return
 		label.text += text[i]
 		i += 1
 		await get_tree().create_timer(text_speed, true, true).timeout

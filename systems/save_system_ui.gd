@@ -143,8 +143,7 @@ func update_save_slot(slot: int) -> void:
 			_update_slot(btn_save_3, 3)
 
 func _update_slot(button_slot : Button, slot: int) -> void:
-	var label: Label = button_slot.get_node("Label")
-	var location_label : Label = button_slot.get_node("Location-Label")
+	var label: Label = button_slot.get_node("MarginContainer/Label")
 	var slot_data: Dictionary = SaveSystem.read_slot(slot)
 	var slot_status_data = slot_data.get("slot_status", {})
 	var slot_status = slot_status_data.get("status", "Inactive")
@@ -160,7 +159,6 @@ func _update_slot(button_slot : Button, slot: int) -> void:
 	var items_count = player_data.get("inventory", {}).size()
 
 	label.text = "Location: %s\nHealth: %d\nItems: %d" % [level_name, health, items_count]
-	location_label.text = ""
 # ------------------------
 # UI visibility
 # ------------------------

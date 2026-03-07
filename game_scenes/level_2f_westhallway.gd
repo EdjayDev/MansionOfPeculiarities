@@ -7,7 +7,7 @@ extends BaseLevel
 
 @onready var prop_chandelier_type1_3: Node2D = $"Y_Sort/Props_Container/prop_chandelier-type1_3"
 @onready var prop_chandelier_type1_2: Prop_Light = $"Y_Sort/Props_Container/prop_chandelier-type1_2"
-@onready var prop_chandelier_type_1_4: Prop_Light = $"Y_Sort/Props_Container/prop_chandelier-type1_4"
+@onready var prop_chandelier_type1_4: Prop_Light = $"Y_Sort/Props_Container/prop_chandelier-type1_4"
 
 @onready var intro_shadow_1: Marker2D = $Intro_PathMarkers/intro_shadow_1
 @onready var intro_shadow_2: Marker2D = $Intro_PathMarkers/intro_shadow_2
@@ -46,6 +46,7 @@ func halt_music(area):
 		prop_chandelier_type1_3.play_animation_effect("idle_fading")
 		await get_tree().create_timer(1.0).timeout
 		prop_chandelier_type1_2.play_animation_effect("idle_fading")
+		prop_chandelier_type1_4.play_animation_effect("idle_fading")
 		game.bg_music_player.stream = level_music
 		game.bg_music_player.play()
 		area_halt.area_entered.disconnect(halt_music)
@@ -89,7 +90,7 @@ func entry_shadow()->void:
 	
 	game.set_bgmusic_setting(-3.0, 2.0)
 	game.scene_manager.shake_camera(player.camera_2d, 2.0, 4.0, 6.0)
-	game.play_audio_effect(game.SOUND_SCREAM_SHADOW, -3.0, 2.0, 5.0)
+	game.play_audio_effect(game.SOUND_SCREAM_SHADOW, -3.0, 2.0, 12.0)
 	game.scene_manager.move_to(intro_shadow_2.global_position, enemy_shadow_, 20)
 	dark_swarm.set_particle_emission(false)
 	

@@ -6,6 +6,7 @@ extends CanvasLayer
 @onready var template_button: Button = $Inventory_Panel/PanelContainer/VBoxContainer/template_button
 
 func _ready() -> void:
+	layer = 1
 	InventoryManager.inventory_updated.connect(update_inventory)
 	update_inventory()
 

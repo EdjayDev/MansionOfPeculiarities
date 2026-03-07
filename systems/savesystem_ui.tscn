@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://coxkk35x4355w"]
 
 [ext_resource type="Script" uid="uid://berlifd7e6dis" path="res://systems/save_system_ui.gd" id="1_bonas"]
-[ext_resource type="Texture2D" uid="uid://ll68hmti0pg6" path="res://systems/sprites/icon_return.png" id="2_4riq3"]
+[ext_resource type="Texture2D" uid="uid://vakgu6opep5y" path="res://systems/sprites/icon_return.png" id="2_4riq3"]
 [ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="2_77msc"]
-[ext_resource type="Texture2D" uid="uid://c83a7lhs3tbkw" path="res://systems/sprites/savemenu_texture.png" id="2_nwexd"]
-[ext_resource type="Texture2D" uid="uid://bvf7jwtnc2wr3" path="res://systems/sprites/icon_return_hover.png" id="4_nneva"]
-[ext_resource type="Texture2D" uid="uid://c2qb4dlhh64t2" path="res://systems/sprites/saveslot_texture.png" id="7_0gber"]
+[ext_resource type="Texture2D" uid="uid://cwin1djkxgqoe" path="res://systems/sprites/savemenu_texture.png" id="2_nwexd"]
+[ext_resource type="Texture2D" uid="uid://bvxqh1dhon61p" path="res://systems/sprites/icon_return_hover.png" id="4_nneva"]
+[ext_resource type="Texture2D" uid="uid://d2ewnlvm6buyf" path="res://systems/sprites/saveslot_texture.png" id="7_0gber"]
 [ext_resource type="FontFile" uid="uid://dxk7xhth31dks" path="res://systems/fonts/Cinzel-VariableFont_wght.ttf" id="7_4x3yk"]
 [ext_resource type="Texture2D" uid="uid://cvhv2tbc3yyx2" path="res://systems/sprites/saveslot_texture_hover.png" id="8_0gber"]
-[ext_resource type="Texture2D" uid="uid://b5gjus2r7wnpy" path="res://systems/sprites/saveslot_texture_pressed.png" id="8_jvb0g"]
+[ext_resource type="Texture2D" uid="uid://bs7fqotimsolq" path="res://systems/sprites/saveslot_texture_pressed.png" id="8_jvb0g"]
 [ext_resource type="FontFile" uid="uid://dh4vhl1gjw781" path="res://systems/fonts/CormorantGaramond-VariableFont_wght.ttf" id="9_0gber"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_veaxa"]
@@ -27,7 +27,7 @@ variation_opentype = {
 
 [sub_resource type="Theme" id="Theme_nneva"]
 default_font = SubResource("FontVariation_77msc")
-default_font_size = 24
+default_font_size = 32
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77msc"]
 content_margin_left = 25.0
@@ -55,7 +55,7 @@ variation_opentype = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_6liry"]
 font = SubResource("FontVariation_nneva")
-font_size = 64
+font_size = 72
 font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
 shadow_color = Color(0.70973206, 0.75390625, 0.75390625, 1)
 shadow_offset = Vector2(-8, 8)
@@ -78,21 +78,15 @@ texture = ExtResource("8_0gber")
 texture_margin_left = 500.0
 region_rect = Rect2(34, 26, 8053, 2061)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x3yk"]
-bg_color = Color(0.2578125, 0.064453125, 0.064453125, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_veaxa"]
-bg_color = Color(0.26171875, 0.03578186, 0.03578186, 1)
-
 [sub_resource type="FontVariation" id="FontVariation_jvb0g"]
 base_font = ExtResource("9_0gber")
 variation_opentype = {
-2003265652: 700
+2003265652: 500
 }
 
 [sub_resource type="Theme" id="Theme_j301o"]
 default_font = SubResource("FontVariation_jvb0g")
-default_font_size = 18
+default_font_size = 24
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j301o"]
 texture = ExtResource("7_0gber")
@@ -108,9 +102,6 @@ region_rect = Rect2(5, 0, 8075, 2083)
 texture = ExtResource("8_0gber")
 texture_margin_left = 500.0
 region_rect = Rect2(34, 26, 8053, 2061)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0gber"]
-bg_color = Color(0.25882354, 0.0627451, 0.0627451, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_egb5u"]
 texture = ExtResource("7_0gber")
@@ -161,10 +152,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 64.0
-offset_top = -8.5
-offset_right = 251.0
-offset_bottom = 44.5
+offset_left = 57.0
+offset_top = -15.0
+offset_right = 258.0
+offset_bottom = 51.0
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_nneva")
@@ -175,18 +166,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_77msc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nneva")
 theme_override_styles/hover = SubResource("StyleBoxTexture_cpw54")
 text = "RETURN"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="SaveSystemUI_Panel/SaveSystemUI_HeaderPanel" unique_id=791171031]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Inventory"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="label_title" type="Label" parent="SaveSystemUI_Panel/SaveSystemUI_HeaderPanel" unique_id=1358899601]
 layout_mode = 1
@@ -228,37 +207,20 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_4x3yk")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0gber")
 theme_override_styles/hover = SubResource("StyleBoxTexture_jvb0g")
 
-[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/btn-save1" unique_id=2119119572]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="SaveSystemUI_Panel/VBoxContainer/btn-save1" unique_id=1575379917]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -189.0
-offset_top = -44.0
-offset_right = 189.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_4x3yk")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
-text = "Save"
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
 
-[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save1" unique_id=122648905]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 7.0
-offset_right = 136.0
-offset_bottom = 57.0
-theme = SubResource("Theme_j301o")
-theme_override_colors/font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
-
-[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save1" unique_id=1695682488]
-layout_mode = 1
-offset_left = 1111.0
-offset_right = 1240.0
-offset_bottom = 50.0
+[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save1/MarginContainer" unique_id=122648905]
+layout_mode = 2
 theme = SubResource("Theme_j301o")
 theme_override_colors/font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
 
@@ -272,36 +234,20 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_j301o")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nb0b6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_h81vy")
 
-[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/btn-save2" unique_id=89512069]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="SaveSystemUI_Panel/VBoxContainer/btn-save2" unique_id=167295064]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -189.0
-offset_top = -44.0
-offset_right = 189.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0gber")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
-text = "Save"
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
 
-[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save2" unique_id=424423891]
-layout_mode = 0
-offset_left = 7.0
-offset_right = 144.0
-offset_bottom = 73.0
-theme = SubResource("Theme_j301o")
-theme_override_colors/font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
-
-[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save2" unique_id=983006240]
-layout_mode = 1
-offset_left = 1111.0
-offset_right = 1240.0
-offset_bottom = 50.0
+[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save2/MarginContainer" unique_id=610790617]
+layout_mode = 2
 theme = SubResource("Theme_j301o")
 theme_override_colors/font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
 
@@ -315,35 +261,19 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_egb5u")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_61gvg")
 theme_override_styles/hover = SubResource("StyleBoxTexture_0fylb")
 
-[node name="btn_save" type="Button" parent="SaveSystemUI_Panel/VBoxContainer/btn-save3" unique_id=1474625780]
-visible = false
+[node name="MarginContainer" type="MarginContainer" parent="SaveSystemUI_Panel/VBoxContainer/btn-save3" unique_id=1254260659]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -189.0
-offset_top = -44.0
-offset_right = 189.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_0gber")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_veaxa")
-text = "Save"
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 15
 
-[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save3" unique_id=85848781]
-layout_mode = 0
-offset_left = 7.0
-offset_right = 170.0
-offset_bottom = 73.0
-theme = SubResource("Theme_j301o")
-theme_override_colors/font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
-
-[node name="Location-Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save3" unique_id=268464680]
-layout_mode = 0
-offset_left = 1077.0
-offset_right = 1240.0
-offset_bottom = 73.0
+[node name="Label" type="Label" parent="SaveSystemUI_Panel/VBoxContainer/btn-save3/MarginContainer" unique_id=1766006739]
+layout_mode = 2
 theme = SubResource("Theme_j301o")
 theme_override_colors/font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://rmu7dlxybaky" path="res://visual_novel_component/vn_component_manager.tscn" id="2_hju2f"]
 [ext_resource type="PackedScene" uid="uid://bq6apcviwprka" path="res://systems/screen_effect_ui.tscn" id="3_3jbpx"]
 [ext_resource type="Script" uid="uid://cwlusjyacmsor" path="res://systems/scene_manager.gd" id="3_ck3pl"]
+[ext_resource type="Script" uid="uid://dea5eftkh3mnt" path="res://game_scenes/scene_ui_canvas_layer.gd" id="4_0rx1o"]
 [ext_resource type="PackedScene" uid="uid://cearovqy3lv7k" path="res://systems/inventory_ui.tscn" id="4_i1vrp"]
 [ext_resource type="PackedScene" uid="uid://dlmit2sopjvdl" path="res://systems/guide.tscn" id="5_ahkyb"]
 [ext_resource type="PackedScene" uid="uid://pp2rctohjhyd" path="res://systems/ingame_menu_ui.tscn" id="6_8j0ir"]
@@ -13,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cls0tw4vvvuyp" path="res://player/player.tscn" id="8_ctjle"]
 [ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="11_7kora"]
 
-[sub_resource type="Environment" id="Environment_2foli"]
+[sub_resource type="Environment" id="Environment_0rx1o"]
 resource_local_to_scene = true
 background_mode = 3
 tonemap_mode = 3
@@ -35,13 +36,17 @@ unique_name_in_owner = true
 script = ExtResource("3_ck3pl")
 
 [node name="SceneUI_CanvasLayer" type="CanvasLayer" parent="." unique_id=285876335]
-layer = 2
+layer = 3
+script = ExtResource("4_0rx1o")
 
 [node name="VN_Component_Manager" parent="SceneUI_CanvasLayer" unique_id=824060568 instance=ExtResource("2_hju2f")]
 unique_name_in_owner = true
 metadata/_edit_use_anchors_ = true
 
-[node name="ScreenEffect_UI" parent="SceneUI_CanvasLayer" unique_id=962787129 instance=ExtResource("3_3jbpx")]
+[node name="CanvasLayer" type="CanvasLayer" parent="SceneUI_CanvasLayer" unique_id=304613143]
+layer = 4
+
+[node name="ScreenEffect_UI" parent="SceneUI_CanvasLayer/CanvasLayer" unique_id=962787129 instance=ExtResource("3_3jbpx")]
 unique_name_in_owner = true
 z_index = -1
 metadata/_edit_use_anchors_ = true
@@ -61,7 +66,7 @@ layer = 2
 
 [node name="InGameMenu" parent="." unique_id=106220315 instance=ExtResource("6_8j0ir")]
 unique_name_in_owner = true
-layer = 2
+layer = 5
 
 [node name="Audio_Container" type="Node2D" parent="." unique_id=1861216451]
 
@@ -75,4 +80,4 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("11_7kora")]
-environment = SubResource("Environment_2foli")
+environment = SubResource("Environment_0rx1o")

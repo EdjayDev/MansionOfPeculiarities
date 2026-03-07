@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cvpkaehqmm82b"]
 
 [ext_resource type="Script" uid="uid://b5pkpocoe764l" path="res://systems/sub_dialog_ui.gd" id="1_gyb0u"]
-[ext_resource type="Texture2D" uid="uid://d0f253ckx7l68" path="res://systems/sprites/subdialog_texture.png" id="2_5okqy"]
+[ext_resource type="Texture2D" uid="uid://kqcpymq2gl8l" path="res://systems/sprites/subdialog_texture.png" id="2_5okqy"]
 
 [node name="SubDialog_UI" type="MarginContainer" unique_id=729819416]
 offset_right = 256.0
