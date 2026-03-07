@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1rkpioj27ipg" path="res://tilemap/sprites/grassy_tileset.png" id="1_3iope"]
 [ext_resource type="Texture2D" uid="uid://dj5y0t8ea4tmg" path="res://tilemap/sprites/base_wallsfloors.png" id="2_qops0"]
-[ext_resource type="Texture2D" uid="uid://r7s1tv3f3rse" path="res://props/sprites/base_interiors1.png" id="3_ecn0b"]
+[ext_resource type="Texture2D" uid="uid://e7daf1051jia" path="res://props/sprites/base_interiors1.png" id="3_ecn0b"]
 [ext_resource type="Texture2D" uid="uid://b1cgqler5cety" path="res://tilemap/sprites/grassy_walls.png" id="4_mljgs"]
 [ext_resource type="Texture2D" uid="uid://ixqrid8iyg6y" path="res://tilemap/sprites/grass_stairsarchs.png" id="5_cfaw3"]
 [ext_resource type="Texture2D" uid="uid://b5y6ubi6omnt1" path="res://tilemap/sprites/dark_wallsfloors.png" id="6_064mh"]
@@ -839,13 +839,10 @@ texture = ExtResource("2_qops0")
 1:6/0 = 0
 1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8, -8, 8)
 2:6/0 = 0
-2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8, -8, 8)
 3:6/0 = 0
 3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8, -8, 8)
 4:6/0 = 0
-4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -5.2159, 0.719435, -2.51802, -0.899294, 8, -8, 8, -8, 8)
 5:6/0 = 0
-5:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.719437, 8, 8, 1.07915, 8, -1.25901, -2.51802, -8, -5.03605)
 6:6/0 = 0
 7:6/0 = 0
 8:6/0 = 0
@@ -855,7 +852,6 @@ texture = ExtResource("2_qops0")
 1:7/0 = 0
 1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.75548, -8, 5.75548)
 2:7/0 = 0
-2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.75548, -8, 5.75548)
 3:7/0 = 0
 3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5.75548, -8, 5.75548)
 4:7/0 = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://5773si1b0o5"]
+[gd_scene format=3 uid="uid://5773si1b0o5"]
 
 [ext_resource type="Script" uid="uid://drmlk5c4a6soc" path="res://visual_novel_component/visual_novel_choices_ui.gd" id="1_ounns"]
 
@@ -10,7 +10,7 @@ shadow_color = Color(0.101563, 0.0714111, 0.0714111, 0.6)
 shadow_size = 8
 shadow_offset = Vector2(5, 5)
 
-[node name="VN_Component_ChoicesUI" type="Control"]
+[node name="VN_Component_ChoicesUI" type="Control" unique_id=662412831]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,10 +19,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ounns")
 
-[node name="ChoicesUI_CanvasLayer" type="CanvasLayer" parent="."]
-layer = 3
-
-[node name="Vbox_ChoicesContainer" type="VBoxContainer" parent="ChoicesUI_CanvasLayer"]
+[node name="Vbox_ChoicesContainer" type="VBoxContainer" parent="." unique_id=758739669]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -33,7 +31,7 @@ offset_right = 382.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="button_template" type="Button" parent="."]
+[node name="button_template" type="Button" parent="." unique_id=1389689228]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

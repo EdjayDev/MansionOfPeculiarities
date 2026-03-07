@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1rkpioj27ipg" path="res://tilemap/sprites/grassy_tileset.png" id="1_ftpsm"]
 [ext_resource type="Texture2D" uid="uid://dj5y0t8ea4tmg" path="res://tilemap/sprites/base_wallsfloors.png" id="2_670wj"]
-[ext_resource type="Texture2D" uid="uid://r7s1tv3f3rse" path="res://props/sprites/base_interiors1.png" id="3_yeq2e"]
+[ext_resource type="Texture2D" uid="uid://e7daf1051jia" path="res://props/sprites/base_interiors1.png" id="3_yeq2e"]
 [ext_resource type="Texture2D" uid="uid://b1cgqler5cety" path="res://tilemap/sprites/grassy_walls.png" id="4_6n6yf"]
 [ext_resource type="Texture2D" uid="uid://ixqrid8iyg6y" path="res://tilemap/sprites/grass_stairsarchs.png" id="5_3wva0"]
 [ext_resource type="Texture2D" uid="uid://b5y6ubi6omnt1" path="res://tilemap/sprites/dark_wallsfloors.png" id="6_474jj"]
@@ -523,6 +523,9 @@ texture = ExtResource("1_ftpsm")
 14:15/0 = 0
 15:15/0 = 0
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ftpsm"]
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecn0b"]
 texture = ExtResource("2_670wj")
 0:0/0 = 0
@@ -530,6 +533,7 @@ texture = ExtResource("2_670wj")
 2:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+1:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_ftpsm")
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0

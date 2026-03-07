@@ -79,25 +79,22 @@ func entry_shadow()->void:
 	await game.scene_manager.wait_for([luke,ember])
 	
 	SessionState.input_locked = true
-
+	game.set_bgmusic_setting(-3.0, 2.0)
+	game.scene_manager.shake_camera(player.camera_2d, 2.0, 4.0, 6.0)
+	game.play_audio_effect(game.SOUND_SCREAM_SHADOW, -3.0, 2.0, 12.0)
 	await get_tree().process_frame
 
 	luke.face_target(enemy_shadow_)
 	ember.face_target(enemy_shadow_)
 	game.set_subdialog(ember_dialogue, ember)
 	await get_tree().create_timer(2.0).timeout
-	game.set_subdialog(luke_dialogue, luke)
-	
-	game.set_bgmusic_setting(-3.0, 2.0)
-	game.scene_manager.shake_camera(player.camera_2d, 2.0, 4.0, 6.0)
-	game.play_audio_effect(game.SOUND_SCREAM_SHADOW, -3.0, 2.0, 12.0)
-	game.scene_manager.move_to(intro_shadow_2.global_position, enemy_shadow_, 20)
+	game.set_subdialog(luke_dialogue, luke)	
 	dark_swarm.set_particle_emission(false)
 	
 	game.scene_manager.reset_camera(player)
+	SessionState.input_locked = false
 	dark_swarm.dark_swarm()
 	dark_swarm.set_particle_emission(true)
-	SessionState.input_locked = false
 	SessionState.set_global_data("faced_shadow", true)
 	game.bg_music_player.stream = game.MUSIC_SUSPENSE_ESCAPE
 	game.bg_music_player.play()

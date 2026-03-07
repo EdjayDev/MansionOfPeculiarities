@@ -9,11 +9,8 @@ extends CanvasLayer
 @onready var btn_options: Button = %btn_Options
 @onready var btn_quit: Button = %btn_Quit
 
-
-
 func _ready() -> void:
 	add_to_group("ingame_menu")
-	layer = 4
 	game_menu_panel.visible = false
 	save_system_ui.request_load_game.connect(_on_request_load_game)
 	

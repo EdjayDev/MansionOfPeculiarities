@@ -37,6 +37,11 @@ func _ready() -> void:
 		subdialogue_timer.timeout.connect(set_subdialogue)
 		
 	if not visited:
+		game.screen_effect_ui.text_chaptername.text = "Chapter 1"
+		game.screen_effect_ui.text_chaptertext.text = "Escape"
+		game.screen_effect_ui.text_chaptername.visible = true
+		game.screen_effect_ui.text_chaptertext.visible = true
+		await game.screen_effect_ui.set_effect("show_chapter", 1)
 		SessionState.set_scene_data("visited_before", true)
 		player.show_emote("exclamation")
 

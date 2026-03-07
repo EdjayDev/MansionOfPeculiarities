@@ -7,7 +7,6 @@ class_name  ScreenEffect_UI
 @onready var text_chaptertext: RichTextLabel = $text_chaptertext
 
 @onready var texture_rect: TextureRect = $TextureRect
-
 @onready var cinematic_letter_box: Control = $"Cinematic-LetterBox"
 @onready var letter_box_top: TextureRect = $"Cinematic-LetterBox/LetterBox-Top"
 @onready var letter_box_bottom: TextureRect = $"Cinematic-LetterBox/LetterBox-Bottom"
@@ -34,6 +33,7 @@ var animation_speeds = {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	pass # Replace with function body.
 
 func set_effect(effect : String, animation_speed: float) -> void:

@@ -12,6 +12,8 @@ var prop_interaction_ui = preload("uid://jf6by2vn3ay3").instantiate()
 const PROP_INTERACT_SHADERMATERIAL = preload("uid://dhb3v2brq5pm0")
 var prop_visuals: Array[CanvasItem] = []
 
+var area_2d : Area2D
+
 #PROP 
 const sound_interact_book = preload("uid://b2cjo8rlahov8")
 const sound_interact_default = preload("uid://b8gkwiqj3mj0q")
@@ -85,7 +87,6 @@ var is_interacting = false
 
 func _ready() -> void:
 	game = get_tree().get_root().get_node("Game") as Game
-	set_process_unhandled_input(false) 
 	prop_item_canvas_layer.layer = 4
 	riddle_ui.visible = false
 	riddle_ui.riddle_answered_correctly.connect(set_interaction_choices_state)
@@ -98,7 +99,7 @@ func _ready() -> void:
 				prop_visuals.append(sprites_)
 	
 	if get_parent().has_node("Area2D"):
-		var area_2d = get_parent().get_node_or_null("Area2D")
+		area_2d = get_parent().get_node_or_null("Area2D")
 		area_2d.area_entered.connect(_on_area_entered)
 		area_2d.area_exited.connect(_on_area_exited)
 	if animate_prop:
@@ -127,8 +128,9 @@ func load_saved_state()->void:
 func _on_area_entered(area) -> void:
 	if area.name == "Player_InteractionArea":
 		player_nearby = true
+		var player_object: Player = area.get_parent()
+		player_object.player_interactables.append(self)
 		PropInteract_Item.active_prop = self
-		set_process_unhandled_input(true) 
 		for sprite in prop_visuals:
 			sprite.material = PROP_INTERACT_SHADERMATERIAL
 		if SessionState.get_scene_data(prop_required_data, false) and repeat_animation:
@@ -137,26 +139,22 @@ func _on_area_entered(area) -> void:
 func _on_area_exited(area) -> void:
 	if area.name == "Player_InteractionArea":
 		player_nearby = false
+		var player_object: Player = area.get_parent()
+		player_object.player_interactables.erase(self)
 		if PropInteract_Item.active_prop == self:
 			PropInteract_Item.active_prop = null
-		set_process_unhandled_input(false) 
 		for sprite in prop_visuals:
 			sprite.material = null	
 
-func _unhandled_input(event: InputEvent) -> void:
-	if not event.is_action_pressed("Interact"):
-		return
+func interact() -> void:
 	if is_interacting:
 		return
 	if interact_done and not can_interact_multiple_times:
 		return
-	
-	get_viewport().set_input_as_handled()
 	is_interacting = true
 	await interact()
 	is_interacting = false
-
-func interact() -> void:
+	
 	SessionState.input_locked = true
 	check_requirement_completed = false
 	if !can_interact:

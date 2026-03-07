@@ -66,9 +66,6 @@ func _ready() -> void:
 	guide.visible = false
 	inventory_ui.visible = false
 	
-	guide.layer = 2
-	inventory_ui.layer = 2
-	
 	# Load level if resuming
 	if level_to_load != "":
 		print("[Game] Loading requested:", level_to_load, "marker:", spawn_marker_id)
@@ -254,7 +251,7 @@ func set_subdialog(subdialogue: Array, character_speaker: CharacterBody2D):
 	if Game.manager.is_in_cutscene:
 		return
 	var subdialog : SubDialog_UI = subdialog_ui.instantiate()
-	scene_ui_canvas_layer.add_child(subdialog)
+	guide.add_child(subdialog)
 	subdialog.get_subdialogue(subdialogue, character_speaker)
 	
 func set_game_over(text : String = "GAME OVER", flavor_text : String = "", mode : String = "default")->void:

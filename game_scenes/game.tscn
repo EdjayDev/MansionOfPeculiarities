@@ -39,19 +39,16 @@ script = ExtResource("3_ck3pl")
 layer = 3
 script = ExtResource("4_0rx1o")
 
-[node name="VN_Component_Manager" parent="SceneUI_CanvasLayer" unique_id=824060568 instance=ExtResource("2_hju2f")]
-unique_name_in_owner = true
-metadata/_edit_use_anchors_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="SceneUI_CanvasLayer" unique_id=304613143]
-layer = 4
-
-[node name="ScreenEffect_UI" parent="SceneUI_CanvasLayer/CanvasLayer" unique_id=962787129 instance=ExtResource("3_3jbpx")]
+[node name="ScreenEffect_UI" parent="SceneUI_CanvasLayer" unique_id=962787129 instance=ExtResource("3_3jbpx")]
 unique_name_in_owner = true
 z_index = -1
 metadata/_edit_use_anchors_ = true
 
 [node name="Game_Over" parent="SceneUI_CanvasLayer" unique_id=335784931 instance=ExtResource("6_p3pik")]
+unique_name_in_owner = true
+metadata/_edit_use_anchors_ = true
+
+[node name="VN_Component_Manager" parent="SceneUI_CanvasLayer" unique_id=824060568 instance=ExtResource("2_hju2f")]
 unique_name_in_owner = true
 metadata/_edit_use_anchors_ = true
 
@@ -66,7 +63,7 @@ layer = 2
 
 [node name="InGameMenu" parent="." unique_id=106220315 instance=ExtResource("6_8j0ir")]
 unique_name_in_owner = true
-layer = 5
+layer = 4
 
 [node name="Audio_Container" type="Node2D" parent="." unique_id=1861216451]
 

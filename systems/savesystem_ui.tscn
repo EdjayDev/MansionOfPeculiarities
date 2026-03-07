@@ -81,7 +81,7 @@ region_rect = Rect2(34, 26, 8053, 2061)
 [sub_resource type="FontVariation" id="FontVariation_jvb0g"]
 base_font = ExtResource("9_0gber")
 variation_opentype = {
-2003265652: 500
+2003265652: 600
 }
 
 [sub_resource type="Theme" id="Theme_j301o"]

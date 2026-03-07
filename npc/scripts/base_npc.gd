@@ -67,10 +67,14 @@ func _on_area_entered(area: Area2D) -> void:
 	var player := area.owner
 	if player is Player:
 		player_nearby = true
+		var player_object: Player = area.get_parent()
+		player_object.player_interactables.append(self)
 		
 func _on_area_exited(area):
 	if area.name == "Player_InteractionArea":
 		player_nearby = false
+		var player_object: Player = area.get_parent()
+		player_object.player_interactables.erase(self)
 
 func character_in_cutscene_handler() -> void:
 	scene_game = get_tree().get_root().get_node("Game")
@@ -107,15 +111,6 @@ func _process(_delta):
 		is_npc_sync = false
 		is_following_player = false
 		return
-
-	if player_nearby and Input.is_action_just_pressed("Interact"):
-		if is_interacting:
-			return
-		is_interacting = true
-		await interact()
-		is_interacting = false
-		print("[NPC] NPC ID: ", npc_id)
-	
 # -----------------------------
 # PHYSICS PROCESS
 # -----------------------------
@@ -254,6 +249,13 @@ func face_target(face_character: CharacterBody2D) -> void:
 # -----------------------------
 # INTERACTION
 # -----------------------------
+func start_interaction():
+	if is_interacting:
+		return
+	is_interacting = true
+	await interact()
+	is_interacting = false
+	
 func interact():
 	pass
 

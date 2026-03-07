@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="2_lfs02"]
 [ext_resource type="PackedScene" uid="uid://coxkk35x4355w" path="res://systems/savesystem_ui.tscn" id="2_prthm"]
 [ext_resource type="Texture2D" uid="uid://bwiji1m6hvu3u" path="res://systems/sprites/menu_buttons_ui.png" id="3_2gl0w"]
-[ext_resource type="Texture2D" uid="uid://chevo0325nlgy" path="res://systems/sprites/in-gamemenu_bg.png" id="3_5jet4"]
+[ext_resource type="Texture2D" uid="uid://cocfaelclmxma" path="res://systems/sprites/in-gamemenu_bg.png" id="3_5jet4"]
 [ext_resource type="Texture2D" uid="uid://fl2ktfriujck" path="res://systems/sprites/menu_buttons_ui_pressed.png" id="4_11acd"]
 [ext_resource type="FontFile" uid="uid://dxk7xhth31dks" path="res://systems/fonts/Cinzel-VariableFont_wght.ttf" id="4_soh0b"]
 [ext_resource type="Texture2D" uid="uid://c7lvoiagbv64" path="res://systems/sprites/menu_buttons_ui_hover.png" id="5_5jet4"]
@@ -57,7 +57,7 @@ texture = ExtResource("4_11acd")
 texture = ExtResource("5_5jet4")
 
 [node name="InGameMenu" type="CanvasLayer" unique_id=854129829]
-layer = 4
+layer = 3
 script = ExtResource("1_r5q61")
 
 [node name="GameMenu_Panel" type="Panel" parent="." unique_id=834397615]

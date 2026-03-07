@@ -32,6 +32,7 @@ extends CharacterBody2D
 var cancel_cutscene_movement := false
 var scene_game
 var player_state
+var player_interactables : Array = []
 
 const DIR_4 = [
 	Vector2.RIGHT,
@@ -204,4 +205,29 @@ func show_emote(emote_name: String) -> void:
 	if emote_name == null:
 		return
 	emote_popup.play_emote(emote_name)
+	
+func _unhandled_input(event):
+	if event.is_action_pressed("Interact"):
+		init_interact()
+		
+func init_interact()->void:
+	var closest_interactable = get_closest_interactable()
+	if closest_interactable == null:
+		return
+	if closest_interactable.has_method("start_interact"):
+		closest_interactable.start_interaction()
+		return
+	closest_interactable.interact()
+
+func get_closest_interactable():
+	var closest = null
+	var closest_distance = INF
+	
+	for interactable in player_interactables:
+		var distance = global_position.distance_squared_to(interactable.global_position)
+		if distance < closest_distance:
+			closest_distance = distance
+			closest = interactable
+	
+	return closest
 	

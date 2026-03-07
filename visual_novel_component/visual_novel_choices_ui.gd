@@ -1,6 +1,6 @@
 class_name VN_ChoicesUI extends Control 
 
-@onready var vbox_choices_container: VBoxContainer = $ChoicesUI_CanvasLayer/Vbox_ChoicesContainer
+@onready var vbox_choices_container: VBoxContainer = $Vbox_ChoicesContainer
 @onready var button_template: Button = $button_template
 
 signal choice_selected (choice : String)

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bf1y5lfdkgyua"]
+
+[ext_resource type="Texture2D" uid="uid://dj5y0t8ea4tmg" path="res://tilemap/sprites/base_wallsfloors.png" id="1_p8jpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lexhw"]
+size = Vector2(21, 25.798069)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8jpe"]
+size = Vector2(7, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd3km"]
+size = Vector2(6, 30)
+
+[node name="prop_door_type1_arch" type="Node2D" unique_id=1272782782]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=685641765]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1571501546]
+position = Vector2(-0.5, -16.5)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_lexhw")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=960755692]
+position = Vector2(0, -16)
+texture = ExtResource("1_p8jpe")
+region_enabled = true
+region_rect = Rect2(64, 96, 32, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=866378158]
+collision_layer = 16
+collision_mask = 3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1414137789]
+position = Vector2(12.5, -17)
+shape = SubResource("RectangleShape2D_p8jpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1801191374]
+position = Vector2(-13, -17)
+shape = SubResource("RectangleShape2D_fd3km")
