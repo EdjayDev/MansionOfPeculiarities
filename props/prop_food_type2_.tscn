@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dxj6smoa56h8"]
+
+[ext_resource type="Texture2D" uid="uid://c6i87jk1yirf1" path="res://props/sprites/foods.png" id="1_ixxiy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7mba"]
+size = Vector2(14, 11.465809)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgpo1"]
+size = Vector2(10, 10)
+
+[node name="prop_food_type2_" type="Node2D" unique_id=365712542]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=98214726]
+position = Vector2(0, -7)
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=376726128]
+position = Vector2(0, 1)
+scale = Vector2(1, 1.04659)
+shape = SubResource("RectangleShape2D_e7mba")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=480571472]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1094141703]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_hgpo1")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=450461036]
+position = Vector2(0, -9)
+texture = ExtResource("1_ixxiy")
+region_enabled = true
+region_rect = Rect2(37, 8, 21, 19)

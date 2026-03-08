@@ -212,38 +212,48 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="prop_light_candle-type1_" parent="Y_Sort/Props" unique_id=2002333260 instance=ExtResource("5_rjgpn")]
-position = Vector2(-23, -361)
+position = Vector2(-43, -334)
+light_energy = 0.33
 
 [node name="prop_light_candle-type1_2" parent="Y_Sort/Props" unique_id=177282797 instance=ExtResource("5_rjgpn")]
-position = Vector2(-23, -378)
+position = Vector2(-43, -364)
+light_energy = 0.33
 
 [node name="prop_light_candle-type1_3" parent="Y_Sort/Props" unique_id=2125035828 instance=ExtResource("5_rjgpn")]
-position = Vector2(-15, -410)
+position = Vector2(-22, -418)
+light_energy = 0.33
 
 [node name="prop_light_candle-type1_4" parent="Y_Sort/Props" unique_id=387554972 instance=ExtResource("5_rjgpn")]
-position = Vector2(25, -378)
+position = Vector2(41, -365)
+light_energy = 0.33
 
 [node name="prop_light_candle-type1_5" parent="Y_Sort/Props" unique_id=1617330848 instance=ExtResource("5_rjgpn")]
-position = Vector2(0, -423)
+position = Vector2(0, -442)
+light_energy = 0.33
 
 [node name="prop_light_candle-type1_6" parent="Y_Sort/Props" unique_id=732318430 instance=ExtResource("5_rjgpn")]
-position = Vector2(-23, -394)
+position = Vector2(-43, -394)
+light_energy = 0.33
 light_flicker = true
 
 [node name="prop_light_candle-type1_7" parent="Y_Sort/Props" unique_id=1404346063 instance=ExtResource("5_rjgpn")]
-position = Vector2(0, -361)
+position = Vector2(0, -334)
+light_energy = 0.33
 light_flicker = true
 
 [node name="prop_light_candle-type1_8" parent="Y_Sort/Props" unique_id=499915969 instance=ExtResource("5_rjgpn")]
-position = Vector2(25, -361)
+position = Vector2(41, -334)
+light_energy = 0.33
 light_flicker = true
 
 [node name="prop_light_candle-type1_9" parent="Y_Sort/Props" unique_id=496526569 instance=ExtResource("5_rjgpn")]
-position = Vector2(17, -410)
+position = Vector2(17, -418)
+light_energy = 0.33
 light_flicker = true
 
 [node name="prop_light_candle-type1_10" parent="Y_Sort/Props" unique_id=1742767345 instance=ExtResource("5_rjgpn")]
-position = Vector2(25, -394)
+position = Vector2(41, -394)
+light_energy = 0.33
 light_flicker = true
 
 [node name="Lights" type="Node2D" parent="." unique_id=1943081159]

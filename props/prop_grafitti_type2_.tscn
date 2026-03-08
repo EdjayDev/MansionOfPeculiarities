@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bwd6pv6maarr5"]
+
+[ext_resource type="Texture2D" uid="uid://d316ly1r6ttj2" path="res://props/sprites/grafitti.png" id="1_n6hvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgpo1"]
+size = Vector2(10, 10)
+
+[node name="prop_grafitti_type1_" type="Node2D" unique_id=365712542]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=480571472]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1094141703]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_hgpo1")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=450461036]
+position = Vector2(0, -6)
+texture = ExtResource("1_n6hvb")
+region_enabled = true
+region_rect = Rect2(2, 11, 76, 56)

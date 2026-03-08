@@ -12,13 +12,24 @@
 [ext_resource type="PackedScene" uid="uid://nhfu44lyielq" path="res://props/prop_platedvege-type2_.tscn" id="5_jsam0"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="6_i34uc"]
 [ext_resource type="PackedScene" uid="uid://ho8jiscduenw" path="res://props/prop_platedvege-type1_.tscn" id="6_l5liq"]
-[ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="7_yu5ri"]
+[ext_resource type="PackedScene" uid="uid://cdo0pbq820yar" path="res://props/prop_food_type3_.tscn" id="9_4ef2h"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="9_x07pc"]
+[ext_resource type="PackedScene" uid="uid://dxj6smoa56h8" path="res://props/prop_food_type2_.tscn" id="10_dhkh5"]
+[ext_resource type="PackedScene" uid="uid://chwax0ss6nvqj" path="res://props/prop_food_type8_.tscn" id="10_nsypr"]
+[ext_resource type="PackedScene" uid="uid://b23aaxyn88bd5" path="res://props/prop_food_type10_.tscn" id="11_t0vfr"]
+[ext_resource type="PackedScene" uid="uid://cv1ukg8jnhr2m" path="res://props/prop_food_type1_.tscn" id="12_6nn02"]
 [ext_resource type="PackedScene" uid="uid://bwqyjmqu7tifm" path="res://props/prop_stairs-typefup.tscn" id="13_x07pc"]
+[ext_resource type="PackedScene" uid="uid://dmbg4wu8jhll7" path="res://props/prop_food_type7_.tscn" id="14_nsypr"]
+[ext_resource type="PackedScene" uid="uid://bw2wf07tnr3bt" path="res://props/prop_food_type4_.tscn" id="14_uuw47"]
+[ext_resource type="PackedScene" uid="uid://c1ylbg7aj2m6i" path="res://props/prop_food_type6_.tscn" id="15_dv36i"]
 [ext_resource type="PackedScene" uid="uid://d3ih2pt60pbdt" path="res://props/prop_bookshelves-type2_.tscn" id="15_qtkcu"]
 [ext_resource type="PackedScene" uid="uid://qywlklis3fnd" path="res://props/prop_bookshelves-type6_.tscn" id="16_c8olu"]
 [ext_resource type="PackedScene" uid="uid://dwu5rjw77nrqa" path="res://props/prop_bookshelves-type4_.tscn" id="19_3xvp7"]
 [ext_resource type="PackedScene" uid="uid://bt3l1fy4jh47a" path="res://props/prop_bookshelves-type5_.tscn" id="20_6nn02"]
+[ext_resource type="PackedScene" uid="uid://cyiecb2j38c4s" path="res://props/prop_food_type9_.tscn" id="20_8pu4l"]
+[ext_resource type="PackedScene" uid="uid://cwdy3py4t8yg" path="res://props/prop_food_type5_.tscn" id="21_6l0s8"]
+[ext_resource type="PackedScene" uid="uid://xebitj0mlk1c" path="res://props/prop_chair-typefup.tscn" id="27_6l0s8"]
+[ext_resource type="PackedScene" uid="uid://dtcbb240m7s2c" path="res://props/prop_chair-typefdown.tscn" id="28_1c0gg"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -127,19 +138,6 @@ texture = ExtResource("2_4pqub")
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_2rv37")
 
-[sub_resource type="Environment" id="Environment_3xvp7"]
-resource_local_to_scene = true
-background_mode = 3
-tonemap_mode = 3
-tonemap_white = 6.0
-tonemap_agx_contrast = 1.43
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.25
-glow_bloom = 0.25
-glow_hdr_threshold = 0.9
-adjustment_saturation = 0.0
-
 [node name="Level_C2_Foodtable" type="Node2D" unique_id=1333408881]
 script = ExtResource("1_lspow")
 metadata/_edit_horizontal_guides_ = [-961.0]
@@ -191,40 +189,78 @@ position = Vector2(240, -281)
 scale = Vector2(2, 2)
 
 [node name="youngmaster_foodtable" parent="Y_Sort/Props" unique_id=790649510 instance=ExtResource("5_igibg")]
-position = Vector2(241, -371)
+position = Vector2(250, -367)
 
-[node name="prop_platedvege-type2_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=365712542 instance=ExtResource("5_jsam0")]
-position = Vector2(-48, -13)
+[node name="prop_food_type1_2" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=365712542 instance=ExtResource("12_6nn02")]
+position = Vector2(40, -26)
+scale = Vector2(0.62, 0.62)
 
-[node name="prop_platedvege-type3_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=644286420 instance=ExtResource("4_4pqub")]
-position = Vector2(88, -13)
+[node name="prop_food_type2_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1481041563 instance=ExtResource("10_dhkh5")]
+position = Vector2(83, -12)
+scale = Vector2(0.52, 0.52)
 
-[node name="prop_platedvege-type1" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1652369598 instance=ExtResource("6_l5liq")]
-position = Vector2(-9, -12)
+[node name="prop_food_type2_2" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=234881220 instance=ExtResource("10_dhkh5")]
+position = Vector2(73, -22)
+scale = Vector2(0.52, 0.52)
 
-[node name="prop_platedvege-type3_4" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1928595123 instance=ExtResource("5_exxsn")]
-position = Vector2(72, -19)
+[node name="prop_food_type2_3" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1975080820 instance=ExtResource("10_dhkh5")]
+position = Vector2(84, -28)
+scale = Vector2(0.52, 0.52)
 
-[node name="prop_platedvege-type2" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1050134097 instance=ExtResource("6_l5liq")]
-position = Vector2(-81, -12)
+[node name="prop_food_type2_4" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1767949592 instance=ExtResource("10_dhkh5")]
+position = Vector2(83, -20)
+scale = Vector2(0.52, 0.52)
 
-[node name="prop_platedvege-type2_2" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=780631278 instance=ExtResource("5_jsam0")]
-position = Vector2(9, -22)
+[node name="prop_food_type2_5" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1941955209 instance=ExtResource("10_dhkh5")]
+position = Vector2(93, -16)
+scale = Vector2(0.52, 0.52)
 
-[node name="prop_platedvege-type3" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1253952021 instance=ExtResource("6_l5liq")]
-position = Vector2(29, -19)
+[node name="prop_food_type1_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1488813224 instance=ExtResource("12_6nn02")]
+position = Vector2(26, -14)
+scale = Vector2(0.865, 0.865)
 
-[node name="prop_platedvege-type2_3" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=519322719 instance=ExtResource("5_jsam0")]
-position = Vector2(16, -10)
+[node name="prop_food_type3_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=2015323730 instance=ExtResource("9_4ef2h")]
+position = Vector2(-87, -21)
+scale = Vector2(0.66, 0.66)
 
-[node name="prop_platedvege-type2_4" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1894944407 instance=ExtResource("5_jsam0")]
-position = Vector2(-30, -23)
+[node name="prop_food_type3_2" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1695134392 instance=ExtResource("9_4ef2h")]
+position = Vector2(-82, -13.000001)
+scale = Vector2(0.4, 0.4)
 
-[node name="prop_platedvege-type4" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1491041171 instance=ExtResource("6_l5liq")]
-position = Vector2(-62, -24)
+[node name="prop_food_type8_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=892262943 instance=ExtResource("10_nsypr")]
+position = Vector2(-3, -29)
+scale = Vector2(0.5, 0.5)
 
-[node name="prop_platedvege-type2_5" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=476304499 instance=ExtResource("5_jsam0")]
-position = Vector2(46, -11)
+[node name="prop_food_type10_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1264581318 instance=ExtResource("11_t0vfr")]
+position = Vector2(-49, -12)
+scale = Vector2(0.555, 0.555)
+
+[node name="prop_food_type10_2" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1867717959 instance=ExtResource("11_t0vfr")]
+position = Vector2(-40, -21)
+scale = Vector2(0.555, 0.555)
+
+[node name="prop_food_type4_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=575576179 instance=ExtResource("14_uuw47")]
+position = Vector2(-20, -23)
+scale = Vector2(0.8, 0.8)
+
+[node name="prop_food_type4_2" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1627798374 instance=ExtResource("14_uuw47")]
+position = Vector2(-63.999996, -8.000001)
+scale = Vector2(0.555, 0.555)
+
+[node name="prop_food_type6_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1201840747 instance=ExtResource("15_dv36i")]
+position = Vector2(-3, -10)
+
+[node name="prop_food_type7_" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=775608129 instance=ExtResource("14_nsypr")]
+position = Vector2(51, -11)
+scale = Vector2(0.54, 0.54)
+
+[node name="prop_food_type7_2" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=1904616966 instance=ExtResource("14_nsypr")]
+position = Vector2(59, -19)
+scale = Vector2(0.54, 0.54)
+
+[node name="prop_food_type7_3" parent="Y_Sort/Props/youngmaster_foodtable" unique_id=365090221 instance=ExtResource("14_nsypr")]
+position = Vector2(71, -11)
+scale = Vector2(0.54, 0.54)
 
 [node name="maids_foodtable" parent="Y_Sort/Props" unique_id=125280108 instance=ExtResource("5_igibg")]
 position = Vector2(241, -293)
@@ -257,9 +293,6 @@ interaction_options = Array[Dictionary]([{
 }])
 can_interact_multiple_times = true
 
-[node name="prop_platedvege-type2_2" parent="Y_Sort/Props/maids_foodtable" unique_id=491550492 instance=ExtResource("5_jsam0")]
-position = Vector2(60, -10)
-
 [node name="prop_platedvege-type3_3" parent="Y_Sort/Props/maids_foodtable" unique_id=1263935546 instance=ExtResource("5_exxsn")]
 position = Vector2(-9, -17)
 
@@ -269,17 +302,23 @@ position = Vector2(15, -22)
 [node name="prop_platedvege-type3_4" parent="Y_Sort/Props/maids_foodtable" unique_id=1566908599 instance=ExtResource("5_exxsn")]
 position = Vector2(31, -14)
 
+[node name="prop_platedvege-type2_2" parent="Y_Sort/Props/maids_foodtable" unique_id=724450154 instance=ExtResource("5_jsam0")]
+position = Vector2(58, -10)
+
+[node name="prop_platedvege-type2_3" parent="Y_Sort/Props/maids_foodtable" unique_id=1883362236 instance=ExtResource("5_jsam0")]
+position = Vector2(73, -22)
+
+[node name="prop_platedvege-type3_6" parent="Y_Sort/Props/maids_foodtable" unique_id=267332800 instance=ExtResource("5_exxsn")]
+position = Vector2(86, -13)
+
+[node name="prop_platedvege-type3_7" parent="Y_Sort/Props/maids_foodtable" unique_id=1155921363 instance=ExtResource("4_4pqub")]
+position = Vector2(-87, -11)
+
 [node name="ember_foodtable" parent="Y_Sort/Props" unique_id=1958414114 instance=ExtResource("5_igibg")]
 position = Vector2(240, -214)
 
 [node name="prop_platedvege-type3_" parent="Y_Sort/Props/ember_foodtable" unique_id=1511941494 instance=ExtResource("4_4pqub")]
 position = Vector2(-45, -23)
-
-[node name="prop_platedvege-type3_2" parent="Y_Sort/Props/ember_foodtable" unique_id=1229787498 instance=ExtResource("5_exxsn")]
-position = Vector2(-81, -23)
-
-[node name="prop_platedvege-type1" parent="Y_Sort/Props/ember_foodtable" unique_id=683839981 instance=ExtResource("6_l5liq")]
-position = Vector2(-67, -13)
 
 [node name="prop_platedvege-type3_3" parent="Y_Sort/Props/ember_foodtable" unique_id=1600408598 instance=ExtResource("4_4pqub")]
 position = Vector2(-17, -21)
@@ -288,19 +327,53 @@ position = Vector2(-17, -21)
 position = Vector2(0, -25)
 
 [node name="prop_platedvege-type3_5" parent="Y_Sort/Props/ember_foodtable" unique_id=496958063 instance=ExtResource("4_4pqub")]
-position = Vector2(17, -20)
+position = Vector2(15, -16)
 
 [node name="prop_platedvege-type3_6" parent="Y_Sort/Props/ember_foodtable" unique_id=1652427003 instance=ExtResource("4_4pqub")]
-position = Vector2(41, -15)
+position = Vector2(42, -14)
 
 [node name="prop_platedvege-type3_7" parent="Y_Sort/Props/ember_foodtable" unique_id=775046801 instance=ExtResource("4_4pqub")]
 position = Vector2(-32, -13)
 
-[node name="prop_platedvege-type3_8" parent="Y_Sort/Props/ember_foodtable" unique_id=2080316278 instance=ExtResource("4_4pqub")]
-position = Vector2(63, -20)
+[node name="prop_food_type7_" parent="Y_Sort/Props/ember_foodtable" unique_id=1908954677 instance=ExtResource("14_nsypr")]
+position = Vector2(-92, -22)
+scale = Vector2(0.545, 0.545)
 
-[node name="prop_platedvege-type3_9" parent="Y_Sort/Props/ember_foodtable" unique_id=1091513842 instance=ExtResource("4_4pqub")]
-position = Vector2(82, -15)
+[node name="prop_food_type4_" parent="Y_Sort/Props/ember_foodtable" unique_id=64470449 instance=ExtResource("14_uuw47")]
+position = Vector2(-54, -8)
+scale = Vector2(0.6, 0.6)
+
+[node name="prop_food_type10_" parent="Y_Sort/Props/ember_foodtable" unique_id=799225740 instance=ExtResource("11_t0vfr")]
+position = Vector2(54, -26)
+scale = Vector2(0.58, 0.58)
+
+[node name="prop_food_type9_" parent="Y_Sort/Props/ember_foodtable" unique_id=814325533 instance=ExtResource("20_8pu4l")]
+position = Vector2(81, -19)
+scale = Vector2(0.5, 0.5)
+
+[node name="prop_food_type8_" parent="Y_Sort/Props/ember_foodtable" unique_id=1304398505 instance=ExtResource("10_nsypr")]
+position = Vector2(64, -9)
+scale = Vector2(0.585, 0.585)
+
+[node name="prop_food_type7_2" parent="Y_Sort/Props/ember_foodtable" unique_id=1761487550 instance=ExtResource("14_nsypr")]
+position = Vector2(-87, -11)
+scale = Vector2(0.635, 0.635)
+
+[node name="prop_food_type7_3" parent="Y_Sort/Props/ember_foodtable" unique_id=621509188 instance=ExtResource("14_nsypr")]
+position = Vector2(-80, -23)
+scale = Vector2(0.635, 0.635)
+
+[node name="prop_food_type5_2" parent="Y_Sort/Props/ember_foodtable" unique_id=1729975134 instance=ExtResource("21_6l0s8")]
+position = Vector2(32, -27)
+scale = Vector2(0.735, 0.735)
+
+[node name="prop_food_type5_" parent="Y_Sort/Props/ember_foodtable" unique_id=1862352724 instance=ExtResource("21_6l0s8")]
+position = Vector2(29, -25)
+scale = Vector2(0.71, 0.71)
+
+[node name="prop_food_type5_3" parent="Y_Sort/Props/ember_foodtable" unique_id=911750098 instance=ExtResource("21_6l0s8")]
+position = Vector2(-69, -13)
+scale = Vector2(0.595, 0.595)
 
 [node name="prop_door_type1_" parent="Y_Sort/Props" unique_id=1272782782 instance=ExtResource("4_l5liq")]
 position = Vector2(240, -704)
@@ -339,11 +412,35 @@ position = Vector2(101, -680)
 [node name="prop_bookshelves-type6_" parent="Y_Sort/Props" unique_id=365477842 instance=ExtResource("16_c8olu")]
 position = Vector2(147, -680)
 
+[node name="prop_chair_typefup" parent="Y_Sort/Props" unique_id=1707257531 instance=ExtResource("27_6l0s8")]
+position = Vector2(167, -284)
+
+[node name="prop_chair_typefup2" parent="Y_Sort/Props" unique_id=1755448551 instance=ExtResource("27_6l0s8")]
+position = Vector2(205, -284)
+
+[node name="prop_chair_typefup3" parent="Y_Sort/Props" unique_id=1785544542 instance=ExtResource("27_6l0s8")]
+position = Vector2(254, -284)
+
+[node name="prop_chair_typefdown" parent="Y_Sort/Props" unique_id=28225381 instance=ExtResource("28_1c0gg")]
+position = Vector2(195, -323)
+
+[node name="prop_chair_typefdown2" parent="Y_Sort/Props" unique_id=1395152995 instance=ExtResource("28_1c0gg")]
+position = Vector2(316, -326)
+
+[node name="prop_chair_typefdown3" parent="Y_Sort/Props" unique_id=1219912931 instance=ExtResource("28_1c0gg")]
+position = Vector2(219, -324)
+
+[node name="prop_chair_typefdown4" parent="Y_Sort/Props" unique_id=2083840366 instance=ExtResource("28_1c0gg")]
+position = Vector2(164, -324)
+
+[node name="prop_chair_typefdown5" parent="Y_Sort/Props" unique_id=1338089487 instance=ExtResource("28_1c0gg")]
+position = Vector2(254, -323)
+
 [node name="Lights" type="Node2D" parent="." unique_id=1943081159]
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="Lights" unique_id=315658210]
 z_index = 1
-color = Color(0.98046875, 0.48035175, 0.23362732, 1)
+color = Color(0.5887451, 0.70469475, 0.828125, 1)
 energy = 0.25
 shadow_color = Color(0, 0, 0, 1)
 shadow_filter = 1
@@ -351,7 +448,7 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=613661788]
-color = Color(0.56078434, 0.42745098, 0.439951, 1)
+color = Color(0.33203125, 0.21500042, 0.12062073, 1)
 
 [node name="SceneTransitioner_To2fPlayground" parent="." unique_id=410900003 instance=ExtResource("6_i34uc")]
 position = Vector2(240, -46)
@@ -369,11 +466,44 @@ position = Vector2(241, -71)
 [node name="Companion_fromRandom" type="Marker2D" parent="." unique_id=1958260520]
 position = Vector2(241, -60)
 
-[node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("7_yu5ri")]
-environment = SubResource("Environment_3xvp7")
-
 [node name="prop_bookshelves-type4_" parent="." unique_id=1243129900 instance=ExtResource("19_3xvp7")]
 position = Vector2(408, -680)
 
 [node name="prop_bookshelves-type5_" parent="." unique_id=641254217 instance=ExtResource("20_6nn02")]
 position = Vector2(454, -680)
+
+[node name="prop_food_type2_" parent="." unique_id=51220944 instance=ExtResource("10_dhkh5")]
+position = Vector2(175, -239)
+scale = Vector2(0.575, 0.575)
+
+[node name="prop_food_type8_" parent="." unique_id=1244165322 instance=ExtResource("10_nsypr")]
+position = Vector2(195, -320)
+scale = Vector2(0.55, 0.55)
+
+[node name="prop_food_type8_2" parent="." unique_id=578739567 instance=ExtResource("10_nsypr")]
+position = Vector2(202, -307)
+scale = Vector2(0.55, 0.55)
+
+[node name="prop_food_type8_3" parent="." unique_id=1859501743 instance=ExtResource("10_nsypr")]
+position = Vector2(254, -306)
+scale = Vector2(0.55, 0.55)
+
+[node name="prop_food_type8_4" parent="." unique_id=1886683124 instance=ExtResource("10_nsypr")]
+position = Vector2(329, -319)
+scale = Vector2(0.55, 0.55)
+
+[node name="prop_food_type8_5" parent="." unique_id=1767458374 instance=ExtResource("10_nsypr")]
+position = Vector2(168, -306)
+scale = Vector2(0.55, 0.55)
+
+[node name="prop_chair_typefdown" parent="." unique_id=787954785 instance=ExtResource("28_1c0gg")]
+position = Vector2(247, -404)
+
+[node name="prop_chair_typefup" parent="." unique_id=1781452320 instance=ExtResource("27_6l0s8")]
+position = Vector2(233, -203)
+
+[node name="prop_chair_typefup2" parent="." unique_id=861425427 instance=ExtResource("27_6l0s8")]
+position = Vector2(301, -203)
+
+[node name="prop_chair_typefup3" parent="." unique_id=333071233 instance=ExtResource("27_6l0s8")]
+position = Vector2(163, -203)

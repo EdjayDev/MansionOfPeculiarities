@@ -51,17 +51,17 @@ func halt_music(area):
 		game.bg_music_player.play()
 		area_halt.area_entered.disconnect(halt_music)
 		var ember_line = [
-		"Hmmmm..."
+		"Woaaah..."
 		]
 		var luke_line = [
 			"Where are these smoke coming from?"
 		]
 		for companion in get_companions():
 			if companion.npc_id == "ember":
-				await get_tree().create_timer(2.0).timeout
+				await get_tree().create_timer(1.0).timeout
 				game.set_subdialog(ember_line, companion)
 			elif companion.npc_id == "luke":
-				await get_tree().create_timer(3.0).timeout
+				await get_tree().create_timer(2.0).timeout
 				game.set_subdialog(luke_line, companion)
 
 func entry_shadow()->void:

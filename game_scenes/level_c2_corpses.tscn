@@ -24,8 +24,6 @@
 [ext_resource type="PackedScene" uid="uid://yqaf6m7lffi1" path="res://props/prop_corpses_type3_.tscn" id="21_rbuqp"]
 [ext_resource type="PackedScene" uid="uid://cp6ep58qkjw3c" path="res://props/prop_bloodsplatter_type4_.tscn" id="22_vbjjx"]
 [ext_resource type="PackedScene" uid="uid://buvoyy61lbmjg" path="res://props/prop_corpses_type4_.tscn" id="24_ma1x3"]
-[ext_resource type="PackedScene" uid="uid://cls0tw4vvvuyp" path="res://player/player.tscn" id="24_ymwbn"]
-[ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="26_ymwbn"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -148,19 +146,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90000004, 0.2)
 metadata/_snap_enabled = true
-
-[sub_resource type="Environment" id="Environment_2m8e3"]
-resource_local_to_scene = true
-background_mode = 3
-tonemap_mode = 3
-tonemap_white = 6.0
-tonemap_agx_contrast = 1.43
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.25
-glow_bloom = 0.25
-glow_hdr_threshold = 0.9
-adjustment_saturation = 0.0
 
 [node name="Level_C2_Corpses" type="Node2D" unique_id=1333408881]
 script = ExtResource("1_yg8wd")
@@ -948,7 +933,9 @@ position = Vector2(-184, -3562)
 [node name="prop_bloodsplatter_type1_16" parent="Y_Sort/Props_Container" unique_id=268249122 instance=ExtResource("18_tjpph")]
 position = Vector2(-248, -3567)
 
-[node name="Player" parent="Y_Sort" unique_id=2105237732 instance=ExtResource("24_ymwbn")]
+[node name="prop_bones_type2_22" parent="Y_Sort/Props_Container" unique_id=787907872 instance=ExtResource("15_vx4nn")]
+position = Vector2(-605.00006, -3567)
+scale = Vector2(0.495, 0.495)
 
 [node name="Lights" type="Node2D" parent="." unique_id=1943081159]
 
@@ -1009,10 +996,3 @@ position = Vector2(0, -1639)
 
 [node name="Companion_fromRandom" type="Marker2D" parent="." unique_id=1958260520]
 position = Vector2(0, -1625)
-
-[node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("26_ymwbn")]
-environment = SubResource("Environment_2m8e3")
-
-[node name="prop_bones_type2_" parent="." unique_id=787907872 instance=ExtResource("15_vx4nn")]
-position = Vector2(-605.00006, -3567)
-scale = Vector2(0.495, 0.495)

@@ -57,7 +57,7 @@ texture = ExtResource("4_11acd")
 texture = ExtResource("5_5jet4")
 
 [node name="InGameMenu" type="CanvasLayer" unique_id=854129829]
-layer = 3
+layer = 5
 script = ExtResource("1_r5q61")
 
 [node name="GameMenu_Panel" type="Panel" parent="." unique_id=834397615]

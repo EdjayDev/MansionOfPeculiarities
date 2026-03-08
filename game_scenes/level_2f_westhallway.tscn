@@ -413,6 +413,7 @@ shape = SubResource("RectangleShape2D_aqo88")
 position = Vector2(-1322, 39)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Halt" unique_id=1719564454]
+position = Vector2(130, 0)
 shape = SubResource("RectangleShape2D_aqo88")
 
 [node name="Intro_PathMarkers" type="Node2D" parent="." unique_id=112853988]

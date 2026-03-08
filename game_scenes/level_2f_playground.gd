@@ -42,6 +42,7 @@ func _ready() -> void:
 		game.screen_effect_ui.text_chaptername.visible = true
 		game.screen_effect_ui.text_chaptertext.visible = true
 		await game.screen_effect_ui.set_effect("show_chapter", 1)
+		await game.screen_effect_ui.set_effect("fade_in", 1)
 		SessionState.set_scene_data("visited_before", true)
 		player.show_emote("exclamation")
 

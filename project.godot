@@ -33,11 +33,13 @@ buses/default_bus_layout="uid://druqrh1urxmbi"
 InventoryManager="*res://systems/inventory_manager.gd"
 SaveSystem="*res://systems/savesystem.gd"
 SessionState="*res://systems/sessionstate.gd"
+ScreenShot_TOOL="*uid://dxbqgra702l8"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/mode=3
 window/size/extend_to_title=true
 window/size/window_width_override=1280
 window/size/window_height_override=720
@@ -140,6 +142,7 @@ baking/version=""
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver="d3d12"
+renderer/rendering_method="gl_compatibility"
 global_illumination/voxel_gi/quality=1
 shading/overrides/force_vertex_shading=true
 camera/depth_of_field/depth_of_field_bokeh_quality=2

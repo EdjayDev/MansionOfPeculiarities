@@ -15,12 +15,14 @@ var game : Game
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	game = get_tree().get_root().get_node("Game") as Game
+	self.visible = false
 	flow_container.visible = false
 	button_retry.pressed.connect(game_retry)
 	button_quit.pressed.connect(game_quit)
 	
 func game_over_screen(text : String = "GAME OVER", flavor_text : String = "", player : Player = null, mode : String = "default")->void:
 	print("[GAMEOVER] GAME OVER INITIALIZED")
+	self.visible = true
 	SessionState.input_locked = true
 	await game.screen_effect_ui.set_effect("fade_out", 1)
 	await game.screen_effect_ui.set_effect("fade_black", 1)
@@ -45,6 +47,7 @@ func game_over_screen(text : String = "GAME OVER", flavor_text : String = "", pl
 func reset_game_over_display()->void:
 	game_over_player.play("RESET")
 	game_over_audio.stop()
+	self.visible = false
 	
 func game_retry()->void:
 	get_tree().paused = false
