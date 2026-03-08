@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://b1yf2nwaeswb7" path="res://game_scenes/level_c2_graffiti.gd" id="1_t5s24"]
 [ext_resource type="Texture2D" uid="uid://dj5y0t8ea4tmg" path="res://tilemap/sprites/base_wallsfloors.png" id="2_lfhbb"]
 [ext_resource type="PackedScene" uid="uid://bn5bohknbfr1l" path="res://tilemap/tilemap_collection.tscn" id="3_5w4kl"]
-[ext_resource type="PackedScene" uid="uid://bn0vttc6ap2w5" path="res://props/prop_grafitti_type1_.tscn" id="6_b5na4"]
+[ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/scripts/props_container.tscn" id="4_cpi33"]
+[ext_resource type="PackedScene" uid="uid://cls0tw4vvvuyp" path="res://player/player.tscn" id="4_q28ab"]
+[ext_resource type="PackedScene" uid="uid://d37uv7gagv7cv" path="res://props/prop_door-type1_.tscn" id="5_h7wfa"]
+[ext_resource type="PackedScene" uid="uid://bn0vttc6ap2w5" path="res://props/prop_grafitti.tscn" id="6_b5na4"]
+[ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="6_q28ab"]
 [ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="7_gmyf5"]
 [ext_resource type="PackedScene" uid="uid://drmc63r48ot5l" path="res://systems/scene_transitioner.tscn" id="12_g7iu6"]
 
@@ -129,7 +133,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.90000004, 0.2)
 metadata/_snap_enabled = true
 
-[sub_resource type="Environment" id="Environment_sb4ur"]
+[sub_resource type="Environment" id="Environment_q28ab"]
 resource_local_to_scene = true
 background_mode = 3
 tonemap_mode = 3
@@ -177,8 +181,73 @@ position = Vector2(-1.52588e-05, 3.8147e-06)
 [node name="Y_Sort" type="Node2D" parent="." unique_id=349171963]
 y_sort_enabled = true
 
-[node name="Props" type="Node2D" parent="Y_Sort" unique_id=633846024]
-y_sort_enabled = true
+[node name="Props_Container" parent="Y_Sort" unique_id=361056891 instance=ExtResource("4_cpi33")]
+
+[node name="prop_door_type1_" parent="Y_Sort/Props_Container" unique_id=1272782782 instance=ExtResource("5_h7wfa")]
+position = Vector2(245, -480)
+
+[node name="PropInteractItem_Component" parent="Y_Sort/Props_Container/prop_door_type1_" unique_id=498171118 instance=ExtResource("6_q28ab")]
+
+[node name="prop_grafitti" parent="Y_Sort/Props_Container" unique_id=1493360774 instance=ExtResource("6_b5na4")]
+position = Vector2(-128, -506.00003)
+scale = Vector2(0.65, 0.65)
+
+[node name="prop_grafitti5" parent="Y_Sort/Props_Container" unique_id=1376499384 instance=ExtResource("6_b5na4")]
+position = Vector2(-29.000004, -506.00003)
+scale = Vector2(0.65, 0.65)
+
+[node name="prop_grafitti2" parent="Y_Sort/Props_Container" unique_id=1342262671 instance=ExtResource("6_b5na4")]
+position = Vector2(-89, -497.00003)
+scale = Vector2(0.395, 0.395)
+region_rect = Rect2(97, 85, 45, 63)
+
+[node name="prop_grafitti6" parent="Y_Sort/Props_Container" unique_id=72372676 instance=ExtResource("6_b5na4")]
+position = Vector2(96, -355)
+scale = Vector2(0.26, 0.26)
+region_rect = Rect2(243, 26, 62, 46)
+
+[node name="prop_grafitti7" parent="Y_Sort/Props_Container" unique_id=1082520502 instance=ExtResource("6_b5na4")]
+position = Vector2(81.00001, -338)
+scale = Vector2(0.395, 0.395)
+region_rect = Rect2(243, 26, 62, 46)
+
+[node name="prop_grafitti3" parent="Y_Sort/Props_Container" unique_id=1446134573 instance=ExtResource("6_b5na4")]
+position = Vector2(-67, -509)
+scale = Vector2(0.395, 0.395)
+region_rect = Rect2(333, 98, 51, 56)
+
+[node name="prop_grafitti4" parent="Y_Sort/Props_Container" unique_id=1258470168 instance=ExtResource("6_b5na4")]
+position = Vector2(279, -500)
+scale = Vector2(0.395, 0.395)
+region_rect = Rect2(320, 178, 80, 55)
+
+[node name="prop_grafitti9" parent="Y_Sort/Props_Container" unique_id=515390154 instance=ExtResource("6_b5na4")]
+position = Vector2(313, -516)
+scale = Vector2(0.395, 0.395)
+region_rect = Rect2(171, 184, 58, 34)
+
+[node name="prop_grafitti10" parent="Y_Sort/Props_Container" unique_id=620250490 instance=ExtResource("6_b5na4")]
+position = Vector2(347, -500)
+scale = Vector2(0.695, 0.695)
+region_rect = Rect2(171, 184, 58, 34)
+
+[node name="prop_grafitti11" parent="Y_Sort/Props_Container" unique_id=1903884276 instance=ExtResource("6_b5na4")]
+position = Vector2(392, -512)
+scale = Vector2(0.595, 0.595)
+region_rect = Rect2(171, 184, 58, 34)
+
+[node name="prop_grafitti8" parent="Y_Sort/Props_Container" unique_id=179156291 instance=ExtResource("6_b5na4")]
+position = Vector2(218, -498)
+scale = Vector2(0.395, 0.395)
+region_rect = Rect2(93, 351, 46, 15)
+
+[node name="prop_grafitti12" parent="Y_Sort/Props_Container" unique_id=1269963617 instance=ExtResource("6_b5na4")]
+position = Vector2(189, -506)
+scale = Vector2(0.51, 0.51)
+region_rect = Rect2(1, 247, 76, 73)
+
+[node name="Player" parent="Y_Sort" unique_id=2105237732 instance=ExtResource("4_q28ab")]
+position = Vector2(-93, -376)
 
 [node name="Lights" type="Node2D" parent="." unique_id=1943081159]
 
@@ -192,7 +261,8 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 3
 
 [node name="AmbientLight" type="PointLight2D" parent="Lights" unique_id=2093563878]
-position = Vector2(-45, -364)
+visible = false
+position = Vector2(-34, -344)
 scale = Vector2(0.77734375, 0.7011719)
 energy = 0.33
 texture = SubResource("GradientTexture2D_2rv37")
@@ -218,8 +288,4 @@ position = Vector2(-132, -356)
 position = Vector2(-147, -356)
 
 [node name="WorldEnvironment" parent="." unique_id=482453055 instance=ExtResource("7_gmyf5")]
-environment = SubResource("Environment_sb4ur")
-
-[node name="prop_food_type1_" parent="." unique_id=365712542 instance=ExtResource("6_b5na4")]
-position = Vector2(-93.00001, -499.00003)
-scale = Vector2(0.635, 0.635)
+environment = SubResource("Environment_q28ab")

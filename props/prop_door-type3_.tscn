@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d1l5eg0wb8uxp"]
 
-[ext_resource type="Texture2D" uid="uid://e7daf1051jia" path="res://props/sprites/base_interiors1.png" id="1_p0oqd"]
+[ext_resource type="Texture2D" uid="uid://cr7j2dut1sjvq" path="res://props/sprites/base_interiors1.png" id="1_p0oqd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
 size = Vector2(6, 35.35291)
@@ -28,7 +28,7 @@ scale = Vector2(1, 1.04659)
 shape = SubResource("RectangleShape2D_lexhw")
 debug_color = Color(0, 0, 0, 0.41960785)
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1846195330]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1846195330]
 position = Vector2(0, -23.999998)
 texture = ExtResource("1_p0oqd")
 region_enabled = true

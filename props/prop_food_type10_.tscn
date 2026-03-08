@@ -27,7 +27,7 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_hgpo1")
 debug_color = Color(0, 0, 0, 0.41960785)
 
-[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=450461036]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=450461036]
 position = Vector2(0, -9.000001)
 scale = Vector2(1, 0.99999994)
 texture = ExtResource("1_dwn6r")

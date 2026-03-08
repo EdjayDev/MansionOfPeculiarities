@@ -91,6 +91,8 @@ func _ready() -> void:
 	riddle_ui.visible = false
 	riddle_ui.riddle_answered_correctly.connect(set_interaction_choices_state)
 	
+	if get_parent() is Sprite2D:
+		prop_visuals.append(get_parent())
 	for sprites in get_parent().get_children():
 		if sprites is Sprite2D:	
 			prop_visuals.append(sprites)
