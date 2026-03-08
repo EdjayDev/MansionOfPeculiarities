@@ -16,12 +16,13 @@ const SOUND_SCREAM_SHADOW = preload("uid://bte3i624y25g5")
 # ==========================
 @onready var player: Player = %Player
 @onready var scene_manager: SceneManager = %Scene_Manager as SceneManager 
-
 @onready var scene_ui_canvas_layer: CanvasLayer = $SceneUI_CanvasLayer
 @onready var vn_component_manager: VN_Component_Manager = %VN_Component_Manager as VN_Component_Manager
 @onready var screen_effect_ui: ScreenEffect_UI = %ScreenEffect_UI as ScreenEffect_UI
 @onready var game_over : Game_Over = %Game_Over as Game_Over
 @onready var choice_timer: Choice_Timer = $SceneUI_CanvasLayer/Choice_Timer
+@onready var sub_dialog_container: Control = $SceneUI_CanvasLayer/SubDialog_Container
+
 const subdialog_ui := preload("uid://cvpkaehqmm82b")
 
 
@@ -248,10 +249,8 @@ func end_cutscene(reset_effect : bool) -> void:
 
 func set_subdialog(subdialogue: Array, character_speaker: CharacterBody2D):
 	print("[SUBDIALOG] speaker: ", character_speaker)
-	if Game.manager.is_in_cutscene:
-		return
 	var subdialog : SubDialog_UI = subdialog_ui.instantiate()
-	guide.add_child(subdialog)
+	sub_dialog_container.add_child(subdialog)
 	subdialog.get_subdialogue(subdialogue, character_speaker)
 	
 func set_game_over(text : String = "GAME OVER", flavor_text : String = "", mode : String = "default")->void:

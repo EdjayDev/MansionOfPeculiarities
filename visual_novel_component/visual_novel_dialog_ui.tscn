@@ -90,7 +90,6 @@ color = Color(0.171875, 0.038269043, 0.038269043, 1)
 
 [node name="speaker_sprite" type="Sprite2D" parent="Dialog" unique_id=171930576]
 position = Vector2(112.00001, 87)
-scale = Vector2(12, 11.999998)
 region_enabled = true
 region_rect = Rect2(16, 7, 16, 22)
 

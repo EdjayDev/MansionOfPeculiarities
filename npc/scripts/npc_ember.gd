@@ -25,6 +25,7 @@ func interact():
 		set_npcdialogue(level_1f_dialogue_intro)
 	if SessionState.get_global_data("continue_exploration", false):
 		set_npcdialogue(dialogue_exploration)
+		return
 		
 	face_target(player_get)
 	print("Talking to NPC...")

@@ -11,9 +11,6 @@ func _ready() -> void:
 	pass
 	
 func _process(_delta: float) -> void:
-	if Game.manager.is_in_cutscene:
-		visible = false
-		return
 	if not is_instance_valid(character_sprite_ref):
 		queue_free()
 		return

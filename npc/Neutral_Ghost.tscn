@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dh72pt7jxc4mn" path="res://npc/sprites/ghost_normal.png" id="1_ui2lu"]
 [ext_resource type="Script" uid="uid://cghqrhsgxjhln" path="res://npc/scripts/neutral_ghost.gd" id="1_x636b"]
-[ext_resource type="Texture2D" uid="uid://cycwwlaga2db3" path="res://props/sprites/dark_objects.png" id="3_x636b"]
+[ext_resource type="Texture2D" uid="uid://dk4skjgloxs8u" path="res://props/sprites/dark_objects.png" id="3_x636b"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="4_nbxom"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxxor"]
@@ -268,8 +268,8 @@ hframes = 3
 vframes = 3
 
 [node name="Sprite2D-DialogueSprite" type="Sprite2D" parent="." unique_id=2035431031]
-visible = false
-position = Vector2(0, -28.5)
+position = Vector2(144.00002, 576)
+scale = Vector2(14, 14)
 texture = ExtResource("1_ui2lu")
 region_enabled = true
 region_rect = Rect2(8, 1, 18, 19)

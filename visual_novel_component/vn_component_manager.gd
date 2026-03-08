@@ -9,7 +9,6 @@ class_name VN_Component_Manager extends Control
 @onready var dialogue_speaker: Label = $VN_Component_DialogUI/Dialog/Speaker/Label
 @onready var dialogue_text: RichTextLabel = $VN_Component_DialogUI/Dialog/MarginContainer/RichTextLabel
 @onready var dialogue_speaker_sprite: Sprite2D = $VN_Component_DialogUI/Dialog/speaker_sprite
-var dialogue_speaker_sprite_scale : Vector2 = Vector2(12.0, 12.0)
 
 @onready var vn_component_choices_ui: VN_ChoicesUI = $VN_Component_ChoicesUI
 
@@ -46,7 +45,7 @@ func get_dialogue(dialogue: Array, speaker_name : String, speaker_sprite : Sprit
 	dialogue_text.text = ""
 	dialogue_speaker.text = speaker_name
 	dialogue_speaker_sprite.texture = speaker_sprite.texture
-	dialogue_speaker_sprite.scale = dialogue_speaker_sprite_scale
+	dialogue_speaker_sprite.scale = speaker_sprite.scale
 	dialogue_speaker_sprite.region_enabled = speaker_sprite.region_enabled
 	dialogue_speaker_sprite.region_rect = speaker_sprite.region_rect
 	dialog_container.size.y = round(dialog_container.size.y)

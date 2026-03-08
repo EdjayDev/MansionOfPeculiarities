@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c2xd64ynk4nbd"]
 
 [ext_resource type="Script" uid="uid://k3qsopxjwm30" path="res://npc/scripts/npc_luke.gd" id="1_8l75d"]
+[ext_resource type="Texture2D" uid="uid://dkuhu8ou6ko4y" path="res://npc/sprites/Luke (1024 x 1024).png" id="3_lm1ox"]
 [ext_resource type="Texture2D" uid="uid://87lobmjyvin8" path="res://npc/sprites/Luke.png" id="3_uugxh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_46fq8"]
@@ -188,8 +189,8 @@ vframes = 6
 [node name="Sprite2D-DialogueSprite" type="Sprite2D" parent="." unique_id=1684845810]
 visible = false
 position = Vector2(0, -10)
-texture = ExtResource("3_uugxh")
-region_enabled = true
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_lm1ox")
 region_rect = Rect2(7, 1, 19, 19)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2093796174]

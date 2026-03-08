@@ -15,12 +15,12 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Mansion Of Peculiarities"
-config/version="0.0.9"
+config/version="0.0.16"
 run/main_scene="uid://p5i3or1lecg0"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.101563, 0, 0, 1)
 boot_splash/image="uid://dyagea14u72e2"
-config/icon="uid://c4hfqayfvgqxp"
+config/icon="uid://b58s01wl8nxqb"
 boot_splash/stdout/print_fps=false
 boot_splash/stdout/print_gpu_profile=false
 
@@ -39,7 +39,6 @@ ScreenShot_TOOL="*uid://dxbqgra702l8"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
 window/size/extend_to_title=true
 window/size/window_width_override=1280
 window/size/window_height_override=720

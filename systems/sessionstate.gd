@@ -63,8 +63,6 @@ func _process(_delta: float) -> void:
 		#Game.manager.choice_timer.start_choice_timer()
 		#Game.manager.set_subdialog(["The eyes are moving"], get_tree().get_first_node_in_group("Player"))
 		#print(get_tree().get_first_node_in_group("Player").global_position)
-		print("c2door_unlocked: ", get_scene_data("c2door_unlocked", false))
-		print("Session State Riddle answered: ", get_scene_data("classroom_riddled_answered", false))
 		pass
 
 func set_temp_data(level_path : String, spawn_marker : String, companion_marker : Array, session_global_data : Dictionary)->void:

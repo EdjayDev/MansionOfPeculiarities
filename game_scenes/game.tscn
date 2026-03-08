@@ -39,6 +39,12 @@ script = ExtResource("3_ck3pl")
 layer = 3
 script = ExtResource("4_0rx1o")
 
+[node name="SubDialog_Container" type="Control" parent="SceneUI_CanvasLayer" unique_id=633994432]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="ScreenEffect_UI" parent="SceneUI_CanvasLayer" unique_id=962787129 instance=ExtResource("3_3jbpx")]
 unique_name_in_owner = true
 z_index = -1
