@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://deec6xbeott8u"]
+
+[ext_resource type="Texture2D" uid="uid://4gd42uqim320" path="res://props/sprites/Chapter 3.png" id="1_3dk5f"]
+[ext_resource type="Script" uid="uid://caxqhmhqt5qix" path="res://props/prop_stageobjects.gd" id="2_3dk5f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgpo1"]
+size = Vector2(31, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3dk5f"]
+size = Vector2(28, 17)
+
+[node name="prop_stageobjects" type="Sprite2D" unique_id=1493360774]
+texture = ExtResource("1_3dk5f")
+region_enabled = true
+region_rect = Rect2(133, 128, 29, 28)
+script = ExtResource("2_3dk5f")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=480571472]
+
+[node name="AreaCollision" type="CollisionShape2D" parent="Area2D" unique_id=1094141703]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_hgpo1")
+debug_color = Color(0, 0, 0, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=42354821]
+collision_mask = 16
+
+[node name="Collision" type="CollisionShape2D" parent="StaticBody2D" unique_id=643517700]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_3dk5f")
+debug_color = Color(0.8980392, 0.54901963, 0, 0.39215687)

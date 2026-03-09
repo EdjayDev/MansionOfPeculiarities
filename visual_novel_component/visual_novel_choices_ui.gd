@@ -27,8 +27,6 @@ func set_choices(choices: Array) -> void:
 		new_choicebtn.pressed.connect(func(): 
 			on_choice_selected(choice["choice_id"])
 		)
-		
-	pass
 
 func set_multiplechoices_ofItems(choices_items: Array, required : int) -> void:
 	clear_choices()

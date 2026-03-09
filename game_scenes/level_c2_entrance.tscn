@@ -253,7 +253,7 @@ scale = Vector2(0.2601498, 1.4367213)
 auto_trigger_default = false
 load_level = "res://game_scenes/level_2f_playground.tscn"
 randomize_level = true
-random_level_list = Array[String](["res://game_scenes/level_c2_flowers.tscn"])
+random_level_list = Array[String](["res://game_scenes/level_c3_stage.tscn"])
 spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 
