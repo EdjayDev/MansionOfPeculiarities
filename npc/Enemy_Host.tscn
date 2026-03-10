@@ -201,6 +201,7 @@ position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_dxxor")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=117262495]
+process_mode = 4
 libraries/ = SubResource("AnimationLibrary_mujk7")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=103045528]

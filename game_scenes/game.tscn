@@ -75,9 +75,11 @@ layer = 4
 
 [node name="MainAudio_Player" type="AudioStreamPlayer2D" parent="Audio_Container" unique_id=958591913]
 unique_name_in_owner = true
+max_distance = 5000.0
 
 [node name="AudioEffects" type="AudioStreamPlayer2D" parent="Audio_Container" unique_id=770524476]
 unique_name_in_owner = true
+max_distance = 5000.0
 
 [node name="Player" parent="." unique_id=1227195293 instance=ExtResource("8_ctjle")]
 unique_name_in_owner = true

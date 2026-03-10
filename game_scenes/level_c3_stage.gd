@@ -1,8 +1,6 @@
 extends BaseLevel
 class_name Level_C3_Stage
 
-@onready var global_light: DirectionalLight2D = $Lights/GlobalLight
-
 @onready var player_marker: Marker2D = $IntroCutsceneMarkers/Player_Marker
 @onready var companion_marker_1: Marker2D = $IntroCutsceneMarkers/Companion_Marker1
 @onready var player_marker_2: Marker2D = $IntroCutsceneMarkers/Player_Marker2
@@ -13,7 +11,18 @@ class_name Level_C3_Stage
 @onready var prop_door_type_1_2: Node2D = $Y_Sort/Props_Container/prop_door_type1_2
 
 @onready var host_intro_area: Area2D = $HostIntro_Cutscene/HostIntro_Area
+@onready var doppleganger_1: Marker2D = $HostIntro_Cutscene/Doppleganger_1
+@onready var doppleganger_2: Marker2D = $HostIntro_Cutscene/Doppleganger_2
+@onready var doppleganger_mark: Marker2D = $HostIntro_Cutscene/Doppleganger_Mark
 
+const EMBER_DOUBLE = preload("uid://cmpm8nthykf05")
+const LUKE_DOUBLE = preload("uid://do5h724s74s6y")
+const ROSE_DOUBLE = preload("uid://y2xntg7g1n3i")
+
+var host_intro_cutscene_started : bool
+
+var companion : BaseNPC
+var doppleganger
 var friendship : int = 0
 
 func _ready() -> void:
@@ -22,6 +31,7 @@ func _ready() -> void:
 	await init_level()
 	host_intro_area.body_entered.connect(host_intro_cutscene)
 	if SessionState.get_scene_data("stage_intro_complete", false):
+		companion = get_current_companion()
 		return
 	await intro_cutscene()
 	
@@ -47,11 +57,15 @@ func intro_cutscene()->void:
 		{"choice": "...", "choice_id": "nothing"}
 	]
 	if SessionState.get_difficulty() != "hard":
-		var companion : BaseNPC = get_current_companion()
+		companion = get_current_companion()
 		if companion.npc_id == "luke":
 			companion_dialogue.append_array(companion_dialogue_luke)
+			doppleganger = npc_ember.new()
+			doppleganger_mark.add_child(doppleganger)
 		elif companion.npc_id == "ember":
 			companion_dialogue.append_array(companion_dialogue_ember)
+			doppleganger = npc_luke.new()
+			doppleganger_mark.add_child(doppleganger)
 		game.start_cutscene()
 		SessionState.input_locked = true
 		game.scene_manager.move_to(player_marker.global_position, player, 30)
@@ -86,10 +100,40 @@ func intro_cutscene()->void:
 		SessionState.input_locked = false
 		SessionState.set_scene_data("stage_intro_complete", true)
 
-func host_intro_cutscene()->void:
-	
-	pass
+func host_intro_cutscene(body_entered)->void:
+	var companion_dialogue = [
+		["Did you heard that, the door is opening!"]
+	]
+	if host_intro_cutscene_started:
+		return
+	host_intro_cutscene_started = true
+	var far_door
+	var far_door_marker
+	var near_door
+	var near_door_marker
+	if player.global_position.distance_to(prop_door_type_1_.global_position) > player.global_position.distance_to(prop_door_type_1_2.global_position):
+		far_door = prop_door_type_1_
+		far_door_marker = doppleganger_1
+		near_door = prop_door_type_1_2
+		near_door_marker = doppleganger_2
+	else:
+		far_door = prop_door_type_1_2
+		far_door_marker = doppleganger_2
+		near_door = prop_door_type_1_
+		near_door_marker = doppleganger_1
 		
+	await game.scene_manager.wait_time(5.0)
+	far_door.get_node("AnimationPlayer").play("door_open")
+	game.vn_component_manager.get_dialogue(companion_dialogue[0], companion.npc_name, companion.npc_dialogue_sprite)
+	game.scene_manager.move_camera(player, far_door_marker.global_position)
+	await game.scene_manager.wait_time(2.5)
+	game.scene_manager.reset_camera(player)
+	while player.global_position.distance_to(far_door) > randf_range(50, 70):
+		pass
+	
+	
+	
+	
 		
 		
 		

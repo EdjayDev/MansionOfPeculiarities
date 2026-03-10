@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d37uv7gagv7cv"]
 
 [ext_resource type="Texture2D" uid="uid://h8er7fb5stla" path="res://props/sprites/base_interiors1_animation.png" id="1_lexhw"]
+[ext_resource type="AudioStream" uid="uid://dbb7og14st5rm" path="res://props/sounds/sound_door_opening.mp3" id="2_67nfd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
 size = Vector2(32, 28.664522)
@@ -22,6 +23,30 @@ tracks/0/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_lexhw"]
 resource_name = "door_open"
@@ -37,6 +62,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [2, 11, 20, 29]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_67nfd")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_67nfd"]
@@ -75,3 +124,5 @@ region_rect = Rect2(179, 97, 26, 44)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1220654314]
 libraries/ = SubResource("AnimationLibrary_67nfd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1750422232]
