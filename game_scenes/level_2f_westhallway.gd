@@ -18,7 +18,6 @@ extends BaseLevel
 
 @onready var dark_swarm: Shadow_Swarm = $Dark_Swarm
 
-
 func _ready() -> void:
 	set_level_name("2nd Floor West Hallway")
 	scene_path = "res://game_scenes/level_2f_westhallway.tscn"

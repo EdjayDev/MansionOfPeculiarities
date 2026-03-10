@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bkp2emdspdpw3" path="res://player/scripts/player.gd" id="1_rkbax"]
 [ext_resource type="PackedScene" uid="uid://du0vsae6m3n3n" path="res://systems/emote_popup.tscn" id="3_boad6"]
 [ext_resource type="Script" uid="uid://ccgvdser8mst8" path="res://player/scripts/state_idle.gd" id="3_g1dw6"]
-[ext_resource type="Texture2D" uid="uid://csttfiwb8u5fu" path="res://player/sprites/Character Rose (Final Edit).png" id="3_hg6s5"]
+[ext_resource type="Texture2D" uid="uid://cecb4lcpx01tj" path="res://player/sprites/Character Rose (Final Edit).png" id="3_hg6s5"]
 [ext_resource type="Script" uid="uid://bjosqd654der5" path="res://player/scripts/player_state_machine.gd" id="3_qjkh3"]
 [ext_resource type="Texture2D" uid="uid://b58s01wl8nxqb" path="res://player/sprites/MC (1024 x 1024).png" id="3_rgyib"]
 [ext_resource type="Script" uid="uid://blww31dnk2ulv" path="res://player/scripts/state_walk.gd" id="4_yw30f"]
