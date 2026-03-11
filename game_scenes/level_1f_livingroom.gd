@@ -105,12 +105,10 @@ func intro_cutscene() -> void:
 	await game.scene_manager.wait_for([ember])
 	#after reaching the target ember will have dialogue that should get awaited before resetting the camera and ending cutscene
 	await game.vn_component_manager.get_dialogue(ember_dialogue[1], ember.npc_name, ember.npc_dialogue_sprite)
-	
+	ember.face_target(luke)
 	game.scene_manager.reset_camera(player)
 	
-	#both of these two movement will go to their spot but only then idle_up should be played when they reach their respective spots
-	game.scene_manager.move_to(target_point_npcember_3.global_position, ember, 30, true, "after", "idle_up")
-	game.scene_manager.move_to(target_point_npcluke_3.global_position, luke, 30, true, "after", "idle_up")
+
 	game.end_cutscene(true)
 	luke.sync_state()
 	ember.sync_state()
@@ -118,6 +116,8 @@ func intro_cutscene() -> void:
 	SessionState.input_locked = false
 	SessionState.set_scene_data("IntroCutscene", true)
 	await get_tree().create_timer(0.5).timeout
+	npc_wander_play_ember(1.0)
+	npc_wander_play_luke(1.0)
 	npc_wander()
 	
 func npc_wander()->void:
@@ -129,11 +129,11 @@ func npc_wander()->void:
 	npc_wandering_timer.timeout.connect(npc_wander_play_ember)
 	npc_wandering_timer.start()
 	
-func npc_wander_play_luke()->void:
+func npc_wander_play_luke(wait_time : float = 5.0)->void:
 	if npc_pathing:
 		return
 	var randomize_int = randi_range(1, 3)
-	var randomize_wait_time = (randf() + 0.01) * 5
+	var randomize_wait_time = (randf() + 0.01) * wait_time
 	
 	print(randomize_wait_time)
 	await game.scene_manager.wait_time(randomize_wait_time)
@@ -155,11 +155,11 @@ func npc_wander_play_luke()->void:
 	await get_tree().create_timer(randomize_int * 2).timeout
 	game.set_subdialog([luke_line], luke)
 
-func npc_wander_play_ember()->void:
+func npc_wander_play_ember(wait_time : float = 5.0)->void:
 	if npc_pathing:
 		return
 	var randomize_int = randi_range(1, 3)
-	var randomize_wait_time = (randf() + 0.01) * 5
+	var randomize_wait_time = (randf() + 0.01) * wait_time
 	
 	print(randomize_wait_time)
 	await game.scene_manager.wait_time(randomize_wait_time)

@@ -104,7 +104,16 @@ func on_scene_cutscene_finished()->void:
 func cancel_all_cutscene_movements():
 	cancel_scene_movement = true
 	for character in get_tree().get_nodes_in_group("npc") + get_tree().get_nodes_in_group("player"):
+		character.velocity = Vector2.ZERO
 		character.cancel_cutscene_movement = true
+		if character is BaseNPC:
+			character.velocity = Vector2.ZERO
+			character.npc_navigation_agent.target_reached.emit()
+			character.npc_navigation_agent.navigation_finished.emit()
+		elif character is Player:
+			character.movement_direction = Vector2.ZERO
+			character.navigation_agent.target_reached.emit()
+			character.navigation_agent.target_position = character.global_position
 	cancel_scene_movement = false
 	
 func reset_camera(character : CharacterBody2D)->void:

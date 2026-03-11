@@ -1,13 +1,25 @@
 extends Node2D
 class_name SceneTransitioner
 
+var scene_transitioner_player : Player
+	
 @export var auto_trigger_default : bool = true
 var trigger_enabled : bool = false
-
 @export var load_level: String
 
 @export var randomize_level : bool = false
 @export var random_level_list : Array[String] = []
+
+@export var difficulty_based : bool = false
+@export var difficulty_easy_level : String
+@export var difficulty_medium_level : String
+@export var difficulty_hard_level : String
+
+@export var have_directional_guide : bool = false
+@export var directional_guide_direction : String
+@onready var transitioner_animator: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
+var transitioner_animator_playing : bool = false
 
 @export var spawn_marker_name: String = ""  # e.g. "Player_Spawn"
 @export var companion_spawn_marker: Array = []
@@ -16,6 +28,8 @@ var trigger_enabled : bool = false
 @onready var area_2d: Area2D = $Area2D
 
 func _ready() -> void:
+	scene_transitioner_player = Game.manager.scene_manager.get_tree().get_first_node_in_group("Player")
+
 	if auto_trigger_default:
 		if area_2d:
 			area_2d.body_entered.connect(_on_body_entered)
@@ -24,6 +38,10 @@ func _ready() -> void:
 	if prop_interact:
 		prop_interact.interaction_allowed.connect(start_transition)
 
+func _process(_delta: float) -> void:
+	if have_directional_guide and scene_transitioner_player.global_position.distance_to(self.global_position) < 200:
+		transitioner_animator.play("show_direction_" + directional_guide_direction.to_lower())
+		sprite_2d.scale = Vector2(3, 3)
 func enable_area_trigger()->void:
 	if trigger_enabled:
 		area_2d.body_entered.connect(_on_body_entered)
@@ -98,9 +116,19 @@ func _delegate_scene_change() -> void:
 	if not game.has_method("load_level"):
 		push_error("[SceneTransitioner] Game.load_level() not found!")
 		return
-
+	
 	if randomize_level and not random_level_list.is_empty():
 		load_level = random_level_list.pick_random()
-	
+	if difficulty_based:
+		var difficulty = SessionState.get_difficulty()
+		print("DIFFICULTY", difficulty)
+		match difficulty:
+			"easy":
+				load_level = difficulty_easy_level
+			"medium":
+				load_level = difficulty_medium_level
+			"hard":
+				load_level = difficulty_hard_level
+		
 	print("Spawn Marker: ", spawn_marker_name, " Companion Marker: ", companion_spawn_marker)
 	await game.load_level(load_level, spawn_marker_name, companion_spawn_marker)

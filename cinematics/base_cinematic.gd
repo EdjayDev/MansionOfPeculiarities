@@ -55,7 +55,7 @@ func run_cinematic_flow() -> void:
 				chosen = await vn_component_manager.get_choices_items(choices, required_selection)
 			else:
 				chosen = await vn_component_manager.get_choices(choices)
-
+			
 			await apply_conditions(chosen)
 		
 		current_scene_index += 1
@@ -75,6 +75,7 @@ func load_scene(key: String) -> void:
 	var data = scene_data.get(key, {})
 	narration = data.get("narration", [])
 	choices = data.get("choices", [])
+	print("Choices: ", choices)
 	required_selection = data.get("required_items", 0)
 	# Change background if specified
 	if data.has("bg") and has_node("Scene_BG/Background/BackgroundImage"):
@@ -109,6 +110,16 @@ func change_background(new_bg: Texture) -> void:
 # CHOICE / CONDITIONS
 # -------------------------
 func apply_conditions(chosen: Variant) -> void:
+	var apply_response
+	if chosen is not String:
+		if chosen.has("choice_itemid"):
+			var choice_item_response_id = chosen["choice_itemid"]
+			print("CHOICE RESPONSE ID: ", choice_item_response_id)
+			for choice in choices:
+				if choice.has(choice_item_response_id) and choice["choice_response"]:
+					apply_response = choice["choice_response"]
+					print("APPLY RESPONSE: ", apply_response)
+	
 	if chosen == null:
 		push_warning("apply_conditions received null")
 		return
@@ -121,9 +132,9 @@ func apply_conditions(chosen: Variant) -> void:
 	if typeof(chosen) != TYPE_STRING:
 		push_warning("Unexpected choice type: " + str(typeof(chosen)))
 		return
-		
-	print("Chosen: ", chosen)
-	print("Current Possible endings: ", possible_endings)
+	
+	#print("Chosen: ", chosen)
+	#print("Current Possible endings: ", possible_endings)
 	if possible_endings.has(chosen):
 		await run_ending(chosen)
 		pass

@@ -15,15 +15,41 @@ class_name Level_C3_Stage
 @onready var doppleganger_2: Marker2D = $HostIntro_Cutscene/Doppleganger_2
 @onready var doppleganger_mark: Marker2D = $HostIntro_Cutscene/Doppleganger_Mark
 
-const EMBER_DOUBLE = preload("uid://cmpm8nthykf05")
-const LUKE_DOUBLE = preload("uid://do5h724s74s6y")
-const ROSE_DOUBLE = preload("uid://y2xntg7g1n3i")
+@onready var doppleganger_sequence_marker: Area2D = $HostIntro_Cutscene/Doppleganger_SequenceMarker
+@onready var remove_path: Node2D = $Remove_Path
+@onready var stage_play: AnimationPlayer = $StagePlay
+
+@onready var player_1: Marker2D = $HostIntro_Cutscene/Player_1
+@onready var companion_1: Marker2D = $HostIntro_Cutscene/Companion_1
+
+
+@onready var y_sort: Node2D = $Y_Sort
+
+@onready var enemy_host: enemy_shadow = $Y_Sort/Enemy_Host
+
+@onready var lost_companion_stage_marker: Marker2D = $HostIntro_Cutscene/LostCompanion_StageMarker
+@onready var doppleganger_stage_marker: Marker2D = $HostIntro_Cutscene/Doppleganger_StageMarker
+@onready var host_stage_marker: Marker2D = $HostIntro_Cutscene/Host_StageMarker
+
+var player_response_2 = null
+
+const NPC_EMBER = preload("uid://0ypoy8tjpj7b")
+const NPC_LUKE = preload("uid://c2xd64ynk4nbd")
+const NPC_EMBER_DOPPLEGANGER = preload("uid://bbsenksw2acgm")
+const NPC_LUKE_DOPPLEGANGER = preload("uid://c76wb230saepg")
 
 var host_intro_cutscene_started : bool
 
+@onready var gpu_particles_2d_1: GPUParticles2D = $Lights/GPUParticles2D
+@onready var gpu_particles_2d_2: GPUParticles2D = $Lights/GPUParticles2D2
+
+
 var companion : BaseNPC
-var doppleganger
+var doppleganger : BaseNPC
+var lost_companion : BaseNPC
 var friendship : int = 0
+var luke_friendship : int = 0
+var ember_friendship : int = 0
 
 func _ready() -> void:
 	set_level_name("???")
@@ -31,10 +57,27 @@ func _ready() -> void:
 	await init_level()
 	host_intro_area.body_entered.connect(host_intro_cutscene)
 	if SessionState.get_scene_data("stage_intro_complete", false):
-		companion = get_current_companion()
+		if SessionState.get_difficulty() != "hard":
+			companion = get_current_companion()
+			if companion.npc_id == "luke":
+				doppleganger = NPC_EMBER_DOPPLEGANGER.instantiate()
+				doppleganger_mark.add_child(doppleganger)
+				lost_companion = NPC_EMBER.instantiate()
+				doppleganger_mark.add_child(lost_companion)
+			elif companion.npc_id == "ember":
+				doppleganger = NPC_LUKE.instantiate()
+				doppleganger_mark.add_child(doppleganger)
 		return
 	await intro_cutscene()
-	
+
+func timer_callback()->void:
+	if player_response_2 == null:
+		player_response_2 = "nothing"
+		game.vn_component_manager.choice_made.emit("nothing")
+		lost_companion.face_target(player)
+		doppleganger.face_target(player)
+		game.vn_component_manager.vn_component_choices_ui.clear_choices()
+		
 func intro_cutscene()->void:
 	var companion_dialogue_ember = [
 		["Uhhm...[Emphasis]Did we finally get out?"],
@@ -60,12 +103,24 @@ func intro_cutscene()->void:
 		companion = get_current_companion()
 		if companion.npc_id == "luke":
 			companion_dialogue.append_array(companion_dialogue_luke)
-			doppleganger = npc_ember.new()
-			doppleganger_mark.add_child(doppleganger)
+			doppleganger = NPC_EMBER_DOPPLEGANGER.instantiate()
+			lost_companion = NPC_EMBER.instantiate()
+			y_sort.add_child(doppleganger)
+			y_sort.add_child(lost_companion)
+			doppleganger.global_position = doppleganger_mark.global_position
+			lost_companion.global_position = doppleganger_mark.global_position
+			
 		elif companion.npc_id == "ember":
 			companion_dialogue.append_array(companion_dialogue_ember)
-			doppleganger = npc_luke.new()
-			doppleganger_mark.add_child(doppleganger)
+			doppleganger = NPC_LUKE.instantiate()
+			lost_companion = NPC_LUKE_DOPPLEGANGER.instantiate()
+			y_sort.add_child(doppleganger)
+			y_sort.add_child(lost_companion)
+			
+			doppleganger.global_position = doppleganger_mark.global_position
+			lost_companion.global_position = doppleganger_mark.global_position
+		lost_companion.play_custom_animation("idle_down")
+		doppleganger.play_custom_animation("idle_down")	
 		game.start_cutscene()
 		SessionState.input_locked = true
 		game.scene_manager.move_to(player_marker.global_position, player, 30)
@@ -92,17 +147,53 @@ func intro_cutscene()->void:
 		game.scene_manager.move_camera(player, stage_marker.global_position)
 		player.camera_2d.zoom = Vector2(2.0, 2.0) 
 		await game.vn_component_manager.get_dialogue(companion_dialogue[1], companion.npc_name, companion.npc_dialogue_sprite)
-		await game.vn_component_manager.get_dialogue(player_dialogue[1], player.player_name, player.player_dialogue_sprite)
 		game.scene_manager.move_camera(player, player.global_position)
+		player.play_custom_animation("idle_down")
+		companion.play_custom_animation("idle_down")
+		stage_play.play("remove_path")
+		await stage_play.animation_finished
+		await game.vn_component_manager.get_dialogue(player_dialogue[1], player.player_name, player.player_dialogue_sprite)
+		remove_path.queue_free()
 		await game.scene_manager.wait_time(1.0)
 		game.scene_manager.reset_camera(player)
 		game.end_cutscene(true)
 		SessionState.input_locked = false
 		SessionState.set_scene_data("stage_intro_complete", true)
 
-func host_intro_cutscene(body_entered)->void:
+func host_intro_cutscene(_body_entered)->void:
+	var host_dialogue = [
+		["You can call me Host."],
+		["Let's play a game"],
+		["find your real friend between these 2, and I can let some of you escape"],
+		["Just find the difference"]
+	]
+	
 	var companion_dialogue = [
-		["Did you heard that, the door is opening!"]
+		["Did you heard that, the door is opening!"],
+		[lost_companion.npc_name + "!"],
+		["No..."],
+		["Who are you?"],
+		["And the rules?"],
+				
+	]
+	var lost_companion_ember_dialogue = [
+		["You guys! Im so glad to see you"],
+		["Rose? W-why?[Emphasis] did I do something wrong?"],
+		["Then why?"],
+		["No! I’m Ember. Luke, Rose, please believe me."],
+		["You! You black monster! This is all your fault!"]
+	]
+	var player_responese2 = [
+		{"choice": "STAY RIGHT THERE!", "choice_id": "reject"},
+		{"choice": "Do nothing", "choice_id": "nothing"}
+	]
+	var player_intro_host_dialogue = [
+		["STAY RIGHT THERE!"]
+	]
+	var doppleganger_dialogue = [
+		["NO! that’s not me!"],
+		["You’re not, I’m Ember!"],
+		["If it weren’t for you, I wouldn’t have been separated from my friends!"]
 	]
 	if host_intro_cutscene_started:
 		return
@@ -122,20 +213,137 @@ func host_intro_cutscene(body_entered)->void:
 		near_door = prop_door_type_1_
 		near_door_marker = doppleganger_1
 		
-	await game.scene_manager.wait_time(5.0)
+	await game.scene_manager.wait_time(2.0)
 	far_door.get_node("AnimationPlayer").play("door_open")
-	game.vn_component_manager.get_dialogue(companion_dialogue[0], companion.npc_name, companion.npc_dialogue_sprite)
+	await game.scene_manager.wait_time(1.0)
 	game.scene_manager.move_camera(player, far_door_marker.global_position)
-	await game.scene_manager.wait_time(2.5)
+	await game.vn_component_manager.get_dialogue(companion_dialogue[0], companion.npc_name, companion.npc_dialogue_sprite)
+	await game.scene_manager.wait_time(1.5)
 	game.scene_manager.reset_camera(player)
-	while player.global_position.distance_to(far_door) > randf_range(50, 70):
-		pass
-	
-	
-	
-	
-		
-		
-		
-		
-		
+	await doppleganger_sequence_marker.area_entered
+	game.start_cutscene()
+	SessionState.input_locked = true
+	#game.scene_manager.cancel_all_cutscene_movements()
+	#Lost Companion appears
+	lost_companion.global_position = far_door_marker.global_position
+	game.scene_manager.move_camera(player, lost_companion.global_position)
+	await game.vn_component_manager.get_dialogue(companion_dialogue[1], companion.npc_name, companion.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(lost_companion_ember_dialogue[0], lost_companion.npc_name, lost_companion.npc_dialogue_sprite)
+	game.scene_manager.move_to(player_1.global_position, player, 20)
+	game.scene_manager.move_to(companion_1.global_position, companion, 20)
+	game.scene_manager.move_to(player.global_position, lost_companion, 50)
+	game.scene_manager.reset_camera(player)
+	var lost_companion_camera = Camera2D.new()
+	lost_companion_camera.zoom = Vector2(3.0, 3.0)
+	lost_companion.add_child(lost_companion_camera)
+	lost_companion_camera.make_current()
+	await game.scene_manager.wait_time(2.0)
+	lost_companion_camera.queue_free()
+	Game.manager.choice_timer.start_choice_timer(2.5)
+	Game.manager.choice_timer.choice_timer_finished.connect(timer_callback)
+
+	var choice_result = await game.vn_component_manager.get_choices(player_responese2)
+	if player_response_2 == null:
+		player_response_2 = choice_result
+
+	var stop_distance := 100
+	if player_response_2 == "nothing":
+		stop_distance = 50
+
+	while lost_companion.global_position.distance_to(player.global_position) > stop_distance:
+		player.face_target(lost_companion)
+		companion.face_target(lost_companion)
+		await get_tree().physics_frame
+
+	lost_companion.npc_navigation_agent.target_position = lost_companion.global_position
+	lost_companion.face_target(player)
+	companion.face_target(lost_companion)
+
+	await Game.manager.choice_timer.stop_choice_timer()
+	if Game.manager.choice_timer.choice_timer_finished.is_connected(timer_callback):
+		Game.manager.choice_timer.choice_timer_finished.disconnect(timer_callback)
+
+	match player_response_2:
+		"reject":
+			await game.vn_component_manager.get_dialogue(player_intro_host_dialogue[0], player.player_name, player.player_dialogue_sprite)
+			await game.vn_component_manager.get_dialogue(lost_companion_ember_dialogue[1], lost_companion.npc_name, lost_companion.npc_dialogue_sprite)
+			await game.vn_component_manager.get_dialogue(companion_dialogue[2], companion.npc_name, companion.npc_dialogue_sprite)
+			await game.vn_component_manager.get_dialogue(lost_companion_ember_dialogue[2], lost_companion.npc_name, lost_companion.npc_dialogue_sprite)
+		"nothing":
+			pass
+	game.scene_manager.reset_camera(player)
+	near_door.get_node("AnimationPlayer").play("door_open")
+	await game.scene_manager.wait_time(1.5)
+	doppleganger.global_position = near_door_marker.global_position
+	await game.scene_manager.wait_time(0.5)
+	game.scene_manager.move_camera(player, doppleganger.global_position)
+	await game.vn_component_manager.get_dialogue(doppleganger_dialogue[0], doppleganger.npc_name, doppleganger.npc_dialogue_sprite)
+	game.scene_manager.move_to(player.global_position, doppleganger, 70)
+	game.vn_component_manager.get_dialogue(["What is hpapening!?"], companion.npc_name, companion.npc_dialogue_sprite)
+	await game.scene_manager.wait_time(1.5)
+	game.scene_manager.reset_camera(player)
+	while doppleganger.global_position.distance_to(player.global_position) > stop_distance:
+		player.face_target(doppleganger)
+		companion.face_target(doppleganger)
+		await get_tree().physics_frame
+	doppleganger.npc_navigation_agent.target_position = doppleganger.global_position
+	doppleganger.face_target(player)
+	await game.vn_component_manager.get_dialogue(lost_companion_ember_dialogue[3], lost_companion.npc_name, lost_companion.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(doppleganger_dialogue[1], doppleganger.npc_name, doppleganger.npc_dialogue_sprite)
+	await game.scene_manager.wait_time(1.0)
+	doppleganger.face_target(enemy_host)
+	lost_companion.face_target(enemy_host)
+	player.face_target(enemy_host)
+	companion.face_target(enemy_host)
+	enemy_host.visible = true
+	await game.scene_manager.wait_time(1.5)
+	game.scene_manager.move_camera(player, enemy_host.global_position)
+	await game.vn_component_manager.get_dialogue(["...!"], player.player_name, player.player_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(["( I can't speak...[Emphasis] and move!)"], player.player_name, player.player_dialogue_sprite)
+	await game.screen_effect_ui.set_effect("fade_out", 1.0)
+	lost_companion.global_position = lost_companion_stage_marker.global_position
+	doppleganger.global_position = doppleganger_stage_marker.global_position
+	enemy_host.global_position = host_stage_marker.global_position
+	doppleganger.play_custom_animation("idle_down")
+	lost_companion.play_custom_animation("idle_down")
+	game.scene_manager.move_camera(player, enemy_host.global_position)
+	await game.screen_effect_ui.set_effect("fade_in", 1.0)
+	await game.vn_component_manager.get_dialogue(lost_companion_ember_dialogue[4], lost_companion.npc_name, lost_companion.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(doppleganger_dialogue[2], doppleganger.npc_name, doppleganger.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(companion_dialogue[3], companion.npc_name, companion.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(host_dialogue[0], enemy_host.npc_name, enemy_host.npc_dialogue_sprite)
+	var player_host_question = [
+		{"choice": "What do you want?", "choice_id": "ask_host"},
+		{"choice": "Let us go!", "choice_id": "letgo_host"}
+	]
+	var player_host_response = await game.vn_component_manager.get_choices(player_host_question)
+	match player_host_response:
+		"ask_host":
+			luke_friendship += 1
+		"letgo_host":
+			ember_friendship += 1
+	await game.vn_component_manager.get_dialogue(host_dialogue[1], enemy_host.npc_name, enemy_host.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(host_dialogue[2], enemy_host.npc_name, enemy_host.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(companion_dialogue[4], companion.npc_name, companion.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(host_dialogue[3], enemy_host.npc_name, enemy_host.npc_dialogue_sprite)
+	run_stage_play()
+
+func run_stage_play()->void:
+	var game_instructions = [
+		"TRY TO SPOT THE DIFFERENCE!"
+	]
+	var difference_choices : Array
+	match game_difficulty:
+		"easy":
+			difference_choices = [
+			{"choice": "HAIR", "choice_id": "hair"},
+			{"choice": "EYES", "choice_id": "eye"}
+		]
+		"medium":
+			difference_choices = [
+			{"choice": "HAIR", "choice_id": "hair"},
+			{"choice": "EYES", "choice_id": "eye"}
+		]
+	await game.vn_component_manager.get_narration(game_instructions)
+	game.vn_component_manager.get_choices(difference_choices)
+	pass

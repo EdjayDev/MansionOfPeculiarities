@@ -1,11 +1,13 @@
-[gd_scene format=3 uid="uid://df4sr6rqkpll"]
+[gd_scene format=3 uid="uid://bbsenksw2acgm"]
 
-[ext_resource type="Script" uid="uid://cq8dmlqsg5p4w" path="res://npc/scripts/enemy_shadow.gd" id="1_0x3d7"]
-[ext_resource type="Texture2D" uid="uid://l0ltohmgjjl" path="res://npc/sprites/Host (1024 x 1024).png" id="2_0x3d7"]
-[ext_resource type="Texture2D" uid="uid://cld3xppxqchwq" path="res://npc/sprites/enemy_host.png" id="2_gyymq"]
-[ext_resource type="AudioStream" uid="uid://dt0cunj4y4kqd" path="res://systems/sounds/sound_footsteps-hallway.mp3" id="3_udr8g"]
+[ext_resource type="Script" uid="uid://boakt2of6a6yu" path="res://npc/scripts/npc_ember.gd" id="1_5tysh"]
+[ext_resource type="Texture2D" uid="uid://sx3j71boulp8" path="res://npc/sprites/Ember (1024 x 1024).png" id="3_1avf5"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dxxor"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xpcfd"]
+load_path = "res://.godot/imported/Ember Double.png-806af86ec29c0f836039a8bc7194b575.ctex"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46fq8"]
+radius = 6.0
 
 [sub_resource type="Animation" id="Animation_mujk7"]
 length = 0.001
@@ -33,10 +35,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.56666666, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2]
 }
 
 [sub_resource type="Animation" id="Animation_h1uug"]
@@ -50,10 +52,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.56666666, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11]
+"values": [7, 8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_3ycn8"]
@@ -67,10 +69,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.56666666, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11]
+"values": [21, 22, 23]
 }
 
 [sub_resource type="Animation" id="Animation_br222"]
@@ -84,15 +86,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.5886988, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [14, 15, 16]
 }
 
 [sub_resource type="Animation" id="Animation_ipypa"]
 resource_name = "walk_down"
-length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -101,15 +102,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.26666668, 0.53333336, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 14, 15]
+"values": [3, 4, 5, 6]
 }
 
 [sub_resource type="Animation" id="Animation_be5ym"]
 resource_name = "walk_left"
-length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -118,15 +118,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6333333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.26666668, 0.53333336, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [16, 18, 17]
+"values": [10, 11, 12, 13]
 }
 
 [sub_resource type="Animation" id="Animation_3p3ik"]
 resource_name = "walk_right"
-length = 0.7
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -135,15 +134,14 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.6333333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.26666668, 0.53333336, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [22, 20, 21]
+"values": [24, 25, 26, 27]
 }
 
 [sub_resource type="Animation" id="Animation_rhfvv"]
 resource_name = "walk_up"
-length = 0.8
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -152,13 +150,13 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"times": PackedFloat32Array(0, 0.26666668, 0.53333336, 0.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 14, 15]
+"values": [17, 18, 19, 20]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mujk7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_atbfh"]
 _data = {
 &"RESET": SubResource("Animation_mujk7"),
 &"idle_down": SubResource("Animation_tjmiu"),
@@ -171,53 +169,49 @@ _data = {
 &"walk_up": SubResource("Animation_rhfvv")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8t6eb"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_l2wpd"]
 radius = 6.0
 
-[node name="Enemy_Host" type="CharacterBody2D" unique_id=1856426523 node_paths=PackedStringArray("npc_dialogue_sprite", "npc_area_2d", "npc_navigation_agent")]
+[node name="NPC_Ember_Doppleganger" type="CharacterBody2D" unique_id=134707892 node_paths=PackedStringArray("npc_dialogue_sprite", "npc_area_2d", "npc_navigation_agent")]
 collision_layer = 2
-collision_mask = 0
-script = ExtResource("1_0x3d7")
-npc_file_path = "uid://yysbu2rfobc6"
-npc_name = "???"
+collision_mask = 16
+script = ExtResource("1_5tysh")
+npc_file_path = "uid://0ypoy8tjpj7b"
+npc_name = "Ember"
 npc_dialogue_sprite = NodePath("Sprite2D-DialogueSprite")
 npc_area_2d = NodePath("Area2D")
 npc_navigation_agent = NodePath("NavigationAgent2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1635690122]
-position = Vector2(0, -33)
-texture = ExtResource("2_gyymq")
-hframes = 4
-vframes = 5
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=339009090]
+position = Vector2(0, -17)
+texture = SubResource("CompressedTexture2D_xpcfd")
+hframes = 5
+vframes = 6
 
-[node name="Sprite2D-DialogueSprite" type="Sprite2D" parent="." unique_id=1594034867]
-position = Vector2(0, -552)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_0x3d7")
-region_enabled = true
-region_rect = Rect2(288, 24, 480, 560)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=977120966]
+[node name="Sprite2D-DialogueSprite" type="Sprite2D" parent="." unique_id=1062716661]
 visible = false
-position = Vector2(0, -11)
-shape = SubResource("CircleShape2D_dxxor")
+position = Vector2(0, -12.5)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_1avf5")
+region_rect = Rect2(8, 1, 17, 18)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=117262495]
-process_mode = 4
-libraries/ = SubResource("AnimationLibrary_mujk7")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=269721513]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_46fq8")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=103045528]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1407847710]
+libraries/ = SubResource("AnimationLibrary_atbfh")
+autoplay = &"idle_down"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1154558775]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=595968350]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=627793625]
 modulate = Color(0.863281, 0.0910492, 0.0910492, 1)
 position = Vector2(0, -8)
-shape = SubResource("CircleShape2D_8t6eb")
+shape = SubResource("CircleShape2D_l2wpd")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1299778346]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1697567330]
 path_postprocessing = 1
 simplify_path = true
 debug_enabled = true
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=198441701]
-stream = ExtResource("3_udr8g")

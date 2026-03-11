@@ -33,7 +33,6 @@ func _ready() -> void:
 
 func dialogue_finished_handler()->void:
 	Game.manager.inventory_ui.visible = false
-	print("VN Component Timing: ", vn_timer)
 	pass
 	
 func get_dialogue(dialogue: Array, speaker_name : String, speaker_sprite : Sprite2D, text_speed : float = text_speed_default)-> void:

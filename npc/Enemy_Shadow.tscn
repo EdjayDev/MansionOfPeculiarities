@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://yysbu2rfobc6"]
 
 [ext_resource type="Script" uid="uid://cq8dmlqsg5p4w" path="res://npc/scripts/enemy_shadow.gd" id="1_dxxor"]
-[ext_resource type="Texture2D" uid="uid://cxcj7avhcuxe2" path="res://npc/sprites/enemy_shadow.png" id="2_g5wbd"]
+[ext_resource type="Texture2D" uid="uid://b1okecso3vu3y" path="res://npc/sprites/enemy_shadow.png" id="2_g5wbd"]
 [ext_resource type="AudioStream" uid="uid://dt0cunj4y4kqd" path="res://systems/sounds/sound_footsteps-hallway.mp3" id="3_8t6eb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxxor"]

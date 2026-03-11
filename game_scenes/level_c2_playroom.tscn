@@ -339,6 +339,10 @@ scale = Vector2(0.30992377, 0.48000002)
 auto_trigger_default = false
 randomize_level = true
 random_level_list = Array[String](["res://game_scenes/level_c2_foodtable.tscn"])
+difficulty_based = true
+difficulty_easy_level = "res://game_scenes/level_c3_stage.tscn"
+difficulty_medium_level = "res://game_scenes/level_c2_foodtable.tscn"
+difficulty_hard_level = "res://game_scenes/level_c2_foodtable.tscn"
 spawn_marker_name = "Player_fromRandom"
 companion_spawn_marker = ["Companion_fromRandom"]
 

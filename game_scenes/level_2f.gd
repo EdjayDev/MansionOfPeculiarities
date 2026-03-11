@@ -24,9 +24,9 @@ class_name Level_2f
 @onready var shadow_mark_2: Marker2D = $Intro_PathMarkers/shadow_mark2
 
 var choices = [
-	{"choice": "Run Away", "choice_id": "hard"},
 	{"choice": "Grab Luke", "choice_id": "easy"},
-	{"choice": "Grab Ember", "choice_id": "medium"}
+	{"choice": "Grab Ember", "choice_id": "medium"},
+	{"choice": "Run Away", "choice_id": "hard"}
 ]
 
 func _ready() -> void:

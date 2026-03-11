@@ -86,7 +86,6 @@ func _process(_delta):
 		interaction_area.process_mode = Node.PROCESS_MODE_INHERIT
 		return
 	
-
 func _physics_process(_delta):
 	if get_parent().is_in_group("debug"):
 		camera_2d.position_smoothing_enabled = true

@@ -235,6 +235,8 @@ func start_cutscene() -> void:
 		return
 	is_in_cutscene = true
 	player.velocity = Vector2.ZERO
+	player.movement_direction = Vector2.ZERO
+	player.cancel_cutscene_movement = true
 	cutscene_started.emit()
 	await screen_effect_ui.set_effect("cutscene_effect", 1)
 

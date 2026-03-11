@@ -254,7 +254,6 @@ auto_trigger_default = false
 load_level = "res://game_scenes/level_2f_playground.tscn"
 randomize_level = true
 random_level_list = Array[String](["res://game_scenes/level_c3_stage.tscn"])
-spawn_marker_name = "Player_from2FDebug"
 companion_spawn_marker = ["Companion_from2FDebug"]
 
 [node name="PropInteractItem_Component" parent="Y_Sort/Props/prop_door_type1_2" unique_id=1652951597 instance=ExtResource("10_npstq")]

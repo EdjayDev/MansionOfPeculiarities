@@ -300,6 +300,8 @@ companion_spawn_marker = ["Companion_fromUpperFloor"]
 position = Vector2(-304, 45.000004)
 scale = Vector2(0.11274152, 12.973369)
 load_level = "res://game_scenes/level_2f_westhallway.tscn"
+have_directional_guide = true
+directional_guide_direction = "left"
 spawn_marker_name = "Player_from2F"
 companion_spawn_marker = ["Companion_from2F"]
 

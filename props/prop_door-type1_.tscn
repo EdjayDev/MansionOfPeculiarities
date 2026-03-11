@@ -35,18 +35,6 @@ tracks/1/keys = {
 "update": 1,
 "values": [null]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_lexhw"]
 resource_name = "door_open"
@@ -75,18 +63,21 @@ tracks/1/keys = {
 "update": 1,
 "values": [ExtResource("2_67nfd")]
 }
-tracks/2/type = "value"
+tracks/2/type = "audio"
 tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"clips": [{
+"end_offset": 4.1600003,
+"start_offset": 0.0,
+"stream": ExtResource("2_67nfd")
+}],
+"times": PackedFloat32Array(0.5)
 }
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_67nfd"]
 _data = {
@@ -126,3 +117,5 @@ region_rect = Rect2(179, 97, 26, 44)
 libraries/ = SubResource("AnimationLibrary_67nfd")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1750422232]
+max_distance = 5000.0
+max_polyphony = 2

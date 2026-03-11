@@ -14,7 +14,7 @@ var is_interacting
 # -----------------------------
 # NODES & REFERENCES
 # -----------------------------
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+var animation_player : AnimationPlayer
 
 var scene_game : Game
 # -----------------------------
@@ -34,8 +34,8 @@ var scene_game : Game
 @export var is_following_player: bool = false
 @export var follow_target: CharacterBody2D = null
 @export var player_get : Player
-
-
+var facing_target : bool = false
+var looking_target = null
 
 # -----------------------------
 # DATA
@@ -96,10 +96,18 @@ func sync_state()->void:
 	pass
 	
 func _on_cutscene_started():
-	sync_state()
+	velocity = Vector2.ZERO
+	if npc_navigation_agent:
+		npc_navigation_agent.set_velocity_forced(Vector2.ZERO)
+		npc_navigation_agent.set_velocity(Vector2.ZERO)
+		npc_navigation_agent.velocity_computed.disconnect(_on_velocity_computed)
+
+	state = NPCState.IDLE
 	in_cutscene = true
 
 func _on_cutscene_ended():
+	if npc_navigation_agent:
+		npc_navigation_agent.velocity_computed.connect(_on_velocity_computed)
 	sync_state()
 	in_cutscene = false
 	
@@ -110,26 +118,27 @@ func _process(_delta):
 	if in_cutscene:
 		is_npc_sync = false
 		is_following_player = false
-		return
+		
 # -----------------------------
 # PHYSICS PROCESS
 # -----------------------------
 func _physics_process(delta):
 	delta_data = delta
+	
 	if not in_cutscene:
 		update_ai_velocity()
-	
-	#STATE IS DERIVED HERE — ALWAYS
+
 	update_state_from_velocity()
 	update_animation()
 	move_and_slide()
-
+	
 # -----------------------------
 # AI MOVEMENT (ONLY WRITES VELOCITY)
 # -----------------------------
 func update_ai_velocity():
 	if is_following_player and follow_target:
-		face_target(follow_target)
+		facing_target = true
+		
 		npc_navigation_agent.target_desired_distance = 20.0
 		npc_navigation_agent.path_desired_distance = 30.0
 		npc_navigation_agent.path_max_distance = 4.0
@@ -148,6 +157,7 @@ func update_ai_velocity():
 func on_cutscene_movement(target: Vector2, speed: float) -> void:
 	if !is_inside_tree():
 		return
+	facing_target = false
 	forced_animation = false
 	cancel_cutscene_movement = false
 	npc_navigation_agent.path_desired_distance = 2.0
@@ -177,26 +187,34 @@ func on_cutscene_movement(target: Vector2, speed: float) -> void:
 func update_state_from_velocity():
 	if velocity.length() > 0.1:
 		state = NPCState.WALK
-		pass
 	else:
 		state = NPCState.IDLE
-		pass
+		velocity = Vector2.ZERO
 # -----------------------------
 # NPC BEHAVIOR 
 # -----------------------------
-
 
 # -----------------------------
 # ANIMATION (VELOCITY-DRIVEN)
 # -----------------------------
 func update_animation(custom_animation : String = ""):
+	if not animation_player:
+		return
+	if velocity.length() > 5.0: 
+		forced_animation = false
+		looking_target = null
 	if forced_animation:
 		return
 	if not custom_animation.is_empty():
 		animation_player.play(custom_animation)
 		return
-	if state == NPCState.WALK:
+	if is_following_player and follow_target or facing_target:
+		last_direction = face_target(follow_target)
+		if looking_target:
+			last_direction = face_target(looking_target)
+	else:
 		last_direction = animation_direction(velocity)
+	if state == NPCState.WALK:
 		animation_player.play("walk_" + last_direction)
 	else:
 		if animation_player.has_animation("idle_" + last_direction):
@@ -218,7 +236,6 @@ func play_custom_animation(animation: String, speed : float = 1.0) -> void:
 		await animation_player.animation_finished
 	else:
 		print("Animation not found:", animation)
-
 # -----------------------------
 # DIRECTION DECODER
 # -----------------------------
@@ -228,24 +245,25 @@ func animation_direction(dir: Vector2) -> String:
 	else:
 		return "down" if dir.y > 0 else "up"
 
-func face_target(face_character: CharacterBody2D) -> void:
+func face_target(face_character: CharacterBody2D) -> String:
 	if face_character == null:
-		return
-	forced_animation = true
+		return last_direction
+	facing_target = true
 	var dir := (face_character.global_position - global_position).normalized()
-	var state_name = NPCState.keys()[state].to_lower()
-	#print("Direction: ", dir)
 	if abs(dir.x) > abs(dir.y):
 		if dir.x > 0:
-			animation_player.play(state_name + "_right")
+			return "right"
 		else:
-			animation_player.play(state_name + "_left")
+			
+			return "left"
 	else:
 		if dir.y > 0:
-			animation_player.play(state_name + "_down")
+			
+			return "down"
 		else:
-			animation_player.play(state_name + "_up")
-	
+			
+			return "up"
+		
 # -----------------------------
 # INTERACTION
 # -----------------------------
@@ -263,6 +281,7 @@ func interact():
 # SETTERS
 # -----------------------------
 func initialize_npc()->void:
+	animation_player = get_node("AnimationPlayer")
 	set_npc_file_path(npc_file_path)
 	set_npc_id(npc_id)
 	set_npc_name(npc_name)

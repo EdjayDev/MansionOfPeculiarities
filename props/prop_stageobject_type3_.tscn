@@ -7,7 +7,7 @@
 size = Vector2(14, 7.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3dk5f"]
-size = Vector2(28, 15.5)
+size = Vector2(28, 7.5)
 
 [node name="prop_stageobject_type3_" type="Node2D" unique_id=1412476026]
 script = ExtResource("1_ydsns")
@@ -30,6 +30,6 @@ debug_color = Color(0, 0, 0, 0.41960785)
 collision_mask = 16
 
 [node name="Collision" type="CollisionShape2D" parent="StaticBody2D" unique_id=643517700]
-position = Vector2(0, -8.25)
+position = Vector2(0, -4.25)
 shape = SubResource("RectangleShape2D_3dk5f")
 debug_color = Color(0.8980392, 0.54901963, 0, 0.39215687)

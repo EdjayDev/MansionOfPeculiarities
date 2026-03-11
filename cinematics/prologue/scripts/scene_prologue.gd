@@ -43,8 +43,9 @@ var prologue_data = {
 		"bg": prologue_scenebg_3,
 		"narration": ["After meeting up with the others, they make their journey...", "You see a dog. You decide to..."],
 		"choices": [
-			{"choice_item": "Greet it", "choice_itemid": "item_unknownKey"},
+			{"choice_item": "Greet it", "choice_itemid": "item_unknownKey", "choice_response": ["You got a Key!"]},
 			{"choice_item": "Ignore it", "choice_itemid": "item_ignore"}
+			
 		],
 		"required_items": 1
 	},
