@@ -22,6 +22,7 @@ signal narration_finished
 signal dialogue_started
 signal dialogue_finished
 signal choice_made
+signal choices_made
 signal choice_item_made
 
 # Called when the node enters the scene tree for the first time.
@@ -123,7 +124,19 @@ func get_choices(choices: Array) -> String:
 	vn_component_choices_ui.choice_selected.disconnect(_on_choice_selected)
 	SessionState.input_locked = false
 	return choice_id
+
+func get_multiplechoices(choices: Array, required : int) -> Array:
+	vn_component_choices_ui.set_choices(choices)
 	
+	vn_component_choices_ui.choice_selected.connect(on_multiple_choice_selected)
+	var choices_id : Array = await choices_made
+	return choices_id
+
+func on_multiple_choice_selected(choice_id : String)->void:
+	var multiple_selected_choices : Array = []
+	multiple_selected_choices.append(choice_id)
+	pass
+
 # Internal helper for signal connection
 func _on_choice_selected(choice_id: String) -> void:
 	choice_made.emit(choice_id)

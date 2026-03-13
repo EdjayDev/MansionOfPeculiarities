@@ -28,6 +28,22 @@ func set_choices(choices: Array) -> void:
 			on_choice_selected(choice["choice_id"])
 		)
 
+func set_multiple_choices(choices: Array, minimum: int, max : int)->void:
+	clear_choices()
+	for choice in choices:
+		var new_choicebtn = button_template.duplicate()
+		new_choicebtn.text = choice["chpoce"]
+		vbox_choices_container.add_child(new_choicebtn)
+		new_choicebtn.visible = true
+		vbox_choices_container.visible = true
+		
+		var temp_choice_id = choice["choice_id"]
+		var choice_id = new_choicebtn.pressed.connect(get_multiple_choices(temp_choice_id))
+		print(choice_id)
+		
+func get_multiple_choices(choice_id : String)->String:
+	return choice_id
+	
 func set_multiplechoices_ofItems(choices_items: Array, required : int) -> void:
 	clear_choices()
 	last_choices = choices_items

@@ -316,6 +316,7 @@ func host_intro_cutscene(_body_entered)->void:
 		{"choice": "What do you want?", "choice_id": "ask_host"},
 		{"choice": "Let us go!", "choice_id": "letgo_host"}
 	]
+	
 	var player_host_response = await game.vn_component_manager.get_choices(player_host_question)
 	match player_host_response:
 		"ask_host":
@@ -337,13 +338,18 @@ func run_stage_play()->void:
 		"easy":
 			difference_choices = [
 			{"choice": "HAIR", "choice_id": "hair"},
-			{"choice": "EYES", "choice_id": "eye"}
+			{"choice": "EARS", "choice_id": "ears"},
+			{"choice": "EARRINGS", "choice_id": "ribbon"},
+			{"choice": "EYES", "choice_id": "eye"},
+			{"choice": "RIBBON", "choice_id": "ribbon"},
+			{"choice": "CLOTH", "choice_id": "cloth"}
 		]
 		"medium":
 			difference_choices = [
 			{"choice": "HAIR", "choice_id": "hair"},
 			{"choice": "EYES", "choice_id": "eye"}
 		]
-	await game.vn_component_manager.get_narration(game_instructions)
+		
+	await game.vn_component_manager.get_narration(game_instructions)              
 	game.vn_component_manager.get_choices(difference_choices)
 	pass
