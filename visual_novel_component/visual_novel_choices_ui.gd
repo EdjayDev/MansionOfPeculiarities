@@ -2,15 +2,19 @@ class_name VN_ChoicesUI extends Control
 
 @onready var vbox_choices_container: VBoxContainer = $Vbox_ChoicesContainer
 @onready var button_template: Button = $button_template
+@onready var button_confirm: Button = $button_confirm
 
 signal choice_selected (choice : String)
+signal choices_selected (choice : Array)
 signal choice_selected_items (choice : Array)
+var choices_list : Array = []
 var Choice_Items : Array = []
 var last_choices : Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	vbox_choices_container.visible = false
 	button_template.visible = false
+	button_confirm.pressed.connect(on_confirm_choices)
 	pass # Replace with function body.
 	
 func set_choices(choices: Array) -> void:
@@ -28,21 +32,45 @@ func set_choices(choices: Array) -> void:
 			on_choice_selected(choice["choice_id"])
 		)
 
-func set_multiple_choices(choices: Array, minimum: int, max : int)->void:
+func set_multiple_choices(choices: Array, minimum: int, maximum: int) -> void:
 	clear_choices()
 	for choice in choices:
 		var new_choicebtn = button_template.duplicate()
-		new_choicebtn.text = choice["chpoce"]
+		new_choicebtn.text = choice["choice"]
 		vbox_choices_container.add_child(new_choicebtn)
 		new_choicebtn.visible = true
 		vbox_choices_container.visible = true
-		
 		var temp_choice_id = choice["choice_id"]
-		var choice_id = new_choicebtn.pressed.connect(get_multiple_choices(temp_choice_id))
-		print(choice_id)
+		new_choicebtn.pressed.connect(
+			get_multiple_choices.bind(temp_choice_id, minimum, maximum, new_choicebtn)
+		)
 		
-func get_multiple_choices(choice_id : String)->String:
-	return choice_id
+func get_multiple_choices(choice_id: String, minimum: int, maximum: int, btn: Button) -> void:
+	if choice_id in choices_list:
+		choices_list.erase(choice_id)
+		btn.modulate = Color(1,1,1)
+	else:
+		if choices_list.size() >= maximum:
+			print("Max choices reached")
+			return
+		choices_list.append(choice_id)
+		btn.modulate = Color(0.9,0,0)
+	print("Current selections:", choices_list)
+	if choices_list.size() >= minimum:
+		button_confirm.visible = true
+	else:
+		button_confirm.visible = false
+
+func on_confirm_choices()->void:
+	choices_selected.emit(choices_list)
+	vbox_choices_container.visible = false
+	button_confirm.visible = false
+	pass
+	
+func on_choice_selected(choice_id : String) -> void:
+	choice_selected.emit(choice_id)
+	vbox_choices_container.visible = false
+	pass
 	
 func set_multiplechoices_ofItems(choices_items: Array, required : int) -> void:
 	clear_choices()
@@ -65,11 +93,6 @@ func set_multiplechoices_ofItems(choices_items: Array, required : int) -> void:
 		)
 	pass
 	
-
-func on_choice_selected(choice_id : String) -> void:
-	choice_selected.emit(choice_id)
-	vbox_choices_container.visible = false
-	pass
 
 func on_choice_item_selected(choice_id : String, required : int) -> void:
 	var existing_index = -1
@@ -102,10 +125,9 @@ func find_choice_name(choice_id: String) -> String:
 			return c["choice_item"]
 	return choice_id
 
-
 func clear_choices() -> void:
+	choices_list.clear()
 	Choice_Items.clear()
 	for child in vbox_choices_container.get_children():
 		if child != button_template:
 			child.queue_free()
-	pass

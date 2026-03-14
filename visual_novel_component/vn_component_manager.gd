@@ -31,6 +31,8 @@ func _ready() -> void:
 	vn_narration_ui.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	dialogue_started.connect(dialogue_finished_handler)
+	if not vn_component_choices_ui.choices_selected.is_connected(on_multiple_choice_selected):
+		vn_component_choices_ui.choices_selected.connect(on_multiple_choice_selected)
 
 func dialogue_finished_handler()->void:
 	Game.manager.inventory_ui.visible = false
@@ -125,17 +127,15 @@ func get_choices(choices: Array) -> String:
 	SessionState.input_locked = false
 	return choice_id
 
-func get_multiplechoices(choices: Array, required : int) -> Array:
-	vn_component_choices_ui.set_choices(choices)
-	
-	vn_component_choices_ui.choice_selected.connect(on_multiple_choice_selected)
+func get_multiplechoices(choices: Array, minimum_choices : int, maximum_choices : int) -> Array:
+	vn_component_choices_ui.set_multiple_choices(choices, minimum_choices, maximum_choices)
+	vn_component_choices_ui.choices_selected.connect(on_multiple_choice_selected)
 	var choices_id : Array = await choices_made
+	vn_component_choices_ui.choices_selected.disconnect(on_multiple_choice_selected)
 	return choices_id
 
-func on_multiple_choice_selected(choice_id : String)->void:
-	var multiple_selected_choices : Array = []
-	multiple_selected_choices.append(choice_id)
-	pass
+func on_multiple_choice_selected(selected_choices : Array) -> void:
+	choices_made.emit(selected_choices)
 
 # Internal helper for signal connection
 func _on_choice_selected(choice_id: String) -> void:

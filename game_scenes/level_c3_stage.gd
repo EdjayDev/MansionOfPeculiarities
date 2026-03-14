@@ -333,23 +333,37 @@ func run_stage_play()->void:
 	var game_instructions = [
 		"TRY TO SPOT THE DIFFERENCE!"
 	]
-	var difference_choices : Array
+	var difference_choices : Dictionary
 	match game_difficulty:
 		"easy":
-			difference_choices = [
+			difference_choices = {
+			"choices": [
 			{"choice": "HAIR", "choice_id": "hair"},
 			{"choice": "EARS", "choice_id": "ears"},
-			{"choice": "EARRINGS", "choice_id": "ribbon"},
+			{"choice": "EARRINGS", "choice_id": "earrings"},
 			{"choice": "EYES", "choice_id": "eye"},
 			{"choice": "RIBBON", "choice_id": "ribbon"},
-			{"choice": "CLOTH", "choice_id": "cloth"}
-		]
+			{"choice": "CLOTH", "choice_id": "cloth"},
+			],
+			"min_choice": 1,
+			"max_choice": 3,
+			"right_answer": [""]
+		}
 		"medium":
-			difference_choices = [
+			difference_choices = {
+			"choices": [
 			{"choice": "HAIR", "choice_id": "hair"},
-			{"choice": "EYES", "choice_id": "eye"}
-		]
+			{"choice": "EARS", "choice_id": "ears"},
+			{"choice": "EARRINGS", "choice_id": "earrings"},
+			{"choice": "EYES", "choice_id": "eye"},
+			{"choice": "RIBBON", "choice_id": "ribbon"},
+			{"choice": "CLOTH", "choice_id": "cloth"},
+			],
+			"min_choice": 1,
+			"max_choice": 3
+		}
 		
 	await game.vn_component_manager.get_narration(game_instructions)              
-	game.vn_component_manager.get_choices(difference_choices)
+	var selected_choices = await game.vn_component_manager.get_multiplechoices(difference_choices["choices"], difference_choices["min_choice"], difference_choices["max_choice"])
+	
 	pass

@@ -10,6 +10,21 @@ shadow_color = Color(0.101563, 0.0714111, 0.0714111, 0.6)
 shadow_size = 8
 shadow_offset = Vector2(5, 5)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ounns"]
+bg_color = Color(0.4765625, 0.15823364, 0.15823364, 1)
+shadow_size = 8
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qgebl"]
+bg_color = Color(0.32421875, 0.05445862, 0.05445862, 1)
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87t4v"]
+bg_color = Color(0.28515625, 0.14480591, 0.14480591, 1)
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+
 [node name="VN_Component_ChoicesUI" type="Control" unique_id=662412831]
 layout_mode = 3
 anchors_preset = 15
@@ -48,4 +63,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_j4h4a")
 text = "Choice Button
 "
 
-[connection signal="pressed" from="button_template" to="." method="_on_button_template_pressed"]
+[node name="button_confirm" type="Button" parent="." unique_id=1146166364]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -181.0
+offset_top = -121.0
+offset_right = 181.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ounns")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qgebl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_87t4v")
+text = "CONFIRM"
