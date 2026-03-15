@@ -1,11 +1,12 @@
 [gd_scene format=4 uid="uid://nnsi3op2dh6"]
 
 [ext_resource type="PackedScene" uid="uid://bn5bohknbfr1l" path="res://tilemap/tilemap_collection.tscn" id="1_i0efu"]
-[ext_resource type="Texture2D" uid="uid://br31888nt4two" path="res://systems/sprites/particles_dust.png" id="2_i0efu"]
+[ext_resource type="Texture2D" uid="uid://cfo75np407i1t" path="res://systems/sprites/particles_dust.png" id="2_i0efu"]
 [ext_resource type="PackedScene" uid="uid://dgay2drcjr5vv" path="res://tilemap/tilemap_collection_nocollision.tscn" id="2_v5ada"]
 [ext_resource type="Texture2D" uid="uid://bpwx3vhiepg1r" path="res://systems/sprites/particles_clouds-sheet.png" id="3_1fnwp"]
 [ext_resource type="PackedScene" uid="uid://d37uv7gagv7cv" path="res://props/prop_door-type1_.tscn" id="3_wtu8g"]
 [ext_resource type="PackedScene" uid="uid://b3xokpola6pgm" path="res://props/prop_tree-type2_.tscn" id="4_v5ada"]
+[ext_resource type="PackedScene" uid="uid://4ja5y1rhdr8d" path="res://props/scripts/props_container.tscn" id="5_1fnwp"]
 [ext_resource type="PackedScene" uid="uid://bqkj7g5isk58b" path="res://props/prop_tree-type3_.tscn" id="5_4k7ch"]
 [ext_resource type="PackedScene" uid="uid://bulc271d5fdfy" path="res://props/prop_tree-type1_.tscn" id="6_1fnwp"]
 [ext_resource type="PackedScene" uid="uid://bbcjjgcbmesjk" path="res://props/prop_light_firepit-type2_.tscn" id="8_wtu8g"]
@@ -98,7 +99,7 @@ position = Vector2(452, 412)
 amount = 32
 texture = ExtResource("2_i0efu")
 lifetime = 12.0
-preprocess = 30.0
+preprocess = 5.0
 randomness = 1.0
 visibility_rect = Rect2(-100, -100, 500, 500)
 process_material = SubResource("ParticleProcessMaterial_lkalx")
@@ -109,95 +110,95 @@ position = Vector2(486, 412)
 amount = 4
 texture = ExtResource("3_1fnwp")
 lifetime = 30.0
-preprocess = 60.0
+preprocess = 15.0
 visibility_rect = Rect2(-100, -100, 1200, 1200)
 process_material = SubResource("ParticleProcessMaterial_qaptn")
 
-[node name="props" type="Node2D" parent="." unique_id=1249084983]
-y_sort_enabled = true
+[node name="Props_Container" parent="." unique_id=361056891 instance=ExtResource("5_1fnwp")]
+position = Vector2(486, 412)
 
-[node name="PropTree-type1_" parent="props" unique_id=588711866 instance=ExtResource("6_1fnwp")]
-position = Vector2(590, 366)
+[node name="prop_tree-type1_" parent="Props_Container" unique_id=588711866 instance=ExtResource("6_1fnwp")]
+position = Vector2(104, -46)
 
-[node name="PropTree-type1_11" parent="props" unique_id=121275340 instance=ExtResource("6_1fnwp")]
-position = Vector2(449, 356)
+[node name="prop_tree-type1_11" parent="Props_Container" unique_id=121275340 instance=ExtResource("6_1fnwp")]
+position = Vector2(-37, -56)
 
-[node name="prop_door_type1_" parent="props" unique_id=1272782782 instance=ExtResource("3_wtu8g")]
-position = Vector2(704, 352)
+[node name="prop_door_type1_" parent="Props_Container" unique_id=1272782782 instance=ExtResource("3_wtu8g")]
+position = Vector2(218, -60)
 scale = Vector2(2, 2)
 
-[node name="PropTree-type3_3" parent="props" unique_id=1577454419 instance=ExtResource("5_4k7ch")]
-position = Vector2(527, 593)
+[node name="prop_tree-type3_3" parent="Props_Container" unique_id=1577454419 instance=ExtResource("5_4k7ch")]
+position = Vector2(41, 181)
 
-[node name="PropTree-type1_2" parent="props" unique_id=813009364 instance=ExtResource("6_1fnwp")]
-position = Vector2(599, 581)
+[node name="prop_tree-type1_2" parent="Props_Container" unique_id=813009364 instance=ExtResource("6_1fnwp")]
+position = Vector2(113, 169)
 
-[node name="PropTree-type1_3" parent="props" unique_id=166461799 instance=ExtResource("6_1fnwp")]
-position = Vector2(879, 397)
+[node name="prop_tree-type1_3" parent="Props_Container" unique_id=166461799 instance=ExtResource("6_1fnwp")]
+position = Vector2(393, -15)
 
-[node name="PropTree-type1_4" parent="props" unique_id=159730089 instance=ExtResource("6_1fnwp")]
-position = Vector2(899, 578)
+[node name="prop_tree-type1_4" parent="Props_Container" unique_id=159730089 instance=ExtResource("6_1fnwp")]
+position = Vector2(413, 166)
 
-[node name="PropTree-type2_2" parent="props" unique_id=1934480500 instance=ExtResource("4_v5ada")]
-position = Vector2(810, 584)
+[node name="prop_tree-type2_2" parent="Props_Container" unique_id=1934480500 instance=ExtResource("4_v5ada")]
+position = Vector2(324, 172)
 
-[node name="PropTree-type3_4" parent="props" unique_id=760056693 instance=ExtResource("5_4k7ch")]
-position = Vector2(844, 601)
+[node name="prop_tree-type3_4" parent="Props_Container" unique_id=760056693 instance=ExtResource("5_4k7ch")]
+position = Vector2(358, 189)
 
-[node name="PropTree-type3_" parent="props" unique_id=2086941056 instance=ExtResource("5_4k7ch")]
-position = Vector2(498, 405)
+[node name="prop_tree-type3_" parent="Props_Container" unique_id=2086941056 instance=ExtResource("5_4k7ch")]
+position = Vector2(12, -7)
 
-[node name="PropTree-type2_" parent="props" unique_id=1033080452 instance=ExtResource("4_v5ada")]
-position = Vector2(607, 648)
+[node name="prop_tree-type2_" parent="Props_Container" unique_id=1033080452 instance=ExtResource("4_v5ada")]
+position = Vector2(121, 236)
 
-[node name="PropTree-type2_3" parent="props" unique_id=743190417 instance=ExtResource("4_v5ada")]
-position = Vector2(797, 661)
+[node name="prop_tree-type2_3" parent="Props_Container" unique_id=743190417 instance=ExtResource("4_v5ada")]
+position = Vector2(311, 249)
 
-[node name="PropTree-type3_2" parent="props" unique_id=623917700 instance=ExtResource("5_4k7ch")]
-position = Vector2(548, 633)
+[node name="prop_tree-type3_2" parent="Props_Container" unique_id=623917700 instance=ExtResource("5_4k7ch")]
+position = Vector2(62, 221)
 
-[node name="PropTree-type2_4" parent="props" unique_id=523297882 instance=ExtResource("4_v5ada")]
-position = Vector2(496, 683)
+[node name="prop_tree-type2_4" parent="Props_Container" unique_id=523297882 instance=ExtResource("4_v5ada")]
+position = Vector2(10, 271)
 
-[node name="PropTree-type1_5" parent="props" unique_id=1606034855 instance=ExtResource("6_1fnwp")]
-position = Vector2(582, 692)
+[node name="prop_tree-type1_5" parent="Props_Container" unique_id=1606034855 instance=ExtResource("6_1fnwp")]
+position = Vector2(96, 280)
 
-[node name="PropTree-type1_6" parent="props" unique_id=1076475032 instance=ExtResource("6_1fnwp")]
-position = Vector2(834, 694)
+[node name="prop_tree-type1_6" parent="Props_Container" unique_id=1076475032 instance=ExtResource("6_1fnwp")]
+position = Vector2(348, 282)
 
-[node name="PropTree-type2_5" parent="props" unique_id=384675602 instance=ExtResource("4_v5ada")]
-position = Vector2(877, 642)
+[node name="prop_tree-type2_5" parent="Props_Container" unique_id=384675602 instance=ExtResource("4_v5ada")]
+position = Vector2(391, 230)
 
-[node name="PropTree-type3_5" parent="props" unique_id=1149128731 instance=ExtResource("5_4k7ch")]
-position = Vector2(907, 676)
+[node name="prop_tree-type3_5" parent="Props_Container" unique_id=1149128731 instance=ExtResource("5_4k7ch")]
+position = Vector2(421, 264)
 
-[node name="PropTree-type1_8" parent="props" unique_id=1681838201 instance=ExtResource("6_1fnwp")]
-position = Vector2(962, 387)
+[node name="prop_tree-type1_8" parent="Props_Container" unique_id=1681838201 instance=ExtResource("6_1fnwp")]
+position = Vector2(476, -25)
 
-[node name="PropTree-type1_9" parent="props" unique_id=1328176254 instance=ExtResource("6_1fnwp")]
-position = Vector2(449, 460)
+[node name="prop_tree-type1_9" parent="Props_Container" unique_id=1328176254 instance=ExtResource("6_1fnwp")]
+position = Vector2(-37, 48)
 
-[node name="PropTree-type1_10" parent="props" unique_id=911738529 instance=ExtResource("6_1fnwp")]
-position = Vector2(457, 618)
+[node name="prop_tree-type1_10" parent="Props_Container" unique_id=911738529 instance=ExtResource("6_1fnwp")]
+position = Vector2(-29, 206)
 
-[node name="PropTree-type1_7" parent="props" unique_id=1596664555 instance=ExtResource("6_1fnwp")]
-position = Vector2(932, 460)
+[node name="prop_tree-type1_7" parent="Props_Container" unique_id=1596664555 instance=ExtResource("6_1fnwp")]
+position = Vector2(446, 48)
 
-[node name="PropTree-type1_12" parent="props" unique_id=1356946972 instance=ExtResource("6_1fnwp")]
-position = Vector2(838, 383)
+[node name="prop_tree-type1_12" parent="Props_Container" unique_id=1356946972 instance=ExtResource("6_1fnwp")]
+position = Vector2(352, -29)
 
-[node name="PropTree-type3_6" parent="props" unique_id=616529431 instance=ExtResource("5_4k7ch")]
-position = Vector2(949, 618)
+[node name="prop_tree-type3_6" parent="Props_Container" unique_id=616529431 instance=ExtResource("5_4k7ch")]
+position = Vector2(463, 206)
 
-[node name="PropTree-type3_7" parent="props" unique_id=1006072372 instance=ExtResource("5_4k7ch")]
-position = Vector2(402, 439)
+[node name="prop_tree-type3_7" parent="Props_Container" unique_id=1006072372 instance=ExtResource("5_4k7ch")]
+position = Vector2(-84, 27)
 
 [node name="prop_light_firepit-type2_" parent="." unique_id=177282797 instance=ExtResource("8_wtu8g")]
 position = Vector2(632, 415.00003)
 scale = Vector2(1.25, 1.25)
-light_energy = 0.25
+light_energy = 0.5
 
 [node name="prop_light_firepit-type2_2" parent="." unique_id=1153264014 instance=ExtResource("8_wtu8g")]
 position = Vector2(776, 416.00003)
 scale = Vector2(1.25, 1.25)
-light_energy = 0.25
+light_energy = 0.5

@@ -23,8 +23,7 @@ glow_normalized = true
 glow_intensity = 1.25
 glow_bloom = 0.25
 glow_hdr_threshold = 0.9
-adjustment_enabled = true
-adjustment_contrast = 0.92
+adjustment_saturation = 0.0
 
 [sub_resource type="Gradient" id="Gradient_6liry"]
 colors = PackedColorArray(0.09411765, 0.011764706, 0.011764706, 0.6862745, 0.74509805, 0.8862745, 0.93333334, 0.6862745)

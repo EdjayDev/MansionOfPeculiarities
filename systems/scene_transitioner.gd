@@ -18,7 +18,7 @@ var trigger_enabled : bool = false
 @export var have_directional_guide : bool = false
 @export var directional_guide_direction : String
 @onready var transitioner_animator: AnimationPlayer = $AnimationPlayer
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var directional_guide_sprite: Sprite2D = $directional_guide_sprite
 var transitioner_animator_playing : bool = false
 
 @export var spawn_marker_name: String = ""  # e.g. "Player_Spawn"
@@ -41,7 +41,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if have_directional_guide and scene_transitioner_player.global_position.distance_to(self.global_position) < 200:
 		transitioner_animator.play("show_direction_" + directional_guide_direction.to_lower())
-		sprite_2d.scale = Vector2(3, 3)
+		directional_guide_sprite.scale = Vector2(3, 3)
 func enable_area_trigger()->void:
 	if trigger_enabled:
 		area_2d.body_entered.connect(_on_body_entered)

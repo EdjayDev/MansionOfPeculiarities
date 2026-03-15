@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1ra"]
 size = Vector2(10, 21.976)
 
-[node name="PropTree-type2_" type="Node2D" unique_id=1033080452]
+[node name="prop_tree-type2_" type="Node2D" unique_id=1033080452]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=800181758]
 position = Vector2(0, -68)

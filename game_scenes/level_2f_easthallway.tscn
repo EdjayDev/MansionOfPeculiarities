@@ -224,6 +224,13 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(380, -37.000004)
 scale = Vector2(0.66, 0.66)
 
+[node name="PointLight2D" type="PointLight2D" parent="Y_Sort/Props_Container" unique_id=2019326337]
+position = Vector2(966.00006, 26)
+scale = Vector2(0.0356, 0.042400002)
+color = Color(0.13725491, 0.32941177, 0.7882353, 1)
+energy = 4.0
+texture = ExtResource("5_xrcwr")
+
 [node name="Lights" type="Node2D" parent="." unique_id=1954448098]
 
 [node name="GlobalLight" type="DirectionalLight2D" parent="Lights" unique_id=605392375]
@@ -237,13 +244,6 @@ shadow_item_cull_mask = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=578375152]
 color = Color(0.7538605, 0.78002965, 0.94140625, 1)
-
-[node name="PointLight2D" type="PointLight2D" parent="Lights" unique_id=2019326337]
-position = Vector2(966.00006, 26)
-scale = Vector2(0.0356, 0.042400002)
-color = Color(0.13725491, 0.32941177, 0.7882353, 1)
-energy = 4.0
-texture = ExtResource("5_xrcwr")
 
 [node name="SceneTransitioner_ToSecondFloor" parent="." unique_id=586647571 instance=ExtResource("8_mcqnn")]
 position = Vector2(18.000002, 46.000004)
