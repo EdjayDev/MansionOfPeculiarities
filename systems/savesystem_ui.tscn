@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cvhv2tbc3yyx2" path="res://systems/sprites/saveslot_texture_hover.png" id="8_0gber"]
 [ext_resource type="Texture2D" uid="uid://bs7fqotimsolq" path="res://systems/sprites/saveslot_texture_pressed.png" id="8_jvb0g"]
 [ext_resource type="FontFile" uid="uid://dh4vhl1gjw781" path="res://systems/fonts/CormorantGaramond-VariableFont_wght.ttf" id="9_0gber"]
+[ext_resource type="Texture2D" uid="uid://dd74ccvdvi415" path="res://systems/sprites/savebook_guide_image.png" id="11_j301o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_veaxa"]
 texture = ExtResource("2_nwexd")
@@ -117,6 +118,23 @@ region_rect = Rect2(5, 0, 8075, 2083)
 texture = ExtResource("8_0gber")
 texture_margin_left = 500.0
 region_rect = Rect2(34, 26, 8053, 2061)
+
+[sub_resource type="Gradient" id="Gradient_wc5ja"]
+interpolation_mode = 2
+interpolation_color_space = 2
+colors = PackedColorArray(0.28235295, 0.05490196, 0.09411765, 0.78431374, 0.6901961, 0.20392157, 0.19215687, 0.78431374)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nb0b6"]
+gradient = SubResource("Gradient_wc5ja")
+
+[sub_resource type="FontVariation" id="FontVariation_nb0b6"]
+base_font = ExtResource("7_4x3yk")
+variation_opentype = {
+2003265652: 900
+}
+
+[sub_resource type="Theme" id="Theme_x0ah8"]
+default_font = SubResource("FontVariation_nb0b6")
 
 [node name="SaveSystem_UI" type="CanvasLayer" unique_id=902554194]
 layer = 5
@@ -277,3 +295,50 @@ theme_override_constants/margin_bottom = 15
 layout_mode = 2
 theme = SubResource("Theme_j301o")
 theme_override_colors/font_color = Color(0.16862746, 0.047058824, 0.047058824, 1)
+
+[node name="savebook_guide_container" type="Control" parent="." unique_id=1255232233]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="guide_container" type="TextureRect" parent="savebook_guide_container" unique_id=1844188077]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 191.0
+offset_top = 104.0
+offset_right = -191.0
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_nb0b6")
+
+[node name="save_book_guide" type="TextureRect" parent="savebook_guide_container/guide_container" unique_id=1339594023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_j301o")
+expand_mode = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="savebook_guide_container/guide_container" unique_id=481582662]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 16.0
+offset_right = 204.0
+offset_bottom = 491.0
+theme = SubResource("Theme_x0ah8")
+text = "You can save your progress from save book that you can find from different locations."
+horizontal_alignment = 1
+vertical_alignment = 1

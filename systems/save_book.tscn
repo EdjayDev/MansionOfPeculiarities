@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dwhym6awubrpk" path="res://systems/save_book_system.gd" id="1_4ajij"]
 [ext_resource type="Texture2D" uid="uid://c07mic7s7dnkw" path="res://systems/sprites/save_book-sheet.png" id="2_cda88"]
-[ext_resource type="Texture2D" uid="uid://br31888nt4two" path="res://systems/sprites/particles_dust.png" id="3_4ajij"]
+[ext_resource type="Texture2D" uid="uid://cfo75np407i1t" path="res://systems/sprites/particles_dust.png" id="3_4ajij"]
 [ext_resource type="Texture2D" uid="uid://cq7rnvugfe8n1" path="res://systems/sprites/save_book-lightexture.png" id="3_cda88"]
 
 [sub_resource type="Animation" id="Animation_4ajij"]

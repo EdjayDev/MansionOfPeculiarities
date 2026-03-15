@@ -12,6 +12,9 @@ signal request_load_game(slot: int, level_path: String)
 
 @onready var btn_return: Button = $SaveSystemUI_Panel/SaveSystemUI_HeaderPanel/btn_return
 
+@onready var save_system_ui_panel: Panel = $SaveSystemUI_Panel
+@onready var savebook_guide_container: Control = $savebook_guide_container
+
 var saving_data = false
 	
 func _ready() -> void:

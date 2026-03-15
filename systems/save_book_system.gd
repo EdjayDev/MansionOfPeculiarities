@@ -11,6 +11,7 @@ var save_ui : SaveSystem_UI
 var is_interacting = false
 
 func _ready() -> void:
+	
 	save_book_player.play("save_desk_initialize")
 	area_2d.body_entered.connect(player_entered)
 	area_2d.body_exited.connect(player_exited)
@@ -45,10 +46,19 @@ func player_interact()->void:
 	if not save_ui:
 		save_ui = SAVESYSTEM_UI.instantiate()
 		add_child(save_ui)
+	if not SessionState.get_global_data("savebook_guide", false):
+		save_ui.save_system_ui_panel.visible = false
+		save_ui.savebook_guide_container.visible = true
+		save_ui.visible = true
+		await get_tree().create_timer(4.0).timeout
+		save_ui.save_system_ui_panel.visible = true
+		save_ui.savebook_guide_container.visible= false
+	SessionState.set_global_data("savebook_guide", true)
 	get_tree().paused = true
+
 	save_ui.visible = true
 	save_ui.show_save_mode("SAVE GAME")
 
 func save_data()->void:
-	
+
 	pass

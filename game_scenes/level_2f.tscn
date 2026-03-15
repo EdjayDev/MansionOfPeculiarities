@@ -311,7 +311,7 @@ scale = Vector2(0.4399957, 0.8799951)
 load_level = "res://game_scenes/level_2f_playground.tscn"
 spawn_marker_name = "Player_from2F"
 
-[node name="SceneTransitioner_ToEastHall" parent="SceneTransitioners" unique_id=491892144 instance=ExtResource("10_6uykj")]
+[node name="SceneTransitioner_ToEastHall" parent="SceneTransitioners" unique_id=880290450 instance=ExtResource("10_6uykj")]
 position = Vector2(207, 46)
 scale = Vector2(0.11999754, 12.959999)
 load_level = "res://game_scenes/level_2f_easthallway.tscn"
