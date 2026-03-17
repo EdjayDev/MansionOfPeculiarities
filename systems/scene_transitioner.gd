@@ -29,7 +29,7 @@ var transitioner_animator_playing : bool = false
 
 func _ready() -> void:
 	scene_transitioner_player = Game.manager.scene_manager.get_tree().get_first_node_in_group("Player")
-
+	directional_guide_sprite.global_scale = Vector2(2, 2)
 	if auto_trigger_default:
 		if area_2d:
 			area_2d.body_entered.connect(_on_body_entered)
@@ -39,9 +39,8 @@ func _ready() -> void:
 		prop_interact.interaction_allowed.connect(start_transition)
 
 func _process(_delta: float) -> void:
-	if have_directional_guide and scene_transitioner_player.global_position.distance_to(self.global_position) < 200:
+	if have_directional_guide and scene_transitioner_player.global_position.distance_to(self.global_position) < 100:
 		transitioner_animator.play("show_direction_" + directional_guide_direction.to_lower())
-		directional_guide_sprite.scale = Vector2(3, 3)
 func enable_area_trigger()->void:
 	if trigger_enabled:
 		area_2d.body_entered.connect(_on_body_entered)

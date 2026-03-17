@@ -113,7 +113,8 @@ func text_effect(label: RichTextLabel, text: String, text_speed: float = text_sp
 			return
 		label.text += text[i]
 		i += 1
-		await get_tree().create_timer(text_speed, true, true).timeout
+		if is_inside_tree():
+			await get_tree().create_timer(text_speed, true, true).timeout
 		
 func get_choices(choices: Array) -> String:
 	SessionState.input_locked = true

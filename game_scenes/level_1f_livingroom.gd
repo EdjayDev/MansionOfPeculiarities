@@ -29,6 +29,9 @@ var npc_pathing = false
 @onready var bloodleak: Node2D = $Misc/bloodleak
 @onready var bloodleak_area: Area2D = $Misc/bloodleak/bloodleak_area
 @onready var bloodleak_animplayer: AnimationPlayer = $Misc/bloodleak/bloodleak_animplayer
+@onready var movement_guide_player: AnimationPlayer = $movement_guide_marker/movement_guide_player
+@onready var movement_guide_area: Area2D = $movement_guide_marker/movement_guide_area
+@onready var movement_guide_marker: Marker2D = $movement_guide_marker
 
 var ember_dialogue = [
 	#intro dialogue #1
@@ -62,6 +65,7 @@ var luke_interaction_dialogue = [
 func _ready() -> void:
 	continue_upstairs.starting_upstairs_sequence.connect(stop_npc_wander_behavior)
 	bloodleak_area.body_entered.connect(on_blood_area_enter)
+	movement_guide_area.body_exited.connect(on_movement_guide_exit)
 	set_level_name("1st Floor Living Room")
 	scene_path = "res://game_scenes/level_1f_livingroom.tscn"
 	await init_level()
@@ -69,6 +73,7 @@ func _ready() -> void:
 	player.light_main.texture_scale = lerp(0.75, 0.8, sin(Time.get_ticks_msec() * 0.001))
 	
 	if SessionState.get_scene_data("IntroCutscene", false):
+		movement_guide_marker.queue_free()
 		luke.global_position = SessionState.get_npc_position(luke.npc_id, LEVEL_NAME)
 		ember.global_position = SessionState.get_npc_position(ember.npc_id, LEVEL_NAME)
 		game.scene_manager.move_to(target_point_npcember_3.global_position, ember, 30, true, "after", "idle_up")
@@ -119,6 +124,9 @@ func intro_cutscene() -> void:
 	npc_wander_play_ember(1.0)
 	npc_wander_play_luke(1.0)
 	npc_wander()
+	game.guide.objective_changed.emit("Explore the Mansion")
+	movement_guide_marker.visible = true
+	movement_guide_player.play("wasd_guide")
 	
 func npc_wander()->void:
 	npc_wandering_timer = Timer.new()
@@ -194,3 +202,9 @@ func on_blood_area_enter(body : CharacterBody2D)->void:
 		bloodleak_animplayer.play("blood_fade")
 		await bloodleak_animplayer.animation_finished
 		bloodleak.queue_free()
+		
+func on_movement_guide_exit(body : CharacterBody2D)->void:
+	if body.name == "Player" or body.is_in_group("Player"):
+		movement_guide_player.play("wasd_guide_remove")
+		await movement_guide_player.animation_finished
+		movement_guide_marker.queue_free()

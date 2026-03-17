@@ -104,7 +104,7 @@ func change_background(new_bg: Texture) -> void:
 	bg_node.texture = new_bg
 	print("successfully change bg on cutscene")
 	if effect_ui:
-		await effect_ui.set_effect("fade_in", 0.5)
+		await effect_ui.set_effect("fade_in", 1)
 		
 # -------------------------
 # CHOICE / CONDITIONS

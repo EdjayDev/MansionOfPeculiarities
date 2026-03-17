@@ -59,7 +59,6 @@ func set_effect(effect : String, animation_speed: float) -> void:
 			animation_name = "fade_black"
 
 	animation_player.stop()
-	animation_player.seek(0.0, true)
 	animation_player.play(animation_name, -1, animation_speed)
 	await animation_player.animation_finished
 	

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cvhv2tbc3yyx2" path="res://systems/sprites/saveslot_texture_hover.png" id="8_0gber"]
 [ext_resource type="Texture2D" uid="uid://bs7fqotimsolq" path="res://systems/sprites/saveslot_texture_pressed.png" id="8_jvb0g"]
 [ext_resource type="FontFile" uid="uid://dh4vhl1gjw781" path="res://systems/fonts/CormorantGaramond-VariableFont_wght.ttf" id="9_0gber"]
-[ext_resource type="Texture2D" uid="uid://dd74ccvdvi415" path="res://systems/sprites/savebook_guide_image.png" id="11_j301o"]
+[ext_resource type="Texture2D" uid="uid://cmuwnns1e1i0w" path="res://systems/sprites/savebook_guide_image.png" id="11_j301o"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_veaxa"]
 texture = ExtResource("2_nwexd")
@@ -122,13 +122,13 @@ region_rect = Rect2(34, 26, 8053, 2061)
 [sub_resource type="Gradient" id="Gradient_wc5ja"]
 interpolation_mode = 2
 interpolation_color_space = 2
-colors = PackedColorArray(0.28235295, 0.05490196, 0.09411765, 0.78431374, 0.6901961, 0.20392157, 0.19215687, 0.78431374)
+colors = PackedColorArray(0.40784314, 0.08627451, 0.05882353, 1, 0.27058825, 0.05490196, 0.039215688, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_nb0b6"]
 gradient = SubResource("Gradient_wc5ja")
 
 [sub_resource type="FontVariation" id="FontVariation_nb0b6"]
-base_font = ExtResource("7_4x3yk")
+base_font = ExtResource("2_77msc")
 variation_opentype = {
 2003265652: 900
 }
@@ -335,10 +335,11 @@ expand_mode = 3
 [node name="RichTextLabel" type="RichTextLabel" parent="savebook_guide_container/guide_container" unique_id=481582662]
 layout_mode = 0
 offset_left = 21.0
-offset_top = 16.0
+offset_top = 22.0
 offset_right = 204.0
-offset_bottom = 491.0
+offset_bottom = 485.0
 theme = SubResource("Theme_x0ah8")
-text = "You can save your progress from save book that you can find from different locations."
-horizontal_alignment = 1
-vertical_alignment = 1
+bbcode_enabled = true
+text = "Progress is manually saved via Save Books located at various checkpoints. These books also act as \"Waypoints\", restoring your health and inventory.
+
+[i][red]Look for the glow of a nearby book.[/red][/i]"

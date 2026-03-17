@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://cyoyax1w2uev" path="res://systems/sprites/movement_guide.png" id="43_0aqhh"]
 [ext_resource type="PackedScene" uid="uid://bk8fghql15yir" path="res://systems/continue_upstairs.tscn" id="43_nkjes"]
 [ext_resource type="PackedScene" uid="uid://bpalfv6ej0ikf" path="res://systems/save_book.tscn" id="44_ax1ti"]
+[ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="44_hg03w"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
 vertices = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)
@@ -279,12 +280,106 @@ _data = {
 &"blood_fade": SubResource("Animation_ca3kk")
 }
 
+[sub_resource type="FontVariation" id="FontVariation_f150k"]
+base_font = ExtResource("44_hg03w")
+variation_opentype = {
+1869640570: 14,
+2003265652: 700
+}
+
+[sub_resource type="Theme" id="Theme_1s6ks"]
+default_font = SubResource("FontVariation_f150k")
+default_font_size = 64
+
+[sub_resource type="Animation" id="Animation_ax1ti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_0aqhh"]
 resource_name = "wasd_guide"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 0.76666665, 1.1333333, 1.5, 1.8666667, 2.2333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5882353), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_hg03w"]
+resource_name = "wasd_guide_remove"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.21, 0.76666665, 1.1333333, 1.7666667, 2.5666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ax1ti"]
 _data = {
-&"wasd_guide": SubResource("Animation_0aqhh")
+&"RESET": SubResource("Animation_ax1ti"),
+&"wasd_guide": SubResource("Animation_0aqhh"),
+&"wasd_guide_remove": SubResource("Animation_hg03w")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hg03w"]
@@ -711,7 +806,7 @@ scale = Vector2(0.64671695, -0.69645643)
 position = Vector2(0, 306)
 
 [node name="TargetPoint_Player" type="Marker2D" parent="PathMarkers_Intro" unique_id=1927284908]
-position = Vector2(0, -42)
+position = Vector2(0, -27)
 
 [node name="TargetPoint_npcluke" type="Marker2D" parent="PathMarkers_Intro" unique_id=290314132]
 position = Vector2(24, -48)
@@ -738,6 +833,8 @@ position = Vector2(212, -63)
 position = Vector2(1.680851e-05, -106)
 scale = Vector2(2.04, 0.7011404)
 load_level = "res://game_scenes/level_2f.tscn"
+have_directional_guide = true
+directional_guide_direction = "up"
 spawn_marker_name = "Player_fromFirst"
 companion_spawn_marker = ["Companion_fromFirst"]
 
@@ -807,12 +904,24 @@ shape = SubResource("RectangleShape2D_gooi3")
 libraries/ = SubResource("AnimationLibrary_2oki1")
 
 [node name="movement_guide_marker" type="Marker2D" parent="." unique_id=1904967444]
-position = Vector2(0, 264)
+visible = false
+position = Vector2(4, 215)
 
 [node name="Sprite2D" type="Sprite2D" parent="movement_guide_marker" unique_id=40026868]
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("43_0aqhh")
 vframes = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="movement_guide_marker/Sprite2D" unique_id=801750326]
+offset_left = -400.0
+offset_top = 330.0
+offset_right = 379.99988
+offset_bottom = 410.0
+theme = SubResource("Theme_1s6ks")
+bbcode_enabled = true
+text = "Use WASD to move"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="movement_guide_player" type="AnimationPlayer" parent="movement_guide_marker" unique_id=1318051024]
 libraries/ = SubResource("AnimationLibrary_ax1ti")

@@ -116,4 +116,4 @@ func companion_exit()->void:
 
 func enemy_chase()->void:
 	if SessionState.get_global_data("faced_shadow", false):
-		enemy_shadow_.chase(player, 1.5)
+		enemy_shadow_.chase(player, 3.0)

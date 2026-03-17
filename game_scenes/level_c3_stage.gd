@@ -31,6 +31,10 @@ class_name Level_C3_Stage
 @onready var doppleganger_stage_marker: Marker2D = $HostIntro_Cutscene/Doppleganger_StageMarker
 @onready var host_stage_marker: Marker2D = $HostIntro_Cutscene/Host_StageMarker
 
+@onready var player_mark_end: Marker2D = $Ending/Player_Mark
+@onready var companion_mark_end: Marker2D = $Ending/Companion_Mark
+@onready var lost_companion_mark_end: Marker2D = $Ending/LostCompanion_Mark
+
 var player_response_2 = null
 
 const NPC_EMBER = preload("uid://0ypoy8tjpj7b")
@@ -279,7 +283,7 @@ func host_intro_cutscene(_body_entered)->void:
 	game.scene_manager.move_camera(player, doppleganger.global_position)
 	await game.vn_component_manager.get_dialogue(doppleganger_dialogue[0], doppleganger.npc_name, doppleganger.npc_dialogue_sprite)
 	game.scene_manager.move_to(player.global_position, doppleganger, 70)
-	game.vn_component_manager.get_dialogue(["What is hpapening!?"], companion.npc_name, companion.npc_dialogue_sprite)
+	game.vn_component_manager.get_dialogue(["What is happening!?"], companion.npc_name, companion.npc_dialogue_sprite)
 	await game.scene_manager.wait_time(1.5)
 	game.scene_manager.reset_camera(player)
 	while doppleganger.global_position.distance_to(player.global_position) > stop_distance:
@@ -330,6 +334,9 @@ func host_intro_cutscene(_body_entered)->void:
 	run_stage_play()
 
 func run_stage_play()->void:
+	var host_dialogue_stage_play = [
+		["So, who is the real " + lost_companion.npc_name + "?"]
+	]
 	var game_instructions = [
 		"TRY TO SPOT THE DIFFERENCE!"
 	]
@@ -362,8 +369,76 @@ func run_stage_play()->void:
 			"min_choice": 1,
 			"max_choice": 3
 		}
-		
+	
 	await game.vn_component_manager.get_narration(game_instructions)              
 	var selected_choices = await game.vn_component_manager.get_multiplechoices(difference_choices["choices"], difference_choices["min_choice"], difference_choices["max_choice"])
+	#match selected_choices:
+	await game.vn_component_manager.get_dialogue(host_dialogue_stage_play[0], enemy_host.npc_name, enemy_host.npc_dialogue_sprite)
+	var choose_ember_choices = [
+		{"choice": "Ember 1", "choice_id": "lost_companion"},
+		{"choice": "Ember 2", "choice_id": "doppleganger"}
+	]
+	var escapee
+	var chosen_lost_companion = await game.vn_component_manager.get_choices(choose_ember_choices)
+	match chosen_lost_companion:
+		"lost_companion":
+			escapee = lost_companion
+		"doppleganger":
+			escapee = doppleganger
+	#skipped chosen dialogue - test
+	await Game.manager.screen_effect_ui.set_effect("fade_out", 0.5)
+	Game.manager.scene_manager.reset_camera(player)
+	enemy_host.global_position = doppleganger_mark.global_position
 	
-	pass
+	player.global_position = player_mark_end.global_position
+	lost_companion.global_position = lost_companion_mark_end.global_position
+	companion.global_position = companion_mark_end.global_position  
+	await Game.manager.screen_effect_ui.set_effect("fade_in", 0.5)
+	#face target alt
+	lost_companion.play_custom_animation("idle_up")
+	companion.play_custom_animation("idle_up")
+	player.play_custom_animation("idle_up")
+	lost_companion.face_target(enemy_host)
+	companion.face_target(enemy_host)
+	player.face_target(enemy_host)
+
+	await game.vn_component_manager.get_dialogue(["It would be best if your group decides who stay here"], enemy_host.npc_name, enemy_host.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(["All those troubles to find out who the real me is, and one of us must stay?!"], lost_companion.npc_name, lost_companion.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(["And...who gets to decide that?"], companion.npc_name, companion.npc_dialogue_sprite)
+	await game.vn_component_manager.get_dialogue(["the script must be followed, with these 2 keys that I’ll provide you, Rose gets to decide who gets to escape or stay"], enemy_host.npc_name, enemy_host.npc_dialogue_sprite)
+	#face target alt
+	lost_companion.play_custom_animation("idle_down")
+	companion.play_custom_animation("idle_down")
+	lost_companion.face_target(player)
+	companion.face_target(player)
+
+	await game.vn_component_manager.get_narration(["Luke and Ember looks to you, worried…", "Who will stay?[Emphasis=2.0]"])
+	var character_stay_choices = [
+		{"choice": "Luke", "choice_id": "luke_stay"},
+		{"choice": "Ember", "choice_id": "ember_stay"},
+		{"choice": "You", "choice_id": "stay"}
+	]
+	var staying_character
+	var character_stay = await game.vn_component_manager.get_choices(character_stay_choices)
+	enemy_host.queue_free()
+	match character_stay:
+		"luke_stay":
+			await game.vn_component_manager.get_dialogue(["I Understand..."], companion.npc_name, companion.npc_dialogue_sprite)
+			staying_character = get_npc_by_id("luke")
+		"ember_stay":
+			await game.vn_component_manager.get_dialogue(["Its…[Emphasis=2.0] its alright, I’ll find my way out on my own..."], lost_companion.npc_name, lost_companion.npc_dialogue_sprite)
+			staying_character = get_npc_by_id("ember")
+		"stay":
+			await game.vn_component_manager.get_dialogue(["Are you serious?"], companion.npc_name, companion.npc_dialogue_sprite)
+			await game.vn_component_manager.get_dialogue(["How selfless of you..."], companion.npc_name, companion.npc_dialogue_sprite)
+			player.visible = false
+			staying_character = player
+		
+	var tween = create_tween()
+	tween.tween_property(
+		staying_character,
+		"modulate",
+		Color(0, 0, 0, 0), 
+		5.0
+	).set_trans(Tween.TRANS_CUBIC)
+	await Game.manager.screen_effect_ui.set_effect("fade_out", 0.5)
