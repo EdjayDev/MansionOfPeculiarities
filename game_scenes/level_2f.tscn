@@ -297,7 +297,7 @@ spawn_marker_name = "Player_fromUpperFloor"
 companion_spawn_marker = ["Companion_fromUpperFloor"]
 
 [node name="SceneTransitioner_ToWestHall" parent="SceneTransitioners" unique_id=1848228587 instance=ExtResource("10_6uykj")]
-position = Vector2(-304, 39.000004)
+position = Vector2(-303, 39.000004)
 scale = Vector2(0.11274152, 10.749671)
 load_level = "res://game_scenes/level_2f_westhallway.tscn"
 have_directional_guide = true
@@ -312,7 +312,7 @@ load_level = "res://game_scenes/level_2f_playground.tscn"
 spawn_marker_name = "Player_from2F"
 
 [node name="SceneTransitioner_ToEastHall" parent="SceneTransitioners" unique_id=880290450 instance=ExtResource("10_6uykj")]
-position = Vector2(209, 39.000004)
+position = Vector2(207, 39.000004)
 scale = Vector2(0.113, 10.75)
 load_level = "res://game_scenes/level_2f_easthallway.tscn"
 have_directional_guide = true

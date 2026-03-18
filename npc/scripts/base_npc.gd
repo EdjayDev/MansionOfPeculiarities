@@ -11,6 +11,7 @@ var state: NPCState = NPCState.IDLE
 var prev_state: NPCState = NPCState.IDLE
 
 var is_interacting
+var trust_level = 0
 # -----------------------------
 # NODES & REFERENCES
 # -----------------------------
@@ -290,7 +291,7 @@ func initialize_npc()->void:
 	set_npc_dialogue_sprite(npc_dialogue_sprite)
 	set_area2d(npc_area_2d)
 	set_navigation_agent(npc_navigation_agent)
-	
+	set_trust_level(trust_level)
 	character_in_cutscene_handler()
 	sync_state()
 	pass
@@ -344,3 +345,10 @@ func _on_velocity_computed(safe_velocity : Vector2)->void:
 		velocity = dir * follow_speed * 0.9
 	else:
 		velocity = safe_velocity
+
+func set_trust_level(trust : int)->void:
+	SessionState.set_global_data(npc_name + "trust", trust)
+
+func get_trust_level()->int:
+	return SessionState.get_global_data(npc_name + "trust", 0)
+	

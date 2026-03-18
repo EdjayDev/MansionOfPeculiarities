@@ -334,6 +334,7 @@ func host_intro_cutscene(_body_entered)->void:
 	run_stage_play()
 
 func run_stage_play()->void:
+	game.guide.objective_changed.emit("Find the real " + lost_companion.npc_name)
 	var host_dialogue_stage_play = [
 		["So, who is the real " + lost_companion.npc_name + "?"]
 	]
@@ -442,3 +443,4 @@ func run_stage_play()->void:
 		5.0
 	).set_trans(Tween.TRANS_CUBIC)
 	await Game.manager.screen_effect_ui.set_effect("fade_out", 0.5)
+	await Game.manager.set_game_over("THE END", "", "cinematic")

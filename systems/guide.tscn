@@ -3,7 +3,8 @@
 [ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="1_jm0wa"]
 [ext_resource type="Script" uid="uid://c42tg3mqjbcvv" path="res://systems/guide.gd" id="1_lujw1"]
 [ext_resource type="FontFile" uid="uid://dxk7xhth31dks" path="res://systems/fonts/Cinzel-VariableFont_wght.ttf" id="3_8th6d"]
-[ext_resource type="Texture2D" uid="uid://dykquy1oqrnnj" path="res://systems/sprites/objectives_texturebg.png" id="3_prm1r"]
+[ext_resource type="Texture2D" uid="uid://dykquy1oqrnnj" path="res://systems/sprites/objectives_texturebg.png" id="3_giweg"]
+[ext_resource type="Texture2D" uid="uid://b35k5bykytdai" path="res://systems/sprites/objectives_highlight.png" id="4_prm1r"]
 [ext_resource type="FontFile" uid="uid://dh4vhl1gjw781" path="res://systems/fonts/CormorantGaramond-VariableFont_wght.ttf" id="4_ybccd"]
 
 [sub_resource type="FontVariation" id="FontVariation_lujw1"]
@@ -13,15 +14,15 @@ variation_opentype = {
 2003265652: 800
 }
 
-[sub_resource type="FontVariation" id="FontVariation_ybccd"]
+[sub_resource type="FontVariation" id="FontVariation_g6xwn"]
 base_font = ExtResource("3_8th6d")
 variation_opentype = {
 2003265652: 700
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_prm1r"]
-font = SubResource("FontVariation_ybccd")
-font_size = 30
+[sub_resource type="LabelSettings" id="LabelSettings_slt4a"]
+font = SubResource("FontVariation_g6xwn")
+font_size = 60
 
 [sub_resource type="FontVariation" id="FontVariation_giweg"]
 base_font = ExtResource("4_ybccd")
@@ -33,81 +34,312 @@ variation_opentype = {
 default_font = SubResource("FontVariation_giweg")
 default_font_size = 16
 
+[sub_resource type="Animation" id="Animation_ybccd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title:label_settings:font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [60]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_text:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title/objective_highlight:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title/objective_highlight:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/VBoxContainer:anchors_preset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/VBoxContainer/TextureRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title/objective_highlight:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title/objective_highlight:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_prm1r"]
+resource_name = "show_objective"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03333336, 3, 3.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title:label_settings:font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333336, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [60, 30]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_text:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title/objective_highlight:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.26666668, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title/objective_highlight:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.16666669, 0.33333334, 0.46666667, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 2, 2, 3]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/VBoxContainer:anchors_preset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/path = NodePath("Control/VBoxContainer/TextureRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(4, 4.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title/objective_highlight:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(4, 4), Vector2(1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/VBoxContainer/FlowContainer/objectives_title/objective_highlight:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3.530694),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_giweg"]
+_data = {
+&"RESET": SubResource("Animation_ybccd"),
+&"show_objective": SubResource("Animation_prm1r")
+}
+
 [node name="Guide" type="CanvasLayer" unique_id=2048025273]
 script = ExtResource("1_lujw1")
 
-[node name="Control" type="Control" parent="." unique_id=2087021469]
+[node name="Control" type="Control" parent="." unique_id=1513211712]
 layout_mode = 3
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -130.0
-offset_top = -75.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1018274633]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.75
-offset_top = -31.5
-offset_right = 50.75
-offset_bottom = 31.5
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1018274633]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 1270.0
+offset_bottom = 710.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_fonts/normal_font = SubResource("FontVariation_lujw1")
 bbcode_enabled = true
 text = "E - [color=bisque]Inventory[/color]
 Q - [color=bisque]Interact[/color]
 Shift - [color=bisque]Sprint[/color]"
+horizontal_alignment = 2
+vertical_alignment = 2
 
-[node name="VBoxContainer" type="NinePatchRect" parent="Control" unique_id=1439036769]
-layout_mode = 0
-offset_left = -111.0
-offset_top = -607.0
-offset_right = 99.0
-offset_bottom = -303.0
-texture = ExtResource("3_prm1r")
+[node name="VBoxContainer" type="MarginContainer" parent="Control" unique_id=1920169221]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -363.0
+offset_bottom = 202.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="NinePatchRect" parent="Control/VBoxContainer" unique_id=1451443411]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("3_giweg")
 region_rect = Rect2(16, 16, 96, 96)
 patch_margin_top = 16
 
-[node name="objectives_title" type="Label" parent="Control/VBoxContainer" unique_id=1259554659]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -113.5
-offset_top = -127.0
-offset_right = 113.5
-offset_bottom = -77.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "OBJECTIVES"
-label_settings = SubResource("LabelSettings_prm1r")
-horizontal_alignment = 1
+[node name="FlowContainer" type="VBoxContainer" parent="Control/VBoxContainer" unique_id=1792036977]
+layout_mode = 2
 
-[node name="objectives_text" type="RichTextLabel" parent="Control/VBoxContainer" unique_id=1237027591]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -113.5
-offset_top = -57.0
-offset_right = 113.5
-offset_bottom = -17.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="objectives_title" type="Label" parent="Control/VBoxContainer/FlowContainer" unique_id=577264040]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+text = "OBJECTIVE"
+label_settings = SubResource("LabelSettings_slt4a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="objective_highlight" type="Sprite2D" parent="Control/VBoxContainer/FlowContainer/objectives_title" unique_id=654662841]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(170.5, 107)
+scale = Vector2(4, 4)
+texture = ExtResource("4_prm1r")
+vframes = 4
+
+[node name="objectives_text" type="RichTextLabel" parent="Control/VBoxContainer/FlowContainer" unique_id=1237027591]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 2
+size_flags_stretch_ratio = 6.0
 theme = SubResource("Theme_prm1r")
 text = "Lorem Ipsum Dolor Sit Amet Objective"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1760037974]
+libraries/ = SubResource("AnimationLibrary_giweg")

@@ -401,3 +401,8 @@ position = Vector2(0, -1596)
 
 [node name="Companion_fromRandom" type="Marker2D" parent="." unique_id=1958260520]
 position = Vector2(0, -1574)
+
+[node name="IntroCutscene" type="Node2D" parent="." unique_id=1767298484]
+
+[node name="Player_" type="Marker2D" parent="IntroCutscene" unique_id=1640417376]
+position = Vector2(0, -1662)

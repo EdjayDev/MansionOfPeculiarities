@@ -124,7 +124,6 @@ func intro_cutscene() -> void:
 	npc_wander_play_ember(1.0)
 	npc_wander_play_luke(1.0)
 	npc_wander()
-	game.guide.objective_changed.emit("Explore the Mansion")
 	movement_guide_marker.visible = true
 	movement_guide_player.play("wasd_guide")
 	
@@ -208,3 +207,4 @@ func on_movement_guide_exit(body : CharacterBody2D)->void:
 		movement_guide_player.play("wasd_guide_remove")
 		await movement_guide_player.animation_finished
 		movement_guide_marker.queue_free()
+		game.guide.objective_changed.emit("Explore the Mansion")

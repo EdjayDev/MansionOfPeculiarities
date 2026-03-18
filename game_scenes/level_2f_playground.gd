@@ -35,6 +35,7 @@ func _ready() -> void:
 			"ember":
 				picked_subdialogue = companion_ember_subdialogue1
 		subdialogue_timer.timeout.connect(set_subdialogue)
+	game.guide.objective_changed.emit("Escape the Mansion")
 		
 	if not visited:
 		game.screen_effect_ui.text_chaptername.text = "Chapter 1"
