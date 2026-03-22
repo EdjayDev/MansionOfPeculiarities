@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b3v2pvnejbd5u"]
+
+[ext_resource type="Script" uid="uid://dsrqpn7o8qlnr" path="res://cinematics/base_cinematic.gd" id="1_lkuhy"]
+[ext_resource type="PackedScene" uid="uid://b51lpd06y2iex" path="res://cinematics/assets/character_1.tscn" id="2_bxdt8"]
+
+[node name="Cinematic_Base" type="Node2D" unique_id=1895568872]
+script = ExtResource("1_lkuhy")
+
+[node name="char" type="Node2D" parent="." unique_id=1208781429]
+
+[node name="char_1" parent="char" unique_id=1664008669 instance=ExtResource("2_bxdt8")]
+visible = false
+position = Vector2(155, 432)
+
+[node name="cnvs_lyr" type="CanvasLayer" parent="." unique_id=346670999]
+
+[node name="bg_image" type="TextureRect" parent="cnvs_lyr" unique_id=1289293150]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+metadata/_edit_use_anchors_ = true

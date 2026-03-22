@@ -8,8 +8,8 @@ class_name ScenePrologue
 @onready var background_image: TextureRect = $Scene_BG/Background/BackgroundImage
 
 # Preload backgrounds
-var prologue_scenebg_1 = preload("uid://b267e2t7d6tnh")#preload("uid://iykv6oy5b0tn")
-var prologue_scenebg_2 = preload("res://cinematics/assets/bg_room.jpg")
+var prologue_scenebg_1 = preload("uid://iykv6oy5b0tn")
+var prologue_scenebg_2 = preload("uid://5vmfd0kdvg0y")
 var prologue_scenebg_3 = preload("res://cinematics/assets/bg_mansion.png")
 var prologue_scenebg_4 = preload("res://cinematics/assets/bg_mansion_doorway.jpg")
 
@@ -72,6 +72,8 @@ var prologue_possible_endings = {
 	}
 }
 
+@onready var scene_house: Control = $Scene_BG/Background/scene_house
+
 func _ready() -> void:
 	scene_data = prologue_data
 	possible_endings = prologue_possible_endings
@@ -82,6 +84,8 @@ func _ready() -> void:
 	get_titleCard(set_titleCard)
 	get_titleText(set_titleText)
 	# Start cutscene
+	for components in scene_house.get_children():
+		components.visible = false
 	print("prologue start cutscene")
 	await start_cinematic()
 

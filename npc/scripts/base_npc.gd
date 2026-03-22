@@ -346,8 +346,11 @@ func _on_velocity_computed(safe_velocity : Vector2)->void:
 	else:
 		velocity = safe_velocity
 
-func set_trust_level(trust : int)->void:
-	SessionState.set_global_data(npc_name + "trust", trust)
+func set_trust_level(trust_applied_value : int)->void:
+	if SessionState.get_global_data(npc_name + "trust") == null:
+		SessionState.set_global_data(npc_name + "trust", trust_level)
+	trust_level = SessionState.get_global_data(npc_name + "trust")
+	SessionState.set_global_data(npc_name + "trust", trust_level + trust_applied_value)
 
 func get_trust_level()->int:
 	return SessionState.get_global_data(npc_name + "trust", 0)

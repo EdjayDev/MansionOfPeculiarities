@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://cgkvsk7cr6epj" path="res://props/prop_chair-typefleft.tscn" id="18_50l5t"]
 [ext_resource type="PackedScene" uid="uid://c5ndr8yq03rx0" path="res://props/prop_light_candle-type2_.tscn" id="20_orut1"]
 [ext_resource type="PackedScene" uid="uid://0gymvt6vwfwk" path="res://npc/Enemy_EyeWatcher.tscn" id="21_orut1"]
-[ext_resource type="PackedScene" uid="uid://bfayks44dp6ns" path="res://game_scenes/_world_environment.tscn" id="22_4xcd8"]
 [ext_resource type="PackedScene" uid="uid://bufs536uwrac7" path="res://props/scripts/propinteract_item_component.tscn" id="22_g5vll"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_srs4d"]
@@ -134,19 +133,6 @@ sources/0 = SubResource("TileSetAtlasSource_g5vll")
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4xcd8"]
 cull_mode = 2
 polygon = PackedVector2Array(5, -1, 30, -2, 30, -10, 164, -10, 164, 35, 5, 35)
-
-[sub_resource type="Environment" id="Environment_4xcd8"]
-resource_local_to_scene = true
-background_mode = 3
-tonemap_mode = 3
-tonemap_white = 6.0
-tonemap_agx_contrast = 1.43
-glow_enabled = true
-glow_normalized = true
-glow_intensity = 1.25
-glow_bloom = 0.25
-glow_hdr_threshold = 0.9
-adjustment_saturation = 0.0
 
 [node name="Level_2f_Library" type="Node2D" unique_id=1827394855]
 script = ExtResource("1_4j2js")
@@ -908,15 +894,12 @@ shadow_filter_smooth = 1.0
 shadow_item_cull_mask = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights" unique_id=1765960787]
-color = Color(0.047058824, 0.047058824, 0.06666667, 1)
+color = Color(0.038202442, 0.019226074, 0.17578125, 1)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="Lights" unique_id=953868751]
 z_index = -1
 position = Vector2(52, -193)
 occluder = SubResource("OccluderPolygon2D_4xcd8")
-
-[node name="WorldEnvironment" parent="Lights" unique_id=482453055 instance=ExtResource("22_4xcd8")]
-environment = SubResource("Environment_4xcd8")
 
 [node name="Intro_Markers" type="Node2D" parent="." unique_id=27916722]
 position = Vector2(9.536743e-07, 4.999999)
