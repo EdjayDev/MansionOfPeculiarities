@@ -75,19 +75,8 @@ var prologue_possible_endings = {
 @onready var scene_house: Control = $Scene_BG/Background/scene_house
 
 func _ready() -> void:
-	scene_data = prologue_data
-	possible_endings = prologue_possible_endings
-	scene_order = prologue_data.keys()
-	current_scene_index = 0
-	is_running = true
-	hasTitleCard = true
-	get_titleCard(set_titleCard)
-	get_titleText(set_titleText)
-	# Start cutscene
-	for components in scene_house.get_children():
-		components.visible = false
-	print("prologue start cutscene")
-	await start_cinematic()
+	pass
+	
 
 func get_next_scene() -> PackedScene:
 	return next_scene
