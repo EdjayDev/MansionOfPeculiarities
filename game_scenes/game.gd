@@ -39,7 +39,7 @@ var bg_music_volumedb_range = randf_range(-2.0, 1.0)
 # ==========================
 # LEVELS
 # ==========================
-var scene_prologue := "res://cinematics/prologue/prologue.tscn"
+var cinematic_prologue = "res://cinematics/prologue/prologue.tscn"
 # ==========================
 # VARIABLES
 # ==========================
@@ -74,7 +74,7 @@ func _ready() -> void:
 		await load_level(level_to_load, spawn_marker_id, companion_marker_id)
 	else:
 		print("[Game] New game → Prologue")
-		await load_level(scene_prologue, "Player_Spawn", [])
+		await load_level(cinematic_prologue, "Player_Spawn", [])
 
 	var saveui = get_tree().get_first_node_in_group("save_ui")
 	if saveui:
@@ -118,14 +118,13 @@ func load_level(level_path: String, spawn_marker: String = "", companion_marker:
 	var new_scene = level_scene.instantiate()
 	print("[GAME] NEW SCENE LOADED: ", new_scene)
 	scene_manager.add_child(new_scene)
-	# Determine level name
 	if new_scene.has_method("get_level_name"):
 		SessionState.world["current_level_name"] = new_scene.get_level_name()
 	else:
 		SessionState.world["current_level_name"] = level_path.get_file().get_basename()
 
 	print("[Game] Loaded Scene: ", new_scene)
-	#SessionState.is_transitioning = false
+	
 	if is_in_cinematic:
 		SessionState.input_locked = true
 		pass
@@ -135,26 +134,13 @@ func load_level(level_path: String, spawn_marker: String = "", companion_marker:
 			await get_tree().process_frame
 			_reparent_player(ysort, new_scene, spawn_marker)
 			print("[GAME] Resetting Effect ON Player SPAWN")
-			# COMPANION SPAWN
 			if new_scene.has_method("_spawn_companion"):
 				new_scene._spawn_companion(companion_marker)
 			screen_effect_ui.reset_effect()
 		else:
 			push_error("[Game] Y_Sort missing!")
-	# Handle special cases
-		# Handle special cases (cutscenes / endings)
-	if new_scene is ScenePrologue:
-		bg_music_player.stream = MUSIC_PROLOGUE
-		bg_music_player.pitch_scale = randf_range(0.9, 1.25)
-		bg_music_player.volume_db = randf_range(4.0, 8.0)
-		bg_music_player.play()
-		# Connect cinematic_finished if available
-		if new_scene.has_signal("cinematic_finished"):
-			new_scene.cinematic_finished.connect(_on_cinematic_finished)
-		# Prefer explicit start methods if provided, otherwise try generic ones
-		else:
-			# If the scene already starts itself (like ScenePrologue did in _ready), do nothing.
-			print("[Game] ScenePrologue loaded — no explicit start method found, assuming scene handles itself.")
+	if is_in_cinematic:
+		pass
 	else:
 		world_env_set = _WORLD_ENVIRONMENT.instantiate()
 		scene_manager.add_child(world_env_set)
@@ -182,8 +168,6 @@ func _reparent_player(ysort_node: Node, level_scene: Node, marker: String) -> vo
 
 	ysort_node.add_child(player)
 	var spawn_pos := Vector2.ZERO
-
-	# Priority 2 → Saved position (only for save load)
 	if SaveSystem.is_loading_from_file:
 		var level_name = SessionState.world.get("current_level_name", "")
 		var saved_pos = SessionState.get_player_position(level_name)
@@ -191,7 +175,6 @@ func _reparent_player(ysort_node: Node, level_scene: Node, marker: String) -> vo
 			spawn_pos = saved_pos
 			print("[Game] Using saved player position.")
 		SaveSystem.is_loading_from_file = false
-	# Priority 1 → Spawn marker
 	elif marker != "":
 		var spawn_node = level_scene.get_node_or_null(marker)
 		if spawn_node:
@@ -225,11 +208,6 @@ func _apply_player_state_from_session() -> void:
 
 	print("[Game] Player restored.")
 
-func _on_cinematic_finished(next_scene: PackedScene) -> void:
-	if next_scene and next_scene.resource_path:
-		call_deferred("load_level", next_scene.resource_path, "Player_Spawn", [])
-	else:
-		push_error("[Game] Invalid next scene!")
 
 # ====================================
 # Cutscene Handler

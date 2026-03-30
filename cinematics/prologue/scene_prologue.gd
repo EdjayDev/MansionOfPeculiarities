@@ -1,11 +1,9 @@
 extends Base_Cinematic
 class_name ScenePrologue
 
-@export var set_titleCard : String
-@export var set_titleText : String
-@export var next_scene: PackedScene
+@export var cinematic_playing : PackedScene
 
-@onready var background_image: TextureRect = $Scene_BG/Background/BackgroundImage
+@onready var scene_house: Control = $Scene_BG/Background/scene_house
 
 # Preload backgrounds
 var prologue_scenebg_1 = preload("uid://iykv6oy5b0tn")
@@ -72,11 +70,8 @@ var prologue_possible_endings = {
 	}
 }
 
-@onready var scene_house: Control = $Scene_BG/Background/scene_house
-
 func _ready() -> void:
-	pass
-	
-
-func get_next_scene() -> PackedScene:
-	return next_scene
+	cinematic_started.emit()
+	await cinematic_blackout()
+	cinematic_show_title()
+	await cinematic_fade_in(1.0)
