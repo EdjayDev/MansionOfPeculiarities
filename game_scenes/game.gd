@@ -125,6 +125,18 @@ func load_level(level_path: String, spawn_marker: String = "", companion_marker:
 
 	print("[Game] Loaded Scene: ", new_scene)
 	
+	if new_scene is Base_Cinematic:
+		print("[Game] Cinematic detected, configuring...")
+		is_in_cinematic = true
+		
+		# Connect to the finish signal so we know when to flip the flag back
+		new_scene.cinematic_finished.connect(end_cinematic)
+		
+		# If you want to trigger the start logic from here:
+		if new_scene.has_method("start_sequence"):
+			new_scene.start_sequence()
+	else:
+		is_in_cinematic = false
 	if is_in_cinematic:
 		SessionState.input_locked = true
 		pass
@@ -208,7 +220,16 @@ func _apply_player_state_from_session() -> void:
 
 	print("[Game] Player restored.")
 
-
+# ====================================
+# Cinematic Handler
+# ====================================
+func start_cinematic()->void:
+	is_in_cinematic = true
+	
+func end_cinematic()->void:
+	is_in_cinematic = false
+	
+	
 # ====================================
 # Cutscene Handler
 # ====================================
