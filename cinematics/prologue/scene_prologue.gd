@@ -3,8 +3,6 @@ class_name ScenePrologue
 
 @export var cinematic_playing : PackedScene
 
-@onready var scene_house: Control = $Scene_BG/Background/scene_house
-
 # Preload backgrounds
 var prologue_scenebg_1 = preload("uid://iykv6oy5b0tn")
 var prologue_scenebg_2 = preload("uid://5vmfd0kdvg0y")
@@ -66,12 +64,20 @@ var prologue_possible_endings = {
 	"dontgo_mansion": {
 		"narration": ["The group decided to go back."],
 		"gameover_text": "Did fear creep inside your mind?"
-		
 	}
 }
 
 func _ready() -> void:
 	cinematic_started.emit()
 	await cinematic_blackout()
-	cinematic_show_title()
+	change_background(prologue_scenebg_1)
+	cinematic_show_title(1.0)
 	await cinematic_fade_in(1.0)
+	await cinematic_narrate(prologue_data["Start"]["narration"])
+	
+	
+	
+	
+	
+
+	
