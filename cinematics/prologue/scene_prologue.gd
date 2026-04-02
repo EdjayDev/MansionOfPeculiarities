@@ -14,15 +14,10 @@ var prologue_data = {
 	"Start": {
 		"bg": prologue_scenebg_1,
 		"narration": [
-			"3 students wanted to explore the mansion, well hidden deep inside a forest...",
-			"One of the students wants to go, and the other voted against it.",
-			"Now you must make a choice..."
-		],
-		"choices": [
-			{"choice": "Decided to go", "choice_id": "enter_mansion"},
-			{"choice": "Decided not to go", "choice_id": "leave_mansion"}
-		],
-		"required_items": 0
+			"Three students decided to explore a mansion hidden deep within the forest...",
+			"One was eager to go, while another was strongly against it.",
+		    "Despite the disagreement, you chose to join them."
+		]
 	},
 	"Continue": {
 		"bg": prologue_scenebg_2,
@@ -41,7 +36,6 @@ var prologue_data = {
 		"choices": [
 			{"choice_item": "Greet it", "choice_itemid": "item_unknownKey", "choice_response": ["You got a Key!"]},
 			{"choice_item": "Ignore it", "choice_itemid": "item_ignore"}
-			
 		],
 		"required_items": 1
 	},
@@ -56,17 +50,6 @@ var prologue_data = {
 	}
 }
 
-var prologue_possible_endings = {
-	"leave_mansion": {
-		"narration": ["You decided not to go."],
-		"gameover_text": "Congratulations, Curiosity didn't kill the cat"
-		},
-	"dontgo_mansion": {
-		"narration": ["The group decided to go back."],
-		"gameover_text": "Did fear creep inside your mind?"
-	}
-}
-
 func _ready() -> void:
 	cinematic_started.emit()
 	await cinematic_blackout()
@@ -74,6 +57,13 @@ func _ready() -> void:
 	cinematic_show_title(1.0)
 	await cinematic_fade_in(1.0)
 	await cinematic_narrate(prologue_data["Start"]["narration"])
+	
+	
+	
+	
+
+
+	
 	
 	
 	
