@@ -4,15 +4,12 @@ class_name ScenePrologue
 @export var cinematic_playing : PackedScene
 
 # Preload backgrounds
-var prologue_scenebg_1 = preload("uid://iykv6oy5b0tn")
-var prologue_scenebg_2 = preload("uid://5vmfd0kdvg0y")
-var prologue_scenebg_3 = preload("res://cinematics/assets/bg_mansion.png")
-var prologue_scenebg_4 = preload("res://cinematics/assets/bg_mansion_doorway.jpg")
+
 
 # Scene Data
 var prologue_data = {
 	"Start": {
-		"bg": prologue_scenebg_1,
+		"bg": BG_HOUSE,
 		"narration": [
 			"Three students decided to explore a mansion hidden deep within the forest...",
 			"One was eager to go, while another was strongly against it.",
@@ -20,7 +17,7 @@ var prologue_data = {
 		]
 	},
 	"Continue": {
-		"bg": prologue_scenebg_2,
+		"bg": BG_HOUSE,
 		"narration": ["They prepare for their adventure...", "You bring 2 items. What do you take?"],
 		"choices": [
 			{"choice_item": "Flashlight", "choice_itemid": "item_flashlight"},
@@ -31,7 +28,7 @@ var prologue_data = {
 		"required_items": 2
 	},
 	"Meetup": {
-		"bg": prologue_scenebg_3,
+		"bg": BG_HOUSE,
 		"narration": ["After meeting up with the others, they make their journey...", "You see a dog. You decide to..."],
 		"choices": [
 			{"choice_item": "Greet it", "choice_itemid": "item_unknownKey", "choice_response": ["You got a Key!"]},
@@ -40,7 +37,7 @@ var prologue_data = {
 		"required_items": 1
 	},
 	"Meetup2": {
-		"bg": prologue_scenebg_4,
+		"bg": BG_HOUSE,
 		"narration": ["After heading in, you find a crumpled old map..."],
 		"choices": [
 			{"choice": "Let's go In!", "choice_id": "go_mansion"},
@@ -53,10 +50,12 @@ var prologue_data = {
 func _ready() -> void:
 	cinematic_started.emit()
 	await cinematic_blackout()
-	change_background(prologue_scenebg_1)
+	change_background(BG_BLUESKY)
 	cinematic_show_title(1.0)
 	await cinematic_fade_in(1.0)
 	await cinematic_narrate(prologue_data["Start"]["narration"])
+	
+	
 	
 	
 	

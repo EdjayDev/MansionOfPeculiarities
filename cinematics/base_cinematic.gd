@@ -1,7 +1,11 @@
 extends Node
 class_name Base_Cinematic
 
-@onready var bg_image: TextureRect = $layer/bg_image
+const BG_BLUESKY = preload("uid://h742hnmb65m3")
+const BG_HOUSE = preload("uid://5vmfd0kdvg0y")
+
+
+@onready var bg_image: TextureRect = $"Base Nodes/bg_image"
 
 signal cinematic_started
 signal cinematic_finished(next_scene: PackedScene)

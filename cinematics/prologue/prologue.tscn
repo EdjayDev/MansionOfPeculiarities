@@ -2,7 +2,34 @@
 
 [ext_resource type="PackedScene" uid="uid://b3v2pvnejbd5u" path="res://cinematics/cinematic_base.tscn" id="1_53es8"]
 [ext_resource type="Script" uid="uid://byk14wku3bvel" path="res://cinematics/prologue/scene_prologue.gd" id="2_fmib1"]
+[ext_resource type="Texture2D" uid="uid://h742hnmb65m3" path="res://cinematics/assets/bg_bluesky.png" id="3_xh6tc"]
+[ext_resource type="Texture2D" uid="uid://xg60hcqq742g" path="res://systems/sprites/particles_clouds.png" id="4_44fs1"]
+[ext_resource type="Texture2D" uid="uid://c5g4ano3dsdlq" path="res://systems/sprites/particles_clouds_2.png" id="5_boy4e"]
 
 [node name="Cinematics_Prologue" unique_id=1895568872 instance=ExtResource("1_53es8")]
 script = ExtResource("2_fmib1")
 cinematic_playing = null
+
+[node name="bg_image" parent="Base Nodes" parent_id_path=PackedInt32Array(346670999) index="0" unique_id=1289293150]
+texture = ExtResource("3_xh6tc")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Base Nodes/AnimationPlayer" parent_id_path=PackedInt32Array(1103883336) index="0" unique_id=1166151011]
+position = Vector2(-335, 253)
+amount = 3
+texture = ExtResource("4_44fs1")
+lifetime = 24.0
+emission_shape = 2
+emission_sphere_radius = 128.0
+gravity = Vector2(2, 0)
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Base Nodes/AnimationPlayer" parent_id_path=PackedInt32Array(1103883336) index="1" unique_id=2047849614]
+position = Vector2(-335, 372)
+texture = ExtResource("5_boy4e")
+lifetime = 24.0
+emission_shape = 2
+emission_sphere_radius = 128.0
+gravity = Vector2(4, 0)
+scale_amount_min = 2.0
+scale_amount_max = 4.0
