@@ -6,6 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://xg60hcqq742g" path="res://systems/sprites/particles_clouds.png" id="4_44fs1"]
 [ext_resource type="Texture2D" uid="uid://c5g4ano3dsdlq" path="res://systems/sprites/particles_clouds_2.png" id="5_boy4e"]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xh6tc"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 256.0
+gravity = Vector3(6, 0, 0)
+scale_min = 3.0
+scale_max = 6.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_44fs1"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 512.0
+gravity = Vector3(0.5, 0, 0)
+scale_max = 3.0
+color = Color(0.8000183, 0.8650315, 0.95703125, 1)
+
 [node name="Cinematics_Prologue" unique_id=1895568872 instance=ExtResource("1_53es8")]
 script = ExtResource("2_fmib1")
 cinematic_playing = null
@@ -13,23 +29,21 @@ cinematic_playing = null
 [node name="bg_image" parent="Base Nodes" parent_id_path=PackedInt32Array(346670999) index="0" unique_id=1289293150]
 texture = ExtResource("3_xh6tc")
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="Base Nodes/AnimationPlayer" parent_id_path=PackedInt32Array(1103883336) index="0" unique_id=1166151011]
-position = Vector2(-335, 253)
+[node name="Particles_Clouds1" type="GPUParticles2D" parent="Base Nodes/AnimationPlayer" parent_id_path=PackedInt32Array(1103883336) index="0" unique_id=206330784]
+z_index = 1
+position = Vector2(-696, 398)
 amount = 3
 texture = ExtResource("4_44fs1")
-lifetime = 24.0
-emission_shape = 2
-emission_sphere_radius = 128.0
-gravity = Vector2(2, 0)
-scale_amount_min = 2.0
-scale_amount_max = 4.0
+lifetime = 30.0
+preprocess = 32.0
+visibility_rect = Rect2(-100, -100, 1000, 200)
+process_material = SubResource("ParticleProcessMaterial_xh6tc")
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="Base Nodes/AnimationPlayer" parent_id_path=PackedInt32Array(1103883336) index="1" unique_id=2047849614]
-position = Vector2(-335, 372)
+[node name="Particles_Clouds2" type="GPUParticles2D" parent="Base Nodes/AnimationPlayer" parent_id_path=PackedInt32Array(1103883336) index="1" unique_id=1929583744]
+position = Vector2(-696, 398)
+amount = 12
 texture = ExtResource("5_boy4e")
-lifetime = 24.0
-emission_shape = 2
-emission_sphere_radius = 128.0
-gravity = Vector2(4, 0)
-scale_amount_min = 2.0
-scale_amount_max = 4.0
+lifetime = 120.0
+preprocess = 90.0
+visibility_rect = Rect2(-100, -100, 1000, 200)
+process_material = SubResource("ParticleProcessMaterial_44fs1")

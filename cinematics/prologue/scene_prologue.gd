@@ -3,11 +3,12 @@ class_name ScenePrologue
 
 @export var cinematic_playing : PackedScene
 
-# Preload backgrounds
-
-
 # Scene Data
 var prologue_data = {
+	"titlecard" : {
+		"chapter_number" : "Chapter 1",
+		"chapter_title" : "Escape"
+	},
 	"Start": {
 		"bg": BG_HOUSE,
 		"narration": [
@@ -51,22 +52,6 @@ func _ready() -> void:
 	cinematic_started.emit()
 	await cinematic_blackout()
 	change_background(BG_BLUESKY)
-	cinematic_show_title(1.0)
 	await cinematic_fade_in(1.0)
 	await cinematic_narrate(prologue_data["Start"]["narration"])
-	
-	
-	
-	
-	
-	
-
-
-	
-	
-	
-	
-	
-	
-
 	

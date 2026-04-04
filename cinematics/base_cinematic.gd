@@ -22,8 +22,8 @@ func cinematic_fade_out(duration : float = 1.0)->void:
 func cinematic_fade_in(duration : float = 1.0)->void:
 	await Game.manager.screen_effect_ui.set_effect("fade_in", duration)
 
-func cinematic_show_title(duration : float = 1.0)->void:
-	Game.manager.screen_effect_ui.set_effect("show_chapter", duration)
+func cinematic_show_title(chapter_name : String, chapter_text : String, speed : float)->void:
+	await Game.manager.screen_effect_ui.show_chapter(chapter_name, chapter_text, speed)
 		   
 func cinematic_narrate(narration : Array)->void:
 	await Game.manager.vn_component_manager.get_narration(narration)
