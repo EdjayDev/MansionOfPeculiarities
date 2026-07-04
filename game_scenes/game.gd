@@ -23,9 +23,8 @@ const SOUND_SCREAM_SHADOW = preload("uid://bte3i624y25g5")
 @onready var choice_timer: Choice_Timer = $SceneUI_CanvasLayer/Choice_Timer
 @onready var sub_dialog_container: Control = $SceneUI_CanvasLayer/SubDialog_Container
 
-const _WORLD_ENVIRONMENT = preload("uid://bfayks44dp6ns")
 const subdialog_ui := preload("uid://cvpkaehqmm82b")
-var world_env_set : WorldEnvironment
+
 
 @onready var inventory_ui: Inventory_UI = %InventoryUI as Inventory_UI
 @onready var guide: Guide = %Guide as Guide
@@ -88,8 +87,6 @@ func _unhandled_input(event: InputEvent) -> void:
 # LEVEL LOADING
 # ==========================
 func load_level(level_path: String, spawn_marker: String = "", companion_marker: Array = []) -> void:
-	if world_env_set:
-		world_env_set.queue_free()
 	print("loading: ", level_path)
 	scene_manager.cancel_all_cutscene_movements()
 	SessionState.set_temp_data(level_path, spawn_marker, companion_marker, SessionState.global_data)
@@ -154,8 +151,6 @@ func load_level(level_path: String, spawn_marker: String = "", companion_marker:
 	if is_in_cinematic:
 		pass
 	else:
-		world_env_set = _WORLD_ENVIRONMENT.instantiate()
-		scene_manager.add_child(world_env_set)
 		bg_music_player.stream = MUSIC_DEFAULT
 		bg_music_player.pitch_scale = bg_music_pitchscale_range
 		bg_music_player.volume_db = bg_music_volumedb_range

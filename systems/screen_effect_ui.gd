@@ -50,6 +50,7 @@ func set_effect(effect : String, animation_speed: float) -> void:
 			letter_box_top.scale.y = 1.25
 			letter_box_bottom.scale.y = 1.25
 			cinematic_player.stop()
+			cinematic_player.seek(0.0, true)
 			cinematic_player.play("show_letterbox", -1, animation_speed)
 			await cinematic_player.animation_finished
 			return

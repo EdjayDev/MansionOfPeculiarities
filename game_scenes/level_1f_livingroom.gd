@@ -113,6 +113,7 @@ func intro_cutscene() -> void:
 	ember.face_target(luke)
 	game.scene_manager.reset_camera(player)
 	
+
 	game.end_cutscene(true)
 	luke.sync_state()
 	ember.sync_state()

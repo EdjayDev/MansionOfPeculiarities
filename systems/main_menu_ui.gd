@@ -10,7 +10,6 @@ const color_disabled : Color = Color(0.13, 0.03, 0.02, 1.0)
 var has_saved_data : bool = false
 @onready var btn_continue: Button = $mainmenu_ui/mainmenu_control/ButtonContainer/btn_continue
 
-
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	main_menu_audioplayer.play()
