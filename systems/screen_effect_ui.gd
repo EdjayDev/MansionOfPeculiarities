@@ -61,11 +61,6 @@ func set_effect(effect : String, animation_speed: float) -> void:
 	animation_player.stop()
 	animation_player.play(animation_name, -1, animation_speed)
 	await animation_player.animation_finished
-
-func show_chapter(chapter_name : String, chapter_text : String, speed : float = 1.0)->void:
-	text_chaptername.text = chapter_name
-	text_chaptertext.text = chapter_text
-	await set_effect("show_chapter", speed)
 	
 func reset_effect()->void:
 	animation_player.play("RESET")

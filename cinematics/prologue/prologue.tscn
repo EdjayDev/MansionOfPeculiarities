@@ -1,49 +1,48 @@
 [gd_scene format=3 uid="uid://bvet28ccvgyos"]
 
-[ext_resource type="PackedScene" uid="uid://b3v2pvnejbd5u" path="res://cinematics/cinematic_base.tscn" id="1_53es8"]
-[ext_resource type="Script" uid="uid://byk14wku3bvel" path="res://cinematics/prologue/scene_prologue.gd" id="2_fmib1"]
-[ext_resource type="Texture2D" uid="uid://h742hnmb65m3" path="res://cinematics/assets/bg_bluesky.png" id="3_xh6tc"]
-[ext_resource type="Texture2D" uid="uid://xg60hcqq742g" path="res://systems/sprites/particles_clouds.png" id="4_44fs1"]
-[ext_resource type="Texture2D" uid="uid://c5g4ano3dsdlq" path="res://systems/sprites/particles_clouds_2.png" id="5_boy4e"]
+[ext_resource type="Script" uid="uid://byk14wku3bvel" path="res://cinematics/prologue/scripts/scene_prologue.gd" id="1_3phk7"]
+[ext_resource type="PackedScene" uid="uid://b51lpd06y2iex" path="res://cinematics/assets/character_1.tscn" id="2_tvn0u"]
+[ext_resource type="PackedScene" uid="uid://bs1gu5qmw8oyi" path="res://game_scenes/level_1f_livingroom.tscn" id="3_tvn0u"]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xh6tc"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 256.0
-gravity = Vector3(6, 0, 0)
-scale_min = 3.0
-scale_max = 6.0
+[sub_resource type="Animation" id="Animation_0g5x1"]
+length = 0.001
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_44fs1"]
-particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 512.0
-gravity = Vector3(0.5, 0, 0)
-scale_max = 3.0
-color = Color(0.8000183, 0.8650315, 0.95703125, 1)
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0g5x1"]
+_data = {
+&"RESET": SubResource("Animation_0g5x1")
+}
 
-[node name="Cinematics_Prologue" unique_id=1895568872 instance=ExtResource("1_53es8")]
-script = ExtResource("2_fmib1")
-cinematic_playing = null
+[node name="Scene_Prologue" type="Node2D" unique_id=399997474]
+script = ExtResource("1_3phk7")
+set_titleCard = "PROLOGUE"
+set_titleText = "Partner Up"
+next_scene = ExtResource("3_tvn0u")
 
-[node name="bg_image" parent="Base Nodes" parent_id_path=PackedInt32Array(346670999) index="0" unique_id=1289293150]
-texture = ExtResource("3_xh6tc")
+[node name="Characters" type="Node2D" parent="." unique_id=1157551862]
 
-[node name="Particles_Clouds1" type="GPUParticles2D" parent="Base Nodes/AnimationPlayer" parent_id_path=PackedInt32Array(1103883336) index="0" unique_id=206330784]
-z_index = 1
-position = Vector2(-696, 398)
-amount = 3
-texture = ExtResource("4_44fs1")
-lifetime = 30.0
-preprocess = 32.0
-visibility_rect = Rect2(-100, -100, 1000, 200)
-process_material = SubResource("ParticleProcessMaterial_xh6tc")
+[node name="character_1" parent="Characters" unique_id=1880641038 instance=ExtResource("2_tvn0u")]
+position = Vector2(155, 432)
 
-[node name="Particles_Clouds2" type="GPUParticles2D" parent="Base Nodes/AnimationPlayer" parent_id_path=PackedInt32Array(1103883336) index="1" unique_id=1929583744]
-position = Vector2(-696, 398)
-amount = 12
-texture = ExtResource("5_boy4e")
-lifetime = 120.0
-preprocess = 90.0
-visibility_rect = Rect2(-100, -100, 1000, 200)
-process_material = SubResource("ParticleProcessMaterial_44fs1")
+[node name="Scene_BG" type="CanvasLayer" parent="." unique_id=1239907423]
+layer = -1
+
+[node name="Background" type="Control" parent="Scene_BG" unique_id=1463335415]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundImage" type="TextureRect" parent="Scene_BG/Background" unique_id=362511229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=296921944]
+libraries/ = SubResource("AnimationLibrary_0g5x1")

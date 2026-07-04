@@ -45,6 +45,12 @@ var facing_direction: Vector2 = Vector2.DOWN
 var movement_direction: Vector2 = Vector2.ZERO
 
 # ==========================
+# CONFIG: Set this to your NPC layer index (1-based)
+# NPCs are on physics layer 2 → bit index = 1 → value = 2
+const NPC_LAYER_INDEX := 2  # -> layer number (as shown in editor)
+const NPC_LAYER_BIT := 1 << (NPC_LAYER_INDEX - 1)  # correct bit
+
+# ==========================
 # READY
 # ==========================
 func _ready() -> void:
@@ -52,7 +58,8 @@ func _ready() -> void:
 	player_state_machine.initialize(self)
 
 	scene_game = get_tree().get_root().get_node("Game") as Game
-	
+	# Apply behavior based on initial companion flag.
+	# Recommended: use exceptions approach for reliability.
 # ==========================
 # PROCESS
 # ==========================

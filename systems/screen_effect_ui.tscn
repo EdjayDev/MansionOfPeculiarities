@@ -398,6 +398,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_amene")
 script = ExtResource("1_pa6um")
+metadata/_edit_vertical_guides_ = [-247.0]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1593074223]
 modulate = Color(1, 1, 1, 0)

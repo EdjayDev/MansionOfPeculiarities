@@ -1,6 +1,4 @@
-[gd_scene format=3 uid="uid://d1lwm6xa5q68x"]
-
-[ext_resource type="FontFile" uid="uid://paxdsahot7r8" path="res://systems/fonts/Inter-VariableFont_opsz,wght.ttf" id="1_kfnao"]
+[gd_scene load_steps=2 format=3 uid="uid://d1lwm6xa5q68x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gxvq"]
 content_margin_left = 20.0
@@ -9,14 +7,7 @@ content_margin_right = 20.0
 content_margin_bottom = 20.0
 bg_color = Color(0.0507813, 0.000198364, 0.000198364, 1)
 
-[sub_resource type="FontVariation" id="FontVariation_nb3vi"]
-base_font = ExtResource("1_kfnao")
-variation_opentype = {
-1869640570: 32,
-2003265652: 700
-}
-
-[node name="VN_Component_NarrationUI" type="Control" unique_id=71602073]
+[node name="VN_Component_NarrationUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,18 +15,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=864071089]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -143.0
+offset_top = -178.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_7gxvq")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=593318553]
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
 layout_mode = 2
-theme_override_fonts/normal_font = SubResource("FontVariation_nb3vi")
-theme_override_font_sizes/normal_font_size = 20
