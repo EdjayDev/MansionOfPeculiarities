@@ -2,7 +2,7 @@
 
 A 2D horror puzzle adventure built in Godot Engine. Explore a mansion, uncover its secrets, and piece together a mystery tied to your own forgotten past.
 
-![Mansion of Peculiarities](screenshots/titlemenu.png.png)
+![Mansion of Peculiarities](screenshots/titlemenu.png)
 
 ## Overview
 
@@ -19,9 +19,9 @@ Mansion of Peculiarities is a 2D horror puzzle game developed as a capstone proj
 
 ## Screenshots
 
-|                                                 |                                             |                                       |
-| ----------------------------------------------- | ------------------------------------------- | ------------------------------------- |
-| ![Screenshot 1](screenshots/livingroom.jpg.jpg) | ![Screenshot 2](screenshots/livingroom.jpg) | ![Screenshot 3](screenshots/mark.png) |
+|                                             |                                          |                                       |
+| ------------------------------------------- | ---------------------------------------- | ------------------------------------- |
+| ![Screenshot 1](screenshots/livingroom.jpg) | ![Screenshot 2](screenshots/bedroom.jpg) | ![Screenshot 3](screenshots/mark.png) |
 
 ## Tech Stack
 
