@@ -19,9 +19,9 @@ Mansion of Peculiarities is a 2D horror puzzle game developed as a capstone proj
 
 ## Screenshots
 
-|                                             |                                          |                                       |
-| ------------------------------------------- | ---------------------------------------- | ------------------------------------- |
-| ![Screenshot 1](screenshots/livingroom.jpg) | ![Screenshot 2](screenshots/bedroom.jpg) | ![Screenshot 3](screenshots/mark.png) |
+|                                                    |                                                 |                                              |
+| -------------------------------------------------- | ----------------------------------------------- | -------------------------------------------- |
+| <img src="screenshots/livingroom.jpg" width="300"> | <img src="screenshots/bedroom.jpg" width="300"> | <img src="screenshots/mark.png" width="300"> |
 
 ## Tech Stack
 
